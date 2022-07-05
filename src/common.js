@@ -4,7 +4,6 @@ import './scss/index.scss';
 // import JS files
 import './js/mobile-nav';
 import './js/pagination-infinite-scroll';
-import './js/search';
 
 document.addEventListener( 'DOMContentLoaded', function() {
 	window.onload = function() {

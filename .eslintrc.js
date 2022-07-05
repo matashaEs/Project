@@ -18,6 +18,7 @@ module.exports = {
 	],
 	ignorePatterns: [
 		'node_modules/*',
+		'assets',
 		'**/*.min.js'
 	],
 	rules: {

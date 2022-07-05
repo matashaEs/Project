@@ -9,7 +9,7 @@ function the_svg( $name, $css_class = '', $inline = true ) {
 /**
  * GET SVG (located in a theme)
  */
-function get_svg( $name, $css_class = '', $inline = true ) {
+function get_svg( $name, $css_class = '', $inline = true ): string {
 	$path = str_replace( '.svg', '', $name );
 
 	if ( $inline ) {

@@ -5,6 +5,7 @@ require_once 'class-hooks.php';
 require_once 'class-ajax.php';
 require_once 'class-menu.php';
 require_once 'class-assets.php';
+require_once 'class-translation.php';
 
 class Nuplo_Theme {
 	function __construct() {
