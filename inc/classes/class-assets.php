@@ -15,9 +15,9 @@ class Assets {
 	/**
 	 * Delete annoying message about jquery migrate
 	 *
-	 * @param array $scripts List of scripts.
+	 * @param object $scripts List of scripts.
 	 */
-	public function delete_jquery_migrate( array $scripts ) {
+	public function delete_jquery_migrate( object $scripts ) {
 		if ( ! empty( $scripts->registered['jquery'] ) ) {
 			$scripts->registered['jquery']->deps = array_diff( $scripts->registered['jquery']->deps, [ 'jquery-migrate' ] );
 		}
