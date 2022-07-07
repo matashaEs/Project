@@ -13,13 +13,13 @@ class Ajax {
 	 * Load more posts in archive - infinite scroll
 	 */
 	function load_more(): void {
-		if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( $_GET['nonce'], 'wp_ajax' ) ) {
+		if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_GET['nonce'] ), 'wp_ajax' ) ) {
 			wp_send_json_error( __( 'You passed incorrect data...', 'nuplo' ) );
 		}
 
 		$next_page           = isset( $_GET['current_page'] ) ? intval( $_GET['current_page'] ) + 1 : 1;
 		$args                = isset( $_GET['query_vars'] )
-			? json_decode( stripslashes( $_GET['query_vars'] ), true )
+			? json_decode( stripslashes( sanitize_text_field( $_GET['query_vars'] ) ), true )
 			: [];
 		$args['post_status'] = 'publish';
 		$args['paged']       = $next_page;

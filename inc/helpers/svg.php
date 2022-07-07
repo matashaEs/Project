@@ -24,7 +24,7 @@ function get_svg( string $name, string $css_class = '', bool $inline = true ): s
 
 	if ( $inline ) {
 		$file    = get_template_directory() . '/assets/img/' . $path . '.svg';
-		$content = file_get_contents( $file, true );
+		$content = file_get_contents( $file, true ); // phpcs:ignore
 
 		if ( ! empty( $css_class ) ) {
 			if ( str_contains( $content, ' class="' ) ) {
