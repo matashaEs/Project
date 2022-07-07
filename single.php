@@ -1,29 +1,30 @@
 <?php
 get_header();
 ?>
-    <div>
+	<div>
 		<?php
 		while ( have_posts() ) {
 			the_post();
 			?>
-            <h1>
+			<h1>
 				<?php the_title(); ?>
-            </h1>
-            <div>
+			</h1>
+			<div>
 				<?php echo wp_get_attachment_image( get_post_thumbnail_id() ); ?>
-            </div>
+			</div>
 			<?php
-			echo get_template_part( 'template-parts/metabox-details' );
+			echo esc_html( get_template_part( 'template-parts/metabox-details' ) );
 			?>
-            <div>
+			<div>
 				<?php the_content(); ?>
-            </div>
+			</div>
 			<?php
-		} ?>
-    </div>
-<?php echo get_template_part( 'template-parts/pagination' ); ?>
-    <div>
+		}
+		?>
+	</div>
+<?php echo esc_html( get_template_part( 'template-parts/pagination' ) ); ?>
+	<div>
 		<?php previous_post_link(); ?> | <?php next_post_link(); ?>
-    </div>
+	</div>
 <?php
 get_footer();

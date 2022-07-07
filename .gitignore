@@ -2,6 +2,8 @@
 .env
 false
 node_modules
+vendor
+.DS_Store
 bundle
 /assets/*.css
 !/assets/normalize.css

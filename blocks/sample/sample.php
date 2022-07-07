@@ -14,12 +14,14 @@ if ( ! empty( $block['id'] ) ) {
 
 <section>
 	<?php
-	if ( ! empty( $title ) ): ?>
-        <h1><?= $title; ?></h1>
+	if ( ! empty( $title ) ) :
+		?>
+		<h1><?= esc_html( $title ); ?></h1>
 	<?php endif; ?>
 
 	<?php
-	if ( ! empty( $description ) ):?>
-        <div><?= $description; ?></div>
+	if ( ! empty( $description ) ) :
+		?>
+		<div><?= esc_html( $description ); ?></div>
 	<?php endif; ?>
 </section>
