@@ -1,8 +1,11 @@
 <?php
 
+/**
+ * Place to declare menu
+ */
 class Menu {
 	public function __construct() {
-		add_action( 'init', array( $this, 'init_menus' ) );
+		add_action( 'init', [ $this, 'init_menus' ] );
 	}
 
 	/**

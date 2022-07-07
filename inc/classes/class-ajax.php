@@ -1,9 +1,12 @@
 <?php
 
+/**
+ * Additional functionality working with AJAX
+ */
 class Ajax {
 	public function __construct() {
-		add_action( 'wp_ajax_load_more_posts', array( $this, 'load_more' ) );
-		add_action( 'wp_ajax_nopriv_load_more_posts', array( $this, 'load_more' ) );
+		add_action( 'wp_ajax_load_more_posts', [ $this, 'load_more' ] );
+		add_action( 'wp_ajax_nopriv_load_more_posts', [ $this, 'load_more' ] );
 	}
 
 	/**
@@ -14,8 +17,10 @@ class Ajax {
 			wp_send_json_error( __( 'You passed incorrect data...', 'nuplo' ) );
 		}
 
-		$next_page           = isset( $_GET['current_page'] ) ? $_GET['current_page'] + 1 : 1;
-		$args                = json_decode( stripslashes( $_GET['query_vars'] ), true );
+		$next_page           = isset( $_GET['current_page'] ) ? intval( $_GET['current_page'] ) + 1 : 1;
+		$args                = isset( $_GET['query_vars'] )
+			? json_decode( stripslashes( $_GET['query_vars'] ), true )
+			: [];
 		$args['post_status'] = 'publish';
 		$args['paged']       = $next_page;
 
@@ -32,13 +37,16 @@ class Ajax {
 					? get_the_post_thumbnail_url( get_the_ID(), 'thumbnail' )
 					: get_template_directory_uri() . '/assets/img/placeholder.jpg';
 
-				array_push( $posts_args, [
-					'id'        => get_the_ID(),
-					'title'     => get_the_title(),
-					'thumbnail' => $thumbnail_url,
-					'excerpt'   => get_the_excerpt(),
-					'permalink' => get_permalink(),
-				] );
+				array_push(
+					$posts_args,
+					[
+						'id'        => get_the_ID(),
+						'title'     => get_the_title(),
+						'thumbnail' => $thumbnail_url,
+						'excerpt'   => get_the_excerpt(),
+						'permalink' => get_permalink(),
+					]
+				);
 			}
 			get_template_part( 'template-parts/archive', 'content-rows', $posts_args );
 
