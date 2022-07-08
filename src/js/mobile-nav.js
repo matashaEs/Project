@@ -9,7 +9,7 @@ class Navigation {
 		$( '#navCloseMenu' ).on( 'click', this.toggleMenu );
 	}
 
-	toggleMenu = () => {
+	toggleMenu = (asdfasdf) => {
 		if ( 'none' === this.navContainer.css( 'display' ) ) {
 			this.navContainer.css( 'display', 'flex' );
 			setTimeout( () => {
