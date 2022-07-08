@@ -8,6 +8,7 @@ button,
   border-color: var(--main-blue);
   color: var(--off-white);
   border-radius: 2.5rem;
+  cursor: pointer;
 
   &--footer {
     border-radius: 0;
@@ -88,4 +89,30 @@ button,
   &--wms a {
     color: var(--white);
   }
+
+  &--orange:hover {
+    background-color: var(--erp-hover);
+    border-color: var(--erp-hover);
+  }
+
+  &--light-pink:hover {
+    background-color: var(--light-pink-hover);
+    border-color: var(--light-pink-hover);
+  }
+
+  &--dark-pink:hover {
+    background-color: var(--dark-pink-hover);
+    border-color: var(--dark-pink-hover);
+  }
+
+  &--wms:hover {
+    background-color: var(--wms-hover);
+    border-color: var(--wms-hover);
+  }
+}
+
+button:hover {
+  background-color: var(--navy);
+  border-color: var(--navy);
+  color: var(--off-white);
 }
