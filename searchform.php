@@ -1,6 +1,6 @@
 <form action="<?php echo esc_url( site_url( '/' ) ); ?>" type="GET">
-    <input type="text" id="searchField" name="s" placeholder="Search">
-    <input type="submit" value="<?php _e('Search', 'nuplo'); ?>" id="searchButton">
-    <div id="searchResults">
-    </div>
+	<input type="text" id="searchField" name="s" placeholder="Search">
+	<input type="submit" value="<?php _e( 'Search', 'nuplo' ); ?>" id="searchButton">
+	<div id="searchResults">
+	</div>
 </form>

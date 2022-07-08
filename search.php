@@ -1,22 +1,23 @@
 <?php
 get_header();
 ?>
-    <h1><?= __( 'Search page', 'nuplo' ); ?></h1>
-    <strong><?= __( 'Search for: ', 'nuplo' ); ?></strong>
+	<h1><?= esc_html( __( 'Search page', 'nuplo' ) ); ?></h1>
+	<strong><?= esc_html( __( 'Search for: ', 'nuplo' ) ); ?></strong>
 <?php
 echo get_search_query();
 ?>
-    <br>
-    <br>
-    <br>
-    <div>
+	<br>
+	<br>
+	<br>
+	<div>
 		<?php
 		while ( have_posts() ) {
 			the_post();
-			get_template_part( 'template-parts/archive', 'content-row' );
+			echo esc_html( get_template_part( 'template-parts/archive', 'content-row' ) );
 		}
-		echo get_template_part( 'template-parts/pagination', 'infinite-scroll' );
+
+		echo esc_html( get_template_part( 'template-parts/pagination', 'infinite-scroll' ) );
 		?>
-    </div>
+	</div>
 <?php
 get_footer();

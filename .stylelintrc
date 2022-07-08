@@ -13,6 +13,7 @@
       },
       "utilitySelectors": "^\\.util-[a-z]+$"
     },
+    "block-no-empty": null,
     "csstree/validator": {
       "syntaxExtensions": [
         "sass",

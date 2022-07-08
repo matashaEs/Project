@@ -1,2 +1,2 @@
 <?php
-echo paginate_links();
+echo esc_html( paginate_links() );

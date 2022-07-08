@@ -1,24 +1,27 @@
 <?php
-$data = get_fields( $block['id'] );
+/**
+ * $title
+ * $description
+ */
 
-$title       = $data['title'] ?? '';
-$description = $data['description'] ?? '';
+
+if ( ! empty( $block['id'] ) ) {
+	extract( get_fields( $block['id'] ) );
+} else {
+	extract( $block['data'] );
+}
 ?>
 
 <section>
 	<?php
-	if ( $title !== '' ) {
+	if ( ! empty( $title ) ) :
 		?>
-        <h1><?php echo $title; ?></h1>
-		<?php
-	}
-	?>
+		<h1><?= esc_html( $title ); ?></h1>
+	<?php endif; ?>
 
 	<?php
-	if ( $description !== '' ) {
+	if ( ! empty( $description ) ) :
 		?>
-        <div><?php echo $description; ?></div>
-		<?php
-	}
-	?>
+		<div><?= esc_html( $description ); ?></div>
+	<?php endif; ?>
 </section>

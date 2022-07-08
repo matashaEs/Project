@@ -1,8 +1,11 @@
 <?php
 
+/**
+ * Theme general settings
+ */
 class General_Config {
 	function __construct() {
-		add_action( 'after_setup_theme', array( $this, 'theme_support' ) );
+		add_action( 'after_setup_theme', [ $this, 'theme_support' ] );
 	}
 
 	/**

@@ -1,8 +1,11 @@
 <?php
 
+/**
+ * Filters and actions definitions
+ */
 class Hooks {
 	public function __construct() {
-		add_action( 'excerpt_more', array( $this, 'set_excerpt_content' ) );
+		add_action( 'excerpt_more', [ $this, 'set_excerpt_content' ] );
 	}
 
 	/**
