@@ -4,11 +4,14 @@
  */
 
 :root {
-  --font-aeonik: "Aeonik";
+  --font-aeonik-medium: "Aeonik Medium";
+  --font-aeonik-bold: "Aeonik Bold";
+  --font-aeonik-light: "Aeonik Light";
+  --font-aeonik-regular: "Aeonik Regular";
 }
 
 @font-face {
-  font-family: 'Aeonik';
+  font-family: 'Aeonik Bold';
   src: url('./fonts/Aeonik-Bold.eot');
   src: url('./fonts/Aeonik-Bold.eot?#iefix') format('embedded-opentype'),
   url('./fonts/Aeonik-Bold.woff2') format('woff2'),
@@ -21,7 +24,7 @@
 }
 
 @font-face {
-  font-family: 'Aeonik';
+  font-family: 'Aeonik Black';
   src: url('./fonts/Aeonik-Black.eot');
   src: url('./fonts/Aeonik-Black.eot?#iefix') format('embedded-opentype'),
   url('./fonts/Aeonik-Black.woff2') format('woff2'),
@@ -34,7 +37,7 @@
 }
 
 @font-face {
-  font-family: 'Aeonik';
+  font-family: 'Aeonik Thin';
   src: url('./fonts/Aeonik-Thin.eot');
   src: url('./fonts/Aeonik-Thin.eot?#iefix') format('embedded-opentype'),
   url('./fonts/Aeonik-Thin.woff2') format('woff2'),
@@ -47,7 +50,7 @@
 }
 
 @font-face {
-  font-family: 'Aeonik';
+  font-family: 'Aeonik Medium';
   src: url('./fonts/Aeonik-Medium.eot');
   src: url('./fonts/Aeonik-Medium.eot?#iefix') format('embedded-opentype'),
   url('./fonts/Aeonik-Medium.woff2') format('woff2'),
@@ -60,7 +63,7 @@
 }
 
 @font-face {
-  font-family: 'Aeonik';
+  font-family: 'Aeonik Light';
   src: url('./fonts/Aeonik-Light.eot');
   src: url('./fonts/Aeonik-Light.eot?#iefix') format('embedded-opentype'),
   url('./fonts/Aeonik-Light.woff2') format('woff2'),
@@ -73,7 +76,7 @@
 }
 
 @font-face {
-  font-family: 'Aeonik';
+  font-family: 'Aeonik Regular';
   src: url('./fonts/Aeonik-Regular.eot');
   src: url('./fonts/Aeonik-Regular.eot?#iefix') format('embedded-opentype'),
   url('./fonts/Aeonik-Regular.woff2') format('woff2'),
@@ -84,5 +87,6 @@
   font-style: normal;
   font-display: swap;
 }
+
 
 

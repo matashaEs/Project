@@ -1,23 +1,91 @@
-.button {
-}
+button, .button {
+  text-decoration: none;
+  padding: 0.7rem 3rem;
+  border-style: solid;
+  border-width: 1px;
+  background-color: var(--main-blue);
+  border-color: var(--main-blue);
+  color: (var(--off-white));
+  border-radius: 2.5rem;
 
-@include min-size(md) {
-  .button {
-
+  a {
+    text-decoration: none;
+    color: (var(--off-white));
   }
-}
 
-@include min-size(lg) {
-  .button {
+  &--footer {
+    border-radius: 0;
+    background-color: var(--black);
+    border-width: 1px;
+    padding: 0 0.7rem
   }
-}
 
-@include min-size(xl) {
-  .button {
+  &--white {
+    background-color: var(--white);
+    border-color: var(--white);
+    color: var(--black);
+
+    a {
+      color: var(--black);
+    }
+
+    &-blue {
+      color: var(--main-blue);
+
+      a {
+        color: var(--main-blue);
+      }
+    }
   }
-}
 
-@include min-size(xxl) {
-  .button {
+  &--blue-border {
+    background-color: var(--white);
+    border-color: var(--main-blue);
+    color: var(--main-blue);
+    border-width: 3px;
+
+    a {
+      color: var(--main-blue);
+    }
+  }
+
+  &--orange {
+    background-color: var(--erp);
+    border-color: var(--erp);
+    color: var(--white);
+    padding: 0.3rem 2.2rem;
+    a {
+      color: var(--white);
+    }
+  }
+
+  &--dark-pink {
+    background-color: var(--dark-pink);
+    border-color: var(--dark-pink);
+    color: var(--white);
+    padding: 0.3rem 2.2rem;
+    a {
+      color: var(--white);
+    }
+  }
+
+  &--light-pink {
+    background-color: var(--light-pink);
+    border-color: var(--light-pink);
+    color: var(--white);
+    padding: 0.3rem 2.2rem;
+    a {
+      color: var(--white);
+    }
+  }
+
+  &--wms {
+    background-color: var(--wms);
+    border-color: var(--wms);
+    color: var(--white);
+    padding: 0.3rem 2.2rem;
+    a {
+      color: var(--white);
+    }
   }
 }
