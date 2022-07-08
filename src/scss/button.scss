@@ -1,3 +1,8 @@
+a {
+  color: var(--main-blue);
+  text-decoration: underline;
+}
+
 button,
 .button {
   text-decoration: none;
@@ -65,29 +70,11 @@ button,
     color: var(--white);
     padding: 0.3rem 2.2rem;
   }
-}
 
-.button a {
-  text-decoration: none;
-  color: var(--off-white);
-}
-
-.button {
-  &--white {
-    &-blue a {
-      color: var(--main-blue);
-    }
-  }
-
-  &--white a {
-    color: var(--black);
-  }
-
-  &--orange,
-  &--dark-pink,
-  &--light-pink,
-  &--wms a {
-    color: var(--white);
+  &:hover {
+    background-color: var(--navy);
+    border-color: var(--navy);
+    color: var(--off-white);
   }
 
   &--orange:hover {
@@ -109,10 +96,4 @@ button,
     background-color: var(--wms-hover);
     border-color: var(--wms-hover);
   }
-}
-
-button:hover {
-  background-color: var(--navy);
-  border-color: var(--navy);
-  color: var(--off-white);
 }
