@@ -6,6 +6,10 @@ get_header();
 
 <?php
 echo esc_html( get_template_part( 'template-parts/pagination', 'infinite-scroll' ) );
+
+$moja_zmienna = sanitize_text_field( $_POST['zmienna'] );
+
+echo $moja_zmienna;
 ?>
 
 <?php
