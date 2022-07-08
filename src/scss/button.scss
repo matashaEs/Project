@@ -1,4 +1,5 @@
-button, .button {
+button,
+.button {
   text-decoration: none;
   padding: 0.7rem 3rem;
   border-style: solid;
@@ -8,16 +9,11 @@ button, .button {
   color: (var(--off-white));
   border-radius: 2.5rem;
 
-  a {
-    text-decoration: none;
-    color: (var(--off-white));
-  }
-
   &--footer {
     border-radius: 0;
     background-color: var(--black);
     border-width: 1px;
-    padding: 0 0.7rem
+    padding: 0 0.7rem;
   }
 
   &--white {
@@ -25,16 +21,8 @@ button, .button {
     border-color: var(--white);
     color: var(--black);
 
-    a {
-      color: var(--black);
-    }
-
     &-blue {
       color: var(--main-blue);
-
-      a {
-        color: var(--main-blue);
-      }
     }
   }
 
@@ -43,10 +31,10 @@ button, .button {
     border-color: var(--main-blue);
     color: var(--main-blue);
     border-width: 3px;
+  }
 
-    a {
-      color: var(--main-blue);
-    }
+  &--blue-border a {
+    color: var(--main-blue);
   }
 
   &--orange {
@@ -54,9 +42,6 @@ button, .button {
     border-color: var(--erp);
     color: var(--white);
     padding: 0.3rem 2.2rem;
-    a {
-      color: var(--white);
-    }
   }
 
   &--dark-pink {
@@ -64,9 +49,6 @@ button, .button {
     border-color: var(--dark-pink);
     color: var(--white);
     padding: 0.3rem 2.2rem;
-    a {
-      color: var(--white);
-    }
   }
 
   &--light-pink {
@@ -74,9 +56,6 @@ button, .button {
     border-color: var(--light-pink);
     color: var(--white);
     padding: 0.3rem 2.2rem;
-    a {
-      color: var(--white);
-    }
   }
 
   &--wms {
@@ -84,8 +63,29 @@ button, .button {
     border-color: var(--wms);
     color: var(--white);
     padding: 0.3rem 2.2rem;
-    a {
-      color: var(--white);
+  }
+}
+
+.button a {
+  text-decoration: none;
+  color: (var(--off-white));
+}
+
+.button {
+  &--white {
+    &-blue a {
+      color: var(--main-blue);
     }
+  }
+
+  &--white a {
+    color: var(--black);
+  }
+
+  &--orange,
+  &--dark-pink,
+  &--light-pink,
+  &--wms a {
+    color: var(--white);
   }
 }
