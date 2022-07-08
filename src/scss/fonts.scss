@@ -4,6 +4,92 @@
  */
 
 :root {
-  --font-sans-serif: "font-famil-name-sans-serif";
-  --font-monospace: "font-famil-name-monospace";
+  --font-aeonik-medium: "Aeonik Medium";
+  --font-aeonik-bold: "Aeonik Bold";
+  --font-aeonik-light: "Aeonik Light";
+  --font-aeonik-regular: "Aeonik Regular";
+}
+
+@font-face {
+  font-family: "Aeonik Bold";
+  src: url("./fonts/Aeonik-Bold.eot");
+  src:
+    url("./fonts/Aeonik-Bold.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/Aeonik-Bold.woff2") format("woff2"),
+    url("./fonts/Aeonik-Bold.woff") format("woff"),
+    url("./fonts/Aeonik-Bold.ttf") format("truetype"),
+    url("./fonts/Aeonik-Bold.svg#Aeonik-Bold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik Black";
+  src: url("./fonts/Aeonik-Black.eot");
+  src:
+    url("./fonts/Aeonik-Black.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/Aeonik-Black.woff2") format("woff2"),
+    url("./fonts/Aeonik-Black.woff") format("woff"),
+    url("./fonts/Aeonik-Black.ttf") format("truetype"),
+    url("./fonts/Aeonik-Black.svg#Aeonik-Black") format("svg");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik Thin";
+  src: url("./fonts/Aeonik-Thin.eot");
+  src:
+    url("./fonts/Aeonik-Thin.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/Aeonik-Thin.woff2") format("woff2"),
+    url("./fonts/Aeonik-Thin.woff") format("woff"),
+    url("./fonts/Aeonik-Thin.ttf") format("truetype"),
+    url("./fonts/Aeonik-Thin.svg#Aeonik-Thin") format("svg");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik Medium";
+  src: url("./fonts/Aeonik-Medium.eot");
+  src:
+    url("./fonts/Aeonik-Medium.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/Aeonik-Medium.woff2") format("woff2"),
+    url("./fonts/Aeonik-Medium.woff") format("woff"),
+    url("./fonts/Aeonik-Medium.ttf") format("truetype"),
+    url("./fonts/Aeonik-Medium.svg#Aeonik-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik Light";
+  src: url("./fonts/Aeonik-Light.eot");
+  src:
+    url("./fonts/Aeonik-Light.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/Aeonik-Light.woff2") format("woff2"),
+    url("./fonts/Aeonik-Light.woff") format("woff"),
+    url("./fonts/Aeonik-Light.ttf") format("truetype"),
+    url("./fonts/Aeonik-Light.svg#Aeonik-Light") format("svg");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aeonik Regular";
+  src: url("./fonts/Aeonik-Regular.eot");
+  src:
+    url("./fonts/Aeonik-Regular.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/Aeonik-Regular.woff2") format("woff2"),
+    url("./fonts/Aeonik-Regular.woff") format("woff"),
+    url("./fonts/Aeonik-Regular.ttf") format("truetype"),
+    url("./fonts/Aeonik-Regular.svg#Aeonik-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
