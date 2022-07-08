@@ -7,6 +7,9 @@ require_once 'class-menu.php';
 require_once 'class-assets.php';
 require_once 'class-translation.php';
 
+/**
+ * Theme bootstrap
+ */
 class Nuplo_Theme {
 	function __construct() {
 		new General_Config();

@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Place to define various thumbnails sizes
+ */
 class Images {
 	const IMAGE_SIZES = [
 		[
@@ -10,8 +13,11 @@ class Images {
 		],
 	];
 
+	/**
+	 * Add thumbnails sizes
+	 */
 	public function __construct() {
-		add_action( 'after_setup_theme', array( $this, 'add_images_sizes' ) );
+		add_action( 'after_setup_theme', [ $this, 'add_images_sizes' ] );
 	}
 
 	/**

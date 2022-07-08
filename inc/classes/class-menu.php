@@ -1,8 +1,11 @@
 <?php
 
+/**
+ * Place to declare menu
+ */
 class Menu {
 	public function __construct() {
-		add_action( 'init', array( $this, 'init_menus' ) );
+		add_action( 'init', [ $this, 'init_menus' ] );
 	}
 
 	/**
@@ -10,6 +13,6 @@ class Menu {
 	 */
 	function init_menus(): void {
 		register_nav_menu( 'primary-menu', __( 'Main menu', 'nuplo' ) );
-		register_nav_menu( 'footer-menu', __( 'footer menu', 'nuplo' ) );
+		register_nav_menu( 'footer-menu', __( 'Footer menu', 'nuplo' ) );
 	}
 }

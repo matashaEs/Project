@@ -1,8 +1,11 @@
 <?php
 
+/**
+ * Translations definition
+ */
 class Translation {
 	function __construct() {
-		add_action( 'after_setup_theme', array( $this, 'load_theme_translation' ) );
+		add_action( 'after_setup_theme', [ $this, 'load_theme_translation' ] );
 	}
 
 	/**
