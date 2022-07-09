@@ -21,7 +21,18 @@ At the very beginning, you should prepare your theme for further development. In
 ## Development: BrowserSync + Livereload + watchers
 
 To start development, just type in the command line `npm start`
-It will run all code compilators and linters.
+It will run SCSS and JS code compilators and linters.
+
+## Checking PHP code quality
+
+Install all PHP dependencies by typing in terminal `composer install` in this plugin directory
+
+To lint your PHP code, type in the console (in this directory) `composer run-script lint`
+
+To autofix your PHP code, type in the console (in this directory) `composer run-script lint:fix`
+
+You can also configure your IDE with this documentation:
+* https://www.jetbrains.com/help/phpstorm/using-php-cs-fixer.html#installing-configuring-php-cs-fixer
 
 ## Building bundle
 
