@@ -3,7 +3,8 @@ import $ from 'jquery';
 
 class Benefits {
 	constructor() {
-		this.timer = 0;
+		this.timer           = 0;
+		this.sliderContainer = $( '.benefits__items-container' );
 
 		this.benefitsTitleClass();
 		this.slider();
@@ -19,8 +20,8 @@ class Benefits {
 	}
 
 	slider() {
-		if ( 767 > screen.width ) {
-			$( '.benefits__items-container' ).slick(
+		if ( 767 > window.innerWidth ) {
+			this.sliderContainer.slick(
 				{
 					infinite: true,
 					slidesToShow: 1,
@@ -42,7 +43,9 @@ class Benefits {
 	resizeEvent() {
 		this.delay(
 			() => {
-				$( '.benefits__items-container' ).slick( 'unslick' );
+				if ( this.sliderContainer.hasClass( 'slick-initialized' ) ) {
+					this.sliderContainer.slick( 'unslick' );
+				}
 				this.slider();
 			},
 			500

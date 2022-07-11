@@ -1,6 +1,7 @@
 @import "../../src/scss/for-blocks";
 
 .benefits {
+  position: relative;
   background-color: var(--off-white);
 
   &__row {
@@ -12,13 +13,13 @@
     width: 100%;
 
     &--left {
-      padding: 4.4rem 2rem 3rem;
+      padding: 4.4rem 2rem 3.5rem;
     }
   }
 
   &__description {
     margin-top: 2.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
     max-width: 33rem;
   }
 
@@ -42,7 +43,7 @@
   }
 
   .slick-dots li button::before {
-    font-size: 30px;
+    font-size: 25px;
     color: var(--silver-sand);
     opacity: 1;
   }
@@ -81,6 +82,11 @@
       }
     }
 
+    &__description {
+      margin-top: 4rem;
+      margin-bottom: 5rem;
+    }
+
     &__items-container {
       display: flex;
       flex-flow: row wrap;
@@ -93,9 +99,9 @@
       width: 45%;
       max-width: 28rem;
 
-	  &:nth-last-child(-n+2) {
-		margin-bottom: 0;
-	  }
+      &:nth-last-child(-n+2) {
+        margin-bottom: 0;
+      }
     }
   }
 }
@@ -107,10 +113,6 @@
 
 @include min-size(xl) {
   .benefits {
-    &__bg {
-      width: 30%;
-    }
-
     &__col {
       &--right {
         padding: 0 8.33%;
@@ -125,6 +127,10 @@
 
 @include min-size(xxl) {
   .benefits {
+    &__bg {
+      width: calc((100% - 1728px) / 2 + 510px);
+    }
+
     &__col {
       &--left {
         width: 20%;
