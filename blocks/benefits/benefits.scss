@@ -1,0 +1,144 @@
+@import "../../src/scss/for-blocks";
+
+.benefits {
+  background-color: var(--off-white);
+
+  &__row {
+    flex-flow: row wrap;
+    width: 100%;
+  }
+
+  &__col {
+    width: 100%;
+
+    &--left {
+      padding: 4.4rem 2rem 3rem;
+    }
+  }
+
+  &__description {
+    margin-top: 2.5rem;
+    margin-bottom: 3rem;
+    max-width: 33rem;
+  }
+
+  &__item {
+    background-color: var(--white);
+    padding: 2.5rem 2rem 2.5rem 2.6rem;
+    margin: 0 2rem;
+    width: calc(100vw - 4rem);
+  }
+
+  &__item-title {
+    margin-bottom: 2rem;
+  }
+
+  .slick-dotted.slick-slider {
+    margin-bottom: 30px;
+  }
+
+  .slick-dots li {
+    margin: 0;
+  }
+
+  .slick-dots li button::before {
+    font-size: 30px;
+    color: var(--silver-sand);
+    opacity: 1;
+  }
+
+  .slick-dots li.slick-active button::before {
+    color: var(--black);
+  }
+}
+
+@include min-size(md) {
+  .benefits {
+    background-color: initial;
+    padding: 8rem 0;
+
+    &__bg {
+      position: absolute;
+      width: 35%;
+      height: 100%;
+      background-color: var(--off-white);
+      left: 0;
+      top: 0;
+      z-index: -1;
+    }
+
+    &__col {
+      padding: 0;
+
+      &--left {
+        width: 30%;
+        padding: 0;
+        margin-right: 5%;
+      }
+
+      &--right {
+        width: 65%;
+      }
+    }
+
+    &__items-container {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+    }
+
+    &__item {
+      padding: 0;
+      margin: 0 0 6.5rem;
+      width: 45%;
+      max-width: 28rem;
+
+	  &:nth-last-child(-n+2) {
+		margin-bottom: 0;
+	  }
+    }
+  }
+}
+
+@include min-size(lg) {
+  .benefits {
+  }
+}
+
+@include min-size(xl) {
+  .benefits {
+    &__bg {
+      width: 30%;
+    }
+
+    &__col {
+      &--right {
+        padding: 0 8.33%;
+      }
+    }
+
+    &__items-container {
+      justify-content: space-between;
+    }
+  }
+}
+
+@include min-size(xxl) {
+  .benefits {
+    &__col {
+      &--left {
+        width: 20%;
+        margin: 0;
+      }
+
+      &--right {
+        width: 80%;
+        padding-left: 21%;
+      }
+    }
+
+    &__items-container {
+      justify-content: space-between;
+    }
+  }
+}
