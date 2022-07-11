@@ -1,24 +1,54 @@
 @import "../../src/scss/for-blocks";
 
 .browse-scroll {
+  $this: &;
+
+  background: var(--off-white);
+
+  &__row {
+	flex-direction: column;
+  }
+
   &__description {
+	margin-top: 2rem;
 	position: relative;
 	width: 50%;
   }
-  &__description-bg {
-	background: var(--off-white);
-	width: 50vw;
-	height: 100%;
-	position: absolute;
-	right: 0;
-	top: 0;
-	z-index: -1;
+
+  &__description-link {
+	text-decoration: none;
+	color: var(--black);
+	position: relative;
+
+	&::after {
+	  content: '';
+	  display: block;
+	  width: 30px;
+	  height: 26px;
+	  background: url("../../assets/img/small-arrow.svg") no-repeat;
+	  background-size: cover;
+	  position: absolute;
+	  right: -73px;
+	  top: 3px;
+	  transition: .5s all;
+	}
+
+	&:hover {
+	  text-decoration: underline;
+
+	  &::after {
+		transform: translateX(-20px);
+	  }
+	}
   }
 
   &__items {
-	overflow-x: scroll;
+	margin: 3rem 0;
+  }
+
+  &__items-list {
+	max-width: 100%;
 	display: flex;
-	width: 50%;
   }
 
   &__item {
@@ -28,24 +58,59 @@
 	margin-right: 1.1rem;
 	width: 263px;
 	height: 211px;
+	max-width: 263px;
+	max-height: 211px;
 	text-decoration: none;
 	position: relative;
+	overflow: hidden;
+
+	&:hover {
+	  #{$this}__item-bg {
+		filter: none;
+	  }
+	}
   }
 
   &__item-bg {
-	width: 100%;
-	height: 100%;
+	width: 263px;
+	height: 211px;
+	max-width: 263px;
+	max-height: 211px;
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: -1;
+	z-index: 1;
 	background-size: cover;
 	filter: grayscale(1);
+  }
+
+  &__button {
+	z-index: 2;
   }
 }
 
 @include min-size(md) {
   .browse-scroll {
+	background: none;
+
+	&__description-bg {
+	  background: var(--off-white);
+	  width: 50vw;
+	  height: 100%;
+	  position: absolute;
+	  right: 0;
+	  top: 0;
+	  z-index: -1;
+	}
+
+
+	&__items {
+	  width: 50%;
+	}
+
+	&__items-list {
+	  width: 100%;
+	}
   }
 }
 

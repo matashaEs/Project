@@ -11,7 +11,7 @@
   justify-content: center;
   width: 100vw;
   max-width: 1588px;
-  margin: 0 1rem;
+  padding: 0 2rem;
 }
 
 .row {
@@ -20,18 +20,18 @@
 
 @include min-size(lg) {
   .container {
-    margin: 0 3rem;
+    padding: 0 3rem;
   }
 }
 
 @include min-size(xl) {
   .container {
-    margin: 0 5rem;
+    padding: 0 5rem;
   }
 }
 
 @include min-size(xxl) {
   .container {
-	margin: 0 7rem;
+    padding: 0 7rem;
   }
 }

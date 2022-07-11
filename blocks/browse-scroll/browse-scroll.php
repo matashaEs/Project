@@ -18,22 +18,25 @@ if ( 'industry' === $browse_by ) {
 ?>
 
 <section class="container-fluid">
-	<div class="container">
-		<div class="row browse-scroll browse-scroll--right">
+	<div class="container browse-scroll">
+		<div class="row browse-scroll__row">
 			<div class="browse-scroll__description">
 				<div class="browse-scroll__description-bg"></div>
-				<h2 class="browse-scroll__description-text">
+				<a class="browse-scroll__description-link h2" href="#">
 					<?= esc_html( $list_title ); ?>
-				</h2>
+				</a>
 			</div>
 
 			<div class="browse-scroll__items">
-				<?php foreach ( $items as $item ) : ?>
-					<a href="<?= esc_url( $item['url'] ); ?>" class="browse-scroll__item">
-						<div class="browse-scroll__item-bg" style="background-image: url('<?= esc_html( $item['background'] ); ?>');"></div>
-						<div class="button button--white"><?= esc_html( $item['name'] ); ?></div>
-					</a>
-				<?php endforeach; ?>
+				<div class="browse-scroll__items-list">
+					<?php foreach ( $items as $item ) : ?>
+						<div class="browse-scroll__item">
+							<div class="browse-scroll__item-bg"
+								 style="background-image: url('<?= esc_html( $item['background'] ); ?>');"></div>
+							<a class="button button--white browse-scroll__button"><?= esc_html( $item['name'] ); ?></a>
+						</div>
+					<?php endforeach; ?>
+				</div>
 			</div>
 		</div>
 	</div>
