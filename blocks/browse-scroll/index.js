@@ -3,14 +3,12 @@ import $ from 'jquery';
 
 class BrowseScroll {
 	constructor() {
-		// this.slider();
+		this.slider();
 	}
 
 	slider() {
-		$( '.browse-scroll__items-list' ).slick({
-			infinite: true,
-			slidesToShow: 2,
-			slidesToScroll: 1,
+		$('.browse-scroll__items-list').slick({
+			infinite: false,
 			arrows: false,
 			dots: true,
 		});
