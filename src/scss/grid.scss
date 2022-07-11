@@ -10,10 +10,28 @@
   align-items: flex-start;
   justify-content: center;
   width: 100vw;
-  max-width: 1400px;
+  max-width: 1588px;
   margin: 0 1rem;
 }
 
 .row {
   display: flex;
+}
+
+@include min-size(lg) {
+  .container {
+    margin: 0 3rem;
+  }
+}
+
+@include min-size(xl) {
+  .container {
+    margin: 0 5rem;
+  }
+}
+
+@include min-size(xxl) {
+  .container {
+	margin: 0 7rem;
+  }
 }

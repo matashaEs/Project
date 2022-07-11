@@ -64,6 +64,7 @@ class Assets {
 	function add_styles(): void {
 		wp_enqueue_style( 'normalize_css', get_parent_theme_file_uri( '/assets/normalize.css' ), [], wp_get_theme()->get( 'Version' ) );
 		wp_enqueue_style( 'common_css', get_parent_theme_file_uri( '/assets/common.css' ), [ 'normalize_css' ], wp_get_theme()->get( 'Version' ) );
+		wp_enqueue_style( 'slick_slider_css', get_parent_theme_file_uri( '/assets/slick.css' ), [], wp_get_theme()->get( 'Version' ) );
 	}
 
 	/**
@@ -73,6 +74,17 @@ class Assets {
 		wp_enqueue_script(
 			'common_js',
 			get_parent_theme_file_uri( '/assets/common.js' ),
+			[
+				'jquery',
+				'slick_slider_js',
+			],
+			wp_get_theme()->get( 'Version' ),
+			true
+		);
+
+		wp_enqueue_script(
+			'slick_slider_js',
+			get_parent_theme_file_uri( '/assets/slick.min.js' ),
 			[
 				'jquery',
 			],
