@@ -1,24 +1,39 @@
 import $ from 'jquery';
 
-const selected = $ (".form-select--selected");
-const optionsContainer = $ (".form-options-container");
-const optionsList = $ (".option");
+class Form {
+	parent = null;
 
-var objects = $ (".option");
+	constructor() {
+		$('.form-select-box .form-select--selected')
+			.on('click', (e) => {
+				this.selectFeature(e, this)
+			});
 
-for (var obj of objects) {
-	console.log(obj);
+		$('.form-select div.option')
+			.on('click', (e) => {
+				this.optionFeature(e, this)
+			});
+	}
+
+	selectFeature(e, $this) {
+		e.preventDefault();
+		$this.parent = $(e.target.closest('.form-select-box'));
+
+		this.parent
+			.find('.form-options-container')
+			.toggleClass("active")
+	}
+
+	optionFeature(e, $this) {
+		console.log("lol");
+		if ($(e.target).prop("tagName") != "INPUT") {
+			$this.parent = $(e.target.closest('.form-options-container'));
+			const option = $(e.target.closest('.option'));
+
+			option.find('input').prop("checked", true);
+			this.parent.next().html(option.find('label').html())
+			this.parent.removeClass("active");
+		}
+	}
 }
-
-selected.click( () => {
-	optionsContainer.toggleClass("active");
-});
-
-
-for (var obj of objects) {
-	obj.click( () => {
-		//selected.innerHTML = obj.querySelector("label").innerHTML
-		// optionsList.removeClass("active");
-		console.log("lol" );
-	});
-}
+new Form();

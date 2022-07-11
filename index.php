@@ -13,65 +13,63 @@ echo esc_html(get_template_part('template-parts/pagination', 'infinite-scroll'))
 			<input type="email" placeholder="Email" class="input--start">
 			<input type="number" placeholder="Phone" class="input--start">
 			<textarea class="input input--message input--start" placeholder="Message"></textarea>
-			<div class="radio__container">
-				<input type="radio"
-					   class="input__radio input__radio--filters"
-					   id="commercialProperty"
-					   value="Commercial Property"
-					   name="industry"/>
-				<label for="commercialProperty">
-					<p> Commercial Property </p>
-				</label>
-			</div>
-			<div class="radio__container">
-				<input type="radio"
-					   class="input__radio input__radio--filters"
-					   id="commercialProperty"
-					   value="Commercial Property"
-					   name="industry"/>
-				<label for="commercialProperty">
-					<p> Commercial Property </p>
-				</label>
-			</div>
+<!--			<div class="radio__container">-->
+<!--				<input type="radio"-->
+<!--					   class="input__radio input__radio--filters"-->
+<!--					   id="commercialProperty"-->
+<!--					   value="Commercial Property"-->
+<!--					   name="industry"/>-->
+<!--				<label for="commercialProperty">-->
+<!--					<p> Commercial Property </p>-->
+<!--				</label>-->
+<!--			</div>-->
+<!--			<div class="radio__container">-->
+<!--				<input type="radio"-->
+<!--					   class="input__radio input__radio--filters"-->
+<!--					   id="commercialProperty"-->
+<!--					   value="Commercial Property"-->
+<!--					   name="industry"/>-->
+<!--				<label for="commercialProperty">-->
+<!--					<p> Commercial Property </p>-->
+<!--				</label>-->
+<!--			</div>-->
 
 			<div class="form-select">
-				<h2>Video</h2>
+				<p>Video</p>
 				<div class="form-select-box">
 					<div class="form-options-container">
-
-
 						<div class="option radio__container">
 							<input type="radio"
 								   class="input__radio input__radio--filters"
 								   id="commercialProperty1"
 								   value="Commercial Property"
 								   name="industry1"/>
-							<label for="commercialProperty">
-								<p> Commercial Property </p>
+							<label for="commercialProperty1" class="p">
+								Commercial Property
 							</label>
 						</div>
 						<div class="option radio__container">
 							<input type="radio"
 								   class="input__radio input__radio--filters"
-								   id="commercialProperty1"
+								   id="commercialProperty2"
 								   value="Commercial Property 1"
 								   name="industry1"/>
-							<label for="commercialProperty">
-								<p> Commercial Property 1</p>
+							<label for="commercialProperty2" class="p">
+								Commercial Property 1
 							</label>
 						</div>
 						<div class="option radio__container">
 							<input type="radio"
 								   class="input__radio input__radio--filters"
-								   id="commercialProperty1"
+								   id="commercialProperty3"
 								   value="Commercial Property 2"
 								   name="industry1"/>
-							<label for="commercialProperty">
-								<p> Commercial Property 2</p>
+							<label for="commercialProperty3" class="p">
+								Commercial Property 2
 							</label>
 						</div>
 					</div>
-					<div class="form-select--selected">
+					<div class="form-select--selected p">
 						Video Selected
 					</div>
 				</div>
@@ -84,6 +82,7 @@ echo esc_html(get_template_part('template-parts/pagination', 'infinite-scroll'))
 
 		</div>
 	</div>
+</div>
 
 <?php
 get_footer();
