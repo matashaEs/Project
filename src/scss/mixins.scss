@@ -14,7 +14,7 @@
       @content;
     }
   } @else if $size == xxl {
-    @media (min-width: 1588px) {
+    @media (min-width: 1728px) {
       @content;
     }
   }
