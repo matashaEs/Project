@@ -76,7 +76,8 @@ button,
   &:hover {
     background-color: var(--navy);
     border-color: var(--navy);
-    color: var(--off-white);
+	text-decoration: none;
+	color: var(--off-white);
   }
 
   &--orange:hover {
