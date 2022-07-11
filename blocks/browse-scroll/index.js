@@ -7,7 +7,7 @@ class BrowseScroll {
 	}
 
 	slider() {
-		$('.browse-scroll__items-list').slick({
+		$( '.browse-scroll__items-list' ).slick({
 			infinite: false,
 			arrows: false,
 			dots: true,
