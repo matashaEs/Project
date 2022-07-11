@@ -34,10 +34,6 @@
     margin-bottom: 2rem;
   }
 
-  .slick-dotted.slick-slider {
-    margin-bottom: 30px;
-  }
-
   .slick-dots li {
     margin: 0;
   }
@@ -103,11 +99,6 @@
         margin-bottom: 0;
       }
     }
-  }
-}
-
-@include min-size(lg) {
-  .benefits {
   }
 }
 
