@@ -6,11 +6,13 @@ vendor
 .DS_Store
 bundle
 /assets/*.css
+!/assets/slick.css
 !/assets/normalize.css
 /assets/common.js.map
 /assets/common.js.LICENSE.txt
 /assets/*.css.map
 /assets/*.js
+!/assets/slick.min.js
 /blocks/**/*.css
 /blocks/**/*.LICENSE.txt
 /blocks/**/*.css.map
