@@ -9,7 +9,7 @@ class Form {
 				this.selectFeature(e, this)
 			});
 
-		$('.form-select div.option')
+		$('.form-select div.form-option')
 			.on('click', (e) => {
 				this.optionFeature(e, this)
 			});
@@ -28,7 +28,7 @@ class Form {
 		console.log("lol");
 		if ($(e.target).prop("tagName") != "INPUT") {
 			$this.parent = $(e.target.closest('.form-options-container'));
-			const option = $(e.target.closest('.option'));
+			const option = $(e.target.closest('.form-option'));
 
 			option.find('input').prop("checked", true);
 			this.parent.next().html(option.find('label').html())

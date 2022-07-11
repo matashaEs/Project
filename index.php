@@ -35,10 +35,9 @@ echo esc_html(get_template_part('template-parts/pagination', 'infinite-scroll'))
 <!--			</div>-->
 
 			<div class="form-select">
-				<p>Video</p>
 				<div class="form-select-box">
 					<div class="form-options-container">
-						<div class="option radio__container">
+						<div class="form-option radio__container">
 							<input type="radio"
 								   class="input__radio input__radio--filters"
 								   id="commercialProperty1"
@@ -48,7 +47,7 @@ echo esc_html(get_template_part('template-parts/pagination', 'infinite-scroll'))
 								Commercial Property
 							</label>
 						</div>
-						<div class="option radio__container">
+						<div class="form-option radio__container">
 							<input type="radio"
 								   class="input__radio input__radio--filters"
 								   id="commercialProperty2"
@@ -58,7 +57,7 @@ echo esc_html(get_template_part('template-parts/pagination', 'infinite-scroll'))
 								Commercial Property 1
 							</label>
 						</div>
-						<div class="option radio__container">
+						<div class="form-option radio__container">
 							<input type="radio"
 								   class="input__radio input__radio--filters"
 								   id="commercialProperty3"
@@ -69,7 +68,7 @@ echo esc_html(get_template_part('template-parts/pagination', 'infinite-scroll'))
 							</label>
 						</div>
 					</div>
-					<div class="form-select--selected p">
+					<div class="form-select--selected h4">
 						Video Selected
 					</div>
 				</div>
