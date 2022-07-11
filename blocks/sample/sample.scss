@@ -1,19 +1,31 @@
 @import "../../src/scss/for-blocks";
 
-.sample {
+.browse-scroll {
+  &__description {
+	background: var(--off-white);
+  }
+
+  &__items {
+	overflow-x: scroll;
+	display: flex;
+  }
+
+  &__item {
+	display: block;
+  }
 }
 
 @include min-size(md) {
-  .sample {
+  .browse-scroll {
   }
 }
 
 @include min-size(lg) {
-  .sample {
+  .browse-scroll {
   }
 }
 
 @include min-size(xl) {
-  .sample {
+  .browse-scroll {
   }
 }

@@ -5,23 +5,39 @@
  */
 
 
-if ( ! empty( $block['id'] ) ) {
-	extract( get_fields( $block['id'] ) );
-} else {
-	extract( $block['data'] );
-}
+//if ( ! empty( $block['id'] ) ) {
+//	extract( get_fields( $block['id'] ) );
+//} else {
+//	extract( $block['data'] );
+//}
 ?>
 
-<section>
-	<?php
-	if ( ! empty( $title ) ) :
-		?>
-		<h1><?= esc_html( $title ); ?></h1>
-	<?php endif; ?>
+<section class="container-fluid">
+	<div class="container">
+		<div class="row browse-scroll browse-scroll--right">
+			<div class="browse-scroll__description">
+				<div class="browse-scroll__description-text h2">
+					Browse by industry ->
+				</div>
+			</div>
 
-	<?php
-	if ( ! empty( $description ) ) :
-		?>
-		<div><?= esc_html( $description ); ?></div>
-	<?php endif; ?>
+			<div class="browse-scroll__items">
+				<a href="#" class="browse-scroll__item" style="background-image: url('');">
+					<a class="button">Name of industry</a>
+				</a>
+				<a href="#" class="browse-scroll__item" style="background-image: url('');">
+					<a class="button">Name of industry</a>
+				</a>
+				<a href="#" class="browse-scroll__item" style="background-image: url('');">
+					<a class="button">Name of industry</a>
+				</a>
+				<a href="#" class="browse-scroll__item" style="background-image: url('');">
+					<a class="button">Name of industry</a>
+				</a>
+				<a href="#" class="browse-scroll__item" style="background-image: url('');">
+					<a class="button">Name of industry</a>
+				</a>
+			</div>
+		</div>
+	</div>
 </section>
