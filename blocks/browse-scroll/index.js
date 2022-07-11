@@ -11,6 +11,8 @@ class BrowseScroll {
 			infinite: false,
 			arrows: false,
 			dots: true,
+			mobileFirst: true,
+			centerMode: true
 		});
 	}
 }
