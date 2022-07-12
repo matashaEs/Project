@@ -51,50 +51,50 @@ get_header();
 					<div class="form-options-container">
 						<div class="form-option radio__container">
 							<input type="radio"
-								   class="input__radio input__radio--filters"
-								   id="news"
-								   value="News"
-								   name="property"/>
+								class="input__radio input__radio--filters"
+								id="news"
+								value="News"
+								name="property"/>
 							<label for="news" class="p">
 								News
 							</label>
 						</div>
 						<div class="form-option radio__container">
 							<input type="radio"
-								   class="input__radio input__radio--filters"
-								   id="caseStudies"
-								   value="Case Studies"
-								   name="property"/>
+								class="input__radio input__radio--filters"
+								id="caseStudies"
+								value="Case Studies"
+								name="property"/>
 							<label for="caseStudies" class="p">
 								Case Studies
 							</label>
 						</div>
 						<div class="form-option radio__container">
 							<input type="radio"
-								   class="input__radio input__radio--filters"
-								   id="press"
-								   value="Press"
-								   name="property"/>
+								class="input__radio input__radio--filters"
+								id="press"
+								value="Press"
+								name="property"/>
 							<label for="press" class="p">
 								Press
 							</label>
 						</div>
 						<div class="form-option radio__container">
 							<input type="radio"
-								   class="input__radio input__radio--filters"
-								   id="events"
-								   value="Events"
-								   name="property"/>
+								class="input__radio input__radio--filters"
+								id="events"
+								value="Events"
+								name="property"/>
 							<label for="contentType" class="p">
 								Events
 							</label>
 						</div>
 						<div class="form-option radio__container">
 							<input type="radio"
-								   class="input__radio input__radio--filters"
-								   id="other"
-								   value="Other"
-								   name="property"/>
+								class="input__radio input__radio--filters"
+								id="other"
+								value="Other"
+								name="property"/>
 							<label for="other" class="p">
 								Other
 							</label>
@@ -111,60 +111,60 @@ get_header();
 
 			<div class="radio__container">
 				<input type="radio"
-					   class="input__radio input__radio--filters"
-					   id="erp"
-					   value="ERP"
-					   name="ProductCategory"/>
+					class="input__radio input__radio--filters"
+					id="erp"
+					value="ERP"
+					name="ProductCategory"/>
 				<label for="erp">
 					<p>ERP</p>
 				</label>
 			</div>
 			<div class="radio__container">
 				<input type="radio"
-					   class="input__radio input__radio--filters"
-					   id="commerceEDI"
-					   value="E-Commerce EDI"
-					   name="ProductCategory"/>
+					class="input__radio input__radio--filters"
+					id="commerceEDI"
+					value="E-Commerce EDI"
+					name="ProductCategory"/>
 				<label for="commerceEDI">
 					<p>E-Commerce EDI</p>
 				</label>
 			</div>
 			<div class="radio__container">
 				<input type="radio"
-					   class="input__radio input__radio--filters"
-					   id="processAutomation"
-					   value="Process Automation"
-					   name="ProductCategory"/>
+					class="input__radio input__radio--filters"
+					id="processAutomation"
+					value="Process Automation"
+					name="ProductCategory"/>
 				<label for="processAutomation">
 					<p>Process Automation</p>
 				</label>
 			</div>
 			<div class="radio__container">
 				<input type="radio"
-					   class="input__radio input__radio--filters"
-					   id="mes"
-					   value="MES"
-					   name="ProductCategory"/>
+					class="input__radio input__radio--filters"
+					id="mes"
+					value="MES"
+					name="ProductCategory"/>
 				<label for="mes">
 					<p>MES</p>
 				</label>
 			</div>
 			<div class="radio__container">
 				<input type="radio"
-					   class="input__radio input__radio--filters"
-					   id="wms"
-					   value="WMS"
-					   name="ProductCategory"/>
+					class="input__radio input__radio--filters"
+					id="wms"
+					value="WMS"
+					name="ProductCategory"/>
 				<label for="wms">
 					<p>WMS</p>
 				</label>
 			</div>
 			<div class="radio__container">
 				<input type="radio"
-					   class="input__radio input__radio--filters"
-					   id="other"
-					   value="Other"
-					   name="ProductCategory"/>
+					class="input__radio input__radio--filters"
+					id="other"
+					value="Other"
+					name="ProductCategory"/>
 				<label for="other">
 					<p>Other</p>
 				</label>
