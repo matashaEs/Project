@@ -63,10 +63,7 @@ label {
   }
 
   &-select-box .form-option {
-    padding-top: 0.6rem;
-	padding-bottom: 0.6rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 0.6rem 2rem;
     cursor: pointer;
   }
 
@@ -79,7 +76,7 @@ label {
     opacity: 1;
     overflow-y: scroll;
     margin-bottom: 3rem;
-	margin-top: 1rem;
+    margin-top: 1rem;
   }
 
   &-select-box .form-options-container.active + &-select--selected::before {
