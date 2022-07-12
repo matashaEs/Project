@@ -1,0 +1,95 @@
+@import "../../src/scss/for-blocks";
+
+.highlights {
+  $this: &;
+
+  padding-top: 4rem;
+
+  &--inversed {
+    background-color: var(--off-white);
+
+    #{$this}__item {
+      background-color: var(--white);
+    }
+  }
+
+  &__row {
+    width: 100%;
+  }
+
+  &__item {
+    background-color: var(--off-white);
+    padding: 2.5rem 2rem 2.5rem 2.5rem;
+    margin: 0 2rem;
+    width: calc(100vw - 4rem);
+    max-width: 515px;
+  }
+
+  &__item-title {
+    margin: 0 0 2.5rem;
+  }
+
+  .slick-track {
+    display: flex;
+  }
+
+  .slick-slide {
+    height: inherit;
+  }
+}
+
+@include min-size(md) {
+  .highlights {
+    $this: &;
+
+    padding: 10rem 0;
+
+    &--small {
+      #{$this}__container {
+        align-items: flex-end;
+      }
+
+      #{$this}__row {
+        width: 65%;
+      }
+
+      #{$this}__item {
+        max-width: 420px;
+        padding: 3rem 4.5rem 6.5rem 4rem;
+      }
+    }
+
+    &__item {
+      margin: 0 1rem;
+    }
+  }
+}
+
+@include min-size(lg) {
+  .highlights {
+    $this: &;
+
+    padding: 10rem 0;
+
+    &--small {
+      #{$this}__item {
+        max-width: initial;
+        width: 515px;
+      }
+    }
+
+    &__item {
+      padding: 3rem 3rem 5rem;
+      width: 450px;
+    }
+  }
+}
+
+@include min-size(xl) {
+  .highlights {
+    &__item {
+      padding: 5.5rem 5rem 9.5rem;
+      width: calc((100vw - 18rem) / 3);
+    }
+  }
+}
