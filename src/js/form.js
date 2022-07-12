@@ -4,35 +4,34 @@ class Form {
 	parent = null;
 
 	constructor() {
-		$('.form-select-box .form-select--selected')
-			.on('click', (e) => {
-				this.selectFeature(e, this)
+		$( '.form-select-box .form-select--selected' )
+			.on( 'click', ( e ) => {
+				this.selectFeature( e, this );
 			});
 
-		$('.form-select div.form-option')
-			.on('click', (e) => {
-				this.optionFeature(e, this)
+		$( '.form-select div.form-option' )
+			.on( 'click', ( e ) => {
+				this.optionFeature( e, this );
 			});
 	}
 
-	selectFeature(e, $this) {
+	selectFeature( e, $this ) {
 		e.preventDefault();
-		$this.parent = $(e.target.closest('.form-select-box'));
+		$this.parent = $( e.target.closest( '.form-select-box' ) );
 
 		this.parent
-			.find('.form-options-container')
-			.toggleClass("active")
+			.find( '.form-options-container' )
+			.toggleClass( 'active' );
 	}
 
-	optionFeature(e, $this) {
-		console.log("lol");
-		if ($(e.target).prop("tagName") != "INPUT") {
-			$this.parent = $(e.target.closest('.form-options-container'));
-			const option = $(e.target.closest('.form-option'));
+	optionFeature( e, $this ) {
+		if ( 'INPUT' != $( e.target ).prop( 'tagName' ) ) {
+			$this.parent = $( e.target.closest( '.form-options-container' ) );
+			const option = $( e.target.closest( '.form-option' ) );
 
-			option.find('input').prop("checked", true);
-			this.parent.next().html(option.find('label').html())
-			this.parent.removeClass("active");
+			option.find( 'input' ).prop( 'checked', true );
+			this.parent.next().html( option.find( 'label' ).html() );
+			this.parent.removeClass( 'active' );
 		}
 	}
 }
