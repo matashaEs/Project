@@ -60,8 +60,7 @@ get_header();
 							</label>
 						</div>
 						<div class="form-option radio__container">
-							<input type="radio"
-								class="input__radio input__radio--filters"
+							<input type="radio" class="input__radio input__radio--filters"
 								id="caseStudies"
 								value="Case Studies"
 								name="property"/>
@@ -205,6 +204,79 @@ get_header();
 				</div>
 				<a href="" class="button p">Schedule A Demo</a>
 			</div>
+
+			<br>
+			<br>
+			<br>
+			<br>
+
+				<div class="form-select-box form-select-box--faq">
+					<div class="form-options-container">
+						<div class="form-option form-option-faq">
+							<label class="p label-faq">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, aperiam, cum doloribus ducimus error
+								id inventore ipsam iusto, libero magni maiores natus non reprehenderit unde ut voluptatem voluptatum!
+								Animi doloremque dolores id iure obcaecati rem voluptate? Alias atque dignissimos eaque numquam! Animi
+								asperiores aut consequatur culpa fuga, labore laboriosam, laudantium molestiae officia officiis, optio
+								pariatur quibusdam quis rerum sapiente? A architecto consequatur consequuntur delectus doloribus dolorum
+								earum eius excepturi fuga id laudantium, natus nulla omnis provident quas rem repudiandae soluta totam
+								ut vero. Ad amet consequatur corporis deleniti deserunt dolore facere fuga illo iusto magni possimus
+								quasi quis, quos veniam!
+							</label>
+						</div>
+					</div>
+					<div class="form-select--selected h4">
+						FAQ One
+					</div>
+				</div>
+
+
+			<br>
+			<br>
+
+				<div class="form-select-box form-select-box--faq">
+					<div class="form-options-container">
+						<div class="form-option form-option-faq">
+							<label class="p label-faq">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, aperiam, cum doloribus ducimus error
+								id inventore ipsam iusto, libero magni maiores natus non reprehenderit unde ut voluptatem voluptatum!
+								Animi doloremque dolores id iure obcaecati rem voluptate? Alias atque dignissimos eaque numquam! Animi
+								asperiores aut consequatur culpa fuga, labore laboriosam, laudantium molestiae officia officiis, optio
+								pariatur quibusdam quis rerum sapiente? A architecto consequatur consequuntur delectus doloribus dolorum
+								earum eius excepturi fuga id laudantium, natus nulla omnis provident quas rem repudiandae soluta totam
+								ut vero. Ad amet consequatur corporis deleniti deserunt dolore facere fuga illo iusto magni possimus
+								quasi quis, quos veniam!
+							</label>
+						</div>
+					</div>
+					<div class="form-select--selected h4">
+						FAQ Two
+					</div>
+				</div>
+
+			<br>
+			<br>
+
+				<div class="form-select-box form-select-box--faq">
+					<div class="form-options-container">
+						<div class="form-option form-option-faq">
+							<label class="p label-faq">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, aperiam, cum doloribus ducimus error
+								id inventore ipsam iusto, libero magni maiores natus non reprehenderit unde ut voluptatem voluptatum!
+								Animi doloremque dolores id iure obcaecati rem voluptate? Alias atque dignissimos eaque numquam! Animi
+								asperiores aut consequatur culpa fuga, labore laboriosam, laudantium molestiae officia officiis, optio
+								pariatur quibusdam quis rerum sapiente? A architecto consequatur consequuntur delectus doloribus dolorum
+								earum eius excepturi fuga id laudantium, natus nulla omnis provident quas rem repudiandae soluta totam
+								ut vero. Ad amet consequatur corporis deleniti deserunt dolore facere fuga illo iusto magni possimus
+								quasi quis, quos veniam!
+							</label>
+						</div>
+					</div>
+					<div class="form-select--selected h4">
+						FAQ Three
+					</div>
+				</div>
+
 			<br>
 			<br>
 			<div class="buttons">
@@ -229,6 +301,11 @@ get_header();
 					<a href="" class="button button--footer h6">Live Chat</a> <br> <br>
 				</div>
 			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+
 		</div>
 	</div>
 
