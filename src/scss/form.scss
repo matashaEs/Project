@@ -1,3 +1,7 @@
+label {
+  cursor: pointer;
+}
+
 .form {
   &-select {
     width: 100%;
@@ -39,6 +43,10 @@
     max-height: 0;
     opacity: 0;
     order: 1;
+  }
+
+  &-option:hover {
+    background-color: var(--silver-sand);
   }
 
   &-select--selected::before {
@@ -132,6 +140,16 @@
       height: 1.9rem;
     }
   }
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
 }
 
 .label {
