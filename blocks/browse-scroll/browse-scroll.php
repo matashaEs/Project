@@ -15,10 +15,13 @@ if ( 'industry' === $browse_by ) {
 	$list_title = __( 'Browse by Product', 'nuplo' );
 	$items      = apply_filters( 'cai_get_products', null );
 }
+
+$section_classes  = ! empty( $is_mobile_bg ) ? ' browse-scroll--mobile-bg' : '';
+$section_classes .= ! empty( $direction ) ? '' : ' browse-scroll--reverse'
 ?>
 
-<section class="container-fluid">
-	<div class="container browse-scroll">
+<section class="container-fluid browse-scroll<?= esc_html( $section_classes ) ?>">
+	<div class="container">
 		<div class="row browse-scroll__row">
 			<div class="browse-scroll__description">
 				<div class="browse-scroll__description-bg"></div>
@@ -41,3 +44,4 @@ if ( 'industry' === $browse_by ) {
 		</div>
 	</div>
 </section>
+<br>
