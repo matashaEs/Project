@@ -2,8 +2,6 @@
 get_header();
 ?>
 
-<?php the_content(); ?>
-
 	<div class="container-fluid">
 		<div class="container">
 			<h1> Heading 1</h1>
@@ -232,6 +230,17 @@ get_header();
 		</div>
 	</div>
 
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+<?php the_content(); ?>
+	<br>
+	<br>
+	<br>
+	<br>
 
 <?php
 get_footer();
