@@ -1,12 +1,16 @@
 @import "../../src/scss/for-blocks";
 
+$arrow-width: 30px;
+$arrow-height: 26px;
+$arrow-transition: calc(-#{$arrow-width} - 22px);
+
 .browse-scroll {
   $this: &;
-  $imageWidth: 263px;
-  $imageHeight: 211px;
+  $image-width: 263px;
+  $image-height: 211px;
 
   &--mobile-bg {
-	background: var(--off-white);
+    background: var(--off-white);
   }
 
   &__row {
@@ -26,12 +30,12 @@
     &::after {
       content: "";
       display: block;
-      width: 30px;
-      height: 26px;
+      width: $arrow-width;
+      height: $arrow-height;
       background: url("../../assets/img/small-arrow.svg") no-repeat;
       background-size: cover;
       position: absolute;
-      right: -73px;
+      right: $arrow-transition;
       top: 3px;
       transition: 0.5s all;
     }
@@ -61,10 +65,10 @@
     justify-content: center;
     align-items: center;
     margin-right: 1.1rem;
-    width: $imageWidth;
-    height: $imageHeight;
-    max-width: $imageWidth;
-    max-height: $imageHeight;
+    width: $image-width;
+    height: $image-height;
+    max-width: $image-width;
+    max-height: $image-height;
     text-decoration: none;
     position: relative;
     overflow: hidden;
@@ -75,16 +79,16 @@
       }
     }
 
-	&:last-of-type {
-	  margin-right: 0;
-	}
+    &:last-of-type {
+      margin-right: 0;
+    }
   }
 
   &__item-bg {
-    width: $imageWidth;
-    height: $imageHeight;
-    max-width: $imageWidth;
-    max-height: $imageHeight;
+    width: $image-width;
+    height: $image-height;
+    max-width: $image-width;
+    max-height: $image-height;
     position: absolute;
     top: 0;
     left: 0;
@@ -100,19 +104,60 @@
 
 @include min-size(md) {
   .browse-scroll {
-	background: none;
+    $this: &;
+    $arrow-width: 45px;
+    $arrow-height: 38px;
+    $arrow-transition: calc(-#{$arrow-width} - 22px);
 
-	&__row {
-	  flex-flow: row nowrap;
-	  width: 100%;
-	}
+    &--reverse {
+      #{$this}__row {
+        flex-flow: row-reverse nowrap;
+      }
+
+      #{$this}__description-bg {
+        right: initial;
+        left: 0;
+      }
+
+      #{$this}__items-list {
+        margin-left: -2rem;
+      }
+
+      #{$this}__description {
+        justify-content: flex-end;
+      }
+
+      #{$this}__description-link {
+        margin-left: 4rem;
+        text-align: end;
+
+        &::after {
+          right: initial;
+          left: $arrow-transition;
+          transform: scale(-1, 1);
+        }
+
+        &:hover {
+          &::after {
+            transform: translateX(-20px) scale(-1, 1);
+          }
+        }
+      }
+    }
+
+    background: none;
+
+    &__row {
+      flex-flow: row nowrap;
+      width: 100%;
+    }
 
     &__description {
       width: 50%;
-	  display: flex;
-	  align-items: flex-end;
-	  padding-bottom: 4rem;
-	  margin-top: 0;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 4rem;
+      margin-top: 0;
     }
 
     &__description-bg {
@@ -127,102 +172,154 @@
 
     &__items {
       width: 50%;
-	  margin: 0;
-	  padding: 5rem 0;
+      margin: 0;
+      padding: 5rem 0;
     }
 
     &__items-list {
       width: calc(100% + 2rem);
     }
 
-	&__description-link {
-	  display: block;
-	  width: 50%;
+    &__description-link {
+      display: block;
+      width: 50%;
 
-	  &::after {
-		top: initial;
-		bottom: 3px;
-	  }
-	}
+      &::after {
+        top: initial;
+        width: $arrow-width;
+        height: $arrow-height;
+        right: $arrow-transition;
+        bottom: 10px;
+      }
+    }
   }
 }
 
 @include min-size(lg) {
   .browse-scroll {
-	$imageWidth: 413px;
-	$imageHeight: 330px;
+    $this: &;
+    $image-width: 413px;
+    $image-height: 330px;
+    $arrow-width: 58px;
+    $arrow-height: 50px;
+    $arrow-transition: calc(-#{$arrow-width} - 22px);
 
-	&__description-link {
-	  width: auto;
+    &--reverse {
+      #{$this}__items-list {
+        margin-left: -3rem;
+      }
 
-	  &::after {
-		width: 58px;
-		height: 50px;
-		right: -98px;
-		bottom: -6px;
-	  }
-	}
+      #{$this}__description-link {
+        &::after {
+          right: initial;
+          left: $arrow-transition;
+        }
+      }
+    }
 
-	&__item {
-	  width: $imageWidth;
-	  height: $imageHeight;
-	  max-width: $imageWidth;
-	  max-height: $imageHeight;
-	  margin-right: 2rem;
-	}
+    &__description-link {
+      width: auto;
 
-	&__item-bg {
-	  width: $imageWidth;
-	  height: $imageHeight;
-	  max-width: $imageWidth;
-	  max-height: $imageHeight;
-	}
+      &::after {
+        width: $arrow-width;
+        height: $arrow-height;
+        right: $arrow-transition;
+        bottom: -5px;
+      }
+    }
+
+    &__items-list {
+      width: calc(100% + 3rem);
+    }
+
+    &__item {
+      width: $image-width;
+      height: $image-height;
+      max-width: $image-width;
+      max-height: $image-height;
+      margin-right: 2rem;
+    }
+
+    &__item-bg {
+      width: $image-width;
+      height: $image-height;
+      max-width: $image-width;
+      max-height: $image-height;
+    }
   }
 }
 
 @include min-size(xl) {
   .browse-scroll {
-	$imageWidth: 456px;
-	$imageHeight: 365px;
+    $this: &;
+    $image-width: 456px;
+    $image-height: 365px;
+    $arrow-width: 73px;
+    $arrow-height: 62px;
+    $arrow-transition: calc(-#{$arrow-width} - 22px);
 
-	&__description {
-	  padding-bottom: 9rem;
-	}
+    &--reverse {
+      #{$this}__items-list {
+        margin-left: -5rem;
+      }
 
-	&__description-link {
-	  &::after {
-		width: 73px;
-		height: 62px;
-		right: -98px;
-		bottom: -6px;
-	  }
-	}
+      #{$this}__description-link {
+        &::after {
+          right: initial;
+          left: $arrow-transition;
+        }
+      }
+    }
 
-	&__items {
-	  padding: 10rem 0;
-	}
+    &__description {
+      padding-bottom: 9rem;
+    }
 
-	&__item {
-	  width: $imageWidth;
-	  height: $imageHeight;
-	  max-width: $imageWidth;
-	  max-height: $imageHeight;
-	}
+    &__description-link {
+      &::after {
+        width: $arrow-width;
+        height: $arrow-height;
+        right: $arrow-transition;
+        bottom: -6px;
+      }
+    }
 
-	&__item-bg {
-	  width: $imageWidth;
-	  height: $imageHeight;
-	  max-width: $imageWidth;
-	  max-height: $imageHeight;
-	}
+    &__items {
+      padding: 10rem 0;
+    }
+
+    &__items-list {
+      width: calc(100% + 5rem);
+    }
+
+    &__item {
+      width: $image-width;
+      height: $image-height;
+      max-width: $image-width;
+      max-height: $image-height;
+    }
+
+    &__item-bg {
+      width: $image-width;
+      height: $image-height;
+      max-width: $image-width;
+      max-height: $image-height;
+    }
   }
 }
 
 @include min-size(xxl) {
   .browse-scroll {
+    $this: &;
 
-	&__items-list {
-	  width: 50vw;
-	}
+    &--reverse {
+      #{$this}__items-list {
+        margin-left: calc((100vw - 1728px) / -2 - 7rem);
+      }
+    }
+
+    &__items-list {
+      width: 50vw;
+    }
   }
 }

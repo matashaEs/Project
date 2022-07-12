@@ -12,37 +12,50 @@ class BrowseScroll {
 	slider() {
 		const windowWidth = window.innerWidth;
 
-		let slickConf = {
-			infinite: false,
-			arrows: false,
-			dots: true,
-			mobileFirst: true,
-			centerMode: true,
-			variableWidth: true,
+		this.sliderContainer.each(
+			function() {
+				let paddingLeft, paddingRight;
 
-			responsive: [ {
-				breakpoint: 767,
-				settings: {
-					dots: false,
+				const itemWidth = $( this ).find( '.browse-scroll__item-bg' ).first().innerWidth();
+				paddingLeft     = 20;
+				paddingRight    = windowWidth - itemWidth - paddingLeft;
+
+				if ( 1199 < windowWidth ) {
+					paddingLeft  = 70;
+					paddingRight = ( windowWidth / 2 ) - itemWidth - paddingLeft;
+				} else if ( 767 < windowWidth ) {
+					paddingLeft  = 50;
+					paddingRight = ( windowWidth / 2 ) - itemWidth - paddingLeft;
 				}
-			} ]
-		};
 
-		const itemWidth  = this.sliderContainer.find( '.browse-scroll__item-bg' ).first().innerWidth();
-		let paddingLeft  = 20;
-		let paddingRight = windowWidth - itemWidth - paddingLeft;
+				let initialSlide = 0;
 
-		if ( 1199 < windowWidth ) {
-			paddingLeft  = 70;
-			paddingRight = ( windowWidth / 2 ) - itemWidth - paddingLeft;
-		} else if ( 767 < windowWidth ) {
-			paddingLeft  = 50;
-			paddingRight = ( windowWidth / 2 ) - itemWidth - paddingLeft;
-		}
+				if ( 767 < windowWidth && $( this ).closest( '.browse-scroll' ).hasClass( 'browse-scroll--reverse' ) ) {
+					[ paddingRight, paddingLeft ] = [ paddingLeft, paddingRight ];
+					initialSlide 		  		  = $( this ).find( '.browse-scroll__item' ).length;
+				}
 
-		slickConf.centerPadding = paddingRight + 'px 0px ' + paddingLeft + 'px';
+				let slickConf = {
+					infinite: false,
+					arrows: false,
+					dots: true,
+					mobileFirst: true,
+					centerMode: true,
+					variableWidth: true,
+					centerPadding: paddingRight + 'px 0px ' + paddingLeft + 'px',
 
-		this.sliderContainer.slick( slickConf );
+					responsive: [ {
+						breakpoint: 767,
+						settings: {
+							dots: false,
+							initialSlide: initialSlide,
+						}
+					} ]
+				};
+
+				$( this ).slick( slickConf );
+			}
+		);
 	}
 
 	delay( callback, ms ) {

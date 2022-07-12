@@ -17,7 +17,7 @@ if ( 'industry' === $browse_by ) {
 }
 
 $section_classes  = ! empty( $is_mobile_bg ) ? ' browse-scroll--mobile-bg' : '';
-$section_classes .= ! empty( $direction ) ? '' : ' browse-scroll--reverse'
+$section_classes .= ! empty( $direction ) ? ' browse-scroll--reverse' : '';
 ?>
 
 <section class="container-fluid browse-scroll<?= esc_html( $section_classes ) ?>">
@@ -44,4 +44,3 @@ $section_classes .= ! empty( $direction ) ? '' : ' browse-scroll--reverse'
 		</div>
 	</div>
 </section>
-<br>
