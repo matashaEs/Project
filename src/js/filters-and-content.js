@@ -13,16 +13,22 @@ class FiltersAndContent {
 
 	showFilters( e, $this ) {
 		e.preventDefault();
-		$this.grandparent = $( e.target.closest( '.filters-and-content' ) );
-		$this.parent 	  = $( e.target.closest( '.filters-and-content__col-filters' ) );
+		$this.parent 	= $( e.target.closest( '.filters-and-content__col-filters' ) );
+		const container = this.parent.find( '.filters-and-content__filters-container' );
 
-		$('body').toggleClass( 'no-scroll' );
-
-		this.parent
-			.find( '.filters-and-content__filters-container' )
-			.toggleClass( 'filters-and-content__filters-container--show' );
+		container.toggleClass( 'filters-and-content__filters-container--show' );
 
 		$( e.target ).toggleClass( 'filters-and-content__filters-title--show' );
+
+		if ( container.hasClass( 'filters-and-content__filters-container--show' ) ) {
+			document.body.style.position = 'fixed';
+			document.body.style.top 	 = `-${window.scrollY}px`;
+		} else {
+			const scrollY 				 = document.body.style.top;
+			document.body.style.position = '';
+			document.body.style.top 	 = '';
+			window.scrollTo( 0, parseInt( scrollY || '0' ) * -1 );
+		}
 	}
 }
 

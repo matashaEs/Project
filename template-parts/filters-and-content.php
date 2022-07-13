@@ -114,27 +114,25 @@ $radios = [
 					<?= get_svg( 'down-arrow', 'filters-and-content__filters-title-arrow' ) ?>
 			</h3>
 			<div class="filters-and-content__filters-container">
-				<div class="filters-and-content__filters">
-					<?php get_template_part( 'template-parts/form-select', null, $select_array_1 ); ?>
-					<?php get_template_part( 'template-parts/form-select', null, $select_array_2 ); ?>
-					<?php if ( ! empty( $radios ) ) : ?>
-						<h4 class="filters-and-content__filters-subtitle">
-							<?= esc_html( $radios['title'] ) ?>
-						</h4>
-						<?php foreach ( $radios['options'] as $radio ) : ?>
-							<div class="radio__container">
-								<input type="radio"
-										class="input__radio input__radio--filters"
-										id="<?= esc_attr( $radio['id'] ) ?>"
-										value="<?= esc_attr( $radio['name'] ) ?>"
-										name="<?= esc_attr( $radio['id'] ) ?>"/>
-								<label class="h4" for="<?= esc_attr( $radio['id'] ) ?>">
-									<?= esc_html( $radio['name'] ) ?>
-								</label>
-							</div>
-						<?php endforeach; ?>
-					<?php endif; ?>
-				</div>
+				<?php get_template_part( 'template-parts/form-select', null, $select_array_1 ); ?>
+				<?php get_template_part( 'template-parts/form-select', null, $select_array_2 ); ?>
+				<?php if ( ! empty( $radios ) ) : ?>
+					<h4 class="filters-and-content__filters-subtitle">
+						<?= esc_html( $radios['title'] ) ?>
+					</h4>
+					<?php foreach ( $radios['options'] as $radio ) : ?>
+						<div class="radio__container">
+							<input type="radio"
+									class="input__radio input__radio--filters"
+									id="<?= esc_attr( $radio['id'] ) ?>"
+									value="<?= esc_attr( $radio['name'] ) ?>"
+									name="<?= esc_attr( $radio['id'] ) ?>"/>
+							<label class="h4" for="<?= esc_attr( $radio['id'] ) ?>">
+								<?= esc_html( $radio['name'] ) ?>
+							</label>
+						</div>
+					<?php endforeach; ?>
+				<?php endif; ?>
 			</div>
 		</div>
 		<div class="col filters-and-content__col filters-and-content__col-content">
