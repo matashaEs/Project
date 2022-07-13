@@ -25,6 +25,13 @@ label,
       backface-visibility: hidden;
       cursor: pointer;
     }
+
+	@for $i from 2 through 5 {
+
+	  &:nth-child(#{$i}) {
+		z-index: 1000 - $i + 1;
+	  }
+	}
   }
 
   &__product-detail {

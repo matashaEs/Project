@@ -15,7 +15,8 @@ button,
   border-radius: 2.5rem;
   cursor: pointer;
   white-space: nowrap;
-  height: 37px;
+  height: auto;
+  line-height: 1;
 
   &--footer {
     border-radius: 0;
@@ -45,32 +46,29 @@ button,
     color: var(--main-blue);
   }
 
+  &--orange, &--dark-pink, &--light-pink, &--wms {
+	color: var(--white);
+	padding: 0.7rem 2.2rem;
+  }
+
   &--orange {
     background-color: var(--erp);
     border-color: var(--erp);
-    color: var(--white);
-    padding: 0.3rem 2.2rem;
   }
 
   &--dark-pink {
     background-color: var(--dark-pink);
     border-color: var(--dark-pink);
-    color: var(--white);
-    padding: 0.3rem 2.2rem;
   }
 
   &--light-pink {
     background-color: var(--light-pink);
     border-color: var(--light-pink);
-    color: var(--white);
-    padding: 0.3rem 2.2rem;
   }
 
   &--wms {
     background-color: var(--wms);
     border-color: var(--wms);
-    color: var(--white);
-    padding: 0.3rem 2.2rem;
   }
 
   &:hover {

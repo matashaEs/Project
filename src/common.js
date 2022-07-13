@@ -5,3 +5,4 @@ import './scss/index.scss';
 import './js/mobile-nav';
 import './js/pagination-infinite-scroll';
 import './js/form';
+import './js/filters-and-content';

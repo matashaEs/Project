@@ -1,0 +1,169 @@
+$transition-time: 1s;
+
+.filters-and-content {
+  $this: &;
+
+  &__col {
+	width: 100%;
+
+	&-filters {
+	  margin-left: -2rem;
+	  border-radius: 25px 25px 0 0;
+	  padding-left: 2rem;
+	}
+  }
+
+  &__filters-title {
+	color: var(--grey);
+	background-color: var(--main-blue);
+	position: fixed;
+	z-index: 6;
+	bottom: 0;
+	border-radius: 25px 25px 0 0;
+	margin: 0 0 0 -2rem;
+	padding: 2.5rem 2rem;
+	width: 100%;
+	transition: all $transition-time;
+
+	&-arrow {
+	  position: absolute;
+	  height: auto;
+	  width: 15px;
+	  right: 3rem;
+	  transition: all $transition-time;
+	  top: 0;
+	  bottom: 0;
+	  margin: auto;
+
+	  path {
+		fill: var(--off-white);
+	  }
+	}
+
+	&--show {
+	  color: var(--main-blue);
+	  background-color: var(--grey);
+
+	  #{$this}__filters-title-arrow {
+		transform: scale(1, -1);
+		path {
+		  fill: var(--main-blue);
+		}
+	  }
+	}
+  }
+
+  &__filters-container {
+	position: fixed;
+	width: 100%;
+	margin-left: -2rem;
+	bottom: -100%;
+	z-index: 5;
+	transition: all $transition-time;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+
+	&--show {
+	  bottom: 55px;
+	}
+  }
+
+  &__filters {
+	background-color: var(--grey);
+	padding: 2rem 2rem 3.5rem;
+	border-radius: 25px 25px 0 0;
+  }
+
+  &__title {
+	margin: 1.5rem 0 2rem;
+
+	&--desktop {
+	  display: none;
+	}
+  }
+
+  &__item {
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+	position: relative;
+	margin-bottom: 4.5rem;
+
+	&:hover {
+	  #{$this}__item-image {
+		filter: none;
+	  }
+	}
+  }
+
+  &__item-image-container {
+	width: 100%;
+	aspect-ratio: 1.5;
+	z-index: 1;
+	position: relative;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+	margin-bottom: 2.5rem;
+  }
+
+  &__item-image {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	filter: grayscale(1);
+  }
+
+  &__item-category {
+	z-index: 2;
+	margin: 1.2rem 1.2rem 0 0;
+  }
+
+  &__item-title {
+	margin: 0 0 1rem;
+  }
+
+  &__items-tags {
+	margin: 0;
+	color: var(--grey-modules);
+  }
+
+  .form-select {
+	margin-bottom: 1.5rem;
+  }
+
+  .radio__container {
+	margin-bottom: 2rem;
+  }
+}
+
+@include min-size(md) {
+  .filters-and-content {
+  }
+}
+
+@include min-size(lg) {
+  .filters-and-content {
+	&__title {
+	  &--mobile {
+		display: none;
+	  }
+
+	  &--desktop {
+		display: block;
+	  }
+	}
+  }
+}
+
+@include min-size(xl) {
+  .filters-and-content {
+  }
+}
+
+@include min-size(xxl) {
+  .filters-and-content {
+  }
+}
