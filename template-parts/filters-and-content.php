@@ -102,8 +102,9 @@ $radios = [
 ?>
 
 <section class="container-fluid filters-and-content">
-	<div class="container">
+	<div class="container filters-and-content__container">
 		<div class="col filters-and-content__col filters-and-content__col-filters">
+			<div class="filters-and-content__filters-bg"></div>
 			<?php if ( ! empty( $title ) ) : ?>
 				<h1 class="filters-and-content__title filters-and-content__title--desktop">
 					<?= esc_html( $title ) ?>
@@ -111,28 +112,32 @@ $radios = [
 			<?php endif; ?>
 			<h3 class="filters-and-content__filters-title">
 				<?= esc_html__( 'Filters', 'nuplo' ) ?>
-					<?= get_svg( 'down-arrow', 'filters-and-content__filters-title-arrow' ) ?>
+				<?php the_svg( 'down-arrow', 'filters-and-content__filters-title-arrow' ); ?>
 			</h3>
 			<div class="filters-and-content__filters-container">
 				<div class="filters-and-content__filters">
-					<?php get_template_part( 'template-parts/form-select', null, $select_array_1 ); ?>
-					<?php get_template_part( 'template-parts/form-select', null, $select_array_2 ); ?>
+					<div class="filters-and-content__filters-group">
+						<?php get_template_part( 'template-parts/form-select', null, $select_array_1 ); ?>
+						<?php get_template_part( 'template-parts/form-select', null, $select_array_2 ); ?>
+					</div>
 					<?php if ( ! empty( $radios ) ) : ?>
-						<h4 class="filters-and-content__filters-subtitle">
-							<?= esc_html( $radios['title'] ) ?>
-						</h4>
-						<?php foreach ( $radios['options'] as $radio ) : ?>
-							<div class="radio__container">
-								<input type="radio"
-										class="input__radio input__radio--filters"
-										id="<?= esc_attr( $radio['id'] ) ?>"
-										value="<?= esc_attr( $radio['name'] ) ?>"
-										name="<?= esc_attr( $radios['name'] ) ?>"/>
-								<label class="h4" for="<?= esc_attr( $radio['id'] ) ?>">
-									<?= esc_html( $radio['name'] ) ?>
-								</label>
-							</div>
-						<?php endforeach; ?>
+						<div class="filters-and-content__filters-group">
+							<h4 class="filters-and-content__filters-subtitle">
+								<?= esc_html( $radios['title'] ) ?>
+							</h4>
+							<?php foreach ( $radios['options'] as $radio ) : ?>
+								<div class="radio__container">
+									<input type="radio"
+											class="input__radio input__radio--filters"
+											id="<?= esc_attr( $radio['id'] ) ?>"
+											value="<?= esc_attr( $radio['name'] ) ?>"
+											name="<?= esc_attr( $radios['name'] ) ?>"/>
+									<label class="h4" for="<?= esc_attr( $radio['id'] ) ?>">
+										<?= esc_html( $radio['name'] ) ?>
+									</label>
+								</div>
+							<?php endforeach; ?>
+						</div>
 					<?php endif; ?>
 				</div>
 			</div>
