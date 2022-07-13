@@ -55,22 +55,24 @@ $transition-time: 1s;
   }
 
   &__filters-container {
+	transition: all $transition-time;
+	max-height: 0;
+	overflow: hidden;
 	position: fixed;
 	width: 100%;
 	margin-left: -2rem;
-	bottom: -100%;
+	bottom: 0;
+  }
+
+  &__filters {
+	width: 100%;
 	z-index: 5;
-	transition: all $transition-time;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
 	background-color: var(--grey);
-	padding: 2rem 2rem 3.5rem;
+	padding: 2rem 2rem 9rem;
 	border-radius: 25px 25px 0 0;
-
-	&--show {
-	  bottom: 55px;
-	}
   }
 
   &__title {
@@ -130,6 +132,10 @@ $transition-time: 1s;
 
   .form-select {
 	margin-bottom: 1.5rem;
+  }
+
+  .form-select-box .form-options-container.active {
+	max-height: 300px;
   }
 
   .radio__container {

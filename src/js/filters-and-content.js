@@ -13,21 +13,25 @@ class FiltersAndContent {
 
 	showFilters( e, $this ) {
 		e.preventDefault();
-		$this.parent 	= $( e.target.closest( '.filters-and-content__col-filters' ) );
-		const container = this.parent.find( '.filters-and-content__filters-container' );
+		$this.parent = $( e.target.closest( '.filters-and-content__col-filters' ) );
 
-		container.toggleClass( 'filters-and-content__filters-container--show' );
+		const container	   	  = this.parent.find( '.filters-and-content__filters-container' );
+		const title 		  = $( e.target );
+		const windowScroll    = window.scrollY;
+		const containerHeight = window.innerHeight > container[0].scrollHeight ? container[0].scrollHeight : window.innerHeight;
+		const scrollY 		  = document.body.style.top;
 
-		$( e.target ).toggleClass( 'filters-and-content__filters-title--show' );
+		title.toggleClass( 'filters-and-content__filters-title--show' );
 
-		if ( container.hasClass( 'filters-and-content__filters-container--show' ) ) {
+		if ( title.hasClass( 'filters-and-content__filters-title--show' ) ) {
 			document.body.style.position = 'fixed';
-			document.body.style.top 	 = `-${window.scrollY}px`;
+			document.body.style.top 	 = `-${windowScroll}px`;
+			container.css({'maxHeight': `${containerHeight}px`});
 		} else {
-			const scrollY 				 = document.body.style.top;
 			document.body.style.position = '';
 			document.body.style.top 	 = '';
 			window.scrollTo( 0, parseInt( scrollY || '0' ) * -1 );
+			container.css({'maxHeight': '0'});
 		}
 	}
 }
