@@ -46,9 +46,12 @@ button,
     color: var(--main-blue);
   }
 
-  &--orange, &--dark-pink, &--light-pink, &--wms {
-	color: var(--white);
-	padding: 0.7rem 2.2rem;
+  &--orange,
+  &--dark-pink,
+  &--light-pink,
+  &--wms {
+    color: var(--white);
+    padding: 0.7rem 2.2rem;
   }
 
   &--orange {
