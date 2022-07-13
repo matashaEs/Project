@@ -62,8 +62,6 @@
 
 @include min-size(md) {
   .footer {
-    $this: &;
-
     &-mobile {
       display: none;
     }
