@@ -126,7 +126,7 @@ $transition-time: 1s;
     margin: 0 0 1rem;
   }
 
-  &__items-tags {
+  &__item-tags {
     margin: 0;
     color: var(--grey-modules);
   }
@@ -146,6 +146,24 @@ $transition-time: 1s;
 
 @include min-size(md) {
   .filters-and-content {
+	&__title {
+	  margin-bottom: 4rem;
+	}
+
+	&__content-container {
+	  display: flex;
+	  flex-flow: row wrap;
+	  justify-content: space-between;
+	}
+
+	&__item {
+	  width: 48%;
+	}
+
+	&__item-image-container {
+	  margin-bottom: 2rem;
+	  min-height: 230px;
+	}
   }
 }
 
