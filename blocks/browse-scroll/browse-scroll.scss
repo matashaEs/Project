@@ -1,13 +1,31 @@
 @import "../../src/scss/for-blocks";
 
-$arrow-width: 30px;
-$arrow-height: 26px;
-$arrow-transition: calc(-#{$arrow-width} - 22px);
+/**
+	arrow transition (from right or left) depends on block direction
+ */
+$arrow-transition: -52px;
+
+/**
+	to resize items as the screen width changes
+ */
+@mixin image-size( $image-width, $image-height) {
+  &__item {
+    width: $image-width;
+    height: $image-height;
+    max-width: $image-width;
+    max-height: $image-height;
+  }
+
+  &__item-bg {
+    width: $image-width;
+    height: $image-height;
+    max-width: $image-width;
+    max-height: $image-height;
+  }
+}
 
 .browse-scroll {
   $this: &;
-  $image-width: 263px;
-  $image-height: 211px;
 
   &--mobile-bg {
     background: var(--off-white);
@@ -30,9 +48,9 @@ $arrow-transition: calc(-#{$arrow-width} - 22px);
     &::after {
       content: "";
       display: block;
-      width: $arrow-width;
-      height: $arrow-height;
-      background: url("../../assets/img/small-arrow.svg") no-repeat;
+      width: 30px;
+      height: 26px;
+      background: url("../../assets/img/blue-arrow.svg") no-repeat;
       background-size: cover;
       position: absolute;
       right: $arrow-transition;
@@ -65,10 +83,6 @@ $arrow-transition: calc(-#{$arrow-width} - 22px);
     justify-content: center;
     align-items: center;
     margin-right: 1.1rem;
-    width: $image-width;
-    height: $image-height;
-    max-width: $image-width;
-    max-height: $image-height;
     text-decoration: none;
     position: relative;
     overflow: hidden;
@@ -85,10 +99,6 @@ $arrow-transition: calc(-#{$arrow-width} - 22px);
   }
 
   &__item-bg {
-    width: $image-width;
-    height: $image-height;
-    max-width: $image-width;
-    max-height: $image-height;
     position: absolute;
     top: 0;
     left: 0;
@@ -100,14 +110,14 @@ $arrow-transition: calc(-#{$arrow-width} - 22px);
   &__button {
     z-index: 2;
   }
+
+  @include image-size(263px, 211px);
 }
 
 @include min-size(md) {
   .browse-scroll {
     $this: &;
-    $arrow-width: 45px;
-    $arrow-height: 38px;
-    $arrow-transition: calc(-#{$arrow-width} - 22px);
+    $arrow-transition: -80px;
 
     &--reverse {
       #{$this}__row {
@@ -186,10 +196,10 @@ $arrow-transition: calc(-#{$arrow-width} - 22px);
 
       &::after {
         top: initial;
-        width: $arrow-width;
-        height: $arrow-height;
         right: $arrow-transition;
         bottom: 10px;
+        width: 58px;
+        height: 50px;
       }
     }
   }
@@ -198,11 +208,6 @@ $arrow-transition: calc(-#{$arrow-width} - 22px);
 @include min-size(lg) {
   .browse-scroll {
     $this: &;
-    $image-width: 413px;
-    $image-height: 330px;
-    $arrow-width: 58px;
-    $arrow-height: 50px;
-    $arrow-transition: calc(-#{$arrow-width} - 22px);
 
     &--reverse {
       #{$this}__items-list {
@@ -219,44 +224,20 @@ $arrow-transition: calc(-#{$arrow-width} - 22px);
 
     &__description-link {
       width: auto;
-
-      &::after {
-        width: $arrow-width;
-        height: $arrow-height;
-        right: $arrow-transition;
-        bottom: -5px;
-      }
     }
 
     &__items-list {
       width: calc(100% + 3rem);
     }
 
-    &__item {
-      width: $image-width;
-      height: $image-height;
-      max-width: $image-width;
-      max-height: $image-height;
-      margin-right: 2rem;
-    }
-
-    &__item-bg {
-      width: $image-width;
-      height: $image-height;
-      max-width: $image-width;
-      max-height: $image-height;
-    }
+    @include image-size(413px, 330px);
   }
 }
 
 @include min-size(xl) {
   .browse-scroll {
     $this: &;
-    $image-width: 456px;
-    $image-height: 365px;
-    $arrow-width: 73px;
-    $arrow-height: 62px;
-    $arrow-transition: calc(-#{$arrow-width} - 22px);
+    $arrow-transition: -95px;
 
     &--reverse {
       #{$this}__items-list {
@@ -277,8 +258,8 @@ $arrow-transition: calc(-#{$arrow-width} - 22px);
 
     &__description-link {
       &::after {
-        width: $arrow-width;
-        height: $arrow-height;
+        width: 73px;
+        height: 62px;
         right: $arrow-transition;
         bottom: -6px;
       }
@@ -292,19 +273,7 @@ $arrow-transition: calc(-#{$arrow-width} - 22px);
       width: calc(100% + 5rem);
     }
 
-    &__item {
-      width: $image-width;
-      height: $image-height;
-      max-width: $image-width;
-      max-height: $image-height;
-    }
-
-    &__item-bg {
-      width: $image-width;
-      height: $image-height;
-      max-width: $image-width;
-      max-height: $image-height;
-    }
+    @include image-size(456px, 365px);
   }
 }
 
