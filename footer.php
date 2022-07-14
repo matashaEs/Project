@@ -50,15 +50,15 @@ endif;
 							<ul class="footer__social-media">
 								<?php
 								foreach ( $social_media as $item ) :
-									$icon   = $item['title'] ?? false;
-									$target = $item['link'] ?? '#';
+									$url_name = $item['title'] ?? false;
+									$url      = $item['link'] ?? false;
 
-									if ( $icon ) :
+									if ( $url_name && $url ) :
 										?>
 
 										<li class="footer__social-media-item">
-											<a href="<?php echo esc_url( $target ); ?>" target="_blank">
-												<?= esc_html( $icon ) ?>
+											<a href="<?php echo esc_url( $url ); ?>" target="_blank">
+												<?= esc_html( $url_name ) ?>
 											</a>
 										</li>
 
@@ -119,15 +119,15 @@ endif;
 							<ul class="footer__social-media">
 								<?php
 								foreach ( $social_media as $item ) :
-									$icon   = $item['title'] ?? false;
-									$target = $item['link'] ?? false;
+									$icon_name = $item['title'] ?? false;
+									$url       = $item['link'] ?? false;
 
-									if ( $icon && $target ) :
+									if ( $icon_name && $url ) :
 										?>
 
 										<li class="footer__social-media-item">
-											<a href="<?php echo esc_url( $target ); ?>" target="_blank">
-												<?php the_svg( 'icon-' . $icon, 'footer__icon' ); ?>
+											<a href="<?php echo esc_url( $url ); ?>" target="_blank">
+												<?php the_svg( 'icon-' . $icon_name, 'footer__icon' ); ?>
 											</a>
 										</li>
 

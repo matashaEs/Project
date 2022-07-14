@@ -85,7 +85,12 @@
 
     &__big {
       max-width: 35rem;
-      font-size: 20px;
+      font-size: 2rem;
+    }
+
+    &__icon {
+      width: 2.8rem;
+      height: 2.8rem;
     }
 
     &__title {
@@ -153,15 +158,5 @@
     &__social-media {
       margin-right: 20%;
     }
-  }
-}
-
-@include min-size(xl) {
-  .footer {
-  }
-}
-
-@include min-size(xxl) {
-  .footer {
   }
 }
