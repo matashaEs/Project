@@ -1,6 +1,13 @@
 <?php
 $social_media = get_field( 'social_media', 'options' ) ?? false;
 
+if ( have_rows( 'motto', 'option' ) ) :
+	while ( have_rows( 'motto', 'option' ) ) :
+		the_row();
+		$motto = get_sub_field( 'content' );
+	endwhile;
+endif;
+
 if ( have_rows( 'contact_information', 'option' ) ) :
 	while ( have_rows( 'contact_information', 'option' ) ) :
 		the_row();
@@ -86,7 +93,7 @@ endif;
 			<div class="row footer__row">
 				<div class="footer__col">
 					<h5 class="footer__title footer__title-cai">
-						<?php _e( '© CAI ', 'nuplo' ); ?> <?php echo esc_html( gmdate( 'Y' ) ); ?>
+						<?php _e( '© CAI ', 'nuplo' ); ?><?php echo esc_html( gmdate( 'Y' ) ); ?>
 					</h5>
 				</div>
 				<div class="footer__col">
@@ -102,14 +109,9 @@ endif;
 			<div class="row footer__row">
 				<div class="footer__col">
 					<?php the_svg( 'cai-logo.svg', 'footer__logo' ); ?>
-					<p class="footer__big">
-						<?php
-						_e(
-							'Industry-specific, mission-critical enterprise and warehouse management software.',
-							'nuplo'
-						);
-						?>
-					</p>
+					<?php if ( ! empty( $motto ) ) : ?>
+						<p class="footer__big"><?= esc_html( $motto ) ?></p>
+					<?php endif; ?>
 					<div class="footer__flex footer__flex--first">
 						<?php
 						if ( $social_media ) :
@@ -151,7 +153,8 @@ endif;
 					<h5 class="footer__title"><?php _e( 'Get in touch', 'nuplo' ); ?></h5>
 					<div class="footer__flex">
 						<?php if ( ! empty( $mail ) ) : ?>
-							<p class="footer__mail"><a href="mailto: <?= esc_html( $mail ) ?>"> <?= esc_html( $mail ) ?></a></p>
+							<p class="footer__mail"><a
+										href="mailto: <?= esc_html( $mail ) ?>"> <?= esc_html( $mail ) ?></a></p>
 						<?php endif; ?>
 						<a class="button button--footer footer__button"><?php _e( 'Live Chat', 'nuplo' ); ?></a>
 					</div>
