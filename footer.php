@@ -127,7 +127,7 @@ endif;
 
 										<li class="footer__social-media-item">
 											<a href="<?php echo esc_url( $url ); ?>" target="_blank">
-												<?php the_svg( 'icon-' . $icon_name, 'footer__icon' ); ?>
+												<?php the_svg( 'icon-' . $icon_name . '.svg', 'footer__icon' ); ?>
 											</a>
 										</li>
 
