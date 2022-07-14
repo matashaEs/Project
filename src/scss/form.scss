@@ -122,6 +122,14 @@ label,
     font-family: var(--font-aeonik-light);
     font-size: 1.6rem;
     color: var(--black);
+	transition: all 0.5s;
+  }
+
+  &:focus {
+	&::placeholder {
+	  transform: translateY(-12px);
+	  font-size: 1rem;
+	}
   }
 
   &--start {

@@ -1,0 +1,113 @@
+@import "../../src/scss/for-blocks";
+
+.newsletter {
+  background: var(--main-blue);
+  color: var(--white);
+
+  &__row {
+    display: block;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  &__form {
+    display: flex;
+    visibility: visible;
+
+    &-section {
+      width: 100%;
+      position: relative;
+    }
+
+    &--hide {
+      visibility: hidden;
+    }
+
+    &-valid {
+      display: none;
+      position: absolute;
+      top: 0;
+
+      &--show {
+        display: block;
+      }
+    }
+  }
+
+  &__text-error {
+    height: 2.2rem;
+    color: var(--yellow);
+  }
+
+  &__input {
+    border: none;
+    height: 4.2rem;
+    width: 100%;
+    padding-left: 2.5rem;
+
+    &--error {
+      border: 3px solid var(--yellow);
+    }
+
+    &::placeholder {
+      color: var(--dark-black);
+      font-size: 1.4rem;
+      transition: all 0.5s;
+    }
+
+    &:focus {
+      &::placeholder {
+        transform: translateY(-16px);
+        font-size: 1rem;
+        color: var(--black);
+      }
+    }
+  }
+
+  &__field {
+    width: 85%;
+  }
+
+  &__button {
+    width: 11rem;
+    margin-left: 1.3rem;
+    color: var(--main-blue);
+  }
+}
+
+@include min-size(md) {
+  .newsletter {
+    &__button {
+      width: 16.8rem;
+      margin-left: 5rem;
+    }
+
+    &__row {
+      margin-bottom: 3rem;
+    }
+  }
+}
+
+@include min-size(lg) {
+  .newsletter {
+    &__form-section {
+      width: 50%;
+    }
+
+    &__title {
+      width: 50%;
+      margin-bottom: 5rem;
+    }
+
+    &__field {
+      width: 65%;
+    }
+
+    &__row {
+      margin-top: 1.5rem;
+      margin-bottom: 0;
+      display: flex;
+    }
+  }
+}
