@@ -15,7 +15,6 @@ button,
   border-radius: 2.5rem;
   cursor: pointer;
   white-space: nowrap;
-  height: auto;
   line-height: 1;
 
   &--footer {
@@ -33,6 +32,12 @@ button,
     &-blue {
       color: var(--main-blue);
     }
+  }
+
+  &--off-white {
+    background-color: var(--off-white);
+    border-color: var(--off-white);
+    color: var(--black);
   }
 
   &--blue-border {
@@ -81,6 +86,12 @@ button,
     color: var(--off-white);
   }
 
+  &--off-white:hover {
+    background-color: var(--grey-modules);
+    border-color: var(--grey-modules);
+    color: var(--black);
+  }
+
   &--orange:hover {
     background-color: var(--erp-hover);
     border-color: var(--erp-hover);
@@ -120,6 +131,13 @@ button,
 }
 
 @include min-size(md) {
+  button,
+  .button {
+    &--off-white {
+      padding: 1.1rem 0 1.5rem 3.5rem;
+    }
+  }
+
   .buttons {
     flex-wrap: nowrap;
   }
