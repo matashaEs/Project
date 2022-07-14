@@ -5,6 +5,7 @@
  * $options
  *  $id
  *  $value
+ * $button_classes
  */
 extract( $args );
 
@@ -27,7 +28,7 @@ extract( $args );
 				</div>
 			<?php endforeach; ?>
 		</div>
-		<div class="form-select--selected h4">
+		<div class="form-select--selected <?= ! empty( $button_classes ) ? esc_attr( $button_classes ) : '' ?>">
 			<?= esc_html( $title ) ?>
 		</div>
 	</div>
