@@ -11,7 +11,8 @@ extract( $args );
 
 <?php foreach ( $options as $option ) : ?>
 	<div class="radio__container">
-		<input type="radio"
+		<input
+				type="radio"
 				class="input__radio input__radio--filters"
 				id="<?= esc_attr( $option['id'] ) ?>"
 				value="<?= esc_attr( $option['value'] ) ?>"

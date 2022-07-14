@@ -87,8 +87,10 @@ $content_col_class = ! empty( $content_top_padding ) ? ' sidebar-and-content__co
 						<div class="sidebar-and-content__item">
 							<div class="sidebar-and-content__item-image-container">
 								<?php if ( ! empty( $item ['category'] ) ) : ?>
-									<div class="sidebar-and-content__item-image"
-											style="background-image: url('<?= esc_html( $item['background'] ); ?>');"></div>
+									<div
+											class="sidebar-and-content__item-image"
+											style="background-image: url('<?= esc_html( $item['background'] ); ?>');">
+									</div>
 									<div class="button button--orange sidebar-and-content__item-category">
 										<?= esc_html( $item ['category'] ) ?>
 									</div>
@@ -108,6 +110,9 @@ $content_col_class = ! empty( $content_top_padding ) ? ' sidebar-and-content__co
 			<?php else : ?>
 				<div class="sidebar-and-content__content-container">
 					<?php the_content(); ?>
+					<section class="container-fluid benefits">
+						<div class="benefits__bg"></div>
+					</section>
 				</div>
 			<?php endif; ?>
 		</div>

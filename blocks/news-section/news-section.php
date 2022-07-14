@@ -37,7 +37,7 @@ $button_container_class = ! empty( $link_position ) ? ' news-section__row--left'
 		</div>
 		<?php if ( ! empty( $news ) ) : ?>
 			<div class="row news-section__row news-section__row--news">
-				<?php for ( $i = 0; $i < $how_many; $i++ ) : ?>
+				<?php for ( $i = 0; $i < $how_many; $i ++ ) : ?>
 					<div class="news-section__item <?= esc_html( $item_classes ) ?>">
 						<div class="news-section__item-top-content">
 							<?php if ( ! empty( $news['date'] ) ) : ?>
@@ -52,9 +52,10 @@ $button_container_class = ! empty( $link_position ) ? ' news-section__row--left'
 							<h4 class="news-section__item-title"><?= esc_html( $news['title'] ); ?></h4>
 						<?php endif; ?>
 						<?php if ( ! empty( $news['link'] ) ) : ?>
-							<a  href="<?= esc_url( $news['link'] ); ?>"
-								class="p news-section__item-button">
-									<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
+							<a
+									href="<?= esc_url( $news['link'] ); ?>"
+									class="p news-section__item-button">
+								<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
 							</a>
 						<?php endif; ?>
 					</div>
@@ -63,8 +64,9 @@ $button_container_class = ! empty( $link_position ) ? ' news-section__row--left'
 		<?php endif; ?>
 		<?php if ( ! empty( $link ) ) : ?>
 			<div class="row news-section__row news-section__row--button <?= esc_html( $button_container_class ) ?>">
-				<a href="<?= esc_url( $link['url'] ) ?>"
-					class="button news-section__button">
+				<a
+						href="<?= esc_url( $link['url'] ) ?>"
+						class="button news-section__button">
 					<?= esc_html( $link['title'] ) ?>
 				</a>
 			</div>

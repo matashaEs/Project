@@ -2,10 +2,7 @@
 get_header();
 
 $pages_data = apply_filters( 'cai_get_sidebar_and_content_data', null );
-
-foreach ( $pages_data as $page_data ) {
-	get_template_part( 'template-parts/sidebar-and-content', null, $page_data );
-}
+get_template_part( 'template-parts/sidebar-and-content', null, $pages_data[0] );
 ?>
 
 	<div class="container-fluid">
@@ -54,50 +51,55 @@ foreach ( $pages_data as $page_data ) {
 				<div class="form-select-box">
 					<div class="form-options-container">
 						<div class="form-option radio__container">
-							<input type="radio"
-								class="input__radio input__radio--filters"
-								id="news"
-								value="News"
-								name="property"/>
+							<input
+									type="radio"
+									class="input__radio input__radio--filters"
+									id="news"
+									value="News"
+									name="property"/>
 							<label for="news" class="p">
 								News
 							</label>
 						</div>
 						<div class="form-option radio__container">
-							<input type="radio" class="input__radio input__radio--filters"
-								id="caseStudies"
-								value="Case Studies"
-								name="property"/>
+							<input
+									type="radio" class="input__radio input__radio--filters"
+									id="caseStudies"
+									value="Case Studies"
+									name="property"/>
 							<label for="caseStudies" class="p">
 								Case Studies
 							</label>
 						</div>
 						<div class="form-option radio__container">
-							<input type="radio"
-								class="input__radio input__radio--filters"
-								id="press"
-								value="Press"
-								name="property"/>
+							<input
+									type="radio"
+									class="input__radio input__radio--filters"
+									id="press"
+									value="Press"
+									name="property"/>
 							<label for="press" class="p">
 								Press
 							</label>
 						</div>
 						<div class="form-option radio__container">
-							<input type="radio"
-								class="input__radio input__radio--filters"
-								id="events"
-								value="Events"
-								name="property"/>
+							<input
+									type="radio"
+									class="input__radio input__radio--filters"
+									id="events"
+									value="Events"
+									name="property"/>
 							<label for="contentType" class="p">
 								Events
 							</label>
 						</div>
 						<div class="form-option radio__container">
-							<input type="radio"
-								class="input__radio input__radio--filters"
-								id="other"
-								value="Other"
-								name="property"/>
+							<input
+									type="radio"
+									class="input__radio input__radio--filters"
+									id="other"
+									value="Other"
+									name="property"/>
 							<label for="other" class="p">
 								Other
 							</label>
@@ -113,61 +115,67 @@ foreach ( $pages_data as $page_data ) {
 			<h4>Product Category</h4>
 
 			<div class="radio__container">
-				<input type="radio"
-					class="input__radio input__radio--filters"
-					id="erp"
-					value="ERP"
-					name="ProductCategory"/>
+				<input
+						type="radio"
+						class="input__radio input__radio--filters"
+						id="erp"
+						value="ERP"
+						name="ProductCategory"/>
 				<label for="erp">
 					<p>ERP</p>
 				</label>
 			</div>
 			<div class="radio__container">
-				<input type="radio"
-					class="input__radio input__radio--filters"
-					id="commerceEDI"
-					value="E-Commerce EDI"
-					name="ProductCategory"/>
+				<input
+						type="radio"
+						class="input__radio input__radio--filters"
+						id="commerceEDI"
+						value="E-Commerce EDI"
+						name="ProductCategory"/>
 				<label for="commerceEDI">
 					<p>E-Commerce EDI</p>
 				</label>
 			</div>
 			<div class="radio__container">
-				<input type="radio"
-					class="input__radio input__radio--filters"
-					id="processAutomation"
-					value="Process Automation"
-					name="ProductCategory"/>
+				<input
+						type="radio"
+						class="input__radio input__radio--filters"
+						id="processAutomation"
+						value="Process Automation"
+						name="ProductCategory"/>
 				<label for="processAutomation">
 					<p>Process Automation</p>
 				</label>
 			</div>
 			<div class="radio__container">
-				<input type="radio"
-					class="input__radio input__radio--filters"
-					id="mes"
-					value="MES"
-					name="ProductCategory"/>
+				<input
+						type="radio"
+						class="input__radio input__radio--filters"
+						id="mes"
+						value="MES"
+						name="ProductCategory"/>
 				<label for="mes">
 					<p>MES</p>
 				</label>
 			</div>
 			<div class="radio__container">
-				<input type="radio"
-					class="input__radio input__radio--filters"
-					id="wms"
-					value="WMS"
-					name="ProductCategory"/>
+				<input
+						type="radio"
+						class="input__radio input__radio--filters"
+						id="wms"
+						value="WMS"
+						name="ProductCategory"/>
 				<label for="wms">
 					<p>WMS</p>
 				</label>
 			</div>
 			<div class="radio__container">
-				<input type="radio"
-					class="input__radio input__radio--filters"
-					id="other"
-					value="Other"
-					name="ProductCategory"/>
+				<input
+						type="radio"
+						class="input__radio input__radio--filters"
+						id="other"
+						value="Other"
+						name="ProductCategory"/>
 				<label for="other">
 					<p>Other</p>
 				</label>
@@ -214,72 +222,93 @@ foreach ( $pages_data as $page_data ) {
 			<br>
 			<br>
 
-				<div class="form-select-box form-select-box--faq">
-					<div class="form-options-container">
-						<div class="form-option form-option-faq">
-							<label class="p label-faq">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, aperiam, cum doloribus ducimus error
-								id inventore ipsam iusto, libero magni maiores natus non reprehenderit unde ut voluptatem voluptatum!
-								Animi doloremque dolores id iure obcaecati rem voluptate? Alias atque dignissimos eaque numquam! Animi
-								asperiores aut consequatur culpa fuga, labore laboriosam, laudantium molestiae officia officiis, optio
-								pariatur quibusdam quis rerum sapiente? A architecto consequatur consequuntur delectus doloribus dolorum
-								earum eius excepturi fuga id laudantium, natus nulla omnis provident quas rem repudiandae soluta totam
-								ut vero. Ad amet consequatur corporis deleniti deserunt dolore facere fuga illo iusto magni possimus
-								quasi quis, quos veniam!
-							</label>
-						</div>
-					</div>
-					<div class="form-select--selected h4">
-						FAQ One
-					</div>
-				</div>
-
-
-			<br>
-			<br>
-
-				<div class="form-select-box form-select-box--faq">
-					<div class="form-options-container">
-						<div class="form-option form-option-faq">
-							<label class="p label-faq">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, aperiam, cum doloribus ducimus error
-								id inventore ipsam iusto, libero magni maiores natus non reprehenderit unde ut voluptatem voluptatum!
-								Animi doloremque dolores id iure obcaecati rem voluptate? Alias atque dignissimos eaque numquam! Animi
-								asperiores aut consequatur culpa fuga, labore laboriosam, laudantium molestiae officia officiis, optio
-								pariatur quibusdam quis rerum sapiente? A architecto consequatur consequuntur delectus doloribus dolorum
-								earum eius excepturi fuga id laudantium, natus nulla omnis provident quas rem repudiandae soluta totam
-								ut vero. Ad amet consequatur corporis deleniti deserunt dolore facere fuga illo iusto magni possimus
-								quasi quis, quos veniam!
-							</label>
-						</div>
-					</div>
-					<div class="form-select--selected h4">
-						FAQ Two
+			<div class="form-select-box form-select-box--faq">
+				<div class="form-options-container">
+					<div class="form-option form-option-faq">
+						<label class="p label-faq">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, aperiam, cum doloribus
+							ducimus error
+							id inventore ipsam iusto, libero magni maiores natus non reprehenderit unde ut voluptatem
+							voluptatum!
+							Animi doloremque dolores id iure obcaecati rem voluptate? Alias atque dignissimos eaque
+							numquam! Animi
+							asperiores aut consequatur culpa fuga, labore laboriosam, laudantium molestiae officia
+							officiis, optio
+							pariatur quibusdam quis rerum sapiente? A architecto consequatur consequuntur delectus
+							doloribus dolorum
+							earum eius excepturi fuga id laudantium, natus nulla omnis provident quas rem repudiandae
+							soluta totam
+							ut vero. Ad amet consequatur corporis deleniti deserunt dolore facere fuga illo iusto magni
+							possimus
+							quasi quis, quos veniam!
+						</label>
 					</div>
 				</div>
+				<div class="form-select--selected h4">
+					FAQ One
+				</div>
+			</div>
+
 
 			<br>
 			<br>
 
-				<div class="form-select-box form-select-box--faq">
-					<div class="form-options-container">
-						<div class="form-option form-option-faq">
-							<label class="p label-faq">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, aperiam, cum doloribus ducimus error
-								id inventore ipsam iusto, libero magni maiores natus non reprehenderit unde ut voluptatem voluptatum!
-								Animi doloremque dolores id iure obcaecati rem voluptate? Alias atque dignissimos eaque numquam! Animi
-								asperiores aut consequatur culpa fuga, labore laboriosam, laudantium molestiae officia officiis, optio
-								pariatur quibusdam quis rerum sapiente? A architecto consequatur consequuntur delectus doloribus dolorum
-								earum eius excepturi fuga id laudantium, natus nulla omnis provident quas rem repudiandae soluta totam
-								ut vero. Ad amet consequatur corporis deleniti deserunt dolore facere fuga illo iusto magni possimus
-								quasi quis, quos veniam!
-							</label>
-						</div>
-					</div>
-					<div class="form-select--selected h4">
-						FAQ Three
+			<div class="form-select-box form-select-box--faq">
+				<div class="form-options-container">
+					<div class="form-option form-option-faq">
+						<label class="p label-faq">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, aperiam, cum doloribus
+							ducimus error
+							id inventore ipsam iusto, libero magni maiores natus non reprehenderit unde ut voluptatem
+							voluptatum!
+							Animi doloremque dolores id iure obcaecati rem voluptate? Alias atque dignissimos eaque
+							numquam! Animi
+							asperiores aut consequatur culpa fuga, labore laboriosam, laudantium molestiae officia
+							officiis, optio
+							pariatur quibusdam quis rerum sapiente? A architecto consequatur consequuntur delectus
+							doloribus dolorum
+							earum eius excepturi fuga id laudantium, natus nulla omnis provident quas rem repudiandae
+							soluta totam
+							ut vero. Ad amet consequatur corporis deleniti deserunt dolore facere fuga illo iusto magni
+							possimus
+							quasi quis, quos veniam!
+						</label>
 					</div>
 				</div>
+				<div class="form-select--selected h4">
+					FAQ Two
+				</div>
+			</div>
+
+			<br>
+			<br>
+
+			<div class="form-select-box form-select-box--faq">
+				<div class="form-options-container">
+					<div class="form-option form-option-faq">
+						<label class="p label-faq">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, aperiam, cum doloribus
+							ducimus error
+							id inventore ipsam iusto, libero magni maiores natus non reprehenderit unde ut voluptatem
+							voluptatum!
+							Animi doloremque dolores id iure obcaecati rem voluptate? Alias atque dignissimos eaque
+							numquam! Animi
+							asperiores aut consequatur culpa fuga, labore laboriosam, laudantium molestiae officia
+							officiis, optio
+							pariatur quibusdam quis rerum sapiente? A architecto consequatur consequuntur delectus
+							doloribus dolorum
+							earum eius excepturi fuga id laudantium, natus nulla omnis provident quas rem repudiandae
+							soluta totam
+							ut vero. Ad amet consequatur corporis deleniti deserunt dolore facere fuga illo iusto magni
+							possimus
+							quasi quis, quos veniam!
+						</label>
+					</div>
+				</div>
+				<div class="form-select--selected h4">
+					FAQ Three
+				</div>
+			</div>
 
 			<br>
 			<br>
