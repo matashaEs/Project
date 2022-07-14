@@ -7,7 +7,9 @@
  * @param bool   $inline Display svg inline? False - as img.
  */
 function the_svg( $name, $css_class = '', $inline = true ) {
-	echo esc_html( get_svg( $name, $css_class, $inline ) );
+	// @codingStandardsIgnoreStart
+	echo get_svg( $name, $css_class, $inline );
+	// @codingStandardsIgnoreEnd
 }
 
 /**
