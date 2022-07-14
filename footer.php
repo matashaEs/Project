@@ -55,14 +55,14 @@ endif;
 											</a>
 										</li>
 
-									<?php
+										<?php
 									endif;
 									?>
 								<?php endforeach; ?>
 							</ul>
 						</div>
 
-					<?php
+						<?php
 					endif;
 					?>
 				</div>
@@ -74,11 +74,11 @@ endif;
 				<div class="footer__col">
 					<?php
 					wp_nav_menu(
-							[
-									'menu'           => 'footer-menu-mobile',
-									'menu_class'     => 'footer__menu',
-									'theme_location' => 'footer-menu-mobile',
-							]
+						[
+							'menu'           => 'footer-menu-mobile',
+							'menu_class'     => 'footer__menu',
+							'theme_location' => 'footer-menu-mobile',
+						]
 					);
 					?>
 				</div>
@@ -105,8 +105,8 @@ endif;
 					<p class="footer__big">
 						<?php
 						_e(
-								'Industry-specific, mission-critical enterprise and warehouse management software.',
-								'nuplo'
+							'Industry-specific, mission-critical enterprise and warehouse management software.',
+							'nuplo'
 						);
 						?>
 					</p>
@@ -120,7 +120,7 @@ endif;
 									$icon   = $item['title'] ?? false;
 									$target = $item['link'] ?? false;
 
-									if ( $icon && $target) :
+									if ( $icon && $target ) :
 										?>
 
 										<li class="footer__social-media-item">
@@ -129,20 +129,20 @@ endif;
 											</a>
 										</li>
 
-									<?php
+										<?php
 									endif;
 									?>
 								<?php endforeach; ?>
 							</ul>
 
-						<?php
+							<?php
 						endif;
 						wp_nav_menu(
-								[
-										'menu'           => 'footer-menu',
-										'menu_class'     => 'footer__menu',
-										'theme_location' => 'footer-menu',
-								]
+							[
+								'menu'           => 'footer-menu',
+								'menu_class'     => 'footer__menu',
+								'theme_location' => 'footer-menu',
+							]
 						);
 						?>
 					</div>
@@ -159,11 +159,11 @@ endif;
 					<div class="footer__menu-explore">
 						<?php
 						wp_nav_menu(
-								[
-										'menu'           => 'footer-menu-explore',
-										'menu_class'     => 'footer__menu',
-										'theme_location' => 'footer-menu-explore',
-								]
+							[
+								'menu'           => 'footer-menu-explore',
+								'menu_class'     => 'footer__menu',
+								'theme_location' => 'footer-menu-explore',
+							]
 						);
 						?>
 					</div>
