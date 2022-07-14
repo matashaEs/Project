@@ -1,5 +1,11 @@
 <?php
 get_header();
+
+$pages_data = apply_filters( 'cai_get_sidebar_and_content_data', null );
+
+foreach ( $pages_data as $page_data ) {
+	get_template_part( 'template-parts/sidebar-and-content', null, $page_data );
+}
 ?>
 
 	<div class="container-fluid">

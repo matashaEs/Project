@@ -12,6 +12,14 @@ $transition-time: 1s;
       padding-left: 2rem;
       z-index: 3;
     }
+
+    &-content {
+      padding: 4.5rem 0;
+
+      &--padding-top-0#{$this}__col-content--padding-top-0 {
+        padding-top: 0;
+      }
+    }
   }
 
   &__sidebar-title {
@@ -93,16 +101,6 @@ $transition-time: 1s;
     }
   }
 
-  &__content-container {
-    &--search {
-      #{$this}__col {
-        &__content-container {
-          padding: 4.5rem 0;
-        }
-      }
-    }
-  }
-
   &__item {
     display: flex;
     flex-direction: column;
@@ -179,6 +177,10 @@ $transition-time: 1s;
 
     &__item {
       width: 48%;
+
+      &:nth-last-child(-n+2) {
+        margin-bottom: 0;
+      }
     }
 
     &__item-image-container {
@@ -190,12 +192,6 @@ $transition-time: 1s;
 
 @include min-size(lg) {
   .sidebar-and-content {
-    padding: 10rem 0 13rem;
-
-    &--pt0 {
-      padding-top: 0;
-    }
-
     &__container {
       flex-flow: row nowrap;
     }
@@ -203,14 +199,14 @@ $transition-time: 1s;
     &__col {
       &-sidebar {
         width: 45%;
-        padding: 0 5rem 32rem 0;
+        padding: 10rem 5rem 32rem 0;
         margin: 0;
         position: relative;
       }
 
       &-content {
         width: 55%;
-        padding-left: 3rem;
+        padding: 16rem 3rem 16rem 0;
       }
     }
 
@@ -252,21 +248,29 @@ $transition-time: 1s;
       position: absolute;
       background-color: var(--grey);
       width: 45vw;
-      height: calc(100% + 10rem);
-      top: -10rem;
+      height: 100%;
+      top: 0;
       left: -3rem;
       z-index: -1;
     }
 
     &__sidebar-group {
       margin-bottom: 6rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     &__item {
       width: 100%;
       margin-bottom: 7.5rem;
 
-      &:nth-last-child(-n+2) {
+      &:nth-last-child(2) {
+        margin-bottom: 7.5rem;
+      }
+
+      &:last-child {
         margin-bottom: 0;
       }
     }
@@ -280,16 +284,9 @@ $transition-time: 1s;
 
 @include min-size(xl) {
   .sidebar-and-content {
-    padding: 10rem 0 16rem;
-
-    &--pt0 {
-      padding-top: 0;
-    }
-
     &__col {
       &-sidebar {
         width: 33.33%;
-        padding: 0 5rem 32rem 0;
         margin: 0;
         position: relative;
       }
@@ -309,6 +306,10 @@ $transition-time: 1s;
     &__item {
       width: 48%;
       max-width: 46rem;
+
+      &:nth-last-child(2) {
+        margin-bottom: 0;
+      }
     }
   }
 }

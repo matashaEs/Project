@@ -21,6 +21,8 @@ if ( 'industry' === $browse_by ) {
 	$items      = apply_filters( 'cai_get_products', null );
 }
 
+$content_col_class = ! empty( $content_top_padding ) ? ' sidebar-and-content__col-content--padding-top-0' : '';
+
 ?>
 
 <section class="container-fluid sidebar-and-content">
@@ -73,14 +75,14 @@ if ( 'industry' === $browse_by ) {
 
 		</div>
 
-		<div class="col sidebar-and-content__col sidebar-and-content__col-content">
+		<div class="col sidebar-and-content__col sidebar-and-content__col-content<?= esc_attr( $content_col_class ) ?>">
 			<?php if ( ! empty( $title ) ) : ?>
 				<h1 class="sidebar-and-content__title sidebar-and-content__title--mobile">
 					<?= esc_html( $title ) ?>
 				</h1>
 			<?php endif; ?>
 			<?php if ( ! empty( $items ) ) : ?>
-				<div class="sidebar-and-content__content-container sidebar-and-content__content-container--search">
+				<div class="sidebar-and-content__content-container">
 					<?php foreach ( $items as $item ) : ?>
 						<div class="sidebar-and-content__item">
 							<div class="sidebar-and-content__item-image-container">
@@ -104,7 +106,7 @@ if ( 'industry' === $browse_by ) {
 					<?php endforeach; ?>
 				</div>
 			<?php else : ?>
-				<div class="sidebar-and-content__content-container sidebar-and-content__content-container--single">
+				<div class="sidebar-and-content__content-container">
 					<?php the_content(); ?>
 				</div>
 			<?php endif; ?>
