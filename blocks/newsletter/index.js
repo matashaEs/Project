@@ -68,18 +68,6 @@ return regex.test( field.val() );
 			$this.parent
 				.find( '.newsletter__form' )
 				.addClass( 'newsletter__form--hide' );
-			$.ajax({
-				url: websiteData.ajaxUrl,
-				method: 'POST',
-				accepts: {
-					'Content-Type': 'application/json',
-				},
-				data: {
-					action: 'newsletter',
-					nonce: websiteData.nonce,
-					email: $this.parent.find( '.newsletter__email' ).val(),
-				},
-			});
 		}
 	}
 }
