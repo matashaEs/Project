@@ -160,25 +160,6 @@
       }
     }
   }
-
-  .sidebar-and-content {
-    &__content-container .news-section {
-      position: relative;
-      background: none;
-
-      &__bg {
-        position: absolute;
-        width: 100vw;
-        height: 100%;
-        z-index: -1;
-        background-color: var(--off-white);
-
-        &--grey {
-          background-color: var(--grey);
-        }
-      }
-    }
-  }
 }
 
 @include min-size(lg) {
@@ -223,9 +204,50 @@
       margin-bottom: 5rem;
     }
   }
+}
 
-  .sidebar-and-content {
-    &__content-container .news-section {
+@include min-size(xxl) {
+  .news-section {
+    $this: &;
+
+    &__item {
+      width: auto;
+    }
+
+    &--large {
+      #{$this}__item {
+        width: auto;
+      }
+    }
+
+    &--thin {
+      #{$this}__row {
+        padding-left: 13.5rem;
+      }
+    }
+  }
+}
+
+.sidebar-and-content {
+  &__content-container .news-section {
+    @include min-size(md) {
+      position: relative;
+      background: none;
+
+      &__bg {
+        position: absolute;
+        width: 100vw;
+        height: 100%;
+        z-index: -1;
+        background-color: var(--off-white);
+
+        &--grey {
+          background-color: var(--grey);
+        }
+      }
+    }
+
+    @include min-size(lg) {
       &__bg {
         left: -3rem;
       }
@@ -263,42 +285,14 @@
         display: none;
       }
     }
-  }
-}
 
-@include min-size(xl) {
-  .sidebar-and-content {
-    &__content-container .news-section {
+    @include min-size(xl) {
       &__bg {
         left: -5rem;
       }
     }
-  }
-}
 
-@include min-size(xxl) {
-  .news-section {
-    $this: &;
-
-    &__item {
-      width: auto;
-    }
-
-    &--large {
-      #{$this}__item {
-        width: auto;
-      }
-    }
-
-    &--thin {
-      #{$this}__row {
-        padding-left: 13.5rem;
-      }
-    }
-  }
-
-  .sidebar-and-content {
-    &__content-container .news-section {
+    @include min-size(xxl) {
       &__bg {
         left: -13rem;
       }
