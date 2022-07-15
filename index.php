@@ -5,6 +5,8 @@ get_header();
 // get_template_part( 'template-parts/sidebar-and-content', null, $pages_data[0] );
 ?>
 
+<?php the_content(); ?>
+
 	<div class="container-fluid">
 		<div class="container">
 			<h1> Heading 1</h1>
@@ -316,7 +318,6 @@ get_header();
 	<br>
 	<br>
 	<br>
-<?php the_content(); ?>
 
 <?php
 get_footer();

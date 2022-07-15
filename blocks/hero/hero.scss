@@ -1,39 +1,135 @@
 @import "../../src/scss/for-blocks";
 
 .hero {
-  display: flex;
   flex-direction: column;
+  position: relative;
 
   &__image-mobile {
-	width: 100%;
+    width: 100%;
+  }
+
+  &__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+    display: none;
   }
 
   &__content {
-	margin-top: 0.7rem;
+    margin-top: 0.7rem;
   }
 
   &__button {
-	height: fit-content;
-	margin-top: 3rem;
-	margin-bottom: 5rem;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
 
-	.button {
-	  text-transform: capitalize;
-	}
+    .button {
+      text-transform: capitalize;
+    }
   }
 }
 
 @include min-size(md) {
-  .sample {
+  .hero {
+    flex-direction: unset;
+
+    &__image {
+      display: none;
+    }
+
+    &__bg {
+      display: block;
+    }
+
+    .h1 {
+      font-size: 3rem;
+      line-height: 3.5rem;
+      color: var(--white);
+    }
+
+    &__content {
+      margin-top: 26rem;
+    }
+
+    &__title {
+      width: 60%;
+    }
+
+    &__button-link {
+      position: relative;
+    }
+
+    &__button-link::after {
+      font-size: 1.4rem;
+      font-family: var(--font-aeonik-bold);
+      content: "→";
+      position: absolute;
+      top: 0.8rem;
+      right: 1.8rem;
+    }
   }
 }
 
 @include min-size(lg) {
-  .sample {
+  .hero {
+    .h1 {
+      font-size: 4rem;
+      line-height: 4.5rem;
+    }
+
+    &__content {
+      margin-top: 33rem;
+    }
+
+    &__title {
+      width: 65%;
+    }
+
+    &__button {
+      margin-bottom: 10rem;
+    }
   }
 }
 
 @include min-size(xl) {
-  .sample {
+  .hero {
+    .h1 {
+      font-size: 5rem;
+      line-height: 5.5rem;
+    }
+
+    &__content {
+      margin-top: 36rem;
+    }
+
+    &__button {
+      margin-top: 5rem;
+    }
+  }
+}
+
+@include min-size(xxl) {
+  .hero {
+    .h1 {
+      font-size: 6rem;
+      line-height: 6.8rem;
+    }
+
+    &__content {
+      margin-top: 50rem;
+    }
+
+    &__button {
+      margin-top: 7rem;
+    }
+
+    &__title {
+      width: 58%;
+    }
   }
 }
