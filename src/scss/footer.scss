@@ -1,6 +1,8 @@
 .footer {
   background: var(--black);
   color: var(--grey);
+  position: relative;
+  z-index: -1;
 
   &-desktop {
     display: none;
