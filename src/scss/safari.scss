@@ -14,5 +14,10 @@ Safari hacks
       color: inherit;
       text-decoration: none;
     }
+
+    .footer {
+      position: relative;
+      z-index: -1;
+    }
   }
 }

@@ -2,6 +2,7 @@
 /**
  * $title [ text ]
  * $title_mobile [ text ]
+ * $how_much [ true/false; how much news to show; true - Two, false - Three ]
  * $what_news [ select: 'all', 'category' ]
  * $category [ group; shows if 'category' == $what_news ]
  *     $product_category [ taxonomy ]
@@ -28,12 +29,11 @@ $section_color_pallet_class = ! empty( $color_pallet ) && 'grey' == $color_palle
 $bg_color_pallet_class      = ! empty( $color_pallet ) && 'grey' == $color_pallet ? ' news-section__bg--grey' : '';
 $item_class                 = ! empty( $color_pallet ) && 'grey' == $color_pallet ? ' news-section__item--off-white' : '';
 $button_container_class     = ! empty( $link_position ) ? ' news-section__row-button--left' : '';
-$how_many                   = ! empty( $what_news ) && 'category' == $what_news ? 2 : 3;
-
+$how_much_news              = ! empty( $how_much ) ? 2 : 3;
 ?>
 
 <section class="container-fluid news-section<?= esc_html( $section_color_pallet_class ) ?>">
-	<div class="news-section__bg<?= esc_html($bg_color_pallet_class) ?>"></div>
+	<div class="news-section__bg<?= esc_html( $bg_color_pallet_class ) ?>"></div>
 	<div class="container news-section__container">
 		<div class="row news-section__row news-section__row-title">
 			<?php if ( ! empty( $title ) ) : ?>
@@ -47,7 +47,7 @@ $how_many                   = ! empty( $what_news ) && 'category' == $what_news 
 		</div>
 		<?php if ( ! empty( $news ) ) : ?>
 			<div class="row news-section__row news-section__row-news">
-				<?php for ( $i = 0; $i < $how_many; $i++ ) : ?>
+				<?php for ( $i = 0; $i < $how_much_news; $i++ ) : ?>
 					<a href="<?= esc_url( $news['link'] ); ?>" class="news-section__item <?= esc_html( $item_class ) ?>">
 						<div class="news-section__item-top-content">
 							<?php if ( ! empty( $news['date'] ) ) : ?>

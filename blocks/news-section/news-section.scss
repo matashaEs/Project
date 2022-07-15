@@ -226,6 +226,12 @@
     }
 
     @include min-size(lg) {
+      position: relative;
+
+      &__bg {
+        left: -3rem;
+      }
+
       &__container {
         margin-bottom: 10rem;
       }
@@ -257,6 +263,18 @@
 
       &__item-read-more {
         display: none;
+      }
+    }
+
+    @include min-size(xl) {
+      &__bg {
+        left: -5rem;
+      }
+    }
+
+    @include min-size(xxl) {
+      &__bg {
+        left: -13rem;
       }
     }
   }
