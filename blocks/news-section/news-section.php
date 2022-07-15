@@ -2,7 +2,6 @@
 /**
  * $title [ text ]
  * $title_mobile [ text ]
- * $how_much [ true/false; how much news to show; true - Two, false - Three ]
  * $what_news [ select: 'all', 'category' ]
  * $category [ group; shows if 'category' == $what_news ]
  *     $product_category [ taxonomy ]
@@ -29,7 +28,7 @@ $section_color_pallet_class = ! empty( $color_pallet ) && 'grey' == $color_palle
 $bg_color_pallet_class      = ! empty( $color_pallet ) && 'grey' == $color_pallet ? ' news-section__bg--grey' : '';
 $item_class                 = ! empty( $color_pallet ) && 'grey' == $color_pallet ? ' news-section__item--off-white' : '';
 $button_container_class     = ! empty( $link_position ) ? ' news-section__row-button--left' : '';
-$how_much_news              = ! empty( $how_much ) ? 2 : 3;
+$how_much_news              = ! empty( $what_news ) && 'category' == $what_news ? 2 : 3;
 ?>
 
 <section class="container-fluid news-section<?= esc_html( $section_color_pallet_class ) ?>">

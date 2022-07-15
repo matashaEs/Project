@@ -132,14 +132,31 @@
       &-title {
         margin-bottom: 5rem;
       }
+
+      &-news {
+        justify-content: flex-start;
+      }
     }
 
     &__item {
-      width: 360px;
+      width: 48%;
+      margin: 0;
       background-color: transparent;
+
+      &:first-child {
+        padding-left: 0;
+      }
 
       &--off-white {
         background-color: var(--off-white);
+      }
+    }
+
+    .slick-slider {
+      #{$this}__item {
+        width: 360px;
+        margin: 0 2rem;
+        padding-left: 2.5rem;
       }
     }
   }
@@ -177,6 +194,10 @@
       width: 32%;
       max-width: 515px;
       margin: 0;
+
+      &:first-child {
+        padding-left: 2.5rem;
+      }
     }
 
     &__item-title {
@@ -210,6 +231,7 @@
 .sidebar-and-content {
   &__content-container .news-section {
     @include min-size(md) {
+      position: relative;
       background: none;
 
       &__bg {
@@ -226,8 +248,6 @@
     }
 
     @include min-size(lg) {
-      position: relative;
-
       &__bg {
         left: -3rem;
       }
