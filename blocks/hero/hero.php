@@ -1,9 +1,9 @@
 <?php
 /**
- * $title
- * $background_image_mobile
- * $background-image
- * $button
+ *  $title
+ *  $background_image_mobile
+ *  $background_image
+ *  $button
  */
 
 
@@ -17,10 +17,10 @@ if ( ! empty( $block['id'] ) ) {
 <section class="container-fluid hero">
 	<div class="hero__image">
 		<img src="<?= esc_url( $background_image_mobile['sizes']['full_hd'] ); ?>"
-		   class="hero__image-mobile">
+		class="hero__image-mobile">
 	</div>
 	<div class="hero__bg"
-	   style="background-image: url('<?= esc_url( $background_image['sizes']['full_hd'] ); ?>')"></div>
+	style="background-image: url('<?= esc_url( $background_image['sizes']['full_hd'] ); ?>')"></div>
 	<div class="container">
 		<div class="hero__content">
 			<?php if ( ! empty( $title ) ) : ?>
@@ -35,9 +35,9 @@ if ( ! empty( $block['id'] ) ) {
 
 				<div class="hero__button">
 					<a href=
-					   "<?= esc_url( $button_url ); ?>"
-					   class="button hero__button-link"
-					   target=" <?= esc_attr( $button_target ) ?>">
+					"<?= esc_url( $button_url ); ?>"
+					class="button hero__button-link"
+					target=" <?= esc_attr( $button_target ) ?>">
 						<?= esc_html( $button_title ) ?>
 					</a>
 				</div>
