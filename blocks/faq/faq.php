@@ -15,10 +15,10 @@ if ( ! empty( $block['id'] ) ) {
 			<?php endif; ?>
 
 			<?php foreach ( $faqs as $faq ) : ?>
-				<div class="form-select-box form-select-box--faq faq-section__select">
-					<div class="form-options-container form-options-container--max-height">
-						<div class="form-option form-option-faq">
-							<label class="p label-faq">
+				<div class="form-select-box faq-section__select">
+					<div class="form-options-container">
+						<div class="form-option faq-section__option">
+							<label class="p faq-section__label">
 
 								<?php if ( ! empty( $faq['faq_content'] ) ) : ?>
 									<?= esc_html( $faq['faq_content'] ); ?>
