@@ -1,8 +1,8 @@
 <?php
 get_header();
 
-$pages_data = apply_filters( 'cai_get_sidebar_and_content_data', null );
-get_template_part( 'template-parts/sidebar-and-content', null, $pages_data[0] );
+// pages_data = apply_filters( 'cai_get_sidebar_and_content_data', null );
+// get_template_part( 'template-parts/sidebar-and-content', null, $pages_data[0] );
 ?>
 
 	<div class="container-fluid">
@@ -317,10 +317,6 @@ get_template_part( 'template-parts/sidebar-and-content', null, $pages_data[0] );
 	<br>
 	<br>
 <?php the_content(); ?>
-	<br>
-	<br>
-	<br>
-	<br>
 
 <?php
 get_footer();
