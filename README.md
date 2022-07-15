@@ -67,7 +67,7 @@ PHP -> Composer -> select composer executable path (`/usr/local/bin/composer` on
 PHP -> quality tools -> PHP_CodeSniffer
 Click 3 donts next to configuration, Browse patth, select localization in theme_folder/vendor/bin/phpcs and validate it
 Expand PHP Code Beautifier and Fixer Settings and select path to the theme_folder/vendor/bin/phpcsbf
-Click PHP_CodeSniffer inspection -> PHP_CodeSniffer validation -> Coding standard: Custom indicate .phpcs.xml file in the theme directory + uncheck `installed standard path`
+Click PHP_CodeSniffer inspection -> PHP_CodeSniffer validation -> Coding standard: Custom indicate .phpcs.xml file in the theme directory + uncheck `installed standard path` + change files extensions to `php` only
 
 PHP -> Frameworks -> WordPress -> Enable WordPress integration + indicate the WordPress root folder of the current project
 
@@ -79,4 +79,5 @@ Run for files: {**/*,*}.{css,scss}
 Editor -> Code style -> PHP - import scheme from the theme folder phpstorm-php.xml
 Editor -> Code style -> HTML - import scheme from the theme folder phpstorm-html.xml
 
+Preferences | Languages & Frameworks | JavaScript | Code Quality Tools | ESLint -> Select automatic ESLint configuration + Run eslint --fix on save
 Editor -> Live template -> disable things that you don't need.
