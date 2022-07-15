@@ -161,10 +161,11 @@ $transition-time: 1s;
       margin-bottom: 2rem;
     }
   }
+
   &__content-container {
-	.container-fluid {
-	  width: 100%;
-	}
+    .container-fluid {
+      width: 100%;
+    }
   }
 }
 
@@ -211,7 +212,7 @@ $transition-time: 1s;
 
       &-content {
         width: 55%;
-        padding: 16rem 3rem 16rem 0;
+        padding: 16rem 0 16rem 3rem;
       }
     }
 
@@ -283,6 +284,12 @@ $transition-time: 1s;
     &__item-image-container {
       min-height: 160px;
       aspect-ratio: 2 / 1;
+    }
+
+    &__content-container {
+      .container.container {
+        padding: 0;
+      }
     }
   }
 }

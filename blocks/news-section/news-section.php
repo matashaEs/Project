@@ -37,21 +37,21 @@ $how_many                   = ! empty( $what_news ) && 'category' == $what_news 
 	<div class="container news-section__container">
 		<div class="row news-section__row news-section__row-title">
 			<?php if ( ! empty( $title ) ) : ?>
-				<h2 class="news-section__title<?= empty( $title_mobile ) ? esc_html( 'news-section__title--no-mobile' ) : ''?>">
+				<div class="h2 news-section__title<?= empty( $title_mobile ) ? esc_html( 'news-section__title--no-mobile' ) : ''?>">
 					<?= esc_html( $title ); ?>
-				</h2>
+				</div>
 				<?php if ( ! empty( $title_mobile ) ) : ?>
-				<h2 class="news-section__title--mobile"><?= esc_html( $title_mobile ); ?></h2>
+				<div class="h2 news-section__title news-section__title--mobile"><?= esc_html( $title_mobile ); ?></div>
 				<?php endif; ?>
 			<?php endif; ?>
 		</div>
 		<?php if ( ! empty( $news ) ) : ?>
 			<div class="row news-section__row news-section__row-news">
 				<?php for ( $i = 0; $i < $how_many; $i++ ) : ?>
-					<div class="news-section__item <?= esc_html( $item_class ) ?>">
+					<a href="<?= esc_url( $news['link'] ); ?>" class="news-section__item <?= esc_html( $item_class ) ?>">
 						<div class="news-section__item-top-content">
 							<?php if ( ! empty( $news['date'] ) ) : ?>
-								<p class="news-section__item-date"><?= esc_html( $news['date'] ); ?></p>
+								<div class="p news-section__item-date"><?= esc_html( $news['date'] ); ?></div>
 							<?php endif; ?>
 							<div class="news-section__item-categories">
 								<div class="news-section__item-category"></div>
@@ -59,15 +59,14 @@ $how_many                   = ! empty( $what_news ) && 'category' == $what_news 
 							</div>
 						</div>
 						<?php if ( ! empty( $news['title'] ) ) : ?>
-							<h4 class="news-section__item-title"><?= esc_html( $news['title'] ); ?></h4>
+							<div class="h4 news-section__item-title"><?= esc_html( $news['title'] ); ?></div>
 						<?php endif; ?>
 						<?php if ( ! empty( $news['link'] ) ) : ?>
-							<a  href="<?= esc_url( $news['link'] ); ?>"
-								class="p news-section__item-button">
-									<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
-							</a>
+							<div class="p news-section__item-read-more">
+								<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
+							</div>
 						<?php endif; ?>
-					</div>
+					</a>
 				<?php endfor; ?>
 			</div>
 		<?php endif; ?>
