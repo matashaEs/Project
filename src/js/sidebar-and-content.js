@@ -11,8 +11,8 @@ class SidebarAndContent {
 
 		this.itemsClassChanger( '.sidebar-and-content__item-title', 'h3', 'h4' );
 		this.itemsClassChanger( '.sidebar-and-content__item-tags', 'p', 'p-large' );
-		this.itemsClassChanger( '.sidebar-and-content .page-navigation__button', 'h4', 'p-large' );
-		this.itemsClassChanger( '.sidebar-and-content .form-select--selected', 'h4', 'p-large' );
+		this.itemsClassChanger( '.sidebar-and-content__col-sidebar .page-navigation__button', 'h4', 'p-large' );
+		this.itemsClassChanger( '.sidebar-and-content__col-sidebar .form-select--selected', 'h4', 'p-large' );
 	}
 
 	itemsClassChanger( selector, mobileClass, desctopClass, width = 767 ) {
