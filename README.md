@@ -51,11 +51,33 @@ Compiled assets are not included in the repository, so the website won't be disp
 1. Run `npm install`
 2. Run `npm run build`
 
-# Upcoming
-1. Add PHP CS 
-2. Improve checking files inside an IDE
-3. Add `.editorconfig`
-4. Configure BUDDY for automatic deployment + buddy YAML
-5. Set flow of merging changes to the master / PR / etc.
-6. Validate everything locally before commit push
-7. Create a separate repository with a starter for the full site editing
+# Configure PhpStorm
+First of all, check do you have the latest version of PhpStorm.
+
+Go to PhpStorm Preferences (Settings in windows)
+
+PHP -> PHP language level -> select PHP 7.4
+PHP -> CLI Interpreter -> select interpreter that you use
+
+PHP -> Composer -> Indicate path to composer.json in your theme directory
+PHP -> Composer -> select "Synchronize IDE settings with composer.json"
+PHP -> Composer -> select composer executable path (`/usr/local/bin/composer` on mac)
+
+
+PHP -> quality tools -> PHP_CodeSniffer
+Click 3 donts next to configuration, Browse patth, select localization in theme_folder/vendor/bin/phpcs and validate it
+Expand PHP Code Beautifier and Fixer Settings and select path to the theme_folder/vendor/bin/phpcsbf
+Click PHP_CodeSniffer inspection -> PHP_CodeSniffer validation -> Coding standard: Custom indicate .phpcs.xml file in the theme directory + uncheck `installed standard path` + change files extensions to `php` only
+
+PHP -> Frameworks -> WordPress -> Enable WordPress integration + indicate the WordPress root folder of the current project
+
+Plugins -> if you know you will not use something, you can uncheck it. It may simplify management, linting, code completing, and speed of PHP storm (Drupal, Laravel, Tailwind, Docker, etc.)
+
+Languages & Frameworks -> enable + stylelint package select theme/node_modules/stylelint + configuration file theme/.stylelintrc
+Run for files: {**/*,*}.{css,scss}
+
+Editor -> Code style -> PHP - import scheme from the theme folder phpstorm-php.xml
+Editor -> Code style -> HTML - import scheme from the theme folder phpstorm-html.xml
+
+Preferences | Languages & Frameworks | JavaScript | Code Quality Tools | ESLint -> Select automatic ESLint configuration + Run eslint --fix on save
+Editor -> Live template -> disable things that you don't need.

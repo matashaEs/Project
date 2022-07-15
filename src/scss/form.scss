@@ -1,10 +1,6 @@
 label,
 .label {
   cursor: pointer;
-
-  &-faq {
-    cursor: default;
-  }
 }
 
 .form {
@@ -43,16 +39,6 @@ label,
     border-radius: 25px;
     background-color: var(--off-white);
     width: 100%;
-
-    &--faq {
-      position: relative;
-      background-color: var(--grey);
-
-      .form-select-box,
-      .form-option {
-        cursor: default;
-      }
-    }
   }
 
   &-select-box .form-options-container {
@@ -65,10 +51,6 @@ label,
 
   &-option:hover {
     background-color: var(--silver-sand);
-  }
-
-  &-option-faq:hover {
-    background-color: transparent;
   }
 
   &-select--selected::before {
@@ -84,10 +66,6 @@ label,
     bottom: 0;
     margin: auto 0;
     transition: all 0.4s;
-  }
-
-  &-select-box .form-option-faq.form-option-faq {
-    cursor: default;
   }
 
   &-select-box .form-option {

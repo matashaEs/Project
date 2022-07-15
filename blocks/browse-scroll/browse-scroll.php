@@ -34,10 +34,12 @@ $section_classes .= ! empty( $direction ) ? ' browse-scroll--reverse' : '';
 				<div class="browse-scroll__items-list">
 					<?php foreach ( $items as $item ) : ?>
 						<div class="browse-scroll__item">
-							<div class="browse-scroll__item-bg"
-								style="background-image: url('<?= esc_html( $item['background'] ); ?>');"></div>
-							<a href="<?= esc_url( $item['url'] ); ?>"
-								class="button button--white browse-scroll__button">
+							<div
+									class="browse-scroll__item-bg"
+									style="background-image: url('<?= esc_html( $item['background'] ); ?>');"></div>
+							<a
+									href="<?= esc_url( $item['url'] ); ?>"
+									class="button button--white browse-scroll__button">
 								<?= esc_html( $item['name'] ); ?>
 							</a>
 						</div>

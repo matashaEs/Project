@@ -30,9 +30,10 @@ if ( ! empty( $block['id'] ) ) {
 					<?php
 					if ( ! empty( $link ) ) :
 						?>
-						<a  href="<?= esc_url( $link['url'] ); ?>"
-							class="button p benefits__button"
-							target="<?= esc_attr( $link['target'] ) ?>">
+						<a
+								href="<?= esc_url( $link['url'] ); ?>"
+								class="button p benefits__button"
+								target="<?= esc_attr( $link['target'] ) ?>">
 							<?= esc_html( $link['title'] ); ?>
 						</a>
 					<?php endif; ?>
