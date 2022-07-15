@@ -24,7 +24,10 @@ label,
       order: 0;
       backface-visibility: hidden;
       cursor: pointer;
+      color: var(--black);
     }
+
+    @include z-index-children(1000, 5);
   }
 
   &__product-detail {
@@ -74,10 +77,12 @@ label,
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    height: 100%;
+    height: 12px;
     width: 15px;
     right: 2rem;
-    top: 1.2rem;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
     transition: all 0.4s;
   }
 
@@ -100,7 +105,6 @@ label,
 
   &-select-box .form-options-container.active + &-select--selected::before {
     transform: scale(1, -1);
-    top: -1.4rem;
   }
 }
 
@@ -146,8 +150,7 @@ label,
   }
 
   &-form {
-    padding-top: 6rem;
-    padding-bottom: 3rem;
+    margin-bottom: 3rem;
   }
 
   &__radio {
@@ -193,5 +196,17 @@ input::-webkit-inner-spin-button {
     display: flex;
     align-items: center;
     width: 100%;
+  }
+}
+
+@include min-size(md) {
+  .form {
+    &-select {
+      min-height: 5rem;
+
+      &--selected {
+        height: 5rem;
+      }
+    }
   }
 }

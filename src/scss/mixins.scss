@@ -19,3 +19,12 @@
     }
   }
 }
+
+@mixin z-index-children($z-index-start, $how-many) {
+  @for $i from 2 through $how-many {
+
+    &:nth-child(#{$i}) {
+      z-index: $z-index-start - $i + 1;
+    }
+  }
+}
