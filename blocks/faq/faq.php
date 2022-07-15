@@ -8,7 +8,7 @@ if ( ! empty( $block['id'] ) ) {
 
 <div class="container-fluid faq-section">
 	<div class="container">
-		<div class="faq-section__sidebar">
+		<div class="faq-section__row">
 
 			<?php if ( ! empty( $title ) ) : ?>
 				<div class="h2 faq-section__title"><?= esc_html( $title ); ?></div>
