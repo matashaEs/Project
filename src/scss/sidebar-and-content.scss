@@ -161,6 +161,11 @@ $transition-time: 1s;
       margin-bottom: 2rem;
     }
   }
+  &__content-container {
+	.container-fluid {
+	  width: 100%;
+	}
+  }
 }
 
 @include min-size(md) {

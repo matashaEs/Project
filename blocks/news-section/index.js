@@ -4,7 +4,7 @@ import $ from 'jquery';
 class NewsSection {
 	constructor() {
 		this.timer           = 0;
-		this.sliderContainer = $( '.news-section__row--news' );
+		this.sliderContainer = $( '.news-section__row-news' );
 
 		this.slider();
 		window.addEventListener( 'resize', this.resizeEvent.bind( this ) );

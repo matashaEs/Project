@@ -1,18 +1,7 @@
 @import "../../src/scss/for-blocks";
 
 .news-section {
-  $text-arrow-space: 40px;
-  $shaft-width: 38px;
-  $shaft-thickness: 1px;
-  $arrow-head-width: 8px;
-  $arrow-head-thickness: $shaft-thickness;
   $this: &;
-
-  &--thin {
-    #{$this}__item {
-      max-width: 382px;
-    }
-  }
 
   &__container {
     margin-top: 4rem;
@@ -20,23 +9,35 @@
   }
 
   &__row {
-    &--title {
+    &-title {
       margin-bottom: 1.5rem;
     }
 
-    &--news {
+    &-news {
       width: 100%;
     }
 
-    &--button {
+    &-button {
       margin-top: 1.5rem;
       justify-content: center;
       width: 100%;
-    }
 
-    &--left {
-      justify-content: flex-start;
-    }
+	  &--left {
+		justify-content: flex-start;
+	  }
+	}
+  }
+
+  &__title {
+	display: none;
+
+	&--mobile {
+	  display: block;
+	}
+
+	&--no-mobile {
+	  display: block;
+	}
   }
 
   &__item {
@@ -44,7 +45,7 @@
     padding: 3rem 2rem 2.3rem 2.5rem;
     margin: 0 2rem;
     width: calc(100vw - 4rem);
-    max-width: 515px;
+	max-width: 382px;
   }
 
   &__item-top-content {
@@ -123,7 +124,7 @@
     }
 
     &__row {
-      &--title {
+      &-title {
         margin-bottom: 5rem;
       }
     }
@@ -149,11 +150,11 @@
       }
 
       #{$this}__row {
-        &--title {
+        &-title {
           margin-bottom: 12rem;
         }
 
-        &--button {
+        &-button {
           margin-top: 9rem;
         }
       }
@@ -175,11 +176,11 @@
     }
 
     &__row {
-      &--news {
+      &-news {
         justify-content: space-between;
       }
 
-      &--button {
+      &-button {
         margin-top: 4.5rem;
       }
     }
