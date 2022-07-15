@@ -11,7 +11,7 @@ if ( ! empty( $block['id'] ) ) {
 		<div class="faq-section__sidebar">
 
 			<?php if ( ! empty( $title ) ) : ?>
-				<div class="h2 faq-section__title"><?= $title ?></div>
+				<div class="h2 faq-section__title"><?= esc_html( $title ); ?></div>
 			<?php endif; ?>
 
 			<?php foreach ( $faqs as $faq ) : ?>
@@ -21,7 +21,7 @@ if ( ! empty( $block['id'] ) ) {
 							<label class="p label-faq">
 
 								<?php if ( ! empty( $faq['faq_content'] ) ) : ?>
-									<?= $faq['faq_content'] ?>
+									<?= esc_html( $faq['faq_content'] ); ?>
 								<?php endif; ?>
 
 							</label>
@@ -30,7 +30,7 @@ if ( ! empty( $block['id'] ) ) {
 					<div class="form-select--selected p faq-section__p">
 
 						<?php if ( ! empty( $faq['faq_title'] ) ) : ?>
-							<?= $faq['faq_title'] ?>
+							<?= esc_html( $faq['faq_title'] ); ?>
 						<?php endif; ?>
 
 					</div>

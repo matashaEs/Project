@@ -5,86 +5,90 @@
   position: relative;
 
   &::after {
-	content: "";
-	position: absolute;
-	background-color: var(--off-white);
-	width: 100vw;
-	height: 100%;
-	right: 0;
-	z-index: -1;
-	bottom: 0;
+    content: "";
+    position: absolute;
+    background-color: var(--off-white);
+    width: 100vw;
+    height: 100%;
+    right: 0;
+    z-index: -1;
+    bottom: 0;
   }
 
   &::before {
-	content: "";
-	position: absolute;
-	background-color: var(--off-white);
-	width: 100vw;
-	height: 100%;
-	left: 0;
-	z-index: -1;
+    content: "";
+    position: absolute;
+    background-color: var(--off-white);
+    width: 100vw;
+    height: 100%;
+    left: 0;
+    z-index: -1;
   }
 
   &__sidebar {
-	margin-top: 4.5rem;
-	margin-bottom: 3.5rem;
+    margin-top: 4.5rem;
+    margin-bottom: 3.5rem;
   }
 
   .form-options-container.active.form-options-container.active {
-	overflow-y: hidden;
+    overflow-y: hidden;
   }
 
   &__select {
-	margin-bottom: 1.5rem;
-	background: var(--white);
-	padding: 0 .5rem;
+    margin-bottom: 1.5rem;
+    background: var(--white);
+    padding: 0 0.5rem;
   }
 
   &__title {
-	margin-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
   }
 }
 
 @include min-size(md) {
   .faq-section {
-	background: none;
+    background: none;
 
-	&::before, &::after {
-	  content: none;
-	}
+    &::before,
+    &::after {
+      content: none;
+    }
 
-	&__select {
-	  background-color: var(--grey);
-	  padding: 0 1.5rem;
-	}
+    &__select {
+      background-color: var(--grey);
+      padding: 0 1.5rem;
+
+      &:hover {
+        background-color: var(--grey-modules);
+      }
+    }
   }
 }
 
 @include min-size(lg) {
   .faq-section {
-	&__title {
-	  margin-bottom: 5.4rem;
-	}
+    &__title {
+      margin-bottom: 5.4rem;
+    }
 
-	&__p {
-	  height: 5rem;
-	  font-size: 2.2rem;
-	}
+    &__p {
+      height: 5rem;
+      font-size: 2.2rem;
+    }
 
-	&__sidebar {
-	  margin-left: auto;
-	  padding-left: 5rem;
-	  margin-top: 8.5rem;
-	  margin-bottom: 10rem;
-	}
+    &__sidebar {
+      margin-left: auto;
+      padding-left: 5rem;
+      margin-top: 8.5rem;
+      margin-bottom: 10rem;
+    }
   }
 }
 
 @include min-size(xl) {
   .faq-section {
-	&__sidebar {
-	  padding-left: 8rem;
-	}
+    &__sidebar {
+      padding-left: 8rem;
+    }
   }
 }
-
