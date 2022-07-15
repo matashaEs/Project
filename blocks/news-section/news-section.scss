@@ -140,6 +140,26 @@
   }
 }
 
+.sidebar-and-content__content-container {
+  @include min-size(md) {
+	.news-section {
+	  background: none;
+
+	  &__bg {
+		position: absolute;
+		width: 100vw;
+		height: 100%;
+		z-index: -1;
+		background-color: var(--off-white);
+
+		&--grey {
+		  background-color: var(--grey);
+		}
+	  }
+	}
+  }
+}
+
 @include min-size(lg) {
   .news-section {
     $this: &;
