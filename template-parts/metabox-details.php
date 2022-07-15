@@ -2,7 +2,7 @@
 	<?php
 	esc_html(
 		sprintf(
-		/* translators: %1$s - author links, %2$s - time, %3$s - list of categories */
+			/* translators: %1$s - author links, %2$s - time, %3$s - list of categories */
 			__( 'Posted by %1$s on %2$s in %3$s', 'nuplo' ),
 			get_the_author_posts_link(),
 			get_the_time( 'd-m-Y' ),

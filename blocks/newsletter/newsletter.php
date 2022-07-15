@@ -15,7 +15,8 @@ if ( ! empty( $block['id'] ) ) {
 			<div class="newsletter__form-section">
 				<form class="newsletter__form" method="post" action="">
 					<div class="newsletter__field">
-						<input type="text" name="email" class="newsletter__input newsletter__email input--error"
+						<input
+								type="text" name="email" class="newsletter__input newsletter__email input--error"
 								placeholder="<?php _e( 'Email', 'nuplo' ); ?>">
 						<div class="newsletter__text-error"></div>
 					</div>

@@ -71,9 +71,10 @@ $how_many                   = ! empty( $what_news ) && 'category' == $what_news 
 			</div>
 		<?php endif; ?>
 		<?php if ( ! empty( $link ) ) : ?>
-			<div class="row news-section__row news-section__row-button <?= esc_html( $button_container_class ) ?>">
-				<a href="<?= esc_url( $link['url'] ) ?>"
-					class="button news-section__button">
+			<div class="row news-section__row news-section__row--button <?= esc_html( $button_container_class ) ?>">
+				<a
+						href="<?= esc_url( $link['url'] ) ?>"
+						class="button news-section__button">
 					<?= esc_html( $link['title'] ) ?>
 				</a>
 			</div>
