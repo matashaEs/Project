@@ -11,6 +11,12 @@ class Images {
 			'height' => 1080,
 			'crop'   => false,
 		],
+		[
+			'name'   => 'browse_by_image',
+			'width'  => 460,
+			'height' => 370,
+			'crop'   => false,
+		],
 	];
 
 	/**

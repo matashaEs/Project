@@ -9,11 +9,13 @@ if ( ! empty( $block['id'] ) ) {
 }
 
 if ( 'industry' === $browse_by ) {
-	$list_title = __( 'Browse by Industry', 'nuplo' );
-	$items      = apply_filters( 'cai_get_industries', null );
+	$list_title   = __( 'Browse by Industry', 'nuplo' );
+	$items        = apply_filters( 'cai_get_industries', null );
+	$category_url = apply_filters( 'cai_get_industry_url', null );
 } else {
-	$list_title = __( 'Browse by Product', 'nuplo' );
-	$items      = apply_filters( 'cai_get_products', null );
+	$list_title   = __( 'Browse by Product', 'nuplo' );
+	$items        = apply_filters( 'cai_get_products_category', null );
+	$category_url = apply_filters( 'cai_get_product_category_url', null );
 }
 
 $section_classes  = ! empty( $is_mobile_bg ) ? ' browse-scroll--mobile-bg' : '';
@@ -25,7 +27,7 @@ $section_classes .= ! empty( $direction ) ? ' browse-scroll--reverse' : '';
 		<div class="row browse-scroll__row">
 			<div class="browse-scroll__description">
 				<div class="browse-scroll__description-bg"></div>
-				<a class="browse-scroll__description-link h2" href="#">
+				<a class="browse-scroll__description-link h2" href="<?= esc_url( $category_url ); ?>">
 					<?= esc_html( $list_title ); ?>
 				</a>
 			</div>
