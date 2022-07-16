@@ -348,11 +348,9 @@ get_template_part( 'template-parts/sidebar-and-content', null, $pages_data[0] );
 	<br>
 	<br>
 	<br>
+
 <?php the_content(); ?>
-	<br>
-	<br>
-	<br>
-	<br>
 
 <?php
+
 get_footer();
