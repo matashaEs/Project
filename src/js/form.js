@@ -2,6 +2,7 @@ import $ from 'jquery';
 
 class Form {
 	parent = null;
+	optionsContainer = null;
 
 	constructor() {
 		$( '.form-select-box .form-select--selected' )
@@ -18,14 +19,18 @@ class Form {
 	selectFeature( e, $this ) {
 		e.preventDefault();
 		$this.parent = $( e.target.closest( '.form-select-box' ) );
+		$this.optionsContainer = this.parent.find( '.form-options-container' );
 
-		this.parent
-			.find( '.form-options-container' )
-			.toggleClass( 'active' );
+		if ( this.optionsContainer.hasClass( 'active' ) ) {
+			this.optionsContainer.removeClass( 'active' );
+		} else {
+			$( '.form-options-container' ).removeClass( 'active' );
+			this.optionsContainer.addClass( 'active' );
+		}
 	}
 
 	optionFeature( e, $this ) {
-		if ( 'INPUT' != $( e.target ).prop( 'tagName' ) ) {
+		if ( 'INPUT' !== $( e.target ).prop( 'tagName' ) ) {
 			$this.parent = $( e.target.closest( '.form-options-container' ) );
 			const option = $( e.target.closest( '.form-option' ) );
 

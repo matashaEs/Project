@@ -28,14 +28,14 @@ $style .= ! empty( $is_small ) ? ' highlights--small' : '';
 			</div>
 			<div class="row highlights__row highlights__row-content">
 				<?php foreach ( $contents as $content ) : ?>
-						<div class="highlights__item">
-							<?php if ( ! empty( $content['title'] ) ) : ?>
-								<h4 class="highlights__item-title"><?= esc_html( $content['title'] ); ?></h4>
-							<?php endif; ?>
-							<?php if ( ! empty( $content['description'] ) ) : ?>
-								<p class="highlights__item-description"><?= esc_html( $content['description'] ); ?></p>
-							<?php endif; ?>
-						</div>
+					<div class="highlights__item">
+						<?php if ( ! empty( $content['title'] ) ) : ?>
+							<h4 class="highlights__item-title"><?= esc_html( $content['title'] ); ?></h4>
+						<?php endif; ?>
+						<?php if ( ! empty( $content['description'] ) ) : ?>
+							<p class="highlights__item-description"><?= esc_html( $content['description'] ); ?></p>
+						<?php endif; ?>
+					</div>
 				<?php endforeach; ?>
 			</div>
 		</div>
