@@ -1,5 +1,6 @@
 <?php
 get_header();
+$list_title = __( 'Browse by Product', 'nuplo' );
 
 
 $pages_data = apply_filters( 'cai_get_sidebar_and_content_data', null );
