@@ -3,10 +3,10 @@ import $ from 'jquery';
 
 class Hero {
 	constructor() {
-		this.benefitsTitleClass();
+		this.changeTitleClass();
 	}
 
-	benefitsTitleClass() {
+	changeTitleClass() {
 		if ( 767 > screen.width ) {
 			$( '.hero__title' ).addClass( 'h1-alt' );
 			$( '.hero__button-link' ).addClass( 'p' );
@@ -15,7 +15,6 @@ class Hero {
 			$( '.hero__button-link' ).addClass( 'h5' );
 		}
 	}
-
 }
 
 new Hero();

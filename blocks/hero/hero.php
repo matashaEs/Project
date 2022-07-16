@@ -34,8 +34,8 @@ if ( ! empty( $block['id'] ) ) {
 				<?php $button_target = $button['target']; ?>
 
 				<div class="hero__button">
-					<a href=
-					"<?= esc_url( $button_url ); ?>"
+					<a
+					href="<?= esc_url( $button_url ); ?>"
 					class="button hero__button-link"
 					target=" <?= esc_attr( $button_target ) ?>">
 						<?= esc_html( $button_title ) ?>
