@@ -12,7 +12,7 @@ if ( ! empty( $block['id'] ) ) {
 	extract( $block['data'] );
 }
 
-$style  = ! empty( $color_pallet ) ? ' highlights--' . $color_pallet : '';
+$style = ! empty( $color_pallet ) ? ' highlights--' . $color_pallet : '';
 
 ?>
 
