@@ -1,4 +1,7 @@
 .nav {
+  &__main-menu {
+    display: none;
+  }
 }
 
 @include min-size(md) {
@@ -8,19 +11,71 @@
 
 @include min-size(lg) {
   .nav {
+    &__desktop {
+      position: fixed;
+      background-color: var(--off-white);
+      z-index: 10;
+    }
+
+    &__logo path {
+      fill: var(--main-blue);
+    }
+
     &__mobile-menu,
     &__mobile-container {
       display: none;
     }
 
+    &-close {
+      margin-left: 5rem;
+    }
+
     &__main-menu {
-      display: initial;
+      display: flex;
+      flex-direction: row;
+      padding-top: 1.6rem;
+      padding-bottom: 1.4rem;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+
+      &-items {
+        display: flex;
+        align-items: center;
+      }
+
+      &-item {
+        margin-left: 5rem;
+        list-style: none;
+      }
+
+      &-item:hover {
+        text-decoration: underline;
+      }
+
+      &-item a {
+        text-decoration: none;
+        color: var(--black);
+        text-transform: capitalize;
+      }
     }
   }
 }
 
 @include min-size(xl) {
   .nav {
+    &__main-menu {
+      padding-left: 2rem;
+      padding-right: 2rem;
+
+      &-item {
+        margin-left: 7rem;
+      }
+    }
+
+    &-close {
+      margin-left: 7rem;
+    }
   }
 }
 
