@@ -15,7 +15,7 @@
 						]
 					);
 					?>
-					<img src="<?= esc_url( get_template_directory_uri() . '/assets/img/nav-close.svg' ) ?>" class="nav-close" alt="nav-close">
+					<?php the_svg( 'nav-close.svg', 'nav-close' ); ?>
 				</div>
 			</div>
 		</div>
