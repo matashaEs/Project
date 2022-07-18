@@ -107,9 +107,18 @@ label,
     transition: all 0.5s;
   }
 
+  &--message {
+    height: 15rem;
+    resize: none;
+
+    &::placeholder {
+      padding-top: 5px;
+    }
+  }
+
   &:focus {
     &::placeholder {
-      transform: translateY(-12px);
+      transform: translateY(-15px);
       font-size: 1rem;
     }
   }
@@ -120,11 +129,6 @@ label,
 
   &--error {
     border-color: var(--erp-hover);
-  }
-
-  &--message {
-    height: 15rem;
-    resize: none;
   }
 
   &-form {
@@ -141,9 +145,10 @@ label,
     border-radius: 50%;
     margin-right: 8px;
     cursor: pointer;
+    transition: 0.5s transform;
 
     &:checked {
-      background-color: var(--main-blue);
+      background-color: var(--main-blue) !important;
     }
 
     &--filters {
@@ -174,6 +179,16 @@ input::-webkit-inner-spin-button {
     display: flex;
     align-items: center;
     width: 100%;
+  }
+
+  &__container:hover {
+    .input {
+      &__radio {
+        transform: scale(1.1);
+        background-color: var(--light-blue);
+        border-color: var(--light-blue);
+      }
+    }
   }
 }
 

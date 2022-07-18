@@ -12,7 +12,6 @@
 @include min-size(lg) {
   .nav {
     &__desktop {
-      position: fixed;
       background-color: var(--off-white);
       z-index: 10;
     }
