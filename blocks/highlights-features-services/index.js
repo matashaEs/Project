@@ -1,7 +1,7 @@
-import './highlights.scss';
+import './highlights-features-services.scss';
 import $ from 'jquery';
 
-class Highlights {
+class HighlightsFeaturesServices {
 	constructor() {
 		this.timer           = 0;
 		this.sliderContainer = $( '.highlights__row-content' );
@@ -68,4 +68,4 @@ class Highlights {
 	}
 }
 
-new Highlights();
+new HighlightsFeaturesServices();
