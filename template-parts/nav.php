@@ -3,8 +3,7 @@
 		<div class="container">
 			<div class="nav__main-menu">
 				<a href="<?= esc_url( get_home_url() ); ?>" class="nav-logo">
-					<img src="<?= esc_url( get_template_directory_uri() . '/assets/img/logo.svg' ) ?>" alt="nav-logo">
-				</a>
+					<?php the_svg( 'cai-logo.svg', 'nav__logo' ); ?>
 				<div class="nav__main-menu-items">
 					<?php
 					wp_nav_menu(

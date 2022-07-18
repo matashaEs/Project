@@ -17,6 +17,10 @@
       z-index: 10;
     }
 
+    &__logo path {
+      fill: var(--main-blue);
+    }
+
     &__mobile-menu,
     &__mobile-container {
       display: none;
