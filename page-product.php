@@ -13,12 +13,17 @@ $industry_categories = apply_filters( 'cai_get_industries', null );
 $industry_types      = apply_filters( 'cai_get_industry_types', null );
 
 $data_to_display = [
-	'title'               => __( 'Industry', 'nuplo' ),
+	'title'               => __( 'Products', 'nuplo' ),
 	// todo: $content_top_padding - what is it???
 	'content_top_padding' => true,
 	'sidebar'             => [
 		'mobileName' => __( 'Filters', 'nuplo' ),
 		'blocks'     => [
+			'radio-group' => [
+				'title'   => __( 'Product Category', 'nuplo' ),
+				'name'    => 'productCategory',
+				'options' => apply_filters( 'cai_get_products_category', null ),
+			],
 			'selects'     => [
 				[
 					'title'          => __( 'Industry', 'nuplo' ),
@@ -33,11 +38,6 @@ $data_to_display = [
 					'button_classes' => 'button button--off-white',
 				],
 			],
-			'radio-group' => [
-				'title'   => __( 'Product Category', 'nuplo' ),
-				'name'    => 'productCategory',
-				'options' => apply_filters( 'cai_get_products_category', null ),
-			],
 		],
 	],
 	'items'               => apply_filters( 'cai_get_filtered_products', null ),
@@ -48,7 +48,7 @@ $data_to_display = [
 			'url'  => get_permalink(),
 		],
 		[
-			'name' => 'Industry',
+			'name' => 'Products',
 			'url'  => get_permalink(),
 		],
 	],

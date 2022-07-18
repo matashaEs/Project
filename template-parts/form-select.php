@@ -20,11 +20,11 @@ extract( $args );
 					<input
 							type="radio"
 							class="input__radio input__radio--filters"
-							id="<?= esc_attr( $id ) ?>"
-							value="<?= esc_attr( $value ) ?>"
+							id="<?= esc_attr( $slug . '_' . $id ) ?>"
+							value="<?= esc_attr( $slug ) ?>"
 							name="<?= esc_attr( $name ) ?>"/>
-					<label for="<?= esc_attr( $id ) ?>" class="p">
-						<?= esc_html( $value ) ?>
+					<label for="<?= esc_attr( $slug . '_' . $id ) ?>" class="p">
+						<?= esc_html( $name ) ?>
 					</label>
 				</div>
 			<?php endforeach; ?>
