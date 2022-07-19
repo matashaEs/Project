@@ -77,7 +77,7 @@ $content_col_class = ! empty( $content_top_padding ) ? ' sidebar-and-content__co
 
 		<div class="col sidebar-and-content__col sidebar-and-content__col-content<?= esc_attr( $content_col_class ) ?>">
 			<?php if ( ! empty( $title ) ) : ?>
-				<h1 class="sidebar-and-content__title sidebar-and-content__title--mobile">
+				<h1 class="sidebar-and-content__title sidebar-and-content__title--mobile <?= is_single() ? 'sidebar-and-content__title--single' : '' ?>">
 					<?= esc_html( $title ) ?>
 				</h1>
 			<?php endif; ?>
