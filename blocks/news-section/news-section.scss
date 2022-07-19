@@ -28,18 +28,6 @@
     }
   }
 
-  &__title {
-    display: none;
-
-    &--mobile {
-      display: block;
-    }
-
-    &--no-mobile {
-      display: block;
-    }
-  }
-
   &__item {
     background-color: var(--off-white);
     padding: 3rem 2rem 2.3rem 2.5rem;
@@ -184,14 +172,6 @@
 @include min-size(lg) {
   .news-section {
     $this: &;
-
-    &__title {
-      display: block;
-
-      &--mobile {
-        display: none;
-      }
-    }
 
     &__container {
       margin-top: 9rem;

@@ -1,11 +1,9 @@
 <?php
 /**
  * $title [ text ]
- * $title_mobile [ text ]
- * $what_news [ select: 'all', 'category' ]
- * $category [ group; shows if 'category' == $what_news ]
- *     $product_category [ taxonomy ]
- *     $product_industry [ taxonomy ]
+ * $what_news [ select: 'all', 'selected' ]
+ * $selected_news [ repeater; shows if 'selected' == $what_news ]
+ *     $news [ Post Type Object (CPT: Post) ]
  * $link [ link ]
  * $link_position [ true/false; shows if $link is not empty ]
  * $color_pallet [ select: 'grey', 'off-white' ]
@@ -28,7 +26,7 @@ $section_color_pallet_class = ! empty( $color_pallet ) && 'grey' == $color_palle
 $bg_color_pallet_class      = ! empty( $color_pallet ) && 'grey' == $color_pallet ? ' news-section__bg--grey' : '';
 $item_class                 = ! empty( $color_pallet ) && 'grey' == $color_pallet ? ' news-section__item--off-white' : '';
 $button_container_class     = ! empty( $link_position ) ? ' news-section__row-button--left' : '';
-$how_much_news              = ! empty( $what_news ) && 'category' == $what_news ? 2 : 3;
+$how_much_news              = ! empty( $selected_news ) ? count( $selected_news ) : 3;
 ?>
 
 <section class="container-fluid news-section<?= esc_html( $section_color_pallet_class ) ?>">
@@ -36,12 +34,7 @@ $how_much_news              = ! empty( $what_news ) && 'category' == $what_news 
 	<div class="container news-section__container">
 		<div class="row news-section__row news-section__row-title">
 			<?php if ( ! empty( $title ) ) : ?>
-				<div class="h2 news-section__title<?= empty( $title_mobile ) ? esc_html( 'news-section__title--no-mobile' ) : ''?>">
-					<?= esc_html( $title ); ?>
-				</div>
-				<?php if ( ! empty( $title_mobile ) ) : ?>
-				<div class="h2 news-section__title news-section__title--mobile"><?= esc_html( $title_mobile ); ?></div>
-				<?php endif; ?>
+				<div class="h2 news-section__title"><?= esc_html( $title ); ?></div>
 			<?php endif; ?>
 		</div>
 		<?php if ( ! empty( $news ) ) : ?>
