@@ -99,6 +99,10 @@ $transition-time: 1s;
     &--desktop {
       display: none;
     }
+
+    &--single {
+      display: none;
+    }
   }
 
   &__item {
