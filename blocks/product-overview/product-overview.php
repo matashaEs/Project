@@ -15,8 +15,10 @@ if ( ! empty( $block['id'] ) ) {
 ?>
 
 <section class="container-fluid product-overview">
+	<?php if ( ! empty( $image ) || get_the_post_thumbnail_url() ) : ?>
 	<div class="product-overview__bg" style="background-image: url( '<?= ! empty( $image ) ? esc_url( $image['sizes']['full_hd'] ) : esc_url( get_the_post_thumbnail_url() ); ?> ' )">
 	</div>
+	<?php endif; ?>
 	<div class="product-overview__path">
 		<p> Products > ERP > Ponderosa ERP </p>
 	</div>
