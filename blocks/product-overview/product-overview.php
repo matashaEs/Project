@@ -30,7 +30,7 @@ if ( ! empty( $block['id'] ) ) {
 	</div>
 	<?php if ( ! empty( $description ) ) : ?>
 		<div class="product-overview__description">
-			<p> <?= esc_html( $description )?></p>
+			<p> <?= wp_kses( $description, [ 'br' => [] ] )?></p>
 		</div>
 	<?php endif ?>
 	<div class="product-overview__buttons">
@@ -39,7 +39,7 @@ if ( ! empty( $block['id'] ) ) {
 			foreach ( $buttons['buttons_with_text'] as $button ) :
 				$button_with_text = $button['button_with_text'];
 				?>
-				<?php if ( ! empty( $button ) ) : ?>
+				<?php if ( ! empty( $button_with_text ) ) : ?>
 				<a href="<?= esc_url( $button_with_text['url'] ) ?>" class="button p">
 					<?= esc_html( $button_with_text['title'] )?>
 				</a>
