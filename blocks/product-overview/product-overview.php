@@ -39,9 +39,11 @@ if ( ! empty( $block['id'] ) ) {
 			foreach ( $buttons['buttons_with_text'] as $button ) :
 				$button_with_text = $button['button_with_text'];
 				?>
+				<?php if ( ! empty( $button ) ) : ?>
 				<a href="<?= esc_url( $button_with_text['url'] ) ?>" class="button p">
 					<?= esc_html( $button_with_text['title'] )?>
 				</a>
+			<?php endif; ?>
 		<?php endforeach; ?>
 		<?php endif; ?>
 		<?php if ( 1 == $buttons ['add_share_button'] ) : ?>
