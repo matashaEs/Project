@@ -73,6 +73,7 @@
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
+        align-items: flex-start;
       }
     }
 
@@ -137,6 +138,66 @@
 
 @include min-size(lg) {
   .integrations {
+    padding: 10rem 0;
+
+    &__container {
+      flex-flow: row;
+      justify-content: space-between;
+    }
+
+    &__row {
+      &-title {
+        width: 30%;
+      }
+
+      &-content {
+        width: 67%;
+        margin-bottom: 0;
+      }
+
+      &-button {
+        &--narrow {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .sidebar-and-content {
+    &__content-container .integrations {
+      &__container {
+        flex-flow: column;
+        justify-content: initial;
+      }
+
+      &__row {
+        width: auto;
+
+        &-button {
+          &--narrow {
+            display: block;
+          }
+        }
+      }
+
+      &__item {
+        width: 48%;
+        max-width: 400px;
+        padding: 0;
+      }
+
+      &__item-icon {
+        width: 90px;
+        height: 90px;
+        position: initial;
+        left: initial;
+        top: initial;
+      }
+
+      &__item-title {
+        width: 0;
+      }
+    }
   }
 }
 

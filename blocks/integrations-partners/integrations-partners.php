@@ -19,7 +19,7 @@ if ( ! empty( $block['id'] ) ) {
 ?>
 
 <section class="container-fluid integrations">
-	<div class="container">
+	<div class="container integrations__container">
 		<div class="row integrations__row integrations__row-title">
 			<?php if ( ! empty( $title ) ) : ?>
 				<div class="h2 integrations__title<?= ! empty( $description ) ? ' integrations__title--with-content' : '' ?>">
@@ -54,9 +54,10 @@ if ( ! empty( $block['id'] ) ) {
 			<?php endif; ?>
 		</div>
 		<?php if ( ! empty( $link ) ) : ?>
-			<div class="row integrations__row integrations__row-button">
-				<a href="<?= esc_url( $link['url'] ) ?>"
-                    class="button integrations__button integrations__button--narrow">
+			<div class="row integrations__row integrations__row-button integrations__row-button--narrow">
+				<a
+					href="<?= esc_url( $link['url'] ) ?>"
+					class="button integrations__button integrations__button--narrow">
 					<?= esc_html( $link['title'] ) ?>
 				</a>
 			</div>
