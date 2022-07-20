@@ -1,5 +1,8 @@
 import $ from 'jquery';
 
+/**
+ * Visual part of the sidebar and content (left gray bar with navigation and content on the right side)
+ */
 class SidebarAndContent {
     parent = null;
 
@@ -13,8 +16,6 @@ class SidebarAndContent {
         this.itemsClassChanger( '.sidebar-and-content__item-tags', 'p', 'p-large' );
         this.itemsClassChanger( '.sidebar-and-content__col-sidebar .page-navigation__button', 'h4', 'p-large' );
         this.itemsClassChanger( '.sidebar-and-content__col-sidebar .form-select--selected', 'h4', 'p-large' );
-
-        $( 'input[name="productCategory"]' ).change( this.categoryChanged );
     }
 
     itemsClassChanger( selector, mobileClass, desctopClass, width = 767 ) {
@@ -53,11 +54,6 @@ class SidebarAndContent {
 
             container.css({'maxHeight': '0'});
         }
-    }
-
-    categoryChanged( e ) {
-        console.log( e );
-        console.log( 'category' );
     }
 }
 

@@ -10,10 +10,10 @@ class Form {
 				this.selectFeature( e, this );
 			});
 
-			$( '.form-select div.form-option' )
-				.on( 'click', ( e ) => {
-					this.optionFeature( e, this );
-				});
+		$( '.form-select div.form-option' )
+			.on( 'click', ( e ) => {
+				this.optionFeature( e, this );
+			});
 	}
 
 	selectFeature( e, $this ) {
