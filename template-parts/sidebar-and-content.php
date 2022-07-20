@@ -10,7 +10,7 @@
 
 extract( $args );
 
-$content_col_class = ! empty( $content_top_padding ) ? ' sidebar-and-content__col-content--padding-top-0' : '';
+$content_col_class = 'items' === $content_type ? ' sidebar-and-content__col-content--padding-top-0' : '';
 
 ?>
 
@@ -37,7 +37,7 @@ $content_col_class = ! empty( $content_top_padding ) ? ' sidebar-and-content__co
 					<div class="sidebar-and-content__sidebar">
 						<?php foreach ( $sidebar['blocks'] as $block_type => $block ) : ?>
 
-							<?php $container_class = ! empty( $block['containerClasses'] ) ? $block['containerClasses'] : ''; ?>
+							<?php $container_class = 'the_content' === $content_type ? 'mb0' : ''; ?>
 							<div class="sidebar-and-content__sidebar-group <?= esc_html( $container_class ) ?>">
 								<?php if ( 'selects' == $block_type ) : ?>
 									<?php foreach ( $block as $select ) : ?>
@@ -77,14 +77,22 @@ $content_col_class = ! empty( $content_top_padding ) ? ' sidebar-and-content__co
 			<?php if ( 'items' === $content_type ) : ?>
 				<div class="sidebar-and-content__content-container">
 					<?php if ( ! empty( $items ) ) : ?>
-						<?php foreach ( $items as $item ) : ?>
+						<?php
+						foreach ( $items as $item ) :
+							if ( ! empty( $item['background'] ) ) {
+								$background = $item['background'];
+							} else {
+								$background = get_template_directory_uri() . '/assets/img/placeholder.jpg';
+							}
+							?>
+
 							<div class="sidebar-and-content__item">
 								<div class="sidebar-and-content__item-image-container">
+									<div
+											class="sidebar-and-content__item-image"
+											style="background-image: url('<?= esc_html( $background ); ?>');">
+									</div>
 									<?php if ( ! empty( $item ['category'] ) ) : ?>
-										<div
-												class="sidebar-and-content__item-image"
-												style="background-image: url('<?= esc_html( $item['background'] ); ?>');">
-										</div>
 										<div class="button button--orange sidebar-and-content__item-category">
 											<?= esc_html( $item ['category'] ) ?>
 										</div>
