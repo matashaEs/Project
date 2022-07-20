@@ -12,7 +12,12 @@
 
     &-content {
       width: 100%;
-      margin-bottom: 1.5rem;
+    }
+
+    &-button {
+      &--narrom {
+        display: none;
+      }
     }
   }
 
@@ -68,6 +73,8 @@
 
 @include min-size(md) {
   .integrations {
+    padding: 10rem 0;
+
     &__row {
       &-title {
         flex-direction: column;
@@ -114,7 +121,8 @@
       background: none;
       position: relative;
 
-      &:nth-last-child(-n+2) {
+      &:last-child,
+      &:nth-child(odd):nth-last-child(2) {
         margin-bottom: 0;
       }
     }
@@ -130,9 +138,15 @@
 
   .sidebar-and-content {
     &__content-container .integrations {
+      padding: 8.5rem 0 11rem;
+
       &__button {
         &--narrow {
           display: block;
+        }
+
+        &--wide {
+          display: none;
         }
       }
 
@@ -145,8 +159,6 @@
 
 @include min-size(lg) {
   .integrations {
-    padding: 10rem 0;
-
     &__container {
       flex-flow: row;
       justify-content: space-between;
@@ -172,8 +184,6 @@
 
   .sidebar-and-content {
     &__content-container .integrations {
-      padding: 8.5rem 0 11rem;
-
       &__container {
         flex-flow: column;
         justify-content: initial;

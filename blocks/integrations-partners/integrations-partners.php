@@ -43,11 +43,11 @@ if ( ! empty( $block['id'] ) ) {
 				<?php foreach ( $contents as $content ) : ?>
 					<?php if ( ! empty( $content ) && ( ! empty( $content['icon'] ) || ! empty( $content['title'] ) || ! empty( $content['description'] ) ) ) : ?>
 						<div class="integrations__item">
-                            <?php if ( ! empty( $content['icon'] ) ) : ?>
-							    <div class="integrations__item-icon">
+							<?php if ( ! empty( $content['icon'] ) ) : ?>
+								<div class="integrations__item-icon">
 									<img src="<?= esc_url( $content['icon']['sizes']['full_hd'] ); ?>" alt="icon">
-							    </div>
-                            <?php endif; ?>
+								</div>
+							<?php endif; ?>
 							<?php if ( ! empty( $content['title'] ) ) : ?>
 								<div class="h4 integrations__item-title"><?= esc_html( $content['title'] ) ?></div>
 							<?php endif; ?>
