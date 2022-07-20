@@ -30,9 +30,8 @@ if ( ! empty( $block['id'] ) ) {
 				<div class="p integrations__description"><?= esc_html( $description ) ?></div>
 			<?php endif; ?>
 			<?php if ( ! empty( $link ) ) : ?>
-				<div class="row integrations__row integrations__row-button">
-					<a href="<?= esc_url( $link['url'] ) ?>"
-						class="button integrations__button integrations__button--wide">
+				<div class="row integrations__row integrations__row-button integrations__row-button--wide">
+					<a href="<?= esc_url( $link['url'] ) ?>" class="button">
 						<?= esc_html( $link['title'] ) ?>
 					</a>
 				</div>
@@ -63,9 +62,7 @@ if ( ! empty( $block['id'] ) ) {
 		</div>
 		<?php if ( ! empty( $link ) ) : ?>
 			<div class="row integrations__row integrations__row-button integrations__row-button--narrow">
-				<a
-					href="<?= esc_url( $link['url'] ) ?>"
-					class="button integrations__button integrations__button--narrow">
+				<a href="<?= esc_url( $link['url'] ) ?>" class="button">
 					<?= esc_html( $link['title'] ) ?>
 				</a>
 			</div>
