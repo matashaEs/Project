@@ -190,8 +190,6 @@
         width: 90px;
         height: 90px;
         position: initial;
-        left: initial;
-        top: initial;
       }
 
       &__item-title {
@@ -203,6 +201,18 @@
 
 @include min-size(xl) {
   .integrations {
+  }
+
+  .sidebar-and-content {
+    &__content-container .integrations {
+      &__item {
+        padding-left: 11.5rem;
+      }
+
+      &__item-icon {
+        position: absolute;
+      }
+    }
   }
 }
 
