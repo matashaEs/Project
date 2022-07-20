@@ -24,8 +24,7 @@ class SidebarAndContentFilteringAndNavigation {
      */
     productIndustryChanged( e ) {
         console.log( 'product industry' );
-
-        // console.log( option.find( 'input' ).val() );
+        console.log( $( e.target ).val() );
     }
 
     /**
@@ -33,6 +32,7 @@ class SidebarAndContentFilteringAndNavigation {
      */
     industryTypeChanged( e ) {
         console.log( 'industry type' );
+        console.log( $( e.target ).val() );
     }
 
     // Items filtering end
