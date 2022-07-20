@@ -40,6 +40,7 @@
   &__item-title,
   &__item-icon {
     display: inline-block;
+    margin-bottom: 1.5rem;
   }
 
   &__item-icon {
@@ -56,8 +57,12 @@
     }
   }
 
-  &__item-description {
-    margin-top: 1.5rem;
+  &__item-title {
+    width: calc(100% - 52px);
+  }
+
+  &__button {
+    display: none;
   }
 }
 
@@ -89,6 +94,8 @@
     }
 
     &__button {
+      display: block;
+
       &--wide {
         margin-top: 5rem;
       }
@@ -101,7 +108,7 @@
 
     &__item {
       width: 48%;
-      max-width: 400px;
+      max-width: 485px;
       padding: 0 0 0 11.5rem;
       margin: 0 0 8rem;
       background: none;
@@ -127,10 +134,10 @@
         &--narrow {
           display: block;
         }
+      }
 
-        &--wide {
-          display: none;
-        }
+      &__item {
+        max-width: 400px;
       }
     }
   }
@@ -165,6 +172,8 @@
 
   .sidebar-and-content {
     &__content-container .integrations {
+      padding: 8.5rem 0 11rem;
+
       &__container {
         flex-flow: column;
         justify-content: initial;
@@ -181,8 +190,6 @@
       }
 
       &__item {
-        width: 48%;
-        max-width: 400px;
         padding: 0;
       }
 
@@ -201,6 +208,9 @@
 
 @include min-size(xl) {
   .integrations {
+    &__item-description {
+      margin-top: 2.5rem;
+    }
   }
 
   .sidebar-and-content {
@@ -212,11 +222,37 @@
       &__item-icon {
         position: absolute;
       }
+
+      &__item-title {
+        width: initial;
+      }
     }
   }
 }
 
 @include min-size(xxl) {
   .integrations {
+    &__item {
+      margin-right: 3.5rem;
+      padding-left: 14.5rem;
+    }
+
+    &__item-icon {
+      width: 116px;
+      height: 116px;
+    }
+  }
+
+  .sidebar-and-content {
+    &__content-container .integrations {
+      &__item {
+        padding-left: 11.5rem;
+      }
+
+      &__item-icon {
+        width: 90px;
+        height: 90px;
+      }
+    }
   }
 }

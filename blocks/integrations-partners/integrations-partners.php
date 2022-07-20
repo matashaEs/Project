@@ -41,13 +41,21 @@ if ( ! empty( $block['id'] ) ) {
 		<div class="row integrations__row integrations__row-content">
 			<?php if ( ! empty( $contents ) ) : ?>
 				<?php foreach ( $contents as $content ) : ?>
-					<?php if ( ! empty( $content ) ) : ?>
+					<?php if ( ! empty( $content ) && ( ! empty( $content['icon'] ) || ! empty( $content['title'] ) || ! empty( $content['description'] ) ) ) : ?>
 						<div class="integrations__item">
-							<div class="integrations__item-icon">
-								<img src="<?= esc_url( $content['icon']['sizes']['full_hd'] ); ?>" alt="icon">
-							</div>
-							<div class="h4 integrations__item-title"><?= esc_html( $content['title'] ) ?></div>
-							<div class="integrations__item-description"><?= esc_html( $content['description'] ) ?></div>
+                            <?php if ( ! empty( $content['icon'] ) ) : ?>
+							    <div class="integrations__item-icon">
+									<img src="<?= esc_url( $content['icon']['sizes']['full_hd'] ); ?>" alt="icon">
+							    </div>
+                            <?php endif; ?>
+							<?php if ( ! empty( $content['title'] ) ) : ?>
+								<div class="h4 integrations__item-title"><?= esc_html( $content['title'] ) ?></div>
+							<?php endif; ?>
+							<?php if ( ! empty( $content['description'] ) ) : ?>
+								<div class="integrations__item-description">
+									<?= esc_html( $content['description'] ) ?>
+								</div>
+							<?php endif; ?>
 						</div>
 					<?php endif; ?>
 				<?php endforeach; ?>
