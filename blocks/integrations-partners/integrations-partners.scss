@@ -1,0 +1,77 @@
+@import "../../src/scss/for-blocks";
+
+.integrations {
+  $this: &;
+  padding-top: 4.5rem;
+
+  &__row {
+    &-title {
+      margin-bottom: 1.5rem;
+    }
+
+    &-content {
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__item {
+    background-color: var(--off-white);
+    padding: 3rem 2rem 2.3rem 2.5rem;
+    margin: 0 2rem;
+    width: calc(100vw - 4rem);
+    max-width: 382px;
+    text-decoration: none;
+    color: var(--black);
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+
+  &__item#{$this}__item {
+    display: flex;
+  }
+
+  &__item-title,
+  &__item-icon {
+    display: inline-block;
+  }
+
+  &__item-icon {
+    width: 35px;
+    height: 35px;
+    border: 1px solid var(--black);
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 1.7rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__item-description {
+    margin-top: 1.5rem;
+  }
+}
+
+@include min-size(md) {
+  .integrations {
+  }
+}
+
+@include min-size(lg) {
+  .integrations {
+  }
+}
+
+@include min-size(xl) {
+  .integrations {
+  }
+}
+
+@include min-size(xxl) {
+  .integrations {
+  }
+}
