@@ -2,9 +2,8 @@
 get_header();
 
 $data_to_display = [
-	'title'               => get_the_title(),
-	'content_top_padding' => false,
-	'sidebar'             => [
+	'title'        => get_the_title(),
+	'sidebar'      => [
 		'mobileName' => __( 'Quick Links', 'nuplo' ),
 		'blocks'     => [
 			'selects'    => [
@@ -50,22 +49,22 @@ $data_to_display = [
 			],
 		],
 	],
-	// todo: it should be dynamic. It is also missing on designs.
-	'breadcrumbs'        => [
+	'breadcrumbs'  => [
 		[
-			'name' => 'Home',
-			'url'  => get_permalink(),
+			'name' => __( 'Home', 'nuplo' ),
+			'url'  => get_home_url(),
 		],
+		// todo: category name should be dynamic.
 		[
 			'name' => 'ERP',
-			'url'  => get_permalink(),
+			'url'  => 'CATEGORY LINK',
 		],
 		[
 			'name' => get_the_title(),
-			'url'  => get_permalink(),
+			'url'  => '#',
 		],
 	],
-	'content_type'        => 'the_content',
+	'content_type' => 'the_content',
 ];
 
 get_template_part( 'template-parts/sidebar-and-content', null, $data_to_display );

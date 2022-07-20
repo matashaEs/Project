@@ -15,7 +15,7 @@ $data_to_display = [
 				],
 				[
 					'title'          => 'Industry Type',
-					'name'           => 'industry-type',
+					'name'           => 'industryType',
 					'options'        => apply_filters( 'cai_get_industry_types', null ),
 					'button_classes' => 'button button--off-white',
 				],
@@ -30,11 +30,11 @@ $data_to_display = [
 	'items'        => apply_filters( 'cai_get_filtered_products', null ),
 	'breadcrumbs'  => [
 		[
-			'name' => 'Home',
+			'name' => __( 'Home', 'nuplo' ),
 			'url'  => get_home_url(),
 		],
 		[
-			'name' => 'Industry',
+			'name' => __( 'Industry', 'nuplo' ),
 			'url'  => '#',
 		],
 	],

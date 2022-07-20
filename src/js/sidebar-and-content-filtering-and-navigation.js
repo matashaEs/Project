@@ -8,19 +8,20 @@ class SidebarAndContentFilteringAndNavigation {
     constructor() {
         $( 'input[name="productCategory"]' ).on( 'change', this.categoryChanged );
         $( 'input[name="industry"]' ).on( 'change', this.productIndustryChanged );
-        $( 'input[name="industry-type"]' ).on( 'change', this.industryTypeChanged );
+        $( 'input[name="industryType"]' ).on( 'change', this.industryTypeChanged );
     }
 
     // Items filtering start
     /**
-     * Filter list of items by product category
+     * TODO: Filter list of items by product category
      */
     categoryChanged( e ) {
+        console.log( $( e.target ).val() );
         console.log( 'product category' );
     }
 
     /**
-     * Filter list of items by product industry
+     * TODO: Filter list of items by product industry
      */
     productIndustryChanged( e ) {
         console.log( 'product industry' );
@@ -28,7 +29,7 @@ class SidebarAndContentFilteringAndNavigation {
     }
 
     /**
-     * Filter list of items by industry type
+     * TODO: Filter list of items by industry type
      */
     industryTypeChanged( e ) {
         console.log( 'industry type' );
@@ -38,6 +39,9 @@ class SidebarAndContentFilteringAndNavigation {
     // Items filtering end
 
     // Product navigation start
+    /**
+     * TODO: navigation for the product page
+     */
     // Product navigation end
 }
 

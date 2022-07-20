@@ -97,8 +97,11 @@ $content_col_class = 'items' === $content_type ? ' sidebar-and-content__col-cont
 											style="background-image: url('<?= esc_html( $background ); ?>');">
 									</div>
 									<?php if ( ! empty( $item ['category'] ) ) : ?>
-										<div class="button button--orange sidebar-and-content__item-category">
-											<?= esc_html( $item ['category'] ) ?>
+										<div
+												class="button sidebar-and-content__item-category"
+												style="background: <?= esc_html( $item['category']['color'] ); ?>; border-color: <?= esc_html( $item['category']['color'] ); ?>"
+										>
+											<?= esc_html( $item ['category']['name'] ) ?>
 										</div>
 									<?php endif; ?>
 								</div>

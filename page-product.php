@@ -27,18 +27,18 @@ $data_to_display = [
 			],
 		],
 	],
-	// todo: it should be dynamic. It is also missing on designs.
-	'breadcrumbs' => [
+	'items'        => apply_filters( 'cai_get_filtered_products', null ),
+	'breadcrumbs'  => [
 		[
-			'name' => 'Home',
-			'url'  => get_permalink(),
+			'name' => __( 'Home', 'nuplo' ),
+			'url'  => get_home_url(),
 		],
 		[
-			'name' => 'Products',
-			'url'  => get_permalink(),
+			'name' => __( 'Products', 'nuplo' ),
+			'url'  => '#',
 		],
 	],
-	'content_type' => 'the_content',
+	'content_type' => 'items',
 ];
 
 get_template_part( 'template-parts/sidebar-and-content', null, $data_to_display );
