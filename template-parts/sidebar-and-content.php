@@ -2,10 +2,11 @@
 /**
  * $title
  * $sidebar
+ * $breadcrumbs
  *  $mobileName ( name of sidebar on mobile )
  *  $blocks ( 'radio-group' 'selects', 'navigation'; each block corresponds to a template part  )
  *      $items (( required ))
- *      $containerClasses (( optional ))
+ * $content_type
  */
 
 extract( $args );
@@ -21,6 +22,9 @@ $content_col_class = 'items' === $content_type ? ' sidebar-and-content__col-cont
 		<div class="col sidebar-and-content__col sidebar-and-content__col-sidebar">
 
 			<div class="sidebar-and-content__sidebar-bg"></div>
+			<?php
+			get_template_part( 'template-parts/breadcrumbs', null, $breadcrumbs );
+			?>
 			<?php if ( ! empty( $title ) ) : ?>
 				<h1 class="sidebar-and-content__title sidebar-and-content__title--desktop">
 					<?= esc_html( $title ) ?>

@@ -28,7 +28,7 @@ $data_to_display = [
 		],
 	],
 	// todo: it should be dynamic. It is also missing on designs.
-	'bread_crumbs' => [
+	'breadcrumbs' => [
 		[
 			'name' => 'Home',
 			'url'  => get_permalink(),
