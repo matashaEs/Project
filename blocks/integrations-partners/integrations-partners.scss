@@ -219,8 +219,8 @@
 
 @include min-size(xl) {
   .integrations {
-    &__item-description {
-      margin-top: 2.5rem;
+    &__item-title {
+      margin-bottom: 2.5rem;
     }
   }
 
