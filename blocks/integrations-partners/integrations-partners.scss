@@ -122,7 +122,7 @@
       position: relative;
 
       &:last-child,
-      &:nth-child(odd):nth-last-child(2) {
+      &:nth-last-child(2):nth-child(odd) {
         margin-bottom: 0;
       }
     }
@@ -148,10 +148,6 @@
         &--wide {
           display: none;
         }
-      }
-
-      &__item {
-        max-width: 400px;
       }
     }
   }
@@ -180,6 +176,10 @@
         }
       }
     }
+
+    &__item {
+      align-items: flex-start;
+    }
   }
 
   .sidebar-and-content {
@@ -201,6 +201,7 @@
 
       &__item {
         padding: 0;
+        max-width: 400px;
       }
 
       &__item-icon {
@@ -210,7 +211,7 @@
       }
 
       &__item-title {
-        width: 0;
+        width: calc(100% - 107px);
       }
     }
   }
