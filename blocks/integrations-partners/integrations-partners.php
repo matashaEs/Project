@@ -20,11 +20,24 @@ if ( ! empty( $block['id'] ) ) {
 
 <section class="container-fluid integrations">
 	<div class="container">
-		<?php if ( ! empty( $title ) ) : ?>
-			<div class="row integrations__row integrations__row-title">
-				<div class="h2 integrations__title"><?= esc_html( $title ) ?></div>
-			</div>
-		<?php endif; ?>
+		<div class="row integrations__row integrations__row-title">
+			<?php if ( ! empty( $title ) ) : ?>
+				<div class="h2 integrations__title<?= ! empty( $description ) ? ' integrations__title--with-content' : '' ?>">
+					<?= esc_html( $title ) ?>
+				</div>
+			<?php endif; ?>
+			<?php if ( ! empty( $description ) ) : ?>
+				<div class="p integrations__description"><?= esc_html( $description ) ?></div>
+			<?php endif; ?>
+			<?php if ( ! empty( $link ) ) : ?>
+				<div class="row integrations__row integrations__row-button">
+					<a href="<?= esc_url( $link['url'] ) ?>"
+						class="button integrations__button integrations__button--wide">
+						<?= esc_html( $link['title'] ) ?>
+					</a>
+				</div>
+			<?php endif; ?>
+		</div>
 		<div class="row integrations__row integrations__row-content">
 			<?php if ( ! empty( $contents ) ) : ?>
 				<?php foreach ( $contents as $content ) : ?>
@@ -40,6 +53,13 @@ if ( ! empty( $block['id'] ) ) {
 				<?php endforeach; ?>
 			<?php endif; ?>
 		</div>
-		<div class="row integrations__row integrations__row-button"></div>
+		<?php if ( ! empty( $link ) ) : ?>
+			<div class="row integrations__row integrations__row-button">
+				<a href="<?= esc_url( $link['url'] ) ?>"
+                    class="button integrations__button integrations__button--narrow">
+					<?= esc_html( $link['title'] ) ?>
+				</a>
+			</div>
+		<?php endif; ?>
 	</div>
 </section>
