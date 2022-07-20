@@ -18,7 +18,7 @@ class Hooks {
 	}
 
 	public function add_additional_class_on_li( $classes, $items, $args ) {
-		if ( 'primary-menu' == $args->menu ) {
+		if ( 'primary-menu' == $args->menu || 'menu-mobile' == $args->theme_location ) {
 			if ( isset( $args->add_li_class ) ) {
 				$classes[] = $args->add_li_class;
 			}

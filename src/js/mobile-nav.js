@@ -3,32 +3,34 @@ import $ from 'jquery';
 class Navigation {
     constructor() {
         this.body = $( 'body' );
-        this.navContainer = $( '#navContainer' );
+        $('.menu-item-has-children > a').click(function (e) {
+            e.preventDefault();
+            $(this).next('.sub-menu').slideToggle();
+            $('.menu-item-has-children').toggleClass('nav__mobile-menu-item--chosen')
+        });
 
-        $( '#navOpenMenu' ).on( 'click', this.toggleMenu );
-        $( '#navCloseMenu' ).on( 'click', this.toggleMenu );
+
+        $( '.nav__open' ).on( 'click', this.toggleMenuNavOpen );
+        $( '.nav__close' ).on( 'click', this.toggleMenuNavClose );
     }
 
-    toggleMenu = () => {
-        if ( 'none' === this.navContainer.css( 'display' ) ) {
-            this.navContainer.css( 'display', 'flex' );
-            setTimeout( () => {
-                this.toggleMenuCommon();
-            }, 100 );
-        } else {
-            this.toggleMenuCommon();
-            setTimeout( () => {
-                this.navContainer.css( 'display', 'none' );
-            }, 500 );
+    toggleMenuNavOpen = () => {
+        if ($(window).width() < 1023) {
+            $(".nav__open").removeClass('nav__mobile--visible')
+            $(".nav__mobile-menu").toggleClass('nav__mobile-menu--visible')
+            $(".nav__fluid").toggleClass('nav__mobile--scrolling')
+            $("body").addClass('home--no-scrolling')
         }
+    }
 
-    };
-
-    toggleMenuCommon = () => {
-        this.navContainer.toggleClass( 'nav--active' );
-        this.body.toggleClass( 'overflow-hidden' );
-        $( '.nav__button' ).toggleClass( 'nav__button--active' );
-    };
+    toggleMenuNavClose = () => {
+        if ($(window).width() < 1023) {
+            $(".nav__open").toggleClass('nav__mobile--visible')
+            $(".nav__mobile-menu").removeClass('nav__mobile-menu--visible')
+            $(".nav__fluid").removeClass('nav__mobile--scrolling')
+            $("body").removeClass('home--no-scrolling')
+        }
+    }
 }
 
 new Navigation();
