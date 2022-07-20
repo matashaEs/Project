@@ -90,7 +90,7 @@ $content_col_class = 'items' === $content_type ? ' sidebar-and-content__col-cont
 							}
 							?>
 
-							<div class="sidebar-and-content__item">
+							<a href="<?= esc_url( $item['url'] ); ?>" class="sidebar-and-content__item">
 								<div class="sidebar-and-content__item-image-container">
 									<div
 											class="sidebar-and-content__item-image"
@@ -105,12 +105,12 @@ $content_col_class = 'items' === $content_type ? ' sidebar-and-content__col-cont
 								<?php if ( ! empty( $item ['name'] ) ) : ?>
 									<div class="sidebar-and-content__item-title"><?= esc_html( $item ['name'] ) ?></div>
 								<?php endif; ?>
-								<?php if ( ! empty( $item ['tags'] ) ) : ?>
-									<div class="sidebar-and-content__item-tags">
-										<?= esc_html( implode( ', ', $item ['tags'] ) ); ?>
+								<?php if ( ! empty( $item ['excerpt'] ) ) : ?>
+									<div class="sidebar-and-content__item-excerpt">
+										<?= esc_html( $item ['excerpt'] ); ?>
 									</div>
 								<?php endif; ?>
-							</div>
+							</a>
 						<?php endforeach; ?>
 					<?php else : ?>
 						<h3>
