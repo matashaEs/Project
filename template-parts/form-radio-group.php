@@ -1,7 +1,7 @@
 <?php
 /**
  * $name
- * $options [id, slug
+ * $options [id, slug]
  */
 extract( $args );
 ?>

@@ -17,7 +17,7 @@ if ( empty( $args ) ) {
 			<?php
 		else :
 			?>
-			<div class="breadcrumb">
+			<div class="breadcrumbs__item">
 				<?= esc_html( $breadcrumb['name'] ); ?>
 			</div>
 			<?php

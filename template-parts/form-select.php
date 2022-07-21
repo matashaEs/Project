@@ -1,11 +1,9 @@
 <?php
 /**
- * $title
  * $name
- * $options
- *  $id
- *  $value
+ * $options [id, slug, value, name]
  * $button_classes
+ * $title
  */
 extract( $args );
 
