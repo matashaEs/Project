@@ -14,11 +14,6 @@ class Navigation {
         $( '.nav__open' ).on( 'click', this.toggleMenu );
         $( '.nav__close' ).on( 'click', this.toggleMenu );
         $( '.nav__main-menu--open' ).on( 'click', this.toggleMenu );
-
-        $( '.nav__open .nav__main-menu--open' ).on( 'click', ( e ) => {
-                this.showSidebarOnMobile( e, this );
-            }
-        );
     }
 
     toggleMenu = () => {

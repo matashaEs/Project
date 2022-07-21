@@ -121,12 +121,6 @@
       &--visible {
         display: block;
       }
-
-      &-item:hover {
-        &::after {
-          transform: translateX(1rem);
-        }
-      }
     }
 
     &-items > li ul #{$this}__mobile-menu-item::before {
@@ -193,6 +187,12 @@
       transform: rotate(90deg);
       padding-top: 1rem;
       padding-right: 0.5rem;
+    }
+
+    &-item:hover {
+      &::after {
+        transform: translateX(1rem);
+      }
     }
 
     &-menu-item--chosen:hover {
