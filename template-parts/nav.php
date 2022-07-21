@@ -42,9 +42,11 @@ endif;
 						<div class="nav__buttons">
 							<?php if ( ! empty( $buttons ) ) : ?>
 								<?php foreach ( $buttons as $button ) : ?>
+									<?php if ( ! empty( $button ) ) : ?>
 									<a href="<?= esc_url( $button['button']['url'] ) ?>" class="button p nav__button">
 										<?= esc_html( $button['button']['title'] ) ?>
 									</a>
+							<?php endif; ?>
 								<?php endforeach; ?>
 							<?php endif; ?>
 						</div>
