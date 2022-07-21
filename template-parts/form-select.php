@@ -1,11 +1,9 @@
 <?php
 /**
- * $title
  * $name
- * $options
- *  $id
- *  $value
+ * $options [id, slug, value, name]
  * $button_classes
+ * $title
  */
 extract( $args );
 
@@ -13,18 +11,18 @@ extract( $args );
 
 <div class="form-select">
 	<div class="form-select-box">
+		<input type="hidden" name="<?= esc_attr( $name ) ?>">
 		<div class="form-options-container">
 			<?php foreach ( $options as $option ) : ?>
-				<?php extract( $option ); ?>
 				<div class="form-option radio__container">
 					<input
 							type="radio"
 							class="input__radio input__radio--filters"
-							id="<?= esc_attr( $id ) ?>"
-							value="<?= esc_attr( $value ) ?>"
-							name="<?= esc_attr( $name ) ?>"/>
-					<label for="<?= esc_attr( $id ) ?>" class="p">
-						<?= esc_html( $value ) ?>
+							id="<?= esc_attr( $option['slug'] . '_' . $option['id'] ) ?>"
+							value="<?= esc_attr( $option['slug'] ) ?>"
+							name="<?= esc_attr( $name . '-radio' ) ?>"/>
+					<label for="<?= esc_attr( $option['slug'] . '_' . $option['id'] ) ?>" class="p">
+						<?= esc_html( $option['name'] ) ?>
 					</label>
 				</div>
 			<?php endforeach; ?>

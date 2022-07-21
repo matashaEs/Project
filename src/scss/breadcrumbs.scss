@@ -1,0 +1,29 @@
+.breadcrumbs {
+  display: none;
+}
+
+@include min-size(lg) {
+  .breadcrumbs {
+    display: flex;
+
+    &__item {
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    &__item--link {
+      margin-right: 5.5rem;
+      position: relative;
+
+      &::after {
+        content: ">";
+        position: absolute;
+        right: -3rem;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

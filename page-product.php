@@ -2,10 +2,15 @@
 get_header();
 
 $data_to_display = [
-	'title'        => __( 'Industry', 'nuplo' ),
+	'title'        => __( 'Products', 'nuplo' ),
 	'sidebar'      => [
 		'mobileName' => __( 'Filters', 'nuplo' ),
 		'blocks'     => [
+			'radio-group' => [
+				'title'   => __( 'Product Category', 'nuplo' ),
+				'name'    => 'productCategory',
+				'options' => apply_filters( 'cai_get_products_category', null ),
+			],
 			'selects'     => [
 				[
 					'title'          => __( 'Industry', 'nuplo' ),
@@ -20,11 +25,6 @@ $data_to_display = [
 					'button_classes' => 'button button--off-white',
 				],
 			],
-			'radio-group' => [
-				'title'   => __( 'Product Category', 'nuplo' ),
-				'name'    => 'productCategory',
-				'options' => apply_filters( 'cai_get_products_category', null ),
-			],
 		],
 	],
 	'items'        => apply_filters( 'cai_get_filtered_products', null ),
@@ -34,7 +34,7 @@ $data_to_display = [
 			'url'  => get_home_url(),
 		],
 		[
-			'name' => __( 'Industry', 'nuplo' ),
+			'name' => __( 'Products', 'nuplo' ),
 			'url'  => '#',
 		],
 	],
