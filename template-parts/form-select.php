@@ -9,6 +9,7 @@ extract( $args );
 
 ?>
 
+<?php if ( ! empty( $options ) ) : ?>
 <div class="form-select">
 	<div class="form-select-box">
 		<input type="hidden" name="<?= esc_attr( $name ) ?>">
@@ -32,3 +33,4 @@ extract( $args );
 		</div>
 	</div>
 </div>
+<?php endif; ?>
