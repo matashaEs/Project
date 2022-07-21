@@ -19,9 +19,9 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 	<div class="container sidebar-and-content__container">
 
 		<!-- Sidebar start -->
-        <div class="sidebar-and-content__sidebar-bg"></div>
+		<div class="sidebar-and-content__sidebar-bg"></div>
 
-        <div class="col sidebar-and-content__col sidebar-and-content__col-sidebar">
+		<div class="col sidebar-and-content__col sidebar-and-content__col-sidebar">
 
 			<?php
 			get_template_part( 'template-parts/breadcrumbs', null, $breadcrumbs );
