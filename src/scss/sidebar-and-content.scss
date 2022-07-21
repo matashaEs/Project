@@ -206,16 +206,20 @@ $transition-time: 1s;
 
 @include min-size(lg) {
   .sidebar-and-content {
+    $sidebar-width: 45%;
+
     &__container {
       flex-flow: row nowrap;
     }
 
     &__col {
+      height: 100vh;
+      overflow: scroll;
+
       &-sidebar {
-        width: 45%;
+        width: $sidebar-width;
         padding: 10rem 5rem 32rem 0;
         margin: 0;
-        position: relative;
       }
 
       &-content {
@@ -261,10 +265,10 @@ $transition-time: 1s;
     &__sidebar-bg {
       position: absolute;
       background-color: var(--grey);
-      width: calc(100% + 3rem);
-      height: 100%;
-      top: 0;
-      left: -3rem;
+      width: $sidebar-width;
+      height: 100vh;
+      top: 7rem;
+      left: 0;
       z-index: -1;
     }
 
@@ -306,11 +310,11 @@ $transition-time: 1s;
 
 @include min-size(xl) {
   .sidebar-and-content {
+    $sidebar-width: 33.75%;
+
     &__col {
       &-sidebar {
-        width: 33.75%;
-        margin: 0;
-        position: relative;
+        width: $sidebar-width;
       }
 
       &-content {
@@ -320,8 +324,7 @@ $transition-time: 1s;
     }
 
     &__sidebar-bg {
-      width: calc(100% + 5rem);
-      left: -5rem;
+      width: $sidebar-width;
     }
 
     &__item {
@@ -332,6 +335,10 @@ $transition-time: 1s;
         margin-bottom: 0;
       }
     }
+
+    &__content-container {
+      flex-flow: row wrap;
+    }
   }
 }
 
@@ -341,11 +348,6 @@ $transition-time: 1s;
       &-content {
         padding-left: 13rem;
       }
-    }
-
-    &__sidebar-bg {
-      left: calc((100vw - 1728px) / -2 - 7rem);
-      width: calc(100% + (100vw - 1728px) / 2 + 7rem);
     }
   }
 }
