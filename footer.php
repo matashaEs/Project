@@ -119,10 +119,11 @@ endif;
 							<ul class="footer__social-media">
 								<?php
 								foreach ( $social_media as $item ) :
-									$icon_name = $item['title'] ?? false;
+									$label     = $item['title'] ?? false;
+									$icon_name = strtolower( $label );
 									$url       = $item['link'] ?? false;
 
-									if ( $icon_name && $url ) :
+									if ( $label && $url ) :
 										?>
 
 										<li class="footer__social-media-item">
