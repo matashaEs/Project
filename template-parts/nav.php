@@ -12,9 +12,9 @@ endif;
 
 <header class="nav">
 	<div class="container-fluid nav__fluid">
-		<div class="container">
+		<div class="container nav__container">
 			<div class="nav__mobile">
-				<div class="nav__open nav__mobile--visible">
+				<div class="nav__open">
 					<a href="<?= esc_url( get_home_url() ); ?>" class="nav-logo">
 						<?php the_svg( 'cai-logo.svg', 'nav__logo' ); ?> </a>
 					<?php the_svg( 'nav-open.svg', 'nav__open-icon' ); ?>
@@ -65,7 +65,8 @@ endif;
 					</div>
 				</div>
 			</div>
-			<div class="nav__main-menu nav__desktop nav__main-menu--visible">
+			<div class="nav__desktop">
+			<div class="nav__main-menu nav__main-menu--visible">
 				<a href="<?= esc_url( get_home_url() ); ?>" class="nav-logo">
 					<?php the_svg( 'cai-logo.svg', 'nav__logo' ); ?>
 					<div class="nav__main-menu-items">
@@ -83,6 +84,7 @@ endif;
 							<?php the_svg( 'nav-open.svg', 'nav-open' ); ?>
 						</div>
 					</div>
+			</div>
 			</div>
 			<div class="nav__desktop--extended">
 				<div class="nav__close">

@@ -1,7 +1,3 @@
-.home-no-scrolling {
-  overflow-y: hidden;
-}
-
 .nav {
   $this: &;
 
@@ -12,7 +8,6 @@
 
   &__fluid {
     position: fixed;
-    background-color: var(--off-white);
   }
 
   &__desktop {
@@ -36,8 +31,19 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    display: none;
     cursor: pointer;
+    position: absolute;
+    display: flex;
+  }
+
+  &__open::before {
+    content: "";
+    width: calc(100% + 4rem);
+    background-color: var(--off-white);
+    margin-left: -2rem;
+    position: absolute;
+    height: 100%;
+    z-index: -1;
   }
 
   &__close {
@@ -95,10 +101,7 @@
 
   &__mobile {
     width: 100%;
-
-    &--visible {
-      display: flex;
-    }
+    position: relative;
 
     &--scrolling {
       position: relative;
@@ -116,11 +119,25 @@
     }
 
     &-menu {
-      display: none;
+      transition: 1s all;
+      transform: translateY(-120%);
 
       &--visible {
         display: block;
+        transition: 1s all;
+        transform: scale(1, 1);
+        min-height: 100%;
       }
+    }
+
+    &-menu::before {
+      content: "";
+      width: calc(100% + 4rem);
+      background-color: var(--off-white);
+      margin-left: -2rem;
+      position: absolute;
+      height: 100%;
+      z-index: -15;
     }
 
     &-items > li ul #{$this}__mobile-menu-item::before {
@@ -189,7 +206,7 @@
       padding-right: 0.5rem;
     }
 
-    &-item:hover {
+    &-menu-item:hover {
       &::after {
         transform: translateX(1rem);
       }
@@ -242,6 +259,10 @@
   .nav {
     $this: &;
 
+    &__container {
+      position: relative;
+    }
+
     &-input {
       width: 70%;
       margin-left: 3rem;
@@ -252,6 +273,16 @@
 
     &__close {
       cursor: pointer;
+    }
+
+    &__close::before {
+      content: "";
+      width: 200vw;
+      background-color: var(--off-white);
+      margin-left: -100rem;
+      position: absolute;
+      height: 7rem;
+      z-index: -15;
     }
 
     &-button {
@@ -265,7 +296,9 @@
       align-items: center;
       width: 100%;
       justify-content: space-between;
-      display: none;
+      z-index: 10;
+      position: absolute;
+      top: 0;
 
       &-item a {
         text-decoration: none;
@@ -292,8 +325,20 @@
       }
     }
 
+    &__main-menu::before {
+      content: "";
+      width: 200vw;
+      background-color: var(--off-white);
+      margin-left: -100rem;
+      position: absolute;
+      height: 7rem;
+      z-index: -15;
+    }
+
     &__desktop {
-      z-index: 10;
+      position: relative;
+      display: block;
+      width: 100%;
 
       &-form {
         margin-top: 5rem;
@@ -404,7 +449,10 @@
 
       &--extended {
         width: 100%;
-        display: none;
+        display: block;
+        transition: 1s all;
+        transform: translateY(-140%);
+        z-index: 10;
       }
     }
 
@@ -419,6 +467,8 @@
 
     &--visible {
       display: block;
+      transition: 1s all;
+      transform: scale(1, 1);
     }
   }
 }
