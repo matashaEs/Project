@@ -19,7 +19,7 @@ $style = ! empty( $color_pallet ) ? ' highlights--' . $color_pallet : '';
 <?php if ( ! empty( $contents ) ) : ?>
 	<section class="container-fluid highlights<?= esc_html( $style ) ?>">
 		<div class="container highlights__container">
-			<div class="row highlights__row ">
+			<div class="row highlights__row">
 				<?php if ( ! empty( $title ) ) : ?>
 					<div class="h2 highlights__title"><?= esc_html( $title ) ?></div>
 				<?php endif; ?>
@@ -36,6 +36,13 @@ $style = ! empty( $color_pallet ) ? ' highlights--' . $color_pallet : '';
 					</div>
 				<?php endforeach; ?>
 			</div>
+			<?php if ( ! empty( $link ) ) : ?>
+				<div class="row highlights__row highlights__row-button">
+					<a href="<?= esc_url( $link['url'] ) ?>" class="button highlights__button">
+						<?= esc_html( $link['title'] ) ?>
+					</a>
+				</div>
+			<?php endif; ?>
 		</div>
 	</section>
 <?php endif; ?>

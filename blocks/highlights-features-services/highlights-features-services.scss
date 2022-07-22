@@ -34,6 +34,10 @@
     margin: 0 0 2.5rem;
   }
 
+  &__button {
+    margin-bottom: 1.5rem;
+  }
+
   .slick-track {
     display: flex;
   }
@@ -41,27 +45,29 @@
 
 @include min-size(md) {
   .highlights {
-    $this: &;
+    padding: 10rem 0 11rem;
 
-    padding: 10rem 0;
-
-    &--small {
-      #{$this}__container {
-        align-items: flex-end;
-      }
-
-      #{$this}__row {
-        width: 65%;
-      }
-
-      #{$this}__item {
-        max-width: 420px;
-        padding: 3rem 4.5rem 6.5rem 4rem;
-      }
+    &__title {
+      margin-bottom: 4rem;
     }
 
     &__item {
       margin: 0 1rem;
+      padding: 6rem 5rem 4rem;
+    }
+  }
+
+  .sidebar-and-content {
+    &__content-container .highlights {
+      padding-top: 8.8rem;
+
+      &__item {
+        padding: 3rem 4.5rem 6.5rem;
+      }
+
+      &__title {
+        margin-bottom: 6rem;
+      }
     }
   }
 }
