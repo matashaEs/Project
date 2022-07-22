@@ -6,7 +6,6 @@
 extract( $args );
 ?>
 
-<?php if ( ! empty( $options ) ) : ?>
 <?php foreach ( $options as $option ) : ?>
 	<div class="radio__container">
 		<input
@@ -20,4 +19,3 @@ extract( $args );
 		</label>
 	</div>
 <?php endforeach; ?>
-<?php endif; ?>
