@@ -23,12 +23,17 @@ if ( ! empty( $block['id'] ) ) {
 	<div class="container two-columns__container">
 		<div class="two-columns__columns">
 			<?php foreach ( $columns as $column ) : ?>
+			<div class="two-columns__item-container two-columns__item-container--title">
 				<?php if ( ! empty( $column['title'] ) ) : ?>
 					<div class="h3 two-columns__columns-title"><?= esc_html( $column['title'] ) ?></div>
 				<?php endif; ?>
+			</div>
+			<div class="two-columns__item-container two-columns__item-container--description">
 				<?php if ( ! empty( $column['description'] ) ) : ?>
 					<div class="p two-columns__columns-description"><?= esc_html( $column['description'] ) ?></div>
 				<?php endif; ?>
+			</div>
+			<div class="two-columns__item-container two-columns__item-container--content">
 				<div class="two-columns__column-content">
 					<?php foreach ( $column['contents'] as $content ) : ?>
 						<div class="two-columns__column-content--closest">
@@ -47,6 +52,7 @@ if ( ! empty( $block['id'] ) ) {
 						</div>
 					<?php endforeach; ?>
 				</div>
+			</div>
 			<?php endforeach; ?>
 		</div>
 	</div>

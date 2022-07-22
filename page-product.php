@@ -38,7 +38,7 @@ $data_to_display = [
 			'url'  => '#',
 		],
 	],
-	'content_type' => 'items',
+	'content_type' => 'the_content',
 ];
 
 get_template_part( 'template-parts/sidebar-and-content', null, $data_to_display );

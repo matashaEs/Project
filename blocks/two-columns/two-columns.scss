@@ -88,26 +88,28 @@
   .two-columns {
     &__column {
       &-content {
-        width: 47%;
-        order: 3;
-        max-width: 38.2rem;
         margin-bottom: 0;
       }
     }
 
     &__columns {
       margin-bottom: 9rem;
+    }
 
-      &-title {
-        width: 47%;
+    &__item-container {
+      width: 47%;
+      max-width: 38.2rem;
+
+      &--title {
         order: 1;
-        max-width: 38.2rem;
       }
 
-      &-description {
-        width: 47%;
+      &--description {
         order: 2;
-        max-width: 38.2rem;
+      }
+
+      &--content {
+        order: 3;
       }
     }
   }
