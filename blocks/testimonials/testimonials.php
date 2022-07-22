@@ -13,7 +13,6 @@ if ( ! empty( $block['id'] ) ) {
 }
 
 $quotes = ! empty( $is_marks ) ? '<div class="testimonials__client-quotes"></div>' : '';
-// var_dump($quotes, '!!!');
 ?>
 
 <?php if ( ! empty( $contents ) ) : ?>
@@ -21,7 +20,7 @@ $quotes = ! empty( $is_marks ) ? '<div class="testimonials__client-quotes"></div
 		<div class="container testimonials__container">
 			<div class="row testimonials__row ">
 				<?php if ( ! empty( $title ) ) : ?>
-					<h2 class="testimonials__title"><?= esc_html( $title ) ?></h2>
+					<div class="h2 testimonials__title"><?= esc_html( $title ) ?></div>
 				<?php endif; ?>
 			</div>
 			<div class="row testimonials__row testimonials__row-content">

@@ -34,7 +34,46 @@ class Testimonials {
 				centerMode: true,
 			};
 
+			if ( 767 < window.innerWidth ) {
+				slickConf.infinite = false;
+				slickConf.centerMode = false;
+				slickConf.dots = false;
+			}
+
 			$( this ).slick( slickConf );
+
+			/**
+			 * enables trackpad scroll
+			 */
+			let blocked = false;
+			let blockTimeout = null;
+			let prevDeltaX = 0;
+
+			$( this ).on( 'mousewheel DOMMouseScroll wheel', ( function( e ) {
+				let deltaX = e.originalEvent.deltaX;
+				let deltaY = e.originalEvent.deltaY;
+
+				if ( 'undefined' != typeof deltaY ) {
+					clearTimeout( blockTimeout );
+					blockTimeout = setTimeout( function() {
+						blocked = false;
+					}, 50 );
+
+					if ( ( 1 > deltaY && -1 < deltaY ) && ( ( 10 < deltaX && deltaX > prevDeltaX ) || ( -10 > deltaX && deltaX < prevDeltaX ) || ! blocked ) ) {
+						e.preventDefault();
+						e.stopPropagation();
+
+						blocked = true;
+						prevDeltaX = deltaX;
+
+						if ( 0 < deltaX ) {
+							$( this ).slick( 'slickNext' );
+						} else {
+							$( this ).slick( 'slickPrev' );
+						}
+					}
+				}
+			}) );
 		});
 	}
 
