@@ -21,7 +21,7 @@ $style = ! empty( $color_pallet ) ? ' highlights--' . $color_pallet : '';
 		<div class="container highlights__container">
 			<div class="row highlights__row ">
 				<?php if ( ! empty( $title ) ) : ?>
-					<h2 class="highlights__title"><?= esc_html( $title ) ?></h2>
+					<div class="h2 highlights__title"><?= esc_html( $title ) ?></div>
 				<?php endif; ?>
 			</div>
 			<div class="row highlights__row highlights__row-content">
