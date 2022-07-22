@@ -1,0 +1,118 @@
+@import "../../src/scss/for-blocks";
+
+.testimonials {
+  $this: &;
+
+  padding-top: 4.5rem;
+
+  &__row {
+    width: 100%;
+  }
+
+  &__client {
+    background-color: var(--off-white);
+    padding: 1.7rem 3.5rem 5rem 0.5rem;
+    margin: 0 2rem;
+    width: calc(100vw - 4rem);
+    max-width: 382px;
+    text-decoration: none;
+    color: var(--black);
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    position: relative;
+  }
+
+  &__client#{$this}__client {
+    display: flex;
+  }
+
+  &__client-name,
+  &__client-avatar {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+
+  &__client-avatar {
+    width: 35px;
+    height: 35px;
+    border: 1px solid var(--black);
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 1.7rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__client-name {
+    width: calc(100% - 52px);
+  }
+
+  &__client-quotes {
+    position: absolute;
+    content: url("../../assets/img/quote-marks.svg");
+    bottom: 3rem;
+    right: 1rem;
+    width: 28px;
+    height: 20px;
+  }
+}
+
+@include min-size(md) {
+  .testimonials {
+    $this: &;
+
+    padding: 10rem 0;
+
+    &--small {
+      #{$this}__container {
+        align-items: flex-end;
+      }
+
+      #{$this}__row {
+        width: 65%;
+      }
+
+      #{$this}__client {
+        max-width: 420px;
+        padding: 3rem 4.5rem 6.5rem 4rem;
+      }
+    }
+
+    &__client {
+      margin: 0 1rem;
+    }
+  }
+}
+
+@include min-size(lg) {
+  .testimonials {
+    $this: &;
+
+    padding: 10rem 0;
+
+    &--small {
+      #{$this}__client {
+        max-width: initial;
+        width: 515px;
+      }
+    }
+
+    &__client {
+      padding: 3rem 3rem 5rem;
+      width: 450px;
+    }
+  }
+}
+
+@include min-size(xl) {
+  .testimonials {
+    &__client {
+      padding: 5.5rem 5rem 9.5rem;
+      width: calc((100vw - 18rem) / 3);
+    }
+  }
+}
