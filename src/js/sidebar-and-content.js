@@ -67,6 +67,7 @@ class SidebarAndContent {
             container.css({'maxHeight': `${containerHeight}px`});
 
             title.addClass( 'sidebar-and-content__sidebar-title--show' );
+            this.header.css({ 'pointer-events': 'none', cursor: 'default' });
         } else {
             this.hideSidebar( scrollY, container );
         }
@@ -80,18 +81,16 @@ class SidebarAndContent {
             $( 'body' ).toggleClass( 'home-no-scrolling' );
             $( '.nav__main-menu' ).toggleClass( 'nav__main-menu--visible' );
             $( '.nav__desktop--extended' ).toggleClass( 'nav--visible' );
-            this.header.css({ 'pointer-events': 'none', cursor: 'default' });
         }
     }
 
-    hideSidebar( scrollY, container, title ) {
+    hideSidebar( scrollY, container, title = this.titles ) {
         this.content.css({position: '', top: ''});
         window.scrollTo( 0, parseInt( scrollY || '0' ) * -1 );
 
         container.css({'maxHeight': ''});
         title.removeClass( 'sidebar-and-content__sidebar-title--show' );
         this.header.css({ 'pointer-events': '', cursor: '' });
-        console.log( scrollY, container, title );
     }
 
     sidebarPaddingBottom() {
@@ -127,7 +126,7 @@ class SidebarAndContent {
                     this.hideNav();
                 }
 
-                this.hideSidebar( 0, $( '.sidebar-and-content__sidebar-container' ), this.titles );
+                this.hideSidebar( 0, $( '.sidebar-and-content__sidebar-container' ) );
             },
             500
         );
