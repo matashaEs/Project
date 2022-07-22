@@ -1,7 +1,7 @@
 import './two-columns.scss';
 import $ from 'jquery';
 
-class twoColumns {
+class TwoColumns {
     constructor() {
         $( '.two-columns__column-title' )
             .on( 'click', ( e ) => {
@@ -27,4 +27,4 @@ class twoColumns {
     }
 }
 
-new twoColumns();
+new TwoColumns();
