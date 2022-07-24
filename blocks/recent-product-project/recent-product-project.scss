@@ -25,28 +25,55 @@
 
     &-image {
       width: 100vw;
-      margin-left: -2rem;
+      min-height: 230px;
       aspect-ratio: 16 / 10;
+      margin-left: -2rem;
+      background-position: center;
+      background-size: cover;
     }
   }
 }
 
 @include min-size(md) {
   .recent-product-project {
-  }
-}
+    padding-top: 8.5rem;
+    padding-bottom: 10rem;
 
-@include min-size(lg) {
-  .recent-product-project {
-  }
-}
+    &__title {
+      display: block;
+      margin-bottom: 4rem;
+    }
 
-@include min-size(xl) {
-  .recent-product-project {
-  }
-}
+    &__project {
+      width: 100%;
+      flex-flow: row;
+      justify-content: space-between;
+      background-color: var(--off-white);
 
-@include min-size(xxl) {
-  .recent-product-project {
+      &-content {
+        padding: 7.2rem 5.6rem 9.3rem;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      &-title,
+      &-description {
+        margin-bottom: 4rem;
+      }
+
+      &-button {
+        margin-bottom: 0;
+      }
+
+      &-image {
+        width: 150%;
+        max-width: 382px;
+        min-height: unset;
+        margin-left: 0;
+        aspect-ratio: unset;
+      }
+    }
   }
 }

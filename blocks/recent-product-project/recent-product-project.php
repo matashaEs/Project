@@ -38,8 +38,8 @@ if ( ! empty( $block['id'] ) ) {
 					<?php endif; ?>
 				</div>
 				<?php if ( ! empty( $project['image'] ) ) : ?>
-					<img src="<?= esc_url( $project['image']['sizes']['full_hd'] ); ?>" alt="project_image"
-						class="recent-product-project__project-image">
+					<div class="recent-product-project__project-image"
+						style="background-image: url('<?= esc_url( $project['image']['sizes']['full_hd'] ); ?>')"></div>
 				<?php endif; ?>
 			</div>
 		</div>
