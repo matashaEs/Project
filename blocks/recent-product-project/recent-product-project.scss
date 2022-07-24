@@ -1,0 +1,79 @@
+@import "../../src/scss/for-blocks";
+
+.recent-product-project {
+  padding-top: 4.5rem;
+
+  &__title {
+    display: none;
+  }
+
+  &__project {
+    flex-flow: column;
+
+    &-title {
+      margin-bottom: 2rem;
+    }
+
+    &-description,
+    &-button {
+      margin-bottom: 3rem;
+    }
+
+    &-button {
+      display: inline-block;
+    }
+
+    &-image {
+      width: 100vw;
+      min-height: 230px;
+      aspect-ratio: 16 / 10;
+      margin-left: -2rem;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+}
+
+@include min-size(md) {
+  .recent-product-project {
+    padding-top: 8.5rem;
+    padding-bottom: 10rem;
+
+    &__title {
+      display: block;
+      margin-bottom: 4rem;
+    }
+
+    &__project {
+      width: 100%;
+      flex-flow: row;
+      justify-content: space-between;
+      background-color: var(--off-white);
+
+      &-content {
+        padding: 7.2rem 5.6rem 9.3rem;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      &-title,
+      &-description {
+        margin-bottom: 4rem;
+      }
+
+      &-button {
+        margin-bottom: 0;
+      }
+
+      &-image {
+        width: 150%;
+        max-width: 382px;
+        min-height: unset;
+        margin-left: 0;
+        aspect-ratio: unset;
+      }
+    }
+  }
+}
