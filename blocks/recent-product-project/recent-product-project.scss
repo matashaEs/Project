@@ -1,0 +1,24 @@
+@import "../../src/scss/for-blocks";
+
+.recent-product-project {
+}
+
+@include min-size(md) {
+  .recent-product-project {
+  }
+}
+
+@include min-size(lg) {
+  .recent-product-project {
+  }
+}
+
+@include min-size(xl) {
+  .recent-product-project {
+  }
+}
+
+@include min-size(xxl) {
+  .recent-product-project {
+  }
+}
