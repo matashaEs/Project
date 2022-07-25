@@ -13,15 +13,25 @@ class Navigation {
 
         $( '.nav__open' ).on( 'click', this.toggleMenu );
         $( '.nav__close' ).on( 'click', this.toggleMenu );
+        $( '.nav__close' ).on( 'click', this.addScrolling );
         $( '.nav__main-menu--open' ).on( 'click', this.toggleMenu );
     }
 
+    addScrolling = () => {
+        window.onscroll = '';
+    }
+
     toggleMenu = () => {
+        var xPos = window.scrollX;
+        var yPos = window.scrollY;
+        window.onscroll = () => {
+            window.scroll(xPos, yPos);
+        };
+
         $( '.nav__open' ).toggleClass( 'nav__mobile--visible' );
         $( '.nav__mobile-menu' ).toggleClass( 'nav__mobile-menu--visible' );
         $( '.nav__desktop--extended' ).toggleClass( 'nav--visible' );
         $( '.nav-container' ).toggleClass( 'nav-container--visible' );
-        $( 'body' ).toggleClass( 'stop-scrolling' );
     }
 }
 

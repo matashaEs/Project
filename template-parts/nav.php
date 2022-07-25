@@ -19,7 +19,7 @@ endif;
 						<?php the_svg( 'cai-logo.svg', 'nav__logo' ); ?> </a>
 					<?php the_svg( 'nav-open.svg', 'nav__open-icon' ); ?>
 				</div>
-				<div class="nav__mobile-menu">
+				<div class="nav__mobile-menu" id="nav__mobile-menu">
 					<div class="nav__close">
 						<a href="<?= esc_url( get_home_url() ); ?>" class="nav-logo">
 							<?php the_svg( 'cai-logo.svg', 'nav__logo' ); ?> </a>
