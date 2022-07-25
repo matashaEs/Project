@@ -16,14 +16,14 @@
   }
 
   &__column {
-    &--first {
+    &-image {
       width: 100%;
       height: 25rem;
       overflow: hidden;
       margin-bottom: 5rem;
     }
 
-    &--second {
+    &-content {
       width: 100%;
     }
   }
@@ -79,13 +79,13 @@
     }
 
     &__column {
-      &--first {
+      &-image {
         width: 46%;
         height: 101%;
         margin-bottom: 0;
       }
 
-      &--second {
+      &-content {
         width: 50%;
       }
     }

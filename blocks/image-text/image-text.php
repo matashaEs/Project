@@ -14,13 +14,13 @@ $class_color   = ( true === $add_background ) ? 'image-text__background' : '';
 <section class="container-fluid image-text <?= esc_html( $class_color ) ?>">
 	<div class="container">
 		<div class="row image-text__row <?= esc_html( $class_reverse ) ?>">
-			<div class="image-text__column--first">
+			<div class="image-text__column-image">
 				<?php if ( ! empty( $image ) ) : ?>
 					<div class="image-text__image"
 						style="background-image: url('<?= esc_url( $image['sizes']['large'] ); ?>')"></div>
 				<?php endif; ?>
 			</div>
-			<div class="image-text__column--second">
+			<div class="image-text__column-content">
 				<?php if ( ! empty( $title ) ) : ?>
 					<div class="image-text__title h2"><?= esc_html( $title ) ?></div>
 				<?php endif; ?>
