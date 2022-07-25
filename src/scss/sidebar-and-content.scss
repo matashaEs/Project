@@ -215,11 +215,13 @@ $transition-time: 1s;
 
     &__container {
       flex-flow: row nowrap;
+      max-width: initial;
+      padding-right: 0;
     }
 
     &__col {
       height: 100vh;
-      overflow: scroll;
+      overflow: hidden scroll;
 
       &-sidebar {
         width: $sidebar-width;
@@ -305,6 +307,10 @@ $transition-time: 1s;
 
     &__content-container {
       flex-flow: column nowrap;
+
+      section {
+        padding-right: 3rem;
+      }
     }
   }
 }
@@ -339,16 +345,38 @@ $transition-time: 1s;
 
     &__content-container {
       flex-flow: row wrap;
+
+      section {
+        padding-right: 5rem;
+      }
     }
   }
 }
 
 @include min-size(xxl) {
   .sidebar-and-content {
+    $side-padding: calc((100vw - 1588px) / 2);
+    $max-width: 1588px;
+
+    &__container {
+      padding-left: $side-padding;
+      justify-content: flex-start;
+    }
+
     &__col {
-      &-content {
-        padding-left: 13rem;
+      &-sidebar {
+        width: calc($max-width * 0.3375);
       }
+
+      &-content {
+        width: calc($max-width * 0.6625);
+        padding-left: 13rem;
+        flex-grow: 1;
+      }
+    }
+
+    &__content-container section {
+      padding-right: $side-padding;
     }
   }
 }
