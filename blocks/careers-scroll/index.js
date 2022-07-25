@@ -6,20 +6,20 @@ class CareersScroll {
 		this.timer           = 0;
 		this.sliderContainer = $( '.careers-scroll__row-content' );
 
-		this.titleClass();
+		this.titlesClass();
 		this.slider();
 
 		window.addEventListener( 'resize', this.resizeEvent.bind( this ) );
 	}
 
-	titleClass() {
+	titlesClass() {
 		const itemsTitles =  $( '.careers-scroll__item-title' );
 		const itemsDescription =  $( '.careers-scroll__item-description' );
 
 		itemsTitles.removeClass( 'h3' ).removeClass( 'h5' );
 		itemsDescription.removeClass( 'p' ).removeClass( 'p-large' );
 
-		if ( 1023 > screen.width ) {
+		if ( 1024 > screen.width ) {
 			itemsTitles.addClass( 'h5' );
 			itemsDescription.addClass( 'p' );
 		} else {
@@ -31,7 +31,11 @@ class CareersScroll {
 	slider() {
 		this.sliderContainer.each( function() {
 			const items = $( this ).find( '.careers-scroll__item' );
+			items.css( 'height', '' );
 
+			/**
+			 * horizontal scrolling configuration
+			 */
 			let slickConf = {
 				infinite: false,
 				slidesToShow: 1,
@@ -45,13 +49,22 @@ class CareersScroll {
 			if ( 767 < window.innerWidth ) {
 				slickConf.centerMode = false;
 			}
+
+			/**
+			 * vertical scrolling additional configuration
+			 */
 			if ( 1023 < window.innerWidth ) {
 				slickConf.vertical = true;
 				slickConf.verticalSwiping = true;
 				slickConf.variableWidth = false;
-				slickConf.adaptiveHeight = true;
+			}
 
-				const maxHeight = Math.max.apply( null, items.map( function() {
+			/**
+			 * set elements height to max element's height in vertical scroll
+			 */
+			if ( 1024 < window.innerWidth ) {
+				let maxHeight = Math.max.apply( null, items.map( function() {
+					console.log( $( this ), $( this ).height(), $( this ).innerHeight(), $( this ).outerHeight() );
 					return $( this ).height();
 				}).get() );
 
@@ -71,10 +84,11 @@ class CareersScroll {
 		this.delay(
 			() => {
 				if ( this.sliderContainer.hasClass( 'slick-initialized' ) ) {
+					console.log( true );
 					this.sliderContainer.slick( 'unslick' );
 				}
 				this.slider();
-				this.titleClass();
+				this.titlesClass();
 			},
 			500
 		);
