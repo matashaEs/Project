@@ -1,2 +1,1 @@
 import './overview-wide.scss';
-

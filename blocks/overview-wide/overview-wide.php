@@ -12,15 +12,26 @@ if ( ! empty( $block['id'] ) ) {
 } else {
 	extract( $block['data'] );
 }
+
+$breadcrumbs = [
+	[
+		'name' => __( 'Home', 'nuplo' ),
+		'url'  => get_home_url(),
+	],
+	[
+		'name' => __( 'Products', 'nuplo' ),
+		'url'  => '#',
+	],
+]
 ?>
 
-<section class="container-fluid">
+<section class="container-fluid overview-wide">
 	<div class="container overview-wide__container">
 		<div class="overview-wide__image" style="background-image: url('<?= esc_url( $image['sizes']['full_hd'] ); ?>')">
 		</div>
 		<div class="overview-wide__content">
-			<div class="overview-wide__path">
-				<p> Products > ERP </p>
+			<div class="overview-wide__path p">
+				<?php get_template_part( 'template-parts/breadcrumbs', null, $breadcrumbs ); ?>
 			</div>
 			<div class="overview-wide__heading">
 				<?php if ( ! empty( $title ) ) : ?>
@@ -31,7 +42,9 @@ if ( ! empty( $block['id'] ) ) {
 				<?php if ( 1 == $buttons ['add_share_button'] ) : ?>
 					<div class="overview-wide__button">
 						<a href=""
-						class="button overview-wide__button-share overview-wide__button-share--mobile"> <?php the_svg( 'share-button.svg', 'overview-wide-share' ); ?></a>
+						class="button overview-wide__button-share overview-wide__button-share--mobile">
+							<?php the_svg( 'share-button.svg', 'overview-wide-share' ); ?>
+						</a>
 					</div>
 				<?php endif ?>
 			</div>

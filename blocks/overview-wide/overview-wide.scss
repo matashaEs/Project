@@ -1,8 +1,6 @@
 @import "../../src/scss/for-blocks";
 
 .overview-wide {
-  flex-direction: column;
-
   &__content {
     padding-bottom: 5rem;
   }
@@ -87,8 +85,6 @@
 
 @include min-size(lg) {
   .overview-wide {
-    flex-direction: row;
-
     &__container {
       display: flex;
       flex-direction: row;
