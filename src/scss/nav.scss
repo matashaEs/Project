@@ -102,6 +102,7 @@
   &__mobile {
     width: 100%;
     position: relative;
+    height: 70px;
 
     &--scrolling {
       position: relative;
@@ -259,6 +260,16 @@
   .nav {
     $this: &;
 
+    &-container {
+      height: 0;
+      width: 100%;
+      z-index: 30;
+
+      &--visible {
+        height: 100%;
+      }
+    }
+
     &__container {
       position: relative;
     }
@@ -281,7 +292,7 @@
       background-color: var(--off-white);
       margin-left: -100rem;
       position: absolute;
-      height: 7rem;
+      height: 7.1rem;
       z-index: -15;
     }
 
