@@ -25,7 +25,7 @@ class Navigation {
         var xPos = window.scrollX;
         var yPos = window.scrollY;
         window.onscroll = () => {
-            window.scroll(xPos, yPos);
+            window.scroll( xPos, yPos );
         };
 
         $( '.nav__open' ).toggleClass( 'nav__mobile--visible' );
