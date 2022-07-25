@@ -6,7 +6,7 @@ if ( ! empty( $block['id'] ) ) {
 }
 ?>
 
-<div class="container-fluid faq-section">
+<section class="container-fluid faq-section">
 	<div class="container">
 		<div class="faq-section__row">
 
@@ -39,4 +39,4 @@ if ( ! empty( $block['id'] ) ) {
 
 		</div>
 	</div>
-</div>
+</section>
