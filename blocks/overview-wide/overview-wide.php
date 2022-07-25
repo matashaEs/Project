@@ -43,7 +43,7 @@ $breadcrumbs = [
 					<div class="overview-wide__button">
 						<a href=""
 						class="button overview-wide__button-share overview-wide__button-share--mobile">
-							<?php the_svg( 'share-button.svg', 'overview-wide-share' ); ?>
+							<?php the_svg( 'share-button.svg', '' ); ?>
 						</a>
 					</div>
 				<?php endif ?>
@@ -62,7 +62,7 @@ $breadcrumbs = [
 						<?php if ( ! empty( $button_with_text ) ) : ?>
 						<a href="<?= esc_url( $button_with_text['url'] ) ?>"
 						class="overview-wide__buttons-button button p"
-						target=" <?= esc_attr( $button['target'] ) ?>">
+						target=" <?= esc_attr( $button_with_text['target'] ) ?>">
 							<?= esc_html( $button_with_text['title'] ) ?>
 						</a>
 					<?php endif; ?>
@@ -71,7 +71,7 @@ $breadcrumbs = [
 				<?php if ( 1 == $buttons ['add_share_button'] ) : ?>
 					<a href=""
 					class="button overview-wide__buttons-button overview-wide__button-share overview-wide__button-share--desktop">
-						<?php the_svg( 'share-button.svg', 'overview-wide-share' ); ?>
+						<?php the_svg( 'share-button.svg', '' ); ?>
 					</a>
 				<?php endif ?>
 			</div>
