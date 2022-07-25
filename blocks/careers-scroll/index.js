@@ -30,6 +30,8 @@ class CareersScroll {
 
 	slider() {
 		this.sliderContainer.each( function() {
+			const items = $( this ).find( '.careers-scroll__item' );
+
 			let slickConf = {
 				infinite: false,
 				slidesToShow: 1,
@@ -47,7 +49,13 @@ class CareersScroll {
 				slickConf.vertical = true;
 				slickConf.verticalSwiping = true;
 				slickConf.variableWidth = false;
-				slickConf.slidesToShow = 2;
+				slickConf.adaptiveHeight = true;
+
+				const maxHeight = Math.max.apply( null, items.map( function() {
+					return $( this ).height();
+				}).get() );
+
+				items.height( maxHeight );
 			}
 
 			$( this ).slick( slickConf );
