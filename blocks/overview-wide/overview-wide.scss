@@ -1,0 +1,181 @@
+@import "../../src/scss/for-blocks";
+
+.overview-wide {
+  flex-direction: column;
+
+  &__content {
+    padding-bottom: 5rem;
+  }
+
+  &__path {
+    padding-top: 2rem;
+  }
+
+  &-share {
+    height: 1.4rem;
+  }
+
+  &__image {
+    height: 314px;
+    width: calc(100% + 4rem);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: -2rem;
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+  }
+
+  &__button-share {
+    padding: 0.8rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    margin-left: 2.7rem;
+    justify-content: center;
+    align-items: center;
+
+    &--desktop {
+      display: none;
+    }
+  }
+
+  &__description {
+    padding-top: 1.1rem;
+  }
+
+  &__buttons {
+    margin-top: 4rem;
+
+    &-button {
+      margin-right: 2rem;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
+}
+
+@include min-size(md) {
+  .overview-wide {
+    &__image {
+      height: 415px;
+    }
+
+    &__heading {
+      align-items: center;
+    }
+
+    &-share {
+      height: 1.8rem;
+    }
+
+    &__button-share {
+      padding: 1rem;
+      width: 4rem;
+      height: 4rem;
+    }
+
+    &__description {
+      padding-top: 3rem;
+    }
+  }
+}
+
+@include min-size(lg) {
+  .overview-wide {
+    flex-direction: row;
+
+    &__container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__image {
+      height: 87%;
+      width: 100%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+      margin-right: -6rem;
+    }
+
+    &__content {
+      width: 60%;
+      order: -1;
+      padding-right: 0;
+    }
+
+    &__description {
+      width: 84%;
+    }
+
+    &__button {
+      &-share {
+        &--mobile {
+          display: none;
+        }
+
+        &--desktop {
+          display: flex;
+          margin-left: 0;
+        }
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      align-items: center;
+
+      &-button {
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+@include min-size(xl) {
+  .overview-wide {
+    &__image {
+      height: 83%;
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+    }
+
+    &__content {
+      padding-top: 2rem;
+      width: 50%;
+    }
+
+    &__description {
+      width: 75%;
+    }
+  }
+}
+
+@include min-size(xxl) {
+  .overview-wide {
+    &__content {
+      padding-top: 7rem;
+      padding-bottom: 10rem;
+    }
+
+    &__image {
+      height: 68%;
+      margin-top: 10rem;
+      margin-bottom: 10rem;
+      margin-right: -7rem;
+    }
+
+    &__descroption {
+      width: 70%;
+    }
+  }
+}
