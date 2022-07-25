@@ -38,7 +38,7 @@ $careers = [
 
 <section class="container-fluid careers-scroll">
 	<div class="container careers-scroll__container">
-		<div class="row careers-scroll__row">
+		<div class="row careers-scroll__row careers-scroll__row-text">
 			<?php if ( ! empty( $title ) ) : ?>
 				<div class="h2 careers-scroll__title"><?= esc_html( $title ) ?></div>
 			<?php endif; ?>

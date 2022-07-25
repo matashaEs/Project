@@ -39,3 +39,51 @@
     display: flex;
   }
 }
+
+@include min-size(md) {
+  .careers-scroll {
+    padding-bottom: 4.5rem;
+  }
+}
+
+@include min-size(lg) {
+  .careers-scroll {
+    $this: &;
+
+    &__container {
+      flex-flow: row;
+    }
+
+    &__row {
+      width: 50%;
+
+      &-text,
+      &-content {
+        padding-right: 8.33%;
+      }
+
+      &-content#{$this}__row-content {
+        margin-bottom: 0;
+      }
+    }
+
+    &__item {
+      margin: 0 0 1rem;
+      width: 100%;
+      height: inherit;
+    }
+
+    .slick-track {
+      flex-flow: column;
+    }
+
+    .slick-dots {
+      transform: rotate(90deg);
+      width: auto;
+      height: fit-content;
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}

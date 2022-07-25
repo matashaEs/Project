@@ -19,7 +19,7 @@ class CareersScroll {
 		itemsTitles.removeClass( 'h3' ).removeClass( 'h5' );
 		itemsDescription.removeClass( 'p' ).removeClass( 'p-large' );
 
-		if ( 767 > screen.width ) {
+		if ( 1023 > screen.width ) {
 			itemsTitles.addClass( 'h5' );
 			itemsDescription.addClass( 'p' );
 		} else {
@@ -39,6 +39,16 @@ class CareersScroll {
 				dots: true,
 				centerMode: true,
 			};
+
+			if ( 767 < window.innerWidth ) {
+				slickConf.centerMode = false;
+			}
+			if ( 1023 < window.innerWidth ) {
+				slickConf.vertical = true;
+				slickConf.verticalSwiping = true;
+				slickConf.variableWidth = false;
+				slickConf.slidesToShow = 2;
+			}
 
 			$( this ).slick( slickConf );
 		});
