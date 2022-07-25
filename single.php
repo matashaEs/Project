@@ -13,7 +13,7 @@ get_header();
 				<?php echo wp_get_attachment_image( get_post_thumbnail_id() ); ?>
 			</div>
 			<?php
-			echo esc_html( get_template_part( 'template-parts/metabox-details' ) );
+			echo get_template_part( 'template-parts/metabox-details' );
 			?>
 			<div>
 				<?php the_content(); ?>
