@@ -21,7 +21,7 @@ if ( ! empty( $block['id'] ) ) {
 							<label class="p faq-section__label">
 
 								<?php if ( ! empty( $faq['faq_content'] ) ) : ?>
-									<?= esc_html( $faq['faq_content'] ); ?>
+									<?= wp_kses( $faq['faq_content'], [ 'p' => [ '' ] ] ) ?>
 								<?php endif; ?>
 
 							</label>
