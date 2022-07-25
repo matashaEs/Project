@@ -19,10 +19,10 @@ class Navigation {
     toggleMenu = () => {
         $( '.nav__open' ).toggleClass( 'nav__mobile--visible' );
         $( '.nav__mobile-menu' ).toggleClass( 'nav__mobile-menu--visible' );
-        $( 'body' ).toggleClass( 'home-no-scrolling' );
         $( '.nav__desktop--extended' ).toggleClass( 'nav--visible' );
+        $( '.nav-container' ).toggleClass( 'nav-container--visible' );
+        $( 'body' ).toggleClass( 'stop-scrolling' );
     }
-
 }
 
 new Navigation();
