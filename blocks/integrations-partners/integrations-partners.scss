@@ -67,7 +67,8 @@
 
 @include min-size(md) {
   .integrations {
-    padding: 10rem 0;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
 
     &__row {
       &-title {
@@ -132,7 +133,8 @@
 
   .sidebar-and-content {
     &__content-container .integrations {
-      padding: 8.5rem 0 11rem;
+      padding-top: 8.5rem;
+      padding-bottom: 11rem;
 
       &__row {
         &-button {

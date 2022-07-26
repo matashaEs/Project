@@ -308,6 +308,7 @@ $transition-time: 1s;
     &__content-container {
       flex-flow: column nowrap;
 
+      .container-fluid,
       section {
         padding-right: 3rem;
       }
@@ -346,6 +347,7 @@ $transition-time: 1s;
     &__content-container {
       flex-flow: row wrap;
 
+      .container-fluid,
       section {
         padding-right: 5rem;
       }
@@ -375,8 +377,11 @@ $transition-time: 1s;
       }
     }
 
-    &__content-container section {
-      padding-right: $side-padding;
+    &__content-container {
+      .container-fluid,
+      section {
+        padding-right: $side-padding;
+      }
     }
   }
 }
