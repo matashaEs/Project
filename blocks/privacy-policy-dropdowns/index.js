@@ -23,7 +23,7 @@ class PrivacyPolicyDropdowns {
             answer.css( 'max-height', 0 ).removeClass( itemAnswerShowClass );
             item.removeClass( itemShowClass );
         } else {
-            $( '.privacy-policy-dropdowns__item-answer-container' ).removeClass( itemAnswerShowClass ).css( 'max-height', '' );
+            $( '.privacy-policy-dropdowns__item-answer-container' ).css( 'max-height', '' ).removeClass( itemAnswerShowClass );
             $( '.' + itemShowClass ).removeClass( itemShowClass );
 
             answer.css( 'max-height', answer[0].scrollHeight ).addClass( itemAnswerShowClass );

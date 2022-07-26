@@ -56,3 +56,52 @@
     }
   }
 }
+
+@include min-size(lg) {
+  .privacy-policy-dropdowns {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+
+    .breadcrumbs {
+      margin-bottom: 3rem;
+    }
+
+    &__title {
+      margin-bottom: 6rem;
+    }
+
+    &__item {
+      strong {
+        letter-spacing: 0.02em;
+      }
+
+      &-answer {
+        margin-top: 3.5rem;
+        margin-bottom: 7rem;
+      }
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        width: 1.5px;
+        height: 17px;
+        top: 24px;
+        right: 0;
+        background: var(--black);
+      }
+
+      &::after {
+        transform: rotate(90deg);
+      }
+
+      &::before {
+        transition: all 0.2s ease-in;
+      }
+
+      &--show::before {
+        transform: scale(0);
+      }
+    }
+  }
+}
