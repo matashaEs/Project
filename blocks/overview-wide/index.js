@@ -1,0 +1,1 @@
+import './overview-wide.scss';
