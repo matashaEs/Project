@@ -1,0 +1,83 @@
+@import "../../src/scss/for-blocks";
+
+.video {
+  &__content {
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+
+    .wp-video {
+      width: 100% !important;
+    }
+
+    .mejs-container {
+      max-width: 1728px;
+    }
+
+    .mejs-controls {
+      background-color: transparent !important;
+      z-index: 0 !important;
+    }
+  }
+
+  &__title {
+    background-color: var(--off-white);
+    padding: 1rem 2rem;
+    width: 100%;
+    position: relative;
+  }
+}
+
+@include min-size(md) {
+  .video {
+
+  }
+}
+
+@include min-size(lg) {
+  .video {
+    &__content {
+      width: calc(100% + 6rem);
+      margin-left: -3rem;
+
+      &--product {
+        width: calc(100% + 3rem);
+        margin-left: 0;
+      }
+    }
+
+    &__title {
+      padding-left: 8rem;
+    }
+  }
+}
+
+@include min-size(xl) {
+  .video {
+    &__content {
+      width: calc(100% + 10rem);
+      margin-left: -5rem;
+
+      &--product {
+        width: calc(100% + 5rem);
+        margin-left: 0;
+      }
+    }
+
+    &__title {
+      padding-left: 13rem;
+    }
+  }
+}
+
+@include min-size(xxl) {
+  .video {
+    &__content {
+      width: calc(100% + 10rem);
+      margin-left: -5rem;
+
+      &--product {
+        width: calc(100% + 7rem);
+      }
+    }
+  }
+}
