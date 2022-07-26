@@ -180,6 +180,11 @@ $transition-time: 1s;
     .container-fluid {
       width: 100%;
     }
+
+    .container.container {
+      padding: 0;
+      width: 100%;
+    }
   }
 }
 
@@ -221,11 +226,13 @@ $transition-time: 1s;
 
     &__container {
       flex-flow: row nowrap;
+      max-width: initial;
+      padding-right: 0;
     }
 
     &__col {
-      height: calc(100vh - 7rem);
-      overflow: scroll;
+      height: 100vh;
+      overflow: hidden scroll;
 
       &-sidebar {
         width: calc($sidebar-width * 100%);
@@ -313,8 +320,9 @@ $transition-time: 1s;
     &__content-container {
       flex-flow: column nowrap;
 
-      .container.container {
-        padding: 0;
+      .container-fluid,
+      section {
+        padding-right: 3rem;
       }
     }
   }
@@ -350,23 +358,41 @@ $transition-time: 1s;
 
     &__content-container {
       flex-flow: row wrap;
+
+      .container-fluid,
+      section {
+        padding-right: 5rem;
+      }
     }
   }
 }
 
 @include min-size(xxl) {
   .sidebar-and-content {
-    $this: &;
-    $sidebar-width: 0.3375;
+    $side-padding: calc((100vw - 1588px) / 2);
+    $max-width: 1588px;
+
+    &__container {
+      padding-left: $side-padding;
+      justify-content: flex-start;
+    }
 
     &__col {
-      &-content {
-        padding-left: 11.5rem;
+      &-sidebar {
+        width: calc($max-width * 0.3375);
+      }
 
-        &--the-content#{$this}__col-content--the-content {
-          padding-left: 13rem;
-          padding-bottom: 0;
-        }
+      &-content {
+        width: calc($max-width * 0.6625);
+        padding-left: 13rem;
+        flex-grow: 1;
+      }
+    }
+
+    &__content-container {
+      .container-fluid,
+      section {
+        padding-right: $side-padding;
       }
     }
 

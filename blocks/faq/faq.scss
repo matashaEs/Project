@@ -34,6 +34,7 @@
   &__row {
     margin-top: 4.5rem;
     margin-bottom: 3.5rem;
+    width: 100%;
   }
 
   .form-options-container.active.form-options-container.active {
@@ -98,18 +99,8 @@
     }
 
     &__row {
-      margin-left: auto;
-      padding-left: 5rem;
       margin-top: 8.5rem;
       margin-bottom: 10rem;
-    }
-  }
-}
-
-@include min-size(xl) {
-  .faq-section {
-    &__row {
-      padding-left: 8rem;
     }
   }
 }

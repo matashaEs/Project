@@ -2,6 +2,8 @@ import './highlights-features-services.scss';
 import $ from 'jquery';
 
 class HighlightsFeaturesServices {
+	sections = $( '.highlights' );
+
 	constructor() {
 		this.timer           = 0;
 		this.sliderContainer = $( '.highlights__row-content' );
@@ -13,11 +15,26 @@ class HighlightsFeaturesServices {
 	}
 
 	titleClass() {
-		if ( 767 > screen.width ) {
-			$( '.highlights__item-title' ).addClass( 'h5' );
-		} else {
-			$( '.highlights__item-title' ).addClass( 'h4' );
-		}
+		this.sections.each( function() {
+			const title =  $( this ).find( '.highlights__title' );
+			const itemsTitles =  $( this ).find( '.highlights__item-title' );
+
+			title.removeClass( 'h2' ).removeClass( 'h3' );
+			itemsTitles.removeClass( 'h3' ).removeClass( 'h4' ).removeClass( 'h5' );
+
+			if ( 767 > screen.width ) {
+				title.addClass( 'h5' );
+				itemsTitles.addClass( 'h5' );
+			} else {
+				if ( 0 !== $( this ).closest( '.sidebar-and-content__content-container' ).length ) {
+					title.addClass( 'h2' );
+					itemsTitles.addClass( 'h5' );
+				} else {
+					title.addClass( 'h3' );
+					itemsTitles.addClass( 'h4' );
+				}
+			}
+		});
 	}
 
 	slider() {
@@ -36,16 +53,23 @@ class HighlightsFeaturesServices {
 
 			if ( 767 < innerWidth ) {
 				slickConf.centerMode = false;
-			}
-			if ( 1023 < innerWidth ) {
+				slickConf.infinite = false;
 				slickConf.dots = false;
 			}
 
-			if ( 1199 < innerWidth && ! $( this ).closest( '.highlights' ).hasClass( 'highlights--small' ) ) {
-				slickConf.centerMode = true;
-			}
+			if ( 1023 < innerWidth && 0 === $( this ).closest( '.sidebar-and-content__content-container' ).length ) {
+				if ( 1199 > innerWidth ) {
+					slickConf.slidesToShow = 2;
+				} else {
+					slickConf.slidesToShow = 3;
+				}
 
-			$( this ).slick( slickConf );
+				if ( 3 <= $( this ).find( '.highlights__item' ).length ) {
+					$( this ).slick( slickConf );
+				}
+			} else {
+				$( this ).slick( slickConf );
+			}
 		});
 	}
 

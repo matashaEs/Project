@@ -19,11 +19,8 @@ class Navigation {
     toggleMenu = () => {
         $( '.nav__open' ).toggleClass( 'nav__mobile--visible' );
         $( '.nav__mobile-menu' ).toggleClass( 'nav__mobile-menu--visible' );
-        $( '.nav__fluid' ).toggleClass( 'nav__mobile--scrolling' );
-        $( 'body' ).toggleClass( 'home-no-scrolling' );
-        $( '.nav__main-menu' ).toggleClass( 'nav__main-menu--visible' );
         $( '.nav__desktop--extended' ).toggleClass( 'nav--visible' );
-        $( 'body' ).toggleClass( 'home-no-scrolling' );
+        $( '.nav-container' ).toggleClass( 'nav-container--visible' );
     }
 }
 
