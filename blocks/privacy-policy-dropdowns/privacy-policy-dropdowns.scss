@@ -1,0 +1,107 @@
+@import "../../src/scss/for-blocks";
+
+.privacy-policy-dropdowns {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+
+  .breadcrumbs {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    margin-bottom: 4rem;
+  }
+
+  &__content {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    position: relative;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--white);
+    text-transform: capitalize;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::before {
+      position: absolute;
+      content: url("../../assets/img/blue-arrow.svg");
+      height: min-content;
+      top: 7px;
+      right: 0;
+      transition: 1s all;
+    }
+
+    &-answer-container {
+      max-height: 0;
+      cursor: initial;
+      text-transform: none;
+      overflow: hidden;
+      transition: max-height 1s ease-in-out;
+    }
+
+    &-answer {
+      margin-top: 2rem;
+      margin-bottom: 3.5rem;
+    }
+
+    &--show::before {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+@include min-size(lg) {
+  .privacy-policy-dropdowns {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+
+    .breadcrumbs {
+      margin-bottom: 3rem;
+    }
+
+    &__title {
+      margin-bottom: 6rem;
+    }
+
+    &__item {
+      strong {
+        letter-spacing: 0.02em;
+      }
+
+      &-answer {
+        margin-top: 3.5rem;
+        margin-bottom: 7rem;
+      }
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        width: 1.5px;
+        height: 17px;
+        top: 24px;
+        right: 0;
+        background: var(--black);
+      }
+
+      &::after {
+        transform: rotate(90deg);
+      }
+
+      &::before {
+        transition: all 0.2s ease-in;
+      }
+
+      &--show::before {
+        transform: scale(0);
+      }
+    }
+  }
+}
