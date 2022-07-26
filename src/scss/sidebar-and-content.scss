@@ -284,7 +284,7 @@ $transition-time: 1s;
     &__sidebar-bg {
       position: absolute;
       background-color: var(--grey);
-      width: calc(3rem + (100vw - 6rem) * $sidebar-width);
+      width: calc(3rem + (100% - 3rem) * $sidebar-width);
       height: 100vh;
       top: 7rem;
       left: 0;
@@ -344,7 +344,7 @@ $transition-time: 1s;
     }
 
     &__sidebar-bg {
-      width: calc(5rem + (100vw - 10rem) * $sidebar-width);
+      width: calc(5rem + (100% - 5rem) * $sidebar-width);
     }
 
     &__item {
@@ -401,7 +401,7 @@ $transition-time: 1s;
     }
 
     &__sidebar-bg {
-      width: calc((100vw - 1728px) / 2 + (1588px * $sidebar-width) + 7rem);
+      width: calc((100vw - 1728px) / 2 + calc($max-width * 0.3375) + 7rem);
     }
   }
 }
