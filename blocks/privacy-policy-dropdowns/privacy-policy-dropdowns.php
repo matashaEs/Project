@@ -1,5 +1,4 @@
 <?php
-
 /**
  * $sections [ title, description ]
  */
