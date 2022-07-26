@@ -6,6 +6,8 @@ class PrivacyPolicyDropdowns {
         $( '.privacy-policy-dropdowns__item' ).on( 'click', ( e ) => {
             this.dropdownAnimation( e );
         });
+
+        window.addEventListener( 'resize', this.resizeEvent.bind( this ) );
     }
 
     dropdownAnimation( e ) {
@@ -14,6 +16,7 @@ class PrivacyPolicyDropdowns {
 
         const item = $( e.target );
         const answer = item.find( '.privacy-policy-dropdowns__item-answer-container' );
+        const answerScrollHeight = answer[0].scrollHeight;
 
         /**
          * if item that was clicked is already open then it's close it
@@ -26,9 +29,25 @@ class PrivacyPolicyDropdowns {
             $( '.privacy-policy-dropdowns__item-answer-container' ).css( 'max-height', '' ).removeClass( itemAnswerShowClass );
             $( '.' + itemShowClass ).removeClass( itemShowClass );
 
-            answer.css( 'max-height', answer[0].scrollHeight ).addClass( itemAnswerShowClass );
+            answer.css( 'max-height', answerScrollHeight ).addClass( itemAnswerShowClass );
             item.addClass( itemShowClass );
         }
+    }
+
+    delay( callback, ms ) {
+        clearTimeout( this.timer );
+        this.timer = setTimeout( callback, ms );
+    }
+
+    resizeEvent() {
+        this.delay(
+            () => {
+                $( '.privacy-policy-dropdowns__item-answer-container--show' ).each( function() {
+                    $( this ).css( 'max-height', $( this )[0].scrollHeight );
+                });
+            },
+            500
+        );
     }
 }
 
