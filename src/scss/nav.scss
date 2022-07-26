@@ -546,13 +546,13 @@
       }
 
       &-menu::before {
-        width: calc(100% + 11rem);
-        margin-right: -11rem;
+        width: 100vw;
+        margin-right: -100vw;
       }
 
       &-text::before {
-        width: calc(100% + 11rem);
-        margin-left: -11rem;
+        width: 101vw;
+        margin-left: -100vw;
       }
     }
   }
