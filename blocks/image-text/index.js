@@ -33,8 +33,6 @@ class ImageText {
             this.arrow.addClass( 'image-text__arrow-rotate' );
         }
     }
-
-    s
 }
 
 new ImageText();
