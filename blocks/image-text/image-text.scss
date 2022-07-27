@@ -1,28 +1,56 @@
 @import "../../src/scss/for-blocks";
 
 .image-text {
-  padding: 10rem 0;
-
   &__background {
     background: var(--off-white);
   }
 
-  &__reverse {
-    flex-direction: row-reverse;
+  &__arrow {
+    margin-left: 2rem;
+    transition: 0.5s;
+    margin-top: 0.3rem;
+
+    &-rotate {
+      transform: rotate(90deg);
+    }
   }
 
   &__title {
-    margin-bottom: 3.5rem;
+    width: 90%;
+
+    &-section {
+      display: flex;
+      align-items: flex-start;
+      padding: 2.5rem 0;
+    }
+  }
+
+  &__columns-with-button {
+    transition: 0.5s;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  &__column-image {
+    transition: 0.4s;
+    max-height: 0;
+    overflow: hidden;
+    height: 25rem;
+    width: 100vw;
+    margin-left: -2rem;
+    margin-right: -2rem;
+  }
+
+  &__column-image--show {
+    max-height: 25rem;
+  }
+
+  &__columns-with-button--show {
+    max-height: 100%;
+    padding-bottom: 5rem;
   }
 
   &__column {
-    &-image {
-      width: 100%;
-      height: 25rem;
-      overflow: hidden;
-      margin-bottom: 5rem;
-    }
-
     &-content {
       width: 100%;
     }
@@ -30,29 +58,31 @@
 
   &__columns {
     justify-content: space-between;
-    margin-bottom: 4.5rem;
+    margin-bottom: 2.5rem;
   }
 
   &__image {
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
     transition: all 0.3s ease-in;
 
     &:hover {
-      background-size: 105%;
+      transform: scale(1.05);
     }
   }
 
   &__row {
-    display: block;
+    flex-direction: column;
   }
 }
 
 @include min-size(md) {
   .image-text {
+    padding-top: 10rem;
+
     &__column {
       min-width: 48%;
 
@@ -61,28 +91,44 @@
       }
     }
 
+    &__columns-with-button {
+      padding-bottom: 5rem;
+    }
+
+    &__arrow {
+      display: none;
+    }
+
+    &__title {
+      margin-bottom: 3.5rem;
+      width: 100%;
+    }
+
     &__columns {
       display: flex;
+      margin-bottom: 4.5rem;
+    }
+
+    &__columns-with-button,
+    &__column-image {
+      max-height: 100%;
     }
   }
 }
 
 @include min-size(lg) {
   .image-text {
-    &__image {
-      background-size: cover;
+    $this: &;
 
-      &:hover {
-        background-size: cover;
-        transform: scale(1.05);
-      }
-    }
+    padding-bottom: 10rem;
 
     &__column {
       &-image {
         width: 46%;
         height: 101%;
         margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
       }
 
       &-content {
@@ -90,9 +136,22 @@
       }
     }
 
+    &__columns-with-button {
+      padding-bottom: 0;
+      overflow: unset;
+    }
+
+    &__title-section {
+      padding: 0;
+    }
+
     &__row {
-      display: flex;
+      flex-direction: row-reverse;
       justify-content: space-between;
+
+      &--reverse#{$this}__row--reverse {
+        flex-direction: row;
+      }
     }
   }
 }
