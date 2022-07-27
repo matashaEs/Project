@@ -28,10 +28,10 @@ $style = ! empty( $color_pallet ) ? ' highlights--' . $color_pallet : '';
 				<?php foreach ( $contents as $content ) : ?>
 					<div class="highlights__item">
 						<?php if ( ! empty( $content['title'] ) ) : ?>
-							<h4 class="highlights__item-title"><?= esc_html( $content['title'] ); ?></h4>
+							<div class="highlights__item-title"><?= esc_html( $content['title'] ); ?></div>
 						<?php endif; ?>
 						<?php if ( ! empty( $content['description'] ) ) : ?>
-							<p class="highlights__item-description"><?= esc_html( $content['description'] ); ?></p>
+							<div class="p highlights__item-description"><?= esc_html( $content['description'] ); ?></div>
 						<?php endif; ?>
 					</div>
 				<?php endforeach; ?>

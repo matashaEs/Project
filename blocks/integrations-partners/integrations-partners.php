@@ -19,6 +19,7 @@ if ( ! empty( $block['id'] ) ) {
 ?>
 
 <section class="container-fluid integrations">
+	<div class="integrations__bg"></div>
 	<div class="container integrations__container">
 		<div class="row integrations__row integrations__row-title">
 			<?php if ( ! empty( $title ) ) : ?>
@@ -51,7 +52,7 @@ if ( ! empty( $block['id'] ) ) {
 								<div class="h4 integrations__item-title"><?= esc_html( $content['title'] ) ?></div>
 							<?php endif; ?>
 							<?php if ( ! empty( $content['description'] ) ) : ?>
-								<div class="integrations__item-description">
+								<div class="p integrations__item-description">
 									<?= esc_html( $content['description'] ) ?>
 								</div>
 							<?php endif; ?>

@@ -28,7 +28,7 @@ class HighlightsFeaturesServices {
 			} else {
 				if ( 0 !== $( this ).closest( '.sidebar-and-content__content-container' ).length ) {
 					title.addClass( 'h2' );
-					itemsTitles.addClass( 'h5' );
+					itemsTitles.addClass( 'h3' );
 				} else {
 					title.addClass( 'h3' );
 					itemsTitles.addClass( 'h4' );
