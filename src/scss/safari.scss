@@ -19,6 +19,27 @@ Safari hacks
       position: relative;
       z-index: -1;
     }
+
+    .video.video {
+      .mejs-controls.mejs-controls.mejs-controls {
+        margin-bottom: -56.5%;
+        background-color: transparent;
+        display: none;
+      }
+
+      .mejs-overlay-button,
+      .mejs-overlay-loading.mejs-overlay-loading {
+        margin-bottom: -57%;
+      }
+    }
+  }
+
+  @include min-size(md) {
+    .video {
+      .mejs-controls.mejs-controls.mejs-controls.mejs-controls {
+        display: flex;
+      }
+    }
   }
 
   @include min-size(lg) {
