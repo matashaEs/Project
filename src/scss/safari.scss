@@ -5,9 +5,9 @@ Safari hacks
   @supports (-webkit-appearance: none) and (stroke-color: transparent) {
     * {
       appearance: none;
-      //-webkit-overflow-scrolling: touch;
+      -webkit-overflow-scrolling: touch;
       backface-visibility: hidden;
-      //transform-style: preserve-3d;
+      transform-style: preserve-3d;
     }
 
     a[href^="tel"] {

@@ -24,3 +24,8 @@ body {
 .pb0 {
   padding-bottom: 0 !important;
 }
+
+.disable {
+  pointer-events: none;
+  cursor: default;
+}

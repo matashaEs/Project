@@ -4,17 +4,24 @@ import $ from 'jquery';
  * Visual part of the sidebar and content (left gray bar with navigation and content on the right side)
  */
 class SidebarAndContent {
-    parent = null;
-    header = $( 'header' );
+
+    /*
+     * helper elements:
+     *     header: to disable while sidebar is open and for calculating available screen height
+     *     nav: to hide menu if it's open
+     *     content: for scroll (contains all page content except header)
+     *     titles: clickable title that open sidebar
+    */
+    headerHeight = $( 'header' ).innerHeight();
     nav = $( '.nav__fluid' );
-    content = $( '.content' );
     titles = $( '.sidebar-and-content .sidebar-and-content__sidebar-title' );
+    elementsToDisable = $( 'body, .sidebar-and-content__container' ).children().not( 'script, svg, link, .sidebar-and-content, .sidebar-and-content__col-sidebar' );
 
     constructor() {
         this.changingContents();
 
         this.titles.on( 'click', ( e ) => {
-                this.showSidebarOnMobile( e, this );
+                this.showSidebarOnMobile( e );
             }
         );
 
@@ -32,67 +39,61 @@ class SidebarAndContent {
         }
     }
 
-    showSidebarOnMobile( e, $this ) {
+    showSidebarOnMobile( e ) {
         e.preventDefault();
 
-        $this.parent = $( ( e.target ).closest( '.sidebar-and-content__col-sidebar' ) );
-
-        /*
-         * helper elements:
-         *     header: to disable while sidebar is open and for calculating available screen height
-         *     nav: to hide menu if it's open
-         *     content: for scroll (contains all page content except header)
-        */
-        const headerHeight = this.header.innerHeight();
-
-        const container = this.parent.find( '.sidebar-and-content__sidebar-container' );
         const title = $( e.target );
-
-        const windowScroll = window.scrollY - headerHeight;
-        const windowHeight = window.innerHeight - headerHeight;
-        const containerScrollHeight = container[0].scrollHeigh;
-        const containerHeight = windowHeight > containerScrollHeight ? containerScrollHeight : windowHeight;
-        const scrollY = this.content.position().top - headerHeight;
-
-        this.header.css({ 'pointer-events': '', cursor: '' });
+        const container = $( ( e.target ).closest( '.sidebar-and-content__col-sidebar' ) ).find( '.sidebar-and-content__sidebar-container' );
 
         /**
-         * stops body scroll while sidebar is shown on mobile / tablet
-         * and shows the sidebar ( set its max-height )
+         * variables that help calculate sidebar height
+         */
+        const windowHeight = window.innerHeight - this.headerHeight;
+        const containerScrollHeight = container[0].scrollHeigh;
+        const containerHeight = windowHeight > containerScrollHeight ? containerScrollHeight : windowHeight;
+
+        /**
+         * variables that help "freeze" scrolling correctly
+         */
+        const windowScroll = window.scrollY;
+        const scrollY = document.body.style.top;
+
+        /**
+         * shows sidebar, freeze scrolling; disable pointer events
          */
         if ( ! title.hasClass( 'sidebar-and-content__sidebar-title--show' ) && 1023 > window.innerWidth ) {
-            this.hideNav();
-
-            this.content.css({position: 'fixed', top: `-${windowScroll}px`});
             container.css({'maxHeight': `${containerHeight}px`});
-
             title.addClass( 'sidebar-and-content__sidebar-title--show' );
-            this.header.css({ 'pointer-events': 'none', cursor: 'default' });
+
+            document.body.style.position = 'fixed';
+            document.body.style.top      = `-${windowScroll}px`;
+            this.nav.css( 'margin-top', `${windowScroll}px` );
+            $( '.nav__mobile-menu' ).scroll();
+
+            this.elementsToDisable.addClass( 'disable' );
         } else {
-            this.hideSidebar( scrollY, container );
+            this.hideSidebar( container, title );
+            window.scrollTo( 0, parseInt( scrollY || '0' ) * -1 );
         }
     }
 
-    hideNav() {
-        if ( this.nav.hasClass( 'nav__mobile--scrolling' ) ) {
-            $( '.nav__open' ).toggleClass( 'nav__mobile--visible' );
-            $( '.nav__mobile-menu' ).toggleClass( 'nav__mobile-menu--visible' );
-            this.nav.toggleClass( 'nav__mobile--scrolling' );
-            $( 'body' ).toggleClass( 'home-no-scrolling' );
-            $( '.nav__main-menu' ).toggleClass( 'nav__main-menu--visible' );
-            $( '.nav__desktop--extended' ).toggleClass( 'nav--visible' );
-        }
-    }
-
-    hideSidebar( scrollY, container, title = this.titles ) {
-        this.content.css({position: '', top: ''});
-        window.scrollTo( 0, parseInt( scrollY || '0' ) * -1 );
-
+    /**
+     * hides mobile sidebar; disables scroll freeze; disables disabling pointer events
+     */
+    hideSidebar( container, title = this.titles ) {
         container.css({'maxHeight': ''});
         title.removeClass( 'sidebar-and-content__sidebar-title--show' );
-        this.header.css({ 'pointer-events': '', cursor: '' });
+
+        document.body.style.position = '';
+        document.body.style.top      = '';
+        this.nav.css( 'margin-top', '0' );
+
+        this.elementsToDisable.removeClass( 'disable' );
     }
 
+    /**
+     * controls sidebar bottom padding (removes bottom padding if sidebar height is smaller that window height)
+     */
     sidebarPaddingBottom() {
         let columns = $( '.sidebar-and-content__col-sidebar' );
 
@@ -103,6 +104,9 @@ class SidebarAndContent {
         }
     }
 
+    /**
+     * contains all the functions that should reload with the resizing of the screen
+     */
     changingContents() {
         this.itemsClassChanger( '.sidebar-and-content__item-title', 'h3', 'h4' );
         this.itemsClassChanger( '.sidebar-and-content__item-tags', 'p', 'p-large' );
@@ -121,12 +125,9 @@ class SidebarAndContent {
         this.delay(
             () => {
                 this.changingContents();
-
-                if ( 1023 > window.innerWidth ) {
-                    this.hideNav();
+                if ( 1023 < window.innerWidth ) {
+                    this.hideSidebar( $( '.sidebar-and-content__sidebar-container' ) );
                 }
-
-                this.hideSidebar( 0, $( '.sidebar-and-content__sidebar-container' ) );
             },
             500
         );

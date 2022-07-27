@@ -231,7 +231,7 @@ $transition-time: 1s;
     }
 
     &__col {
-      height: 100vh;
+      height: calc(100vh - 70px);
       overflow: hidden scroll;
 
       &-sidebar {
@@ -285,7 +285,7 @@ $transition-time: 1s;
       position: absolute;
       background-color: var(--grey);
       width: calc(3rem + (100% - 3rem) * $sidebar-width);
-      height: 100vh;
+      height: calc(100vh - 7rem);
       top: 7rem;
       left: 0;
       z-index: -1;

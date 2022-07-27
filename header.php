@@ -58,4 +58,3 @@ wp_body_open();
 <?php
 get_template_part( 'template-parts/nav', null );
 ?>
-<div class="content">
