@@ -20,3 +20,13 @@ body {
 .mb0 {
   margin-bottom: 0 !important;
 }
+
+.pb0 {
+  padding-bottom: 0 !important;
+}
+
+.disable {
+  pointer-events: none;
+  cursor: default;
+  user-select: none;
+}

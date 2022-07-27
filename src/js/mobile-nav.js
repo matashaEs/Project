@@ -24,6 +24,7 @@ class Navigation {
 		$( '.nav__mobile-menu' ).toggleClass( 'nav__mobile-menu--visible' );
 		$( '.nav__desktop--extended' ).toggleClass( 'nav--visible' );
 		$( '.nav-container' ).toggleClass( 'nav-container--visible' );
+		$( 'body' ).children().not( 'script, svg, link, header' ).toggleClass( 'disable' );
 		const windowScroll = window.scrollY;
 		if ( $( '.nav__mobile-menu' ).hasClass( 'nav__mobile-menu--visible' ) ) {
 			document.body.style.position = 'fixed';

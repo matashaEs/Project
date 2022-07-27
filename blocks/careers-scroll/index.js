@@ -64,7 +64,6 @@ class CareersScroll {
 			 */
 			if ( 1024 < window.innerWidth ) {
 				let maxHeight = Math.max.apply( null, items.map( function() {
-					console.log( $( this ), $( this ).height(), $( this ).innerHeight(), $( this ).outerHeight() );
 					return $( this ).height();
 				}).get() );
 
@@ -84,7 +83,6 @@ class CareersScroll {
 		this.delay(
 			() => {
 				if ( this.sliderContainer.hasClass( 'slick-initialized' ) ) {
-					console.log( true );
 					this.sliderContainer.slick( 'unslick' );
 				}
 				this.slider();

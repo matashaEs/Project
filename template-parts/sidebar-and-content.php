@@ -11,7 +11,7 @@
 
 extract( $args );
 
-$content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__col-content--padding-top-0' : '';
+$content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__col-content--the-content' : '';
 
 ?>
 
