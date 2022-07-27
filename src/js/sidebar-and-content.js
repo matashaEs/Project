@@ -4,14 +4,6 @@ import $ from 'jquery';
  * Visual part of the sidebar and content (left gray bar with navigation and content on the right side)
  */
 class SidebarAndContent {
-
-    /*
-     * helper elements:
-     *     header: to disable while sidebar is open and for calculating available screen height
-     *     nav: to hide menu if it's open
-     *     content: for scroll (contains all page content except header)
-     *     titles: clickable title that open sidebar
-    */
     headerHeight = $( 'header' ).innerHeight();
     nav = $( '.nav__fluid' );
     titles = $( '.sidebar-and-content .sidebar-and-content__sidebar-title' );
