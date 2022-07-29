@@ -10,6 +10,17 @@ if ( ! empty( $block['id'] ) ) {
 } else {
 	extract( $block['data'] );
 }
+
+$breadcrumbs = [
+	[
+		'name' => __( 'Home', 'nuplo' ),
+		'url'  => get_home_url(),
+	],
+	[
+		'name' => __( 'Products', 'nuplo' ),
+		'url'  => '#',
+	],
+]
 ?>
 
 <section class="container-fluid hwc">
@@ -20,7 +31,7 @@ if ( ! empty( $block['id'] ) ) {
 	<div class="container">
 		<div class="hwc__content">
 			<div class="hwc__breadcrumbs p">
-				Home > About
+				<?php get_template_part( 'template-parts/breadcrumbs', null, $breadcrumbs ); ?>
 			</div>
 			<?php if ( ! empty( $title ) ) : ?>
 				<div class="hwc__title">
