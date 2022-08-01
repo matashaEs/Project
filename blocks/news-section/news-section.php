@@ -34,7 +34,10 @@ $how_much_news              = ! empty( $selected_news ) ? count( $selected_news 
 	<div class="container news-section__container">
 		<div class="row news-section__row news-section__row-title">
 			<?php if ( ! empty( $title ) ) : ?>
-				<div class="h2 news-section__title"><?= esc_html( $title ); ?></div>
+				<div class="h2 news-section__title news-section__title--desktop"><?= esc_html( $title ); ?></div>
+				<a href="<?= esc_url( $link['url'] ) ?>" class="news-section__title-link">
+					<div class="h2 news-section__title"><?= esc_html( $title ); ?></div>
+				</a>
 			<?php endif; ?>
 		</div>
 		<?php if ( ! empty( $news ) ) : ?>
@@ -63,7 +66,7 @@ $how_much_news              = ! empty( $selected_news ) ? count( $selected_news 
 			</div>
 		<?php endif; ?>
 		<?php if ( ! empty( $link ) ) : ?>
-			<div class="row news-section__row news-section__row--button <?= esc_html( $button_container_class ) ?>">
+			<div class="row news-section__row news-section__row-button <?= esc_html( $button_container_class ) ?>">
 				<a
 						href="<?= esc_url( $link['url'] ) ?>"
 						class="button news-section__button">

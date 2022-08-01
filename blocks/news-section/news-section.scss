@@ -19,12 +19,24 @@
     }
 
     &-button {
+      display: none;
       justify-content: center;
       width: 100%;
 
       &--left {
         justify-content: flex-start;
       }
+    }
+  }
+
+  &__title {
+    &-link {
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    &--desktop {
+      display: none;
     }
   }
 
@@ -186,6 +198,20 @@
       &-news {
         justify-content: space-between;
         margin-bottom: 7rem;
+      }
+
+      &-button {
+        display: flex;
+      }
+    }
+
+    &__title {
+      &-link {
+        display: none;
+      }
+
+      &--desktop {
+        display: block;
       }
     }
 
