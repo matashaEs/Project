@@ -7,11 +7,10 @@ if ( ! empty( $block['id'] ) ) {
 }
 
 $class_reverse = ( 'reverse' === $direction ) ? 'image-text__row--reverse' : '';
-$class_color   = ( true === $add_background ) ? 'image-text__background' : '';
 
 ?>
 
-<section class="container-fluid image-text <?= esc_html( $class_color ) ?>">
+<section class="container-fluid image-text modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : '' ?>">
 	<div class="container">
 		<div class="row image-text__row <?= esc_html( $class_reverse ) ?>">
 			<div class="image-text__column-content">
@@ -31,7 +30,7 @@ $class_color   = ( true === $add_background ) ? 'image-text__background' : '';
 							<?php endforeach; ?>
 						<?php endif; ?>
 					</div>
-					<?php if ( ! empty( $link['url'] && $link['title'] ) ) : ?>
+					<?php if ( ! empty( $link && $link['url'] && $link['title'] ) ) : ?>
 						<a
 								href="<?= esc_url( $link['url'] ); ?>"
 								class="button p image-text__button"

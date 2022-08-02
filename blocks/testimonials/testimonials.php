@@ -26,7 +26,7 @@ $quotes = ! empty( $is_marks ) ? '<div class="testimonials__client-quotes"></div
 			</div>
 			<div class="row testimonials__row testimonials__row-content">
 				<?php foreach ( $contents as $content ) : ?>
-					<div class="modular__item testimonials__client">
+					<div class="testimonials__client modular__item">
 						<?php if ( ! empty( $content['avatar'] ) ) : ?>
 							<div class="testimonials__client-avatar">
 								<img src="<?= esc_url( $content['avatar']['sizes']['full_hd'] ); ?>" alt="icon">

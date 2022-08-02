@@ -42,7 +42,7 @@ if ( ! empty( $block['id'] ) ) {
 			<?php if ( ! empty( $contents ) ) : ?>
 				<?php foreach ( $contents as $content ) : ?>
 					<?php if ( ! empty( $content ) && ( ! empty( $content['icon'] ) || ! empty( $content['title'] ) || ! empty( $content['description'] ) ) ) : ?>
-						<div class="modular__item modular__item--mobile integrations__item">
+						<div class="integrations__item modular__item--mobile">
 							<?php if ( ! empty( $content['icon'] ) ) : ?>
 								<div class="integrations__item-icon">
 									<img src="<?= esc_url( $content['icon']['sizes']['full_hd'] ); ?>" alt="icon">

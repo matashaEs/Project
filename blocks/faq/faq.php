@@ -26,7 +26,7 @@ if ( ! empty( $background_color ) ) {
 			<?php endif; ?>
 
 			<?php foreach ( $faqs as $faq ) : ?>
-				<div class="modular__item modular__item--mobile form-select-box faq-section__select">
+				<div class="form-select-box faq-section__select modular__item--mobile">
 					<div class="form-options-container">
 						<div class="form-option faq-section__option">
 							<label class="p faq-section__label">

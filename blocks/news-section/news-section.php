@@ -41,16 +41,20 @@ $how_much_news          = ! empty( $selected_news ) ? count( $selected_news ) : 
 		<div class="row news-section__row news-section__row-title">
 			<?php if ( ! empty( $title ) ) : ?>
 				<div class="h2 news-section__title news-section__title--desktop"><?= esc_html( $title ); ?></div>
-				<a href="<?= esc_url( $link['url'] ) ?>" class="news-section__title-link">
-					<div class="h2 news-section__title"><?= esc_html( $title ); ?></div>
-				</a>
+				<?php if ( ! empty( $link && $link['url'] ) ) : ?>
+					<a href="<?= esc_url( $link['url'] ) ?>" class="h2 news-section__title news-section__title--link">
+						<?= esc_html( $title ); ?>
+					</a>
+				<?php else : ?>
+					<div class="h2 news-section__title "><?= esc_html( $title ); ?></div>
+				<?php endif; ?>
 			<?php endif; ?>
 		</div>
 		<?php if ( ! empty( $news ) ) : ?>
 			<div class="row news-section__row news-section__row-news">
 				<?php for ( $i = 0; $i < $how_much_news; $i++ ) : ?>
 					<a href="<?= esc_url( $news['link'] ); ?>"
-						class="news-section__item modular__item modular__item--mobile">
+						class="news-section__item modular__item--mobile">
 						<div class="news-section__item-top-content">
 							<?php if ( ! empty( $news['date'] ) ) : ?>
 								<div class="p news-section__item-date"><?= esc_html( $news['date'] ); ?></div>

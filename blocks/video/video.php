@@ -25,7 +25,7 @@ if ( ! empty( $block['id'] ) ) {
 				?>
 			<?php endif; ?>
 			<?php if ( ! empty( $title ) ) : ?>
-			<div class="video__title h4">
+			<div class="video__title modular__item--transparent h4">
 				<?= esc_html( $title )?>
 			</div>
 			<?php endif; ?>

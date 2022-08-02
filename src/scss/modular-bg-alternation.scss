@@ -1,11 +1,100 @@
 $modular: modular;
-$modular-bg-class: modular__bg;
 
-.sidebar-and-content {
-  &__content-container .#{$modular} {
-    $this: &;
-
+@mixin modular($container) {
+  .#{$container} .#{$modular} {
     position: relative;
+    background-color: var(--white);
+
+    &__item {
+      &,
+      &--mobile {
+        background-color: var(--off-white);
+      }
+
+      &--no-mobile,
+      &--transparent {
+        background: none;
+      }
+    }
+
+    &:nth-child(even) {
+      background-color: var(--off-white);
+
+      .#{$modular}__item {
+        &,
+        &--mobile {
+          background-color: var(--white);
+        }
+      }
+    }
+
+    &--off-white {
+      background-color: var(--off-white);
+
+      .#{$modular}__item {
+        &,
+        &--mobile {
+          background-color: var(--white);
+        }
+      }
+    }
+
+    &--white {
+      background-color: var(--white);
+
+      .#{$modular}__item {
+        background-color: var(--off-white);
+      }
+    }
+  }
+
+  @include min-size(md) {
+    .#{$container} .#{$modular} {
+      &__item {
+        &--mobile {
+          background: none;
+        }
+
+        &--no-mobile,
+        &--tablet {
+          background-color: var(--off-white);
+        }
+      }
+
+      &:nth-child(even) {
+        .#{$modular} {
+          &__item {
+            &--mobile {
+              background: none;
+            }
+
+            &--no-mobile,
+            &--tablet {
+              background-color: var(--white);
+            }
+          }
+        }
+      }
+
+      &--off-white {
+        .#{$modular}__item {
+          background-color: var(--white);
+        }
+      }
+
+      &--white {
+        .#{$modular}__item {
+          background-color: var(--off-white);
+        }
+      }
+    }
+  }
+}
+
+@mixin modular-bg($container) {
+  $modular-bg-class: modular__bg;
+
+  .#{$container} .#{$modular} {
     background: none;
 
     &__bg {
@@ -18,27 +107,11 @@ $modular-bg-class: modular__bg;
       background-color: var(--white);
     }
 
-    &__item {
-      background-color: var(--off-white);
-
-      &--no-mobile {
-        background: none;
-      }
-    }
-
     &:nth-child(even) {
-      .#{$modular} {
-        &__bg {
-          background-color: var(--off-white);
-        }
+      background: none;
 
-        &__item {
-          background-color: var(--white);
-
-          &--no-mobile {
-            background: none;
-          }
-        }
+      .#{$modular}__bg {
+        background-color: var(--off-white);
       }
     }
 
@@ -46,162 +119,40 @@ $modular-bg-class: modular__bg;
       .#{$modular}__bg.#{$modular}__bg {
         background-color: var(--off-white);
       }
-
-      .#{$modular}__item.#{$modular}__item {
-        background-color: var(--white);
-
-        &--no-mobile {
-          background: none;
-        }
-      }
     }
 
     &--white {
       .#{$modular}__bg.#{$modular}__bg {
         background-color: var(--white);
       }
-
-      .#{$modular}__item.#{$modular}__item {
-        background-color: var(--off-white);
-
-        &--no-mobile {
-          background: none;
-        }
-      }
-    }
-  }
-}
-
-.product-category .#{$modular} {
-  background-color: var(--white);
-
-  &__item {
-    background-color: var(--off-white);
-
-    &--no-mobile {
-      background: none;
     }
   }
 
-  &:nth-child(even) {
-    background-color: var(--off-white);
-
-    .#{$modular}__item {
-      background-color: var(--white);
-
-      &--no-mobile {
-        background: none;
-      }
-    }
-  }
-}
-
-@include min-size(md) {
-  $modular-item-mobile: modular__item--mobile;
-
-  .sidebar-and-content {
-    &__content-container .#{$modular} {
-      &__item {
-        &--mobile.#{$modular-item-mobile}.#{$modular-item-mobile} {
-          background: none;
-        }
-
-        &--no-mobile {
-          background-color: var(--off-white);
-        }
-      }
-
-      &:nth-child(even) {
-        .#{$modular} {
-          &__item {
-            &--no-mobile {
-              background-color: var(--white);
-            }
-          }
-        }
-      }
-
-      &--off-white {
-        .#{$modular}__item.#{$modular}__item {
-          background-color: var(--white);
-
-          &--no-mobile {
-            background-color: var(--white);
-          }
-
-          &--mobile {
-            background: none;
-          }
-        }
-      }
-
-      &--white {
-        .#{$modular}__item.#{$modular}__item {
-          background-color: var(--off-white);
-
-          &--no-mobile {
-            background-color: var(--off-white);
-          }
-
-          &--mobile {
-            background: none;
-          }
-        }
-      }
-    }
-  }
-
-  .product-category .#{$modular} {
-    &__item {
-      &--no-mobile {
-        background-color: var(--off-white);
-      }
-
-      &--mobile {
-        background: none;
-      }
-    }
-
-    &:nth-child(even) {
-      .#{$modular}__item {
-        &--no-mobile {
-          background-color: var(--white);
-        }
-
-        &--mobile {
-          background: none;
-        }
-      }
-    }
-  }
-}
-
-@include min-size(lg) {
-  .sidebar-and-content {
-    &__content-container .#{$modular} {
+  @include min-size(lg) {
+    .#{$container} .#{$modular} {
       .#{$modular-bg-class} {
         left: -3rem;
       }
     }
   }
-}
 
-@include min-size(xl) {
-  .sidebar-and-content {
-    &__content-container .#{$modular} {
+  @include min-size(xl) {
+    .#{$container} .#{$modular} {
       .#{$modular-bg-class} {
         left: -5rem;
       }
     }
   }
-}
 
-@include min-size(xxl) {
-  .sidebar-and-content {
-    &__content-container .#{$modular} {
+  @include min-size(xxl) {
+    .#{$container} .#{$modular} {
       .#{$modular-bg-class} {
         left: -13rem;
       }
     }
   }
 }
+
+@include modular(sidebar-and-content__content-container);
+@include modular-bg(sidebar-and-content__content-container);
+@include modular(product-category);

@@ -19,7 +19,7 @@ if ( ! empty( $block['id'] ) ) {
 			<?php if ( ! empty( $title ) ) : ?>
 				<div class="row h2 recent-product-project__title"><?= esc_html( $title ) ?></div>
 			<?php endif; ?>
-			<div class="row modular__item modular__item--no-mobile recent-product-project__project">
+			<div class="row recent-product-project__project modular__item--no-mobile">
 				<div class="recent-product-project__project-content">
 					<?php if ( ! empty( $project['title'] ) ) : ?>
 						<div class="h3 recent-product-project__project-title">

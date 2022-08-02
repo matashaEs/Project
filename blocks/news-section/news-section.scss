@@ -45,7 +45,7 @@
   }
 
   &__title {
-    &-link {
+    &--link {
       color: var(--black);
       text-decoration: none;
     }
@@ -126,8 +126,6 @@
   .news-section {
     $this: &;
 
-    background-color: var(--grey);
-
     &--white {
       background-color: var(--white);
     }
@@ -164,6 +162,16 @@
       }
     }
   }
+
+  .product-category .news-section.news-section {
+    background-color: var(--grey);
+
+    .news-section {
+      &__item {
+        background-color: var(--off-white);
+      }
+    }
+  }
 }
 
 @include min-size(lg) {
@@ -191,9 +199,7 @@
     }
 
     &__title {
-      &-link {
-        display: none;
-      }
+      display: none;
 
       &--desktop {
         display: block;
