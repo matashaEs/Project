@@ -13,20 +13,18 @@ if ( ! empty( $block['id'] ) ) {
 
 ?>
 
-<section class="container-fluid video">
+<section class="container-fluid video <?= 'product' == get_post_type() ? 'video--product' : '' ?>">
 	<div class="container">
 		<div class="video__content <?= 'product' == get_post_type() ? 'video__content--product' : '' ?>">
 			<?php if ( ! empty( $video ) ) : ?>
-				<?php
-            // @codingStandardsIgnoreStart
-            echo wp_video_shortcode( $video );
-            // @codingStandardsIgnoreEnd
-				?>
+				<video class="video__display" autoplay controls loop muted playsinline>
+					<source src="<?= esc_url( $video['url'] )?> ">
+				</video>
 			<?php endif; ?>
 			<?php if ( ! empty( $title ) ) : ?>
-			<div class="video__title h4">
-				<?= esc_html( $title )?>
-			</div>
+				<div class="video__title h4">
+					<?= esc_html( $title ) ?>
+				</div>
 			<?php endif; ?>
 		</div>
 	</div>
