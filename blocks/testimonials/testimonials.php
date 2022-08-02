@@ -16,7 +16,8 @@ $quotes = ! empty( $is_marks ) ? '<div class="testimonials__client-quotes"></div
 ?>
 
 <?php if ( ! empty( $contents ) ) : ?>
-	<section class="container-fluid testimonials">
+	<section class="container-fluid testimonials modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : ''?>">
+		<div class="modular__bg"></div>
 		<div class="container testimonials__container">
 			<div class="row testimonials__row ">
 				<?php if ( ! empty( $title ) ) : ?>
@@ -25,7 +26,7 @@ $quotes = ! empty( $is_marks ) ? '<div class="testimonials__client-quotes"></div
 			</div>
 			<div class="row testimonials__row testimonials__row-content">
 				<?php foreach ( $contents as $content ) : ?>
-					<div class="testimonials__client">
+					<div class="modular__item testimonials__client">
 						<?php if ( ! empty( $content['avatar'] ) ) : ?>
 							<div class="testimonials__client-avatar">
 								<img src="<?= esc_url( $content['avatar']['sizes']['full_hd'] ); ?>" alt="icon">

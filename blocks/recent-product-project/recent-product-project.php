@@ -13,12 +13,13 @@ if ( ! empty( $block['id'] ) ) {
 ?>
 
 <?php if ( ! empty( $project ) ) : ?>
-	<section class="container-fluid recent-product-project">
+	<section class="container-fluid recent-product-project modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : ''?>">
+		<div class="modular__bg"></div>
 		<div class="container">
 			<?php if ( ! empty( $title ) ) : ?>
 				<div class="row h2 recent-product-project__title"><?= esc_html( $title ) ?></div>
 			<?php endif; ?>
-			<div class="row recent-product-project__project">
+			<div class="row modular__item modular__item--no-mobile recent-product-project__project">
 				<div class="recent-product-project__project-content">
 					<?php if ( ! empty( $project['title'] ) ) : ?>
 						<div class="h3 recent-product-project__project-title">

@@ -4,9 +4,20 @@ if ( ! empty( $block['id'] ) ) {
 } else {
 	extract( $block['data'] );
 }
+
+$section_background_color_class = '';
+
+if ( ! empty( $background_color ) ) {
+	if ( 'white' === $background_color ) {
+		$section_background_color_class = ' modular--white';
+	} elseif ( 'off-white' === $background_color ) {
+		$section_background_color_class = ' modular--off-white';
+	}
+}
 ?>
 
-<section class="container-fluid faq-section">
+<section class="container-fluid faq-section modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : ''?>">
+	<div class="modular__bg"></div>
 	<div class="container">
 		<div class="faq-section__row">
 
@@ -15,7 +26,7 @@ if ( ! empty( $block['id'] ) ) {
 			<?php endif; ?>
 
 			<?php foreach ( $faqs as $faq ) : ?>
-				<div class="form-select-box faq-section__select">
+				<div class="modular__item modular__item--mobile form-select-box faq-section__select">
 					<div class="form-options-container">
 						<div class="form-option faq-section__option">
 							<label class="p faq-section__label">

@@ -12,12 +12,11 @@ if ( ! empty( $block['id'] ) ) {
 	extract( $block['data'] );
 }
 
-$style = ! empty( $color_pallet ) ? ' highlights--' . $color_pallet : '';
-
 ?>
 
 <?php if ( ! empty( $contents ) ) : ?>
-	<section class="container-fluid highlights<?= esc_html( $style ) ?>">
+	<section class="container-fluid modular highlights<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : ''?>">
+		<div class="modular__bg"></div>
 		<div class="container highlights__container">
 			<div class="row highlights__row">
 				<?php if ( ! empty( $title ) ) : ?>
@@ -26,7 +25,7 @@ $style = ! empty( $color_pallet ) ? ' highlights--' . $color_pallet : '';
 			</div>
 			<div class="row highlights__row highlights__row-content">
 				<?php foreach ( $contents as $content ) : ?>
-					<div class="highlights__item">
+					<div class="modular__item highlights__item">
 						<?php if ( ! empty( $content['title'] ) ) : ?>
 							<div class="highlights__item-title"><?= esc_html( $content['title'] ); ?></div>
 						<?php endif; ?>

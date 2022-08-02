@@ -18,6 +18,10 @@
 
   &__path {
     margin-top: 1rem;
+
+    .breadcrumbs {
+      display: block;
+    }
   }
 
   &__title {

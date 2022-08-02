@@ -18,7 +18,7 @@ if ( ! empty( $block['id'] ) ) {
 ?>
 
 
-<section class="container-fluid two-columns">
+<section class="container-fluid two-columns modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : ''?>">
 	<div class="two-columns__bg"></div>
 	<div class="container two-columns__container">
 		<div class="two-columns__columns">

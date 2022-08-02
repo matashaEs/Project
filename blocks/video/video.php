@@ -13,7 +13,8 @@ if ( ! empty( $block['id'] ) ) {
 
 ?>
 
-<section class="container-fluid video">
+<section class="container-fluid video modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : ''?>">
+	<div class="modular__bg"></div>
 	<div class="container">
 		<div class="video__content <?= 'product' == get_post_type() ? 'video__content--product' : '' ?>">
 			<?php if ( ! empty( $video ) ) : ?>

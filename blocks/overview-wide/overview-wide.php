@@ -25,7 +25,8 @@ $breadcrumbs = [
 ]
 ?>
 
-<section class="container-fluid overview-wide">
+<section class="container-fluid overview-wide modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : ''?>">
+	<div class="modular__bg"></div>
 	<div class="container overview-wide__container">
 		<div class="overview-wide__image" style="background-image: url('<?= esc_url( $image['sizes']['full_hd'] ); ?>')">
 		</div>
