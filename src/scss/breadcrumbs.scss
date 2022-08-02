@@ -1,9 +1,11 @@
 .breadcrumbs {
-  display: none;
+  display: flex;
+  margin-top: 43px;
 
   &__item {
     color: var(--black);
     text-decoration: none;
+    font-family: var(--font-aeonik-medium);
   }
 
   &__item--link {
@@ -24,6 +26,6 @@
 
 @include min-size(lg) {
   .breadcrumbs {
-    display: flex;
+    margin-top: 100px;
   }
 }
