@@ -47,6 +47,14 @@
       width: 70vw;
     }
   }
+
+  .product-category .careers-scroll {
+    $this: careers-scroll;
+
+    &__item.#{$this}__item.#{$this}__item.#{$this}__item {
+      background-color: var(--grey);
+    }
+  }
 }
 
 @include min-size(lg) {

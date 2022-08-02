@@ -63,7 +63,7 @@ $careers = [
 		</div>
 		<div class="row careers-scroll__row careers-scroll__row-content">
 			<?php foreach ( $careers as $career ) : ?>
-				<div class="careers-scroll__item modular__item--mobile modular__item--tablet">
+				<div class="careers-scroll__item modular__item--mobile">
 					<?php if ( ! empty( $career['title'] ) ) : ?>
 						<div class="careers-scroll__item-title"><?= esc_html( $career['title'] ); ?></div>
 					<?php endif; ?>

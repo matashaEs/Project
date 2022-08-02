@@ -28,10 +28,12 @@ $modular: modular;
       }
     }
 
-    &--off-white {
+    &--off-white.#{$modular}--off-white {
       background-color: var(--off-white);
 
       .#{$modular}__item {
+        background-color: var(--white);
+
         &,
         &--mobile {
           background-color: var(--white);
@@ -39,11 +41,16 @@ $modular: modular;
       }
     }
 
-    &--white {
+    &--white.#{$modular}--white {
       background-color: var(--white);
 
       .#{$modular}__item {
         background-color: var(--off-white);
+
+        &,
+        &--mobile {
+          background-color: var(--off-white);
+        }
       }
     }
   }
@@ -51,12 +58,11 @@ $modular: modular;
   @include min-size(md) {
     .#{$container} .#{$modular} {
       &__item {
-        &--mobile {
+        &--mobile.#{$modular}__item--mobile.#{$modular}__item--mobile.#{$modular}__item--mobile {
           background: none;
         }
 
-        &--no-mobile,
-        &--tablet {
+        &--no-mobile.#{$modular}__item--no-mobile.#{$modular}__item--no-mobile.#{$modular}__item--no-mobile {
           background-color: var(--off-white);
         }
       }
@@ -68,23 +74,28 @@ $modular: modular;
               background: none;
             }
 
-            &--no-mobile,
-            &--tablet {
+            &--no-mobile.#{$modular}__item--no-mobile {
               background-color: var(--white);
             }
           }
         }
       }
 
-      &--off-white {
+      &--off-white.#{$modular}--off-white {
         .#{$modular}__item {
-          background-color: var(--white);
+          &,
+          &--no-mobile.#{$modular}__item--no-mobile.#{$modular}__item--no-mobile.#{$modular}__item--no-mobile {
+            background-color: var(--white);
+          }
         }
       }
 
-      &--white {
+      &--white.#{$modular}--white {
         .#{$modular}__item {
-          background-color: var(--off-white);
+          &,
+          &--no-mobile.#{$modular}__item--no-mobile.#{$modular}__item--no-mobile.#{$modular}__item--no-mobile {
+            background-color: var(--off-white);
+          }
         }
       }
     }
@@ -115,13 +126,17 @@ $modular: modular;
       }
     }
 
-    &--off-white {
+    &--off-white.#{$modular}--off-white {
+      background: none;
+
       .#{$modular}__bg.#{$modular}__bg {
         background-color: var(--off-white);
       }
     }
 
-    &--white {
+    &--white.#{$modular}--white {
+      background: none;
+
       .#{$modular}__bg.#{$modular}__bg {
         background-color: var(--white);
       }
