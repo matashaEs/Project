@@ -1,6 +1,6 @@
 <?php
 if ( empty( $args ) ) {
-	$args = [];
+	$args = apply_filters( 'cai_get_breadcrumbs', null );
 }
 ?>
 
