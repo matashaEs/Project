@@ -4,6 +4,7 @@
  *  $description
  *  $buttons [ $buttons_with_text [ $button_with_text ], $add_share_button ]
  *  image
+ *  $background_color [ select: 'default', 'modular--white', 'modular--off-white' ]
  */
 
 

@@ -6,7 +6,7 @@
  *     $news [ Post Type Object (CPT: Post) ]
  * $link [ link ]
  * $link_position [ true/false; shows if $link is not empty ]
- * $background_color [ select: 'default', 'white', 'off-white' ]
+ * $background_color [ select: 'default', 'modular--white', 'modular--off-white' ]
  */
 
 
@@ -35,7 +35,7 @@ $button_container_class = ! empty( $link_position ) ? ' news-section__row-button
 $how_much_news          = ! empty( $selected_news ) ? count( $selected_news ) : 3;
 ?>
 
-<section class="container-fluid modular news-section<?= esc_html( $section_background_color_class ) ?>">
+<section class="container-fluid news-section modular<?= esc_html( $section_background_color_class ) ?>">
 	<div class="modular__bg news-section__bg"></div>
 	<div class="container news-section__container">
 		<div class="row news-section__row news-section__row-title">

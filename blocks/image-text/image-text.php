@@ -1,4 +1,12 @@
 <?php
+/**
+ * $title
+ * $description [ repeater: column ]
+ * $link
+ * $image
+ * $direction
+ * $background_color [ select: 'default', 'modular--white', 'modular--off-white' ]
+ */
 
 if ( ! empty( $block['id'] ) ) {
 	extract( get_fields( $block['id'] ) );

@@ -1,19 +1,16 @@
 <?php
+/**
+ * $title
+ * $faqs [ repeater: faq_title, faq_content ]
+ * $background_color [ select: 'default', 'modular--white', 'modular--off-white' ]
+ */
+
 if ( ! empty( $block['id'] ) ) {
 	extract( get_fields( $block['id'] ) );
 } else {
 	extract( $block['data'] );
 }
 
-$section_background_color_class = '';
-
-if ( ! empty( $background_color ) ) {
-	if ( 'white' === $background_color ) {
-		$section_background_color_class = ' modular--white';
-	} elseif ( 'off-white' === $background_color ) {
-		$section_background_color_class = ' modular--off-white';
-	}
-}
 ?>
 
 <section class="container-fluid faq-section modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : ''?>">

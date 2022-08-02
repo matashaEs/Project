@@ -2,7 +2,7 @@
 /**
  * $title
  * $contents
- * $color_pallet
+ * $background_color [ select: 'default', 'modular--white', 'modular--off-white' ]
  */
 
 

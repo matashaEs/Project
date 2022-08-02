@@ -185,15 +185,6 @@
       background: none;
       position: relative;
 
-      &__bg {
-        position: absolute;
-        width: 100vw;
-        height: 100%;
-        top: 0;
-        z-index: -1;
-        background-color: var(--off-white);
-      }
-
       &__container {
         flex-flow: column;
         justify-content: initial;

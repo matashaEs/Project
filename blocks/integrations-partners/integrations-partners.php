@@ -7,6 +7,7 @@
  *  $title [ text ]
  *  $description [ textarea ]
  * $link [ link ]
+ * $background_color [ select: 'default', 'modular--white', 'modular--off-white' ]
  */
 
 

@@ -3,6 +3,7 @@
  * $title
  * $description
  * $link
+ * $background_color [ select: 'default', 'modular--white', 'modular--off-white' ]
  */
 
 

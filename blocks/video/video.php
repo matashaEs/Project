@@ -3,6 +3,7 @@
  *  $title
  *  $video
  *  $fullscreen
+ *  $background_color [ select: 'default', 'modular--white', 'modular--off-white' ]
  */
 
 

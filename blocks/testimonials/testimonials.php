@@ -3,6 +3,7 @@
  * $title
  * $contents
  * $is_marks
+ * $background_color [ select: 'default', 'modular--white', 'modular--off-white' ]
  */
 
 

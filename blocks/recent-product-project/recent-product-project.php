@@ -2,6 +2,7 @@
 /**
  *  $title
  *  $project [ title, description, link, image ]
+ *  $background_color [ select: 'default', 'modular--white', 'modular--off-white' ]
  */
 
 
