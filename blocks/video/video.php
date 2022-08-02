@@ -2,6 +2,7 @@
 /**
  *  $title
  *  $video
+ *  $fullscreen
  */
 
 
@@ -14,8 +15,8 @@ if ( ! empty( $block['id'] ) ) {
 ?>
 
 <section class="container-fluid video <?= 'product' == get_post_type() ? 'video--product' : '' ?>">
-	<div class="container">
-		<div class="video__content <?= 'product' == get_post_type() ? 'video__content--product' : '' ?>">
+	<div class="container <?= 1 == $fullscreen ? 'video__container--fullscreen' : ''?>">
+		<div class="video__content <?= 'product' == get_post_type() ? 'video__content--product' : ''?>">
 			<?php if ( ! empty( $video ) ) : ?>
 				<video class="video__display" autoplay controls loop muted playsinline>
 					<source src="<?= esc_url( $video['url'] )?> ">
