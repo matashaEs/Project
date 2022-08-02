@@ -20,10 +20,10 @@
 }
 
 @include min-size(lg) {
-  .video.video.video {
-    &--product {
-      width: calc(100% + 3rem);
-      margin-left: -3rem;
+
+  .sidebar-and-content {
+    &__content-container .video__content{
+      width: calc(100% + 6rem);
     }
   }
 
@@ -31,11 +31,6 @@
     &__content {
       width: calc(100% + 6rem);
       margin-left: -3rem;
-
-      &--product {
-        width: calc(100% + 3rem);
-        margin-left: 0;
-      }
     }
 
     &__title {
@@ -45,10 +40,9 @@
 }
 
 @include min-size(xl) {
-  .video.video.video {
-    &--product {
-      width: calc(100% + 5rem);
-      margin-left: -5rem;
+  .sidebar-and-content {
+    &__content-container .video__content{
+      width: calc(100% + 10rem);
     }
   }
 
@@ -70,10 +64,10 @@
 }
 
 @include min-size(xxl) {
-  .video.video.video {
-    &--product {
-      width: calc(100% + 8rem);
-      margin-left: -8rem;
+  .sidebar-and-content {
+    &__content-container .video__content {
+      width: calc(100% + 20rem);
+      margin-left: -13rem;
     }
   }
 
