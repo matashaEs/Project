@@ -7,21 +7,36 @@ get_header();
 ?>
 
 	<div class="container-fluid">
-		<div class="container">
+		<div class="container page-partners">
 			<?php
 			echo esc_html( get_template_part( 'template-parts/breadcrumbs' ) );
 			?>
 			<h1><?php the_title(); ?></h1>
-			<?php
 
+			<?php
 			if ( ! empty( $partners ) ) {
-				foreach ( $partners as $partner ) {
-					if ( ! empty( $partner ) ) {
-						?>
-						<a href="<?= esc_url( $partner['url'] ) ?>"><?= esc_html( $partner['name'] ) ?></a>
-						<?php
-					}
-				}
+				?>
+				<div class="page-partners__list">
+					<?php
+					foreach ( $partners as $partner ) :
+						if ( ! empty( $partner ) ) {
+							?>
+							<div class="page-partners__item">
+								<a class="page-partners__link" href="<?= esc_url( $partner['url'] ) ?>">
+									<?= esc_html( $partner['name'] ) ?>
+								</a>
+							</div>
+							<?php
+						}
+					endforeach;
+					?>
+				</div>
+				<div class="page-partners__download">
+					<a href="<?= esc_url( get_permalink() . 'download' ); ?>" class="button">
+						<?= esc_html( __( 'Download', 'nuplo' ) ); ?>
+					</a>
+				</div>
+				<?php
 			} else {
 				?>
 				<h4>
