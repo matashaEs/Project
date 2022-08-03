@@ -3,6 +3,10 @@
 .recent-product-project {
   padding-top: 4.5rem;
 
+  .row {
+    width: 100%;
+  }
+
   &__title {
     display: none;
   }

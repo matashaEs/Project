@@ -3,6 +3,7 @@
  *  $title
  *  $video
  *  $fullscreen
+ *  $background_color [ select: 'default', 'modular--white', 'modular--off-white' ]
  */
 
 
@@ -14,8 +15,9 @@ if ( ! empty( $block['id'] ) ) {
 
 ?>
 
-<section class="container-fluid video">
-	<div class="container <?= 1 == $fullscreen ? 'video__container--fullscreen' : ''?>">
+<section class="container-fluid video modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : ''?>">
+	<div class="modular__bg"></div>
+	<div class="container<?= ! empty( $fullscreen ) ? ' video__container--fullscreen' : ''?>">
 		<div class="video__content">
 			<?php if ( ! empty( $video ) ) : ?>
 				<video class="video__display" autoplay controls loop muted playsinline>
@@ -23,8 +25,8 @@ if ( ! empty( $block['id'] ) ) {
 				</video>
 			<?php endif; ?>
 			<?php if ( ! empty( $title ) ) : ?>
-				<div class="video__title h4">
-					<?= esc_html( $title ) ?>
+				<div class="video__title h4 modular__item--transparent">
+					<?= esc_html( $title )?>
 				</div>
 			<?php endif; ?>
 		</div>

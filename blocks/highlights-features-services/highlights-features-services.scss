@@ -5,14 +5,6 @@
 
   padding-top: 4.5rem;
 
-  &--inversed {
-    background-color: var(--off-white);
-
-    #{$this}__item {
-      background-color: var(--white);
-    }
-  }
-
   &__row {
     width: 100%;
   }
