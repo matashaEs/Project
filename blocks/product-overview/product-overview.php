@@ -49,40 +49,8 @@ $current_post_url = get_permalink();
 			<?php endforeach; ?>
 		<?php endif; ?>
 		<?php if ( 1 == $buttons ['add_share_button'] ) : ?>
-			<div class="button product-overview__button-share"> <?php the_svg( 'share-button.svg', 'product-overview-share' ); ?></div>
-				<div class="product-overview__share">
-					<div class="product-overview__share-heading p-large">
-						Share
-					</div>
-					<div class="product-overview__share-option">
-						<a href="<?= 'http://www.linkedin.com/shareArticle?mini=true&url=' . esc_url( $current_post_url ) ?>" class="product-overview__share-option--link">
-							<img src="<?= esc_url( get_template_directory_uri() . '/assets/img/share-linkedin.svg' ) ?>"
-								alt="CAI icon"> <p class="p-large product-overview__share-option--text"> Linkedin </p>
-						</a>
-					</div>
-					<div class="product-overview__share-option">
-						<a href="<?= 'http://www.facebook.com/sharer.php?u=' . esc_url( $current_post_url ) ?>" class="product-overview__share-option--link">
-							<img src="<?= esc_url( get_template_directory_uri() . '/assets/img/share-facebook.svg' ) ?>"
-								alt="CAI icon"> <p class="p-large product-overview__share-option--text"> Facebook </p>
-						</a>
-					</div>
-					<div class="product-overview__share-option">
-						<a href="<?= 'mailto:?Subject=Arcadia Towers&Body=' . esc_url( $current_post_url ) ?>" class="product-overview__share-option--link">
-							<img src="<?= esc_url( get_template_directory_uri() . '/assets/img/share-email.svg' ) ?>"
-								alt="CAI icon"> <p class="p-large product-overview__share-option--text"> Email </p>
-						</a>
-					</div>
-					<div class="product-overview__share-option">
-						<div class="product-overview__share-option--link product-overview__share-option--copy">
-							<img src="<?= esc_url( get_template_directory_uri() . '/assets/img/share-copy-link.svg' ) ?>"
-								alt="CAI icon"> <p class="p-large product-overview__share-option--text"> Copy Link </p>
-						</div>
-					</div>
-				</div>
-			<div class="product-overview__snackText">
-				<?php _e( "The website's address is copied...", 'nuplo' ); ?>
-			</div>
-
-		<?php endif; ?>
+			<div class="button button-share product-overview__button-share"> <?php the_svg( 'share-button.svg', 'product-overview-share' ); ?></div>
+			<?php get_template_part( 'template-parts/share', null ); ?>
+			<?php endif; ?>
 	</div>
 </section>
