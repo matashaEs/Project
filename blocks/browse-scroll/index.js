@@ -2,8 +2,18 @@ import './browse-scroll.scss';
 import $ from 'jquery';
 
 class BrowseScroll {
+	sliderContainer = $( '.browse-scroll__items-list' );
+
 	constructor() {
-		this.sliderContainer = $( '.browse-scroll__items-list' );
+		this.sliderContainer.on( 'afterChange', function( e, slick, current ) {
+			if ( $( this ).closest( '.browse-scroll' ).hasClass( 'browse-scroll--reverse' ) && 767 < window.innerWidth && current === slick.$slides.length - 1 && 0 === slick.getOption( 'speed' ) ) {
+				$( '.browse-scroll__items-list' ).each( function() {
+					$( this ).slick( 'slickSetOption', 'speed', 300, true );
+					$( this ).slick( 'slickSetOption', 'autoplaySpeed', 2000, true );
+					$( this ).slick( 'slickSetOption', 'autoplay', true, true );
+				});
+			}
+		});
 
 		this.slider();
 		window.addEventListener( 'resize', this.resizeEvent.bind( this ) );
@@ -28,13 +38,6 @@ class BrowseScroll {
 					paddingRight = ( windowWidth / 2 ) - itemWidth - paddingLeft;
 				}
 
-				let initialSlide = 0;
-
-				if ( 767 < windowWidth && $( this ).closest( '.browse-scroll' ).hasClass( 'browse-scroll--reverse' ) ) {
-					[ paddingRight, paddingLeft ] = [ paddingLeft, paddingRight ];
-					initialSlide 		  		  = $( this ).find( '.browse-scroll__item' ).length;
-				}
-
 				let slickConf = {
 					infinite: false,
 					arrows: false,
@@ -42,16 +45,23 @@ class BrowseScroll {
 					mobileFirst: true,
 					centerMode: true,
 					variableWidth: true,
+					autoplay: true,
+					autoplaySpeed: 2000,
+					pauseOnHover: false,
 					centerPadding: paddingRight + 'px 0px ' + paddingLeft + 'px',
-
-					responsive: [ {
-						breakpoint: 767,
-						settings: {
-							dots: false,
-							initialSlide: initialSlide,
-						}
-					} ]
 				};
+
+				if ( 767 < windowWidth ) {
+					slickConf.dots = false;
+					slickConf.autoplay = false;
+
+					if ( $( this ).closest( '.browse-scroll' ).hasClass( 'browse-scroll--reverse' ) ) {
+						slickConf.autoplay = true;
+						slickConf.speed = 0;
+						slickConf.autoplaySpeed = 0;
+						slickConf.centerPadding = paddingLeft + 'px 0px ' + paddingRight + 'px';
+					}
+				}
 
 				$( this ).slick( slickConf );
 			}
