@@ -91,7 +91,7 @@ class SidebarAndContent {
 
         columns.removeClass( 'pb0' );
 
-        if ( columns[0].scrollHeight <= window.innerHeight - 70 ) {
+        if ( 0 !== columns.length && columns[0].scrollHeight <= window.innerHeight - 70 ) {
             columns.addClass( 'pb0' );
         }
     }
