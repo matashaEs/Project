@@ -1,5 +1,4 @@
 import './newsletter.scss';
-
 import $ from 'jquery';
 
 class NewsletterForm {
@@ -17,8 +16,8 @@ class NewsletterForm {
 		if ( '' === fieldToTest ) {
 			return false;
 		} else {
-return regex.test( field.val() );
-}
+			return regex.test( field.val() );
+		}
 	}
 
 	validateForm() {
@@ -36,7 +35,7 @@ return regex.test( field.val() );
 		fieldError
 			.removeClass( 'newsletter__text-error--show' )
 			.empty();
-		if ( '' == field.val() ) {
+		if ( '' === field.val() ) {
 			fieldError
 				.addClass( 'newsletter__text-error--show' )
 				.append( textError[0]);

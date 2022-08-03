@@ -4,6 +4,7 @@
  *  $title
  *  $description
  *  $buttons[ $buttons_with_text[ $button_with_text ], $add_share_button ]
+ *  $background_color [ select: 'default', 'modular--white', 'modular--off-white' ]
  */
 
 
@@ -14,21 +15,37 @@ if ( ! empty( $block['id'] ) ) {
 }
 
 $current_post_url = get_permalink();
+
+$breadcrumbs = [
+	[
+		'name' => __( 'Products', 'nuplo' ),
+		'url'  => get_home_url(),
+	],
+	[
+		'name' => __( 'ERP', 'nuplo' ),
+		'url'  => '#',
+	],
+	[
+		'name' => __( 'Ponderosa ERP', 'nuplo' ),
+		'url'  => '#',
+	],
+]
 ?>
 
-<section class="container-fluid product-overview">
+<section class="container-fluid product-overview modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : ''?>">
+	<div class="modular__bg"></div>
 	<?php if ( ! empty( $image ) || get_the_post_thumbnail_url() ) : ?>
-		<div class="product-overview__bg" style="background-image: url( '<?= ! empty( $image ) ? esc_url( $image['sizes']['full_hd'] ) : esc_url( get_the_post_thumbnail_url() ); ?> ' )">
-		</div>
+		<div class="product-overview__bg"
+			style="background-image: url( '<?= ! empty( $image ) ? esc_url( $image['sizes']['full_hd'] ) : esc_url( get_the_post_thumbnail_url() ); ?> ' )"></div>
 	<?php endif; ?>
 	<div class="product-overview__path">
-		<p> Products > ERP > Ponderosa ERP </p>
+		<?php get_template_part( 'template-parts/breadcrumbs', null, $breadcrumbs ); ?>
 	</div>
 	<div class="product-overview__title product-overview__title--mobile">
-		<h1> <?= esc_html( the_title() ) ?></h1>
+		<h1><?= esc_html( the_title() ) ?></h1>
 	</div>
 	<div class="product-overview__title product-overview__title--desktop">
-		<h3> <?= esc_html( $title ) ?></h3>
+		<h3><?= esc_html( $title ) ?></h3>
 	</div>
 	<?php if ( ! empty( $description ) ) : ?>
 		<div class="product-overview__description">
@@ -36,12 +53,12 @@ $current_post_url = get_permalink();
 		</div>
 	<?php endif ?>
 	<div class="product-overview__buttons">
-		<?php if ( ! empty( $buttons['buttons_with_text'] ) ) : ?>
-			<?php
+		<?php
+		if ( ! empty( $buttons['buttons_with_text'] ) ) :
 			foreach ( $buttons['buttons_with_text'] as $button ) :
 				$button_with_text = $button['button_with_text'];
-				?>
-				<?php if ( ! empty( $button_with_text ) ) : ?>
+				if ( ! empty( $button_with_text ) ) :
+					?>
 				<a href="<?= esc_url( $button_with_text['url'] ) ?>" class="button p">
 					<?= esc_html( $button_with_text['title'] ) ?>
 				</a>
@@ -82,7 +99,6 @@ $current_post_url = get_permalink();
 			<div class="product-overview__snackText">
 				<?php _e( "The website's address is copied...", 'nuplo' ); ?>
 			</div>
-
 		<?php endif; ?>
 	</div>
 </section>
