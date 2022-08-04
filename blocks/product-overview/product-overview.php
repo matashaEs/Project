@@ -14,8 +14,6 @@ if ( ! empty( $block['id'] ) ) {
 	extract( $block['data'] );
 }
 
-$current_post_url = get_permalink();
-
 $breadcrumbs = [
 	[
 		'name' => __( 'Products', 'nuplo' ),
@@ -68,6 +66,6 @@ $breadcrumbs = [
 		<?php if ( 1 == $buttons ['add_share_button'] ) : ?>
 			<div class="button button-share product-overview__button-share"> <?php the_svg( 'share-button.svg', 'product-overview-share' ); ?></div>
 			<?php get_template_part( 'template-parts/share', null ); ?>
-        <?php endif; ?>
+		<?php endif; ?>
 	</div>
 </section>

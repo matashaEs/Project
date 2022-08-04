@@ -1,3 +1,7 @@
+<?php
+$current_post_url = get_permalink();
+?>
+
 <div class="share">
 	<div class="share__heading p-large">
 		Share
@@ -7,7 +11,7 @@
 				class="share__option-link">
 			<img src="<?= esc_url( get_template_directory_uri() . '/assets/img/share-linkedin.svg' ) ?>"
 				alt="CAI icon">
-			<p class="p-large share__option-text"> Linkedin </p>
+			<p class="p-large share__option-text"> <?php _e( 'Linkedin', 'nuplo' ); ?> </p>
 		</a>
 	</div>
 	<div class="share__option">
@@ -15,7 +19,7 @@
 				class="share__option-link">
 			<img src="<?= esc_url( get_template_directory_uri() . '/assets/img/share-facebook.svg' ) ?>"
 				alt="CAI icon">
-			<p class="p-large share__option-text"> Facebook </p>
+			<p class="p-large share__option-text"> <?php _e( 'Facebook', 'nuplo' ); ?> </p>
 		</a>
 	</div>
 	<div class="share__option">
@@ -23,14 +27,14 @@
 				class="share__option-link">
 			<img src="<?= esc_url( get_template_directory_uri() . '/assets/img/share-email.svg' ) ?>"
 				alt="CAI icon">
-			<p class="p-large share__option-text"> Email </p>
+			<p class="p-large share__option-text"> <?php _e( 'Email', 'nuplo' ); ?> </p>
 		</a>
 	</div>
 	<div class="share__option">
 		<div class="share__option-link share__option-copy">
 			<img src="<?= esc_url( get_template_directory_uri() . '/assets/img/share-copy-link.svg' ) ?>"
 				alt="CAI icon">
-			<p class="p-large share__option-text"> Copy Link </p>
+			<p class="p-large share__option-text"> <?php _e( 'Copy Link', 'nuplo' ); ?> </p>
 		</div>
 	</div>
 	<div class="share__snackText">
