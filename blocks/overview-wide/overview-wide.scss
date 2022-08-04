@@ -9,6 +9,10 @@
     padding-top: 2rem;
   }
 
+  &__shjare-mobile {
+    width: 100%;
+  }
+
   &__image {
     height: 314px;
     width: calc(100% + 4rem);
@@ -22,6 +26,7 @@
     display: flex;
     flex-direction: row;
     align-items: end;
+    position: relative;
   }
 
   &__button-share {
@@ -44,6 +49,7 @@
 
   &__buttons {
     margin-top: 4rem;
+    position: relative;
 
     &-button {
       margin-right: 2rem;
@@ -80,6 +86,10 @@
     &__container {
       display: flex;
       flex-direction: row;
+    }
+
+    &__share-mobile {
+      display: none;
     }
 
     &__image {

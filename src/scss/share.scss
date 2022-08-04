@@ -7,6 +7,7 @@
   top: 8rem;
   width: 100%;
   display: none;
+  left: 0;
 
   &--active {
     display: block;
@@ -17,9 +18,10 @@
     padding-left: 3rem;
     padding-bottom: 2rem;
     position: relative;
+    color: var(--black);
 
     &::after {
-      content: url("../../assets/img/down-arrow.svg");
+      content: url("../assets/img/down-arrow.svg");
       position: absolute;
       right: 3rem;
       transform: rotate(58deg);
@@ -70,5 +72,11 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+}
+
+@include min-size(md) {
+  .share {
+    width: 42rem;
   }
 }

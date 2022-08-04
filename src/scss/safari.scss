@@ -6,8 +6,6 @@ Safari hacks
     * {
       appearance: none;
       -webkit-overflow-scrolling: touch;
-      backface-visibility: hidden;
-      transform-style: preserve-3d;
     }
 
     a[href^="tel"] {
