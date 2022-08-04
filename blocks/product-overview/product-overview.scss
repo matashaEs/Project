@@ -33,7 +33,8 @@
   &__buttons {
     display: flex;
     padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-bottom: 7rem;
+    position: relative;
 
     .button {
       display: flex;
@@ -60,6 +61,10 @@
     &__description {
       padding-top: 1.5rem;
       padding-bottom: 1.5rem;
+    }
+
+    &__share {
+      width: 42rem;
     }
   }
 }
@@ -97,6 +102,10 @@
 
     &__description {
       width: 80%;
+    }
+
+    &__buttons {
+      padding-bottom: 10rem;
     }
   }
 }

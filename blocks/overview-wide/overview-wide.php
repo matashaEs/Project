@@ -43,10 +43,12 @@ $breadcrumbs = [
 				<?php endif ?>
 				<?php if ( 1 == $buttons ['add_share_button'] ) : ?>
 					<div class="overview-wide__button">
-						<a href=""
-						class="button overview-wide__button-share overview-wide__button-share--mobile">
+						<div class="button button-share overview-wide__button-share overview-wide__button-share--mobile">
 							<?php the_svg( 'share-button.svg', 'product-overview__button--share' ); ?>
-						</a>
+						</div>
+					</div>
+					<div class="overview-wide__share-mobile">
+						<?php get_template_part( 'template-parts/share', null ); ?>
 					</div>
 				<?php endif ?>
 			</div>
@@ -71,10 +73,10 @@ $breadcrumbs = [
 					<?php endforeach; ?>
 				<?php endif; ?>
 				<?php if ( 1 == $buttons ['add_share_button'] ) : ?>
-					<a href=""
-					class="button overview-wide__buttons-button overview-wide__button-share overview-wide__button-share--desktop">
+					<div class="button button-share overview-wide__buttons-button overview-wide__button-share overview-wide__button-share--desktop">
 						<?php the_svg( 'share-button.svg', 'product-overview__button--share' ); ?>
-					</a>
+						<?php get_template_part( 'template-parts/share', null ); ?>
+					</div>
 				<?php endif ?>
 			</div>
 		</div>
