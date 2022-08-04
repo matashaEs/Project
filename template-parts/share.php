@@ -4,7 +4,7 @@ $current_post_url = get_permalink();
 
 <div class="share">
 	<div class="share__heading p-large">
-		Share
+		<?php _e( 'Share', 'nuplo' ); ?>
 	</div>
 	<div class="share__option">
 		<a href="<?= 'http://www.linkedin.com/shareArticle?mini=true&url=' . esc_url( $current_post_url ) ?>"

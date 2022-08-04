@@ -47,9 +47,9 @@ $breadcrumbs = [
 							<?php the_svg( 'share-button.svg', 'product-overview__button--share' ); ?>
 						</div>
 					</div>
-				<div class="overview-wide__share-mobile">
-					<?php get_template_part( 'template-parts/share', null ); ?>
-				</div>
+					<div class="overview-wide__share-mobile">
+						<?php get_template_part( 'template-parts/share', null ); ?>
+					</div>
 				<?php endif ?>
 			</div>
 			<div class="overview-wide__description p">
