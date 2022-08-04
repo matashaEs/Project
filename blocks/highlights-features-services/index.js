@@ -41,6 +41,8 @@ class HighlightsFeaturesServices {
 		const innerWidth = window.innerWidth;
 
 		this.sliderContainer.each( function() {
+			$( this ).find( '.highlights__item' ).removeClass( 'highlights__item--no-scroll' );
+
 			let slickConf = {
 				infinite: true,
 				slidesToShow: 1,
@@ -49,6 +51,8 @@ class HighlightsFeaturesServices {
 				variableWidth: true,
 				dots: true,
 				centerMode: true,
+				autoplay: true,
+				autoplaySpeed: 2000,
 			};
 
 			if ( 767 < innerWidth ) {
@@ -57,15 +61,27 @@ class HighlightsFeaturesServices {
 				slickConf.dots = false;
 			}
 
-			if ( 1023 < innerWidth && 0 === $( this ).closest( '.sidebar-and-content__content-container' ).length ) {
-				if ( 1199 > innerWidth ) {
-					slickConf.slidesToShow = 2;
-				} else {
-					slickConf.slidesToShow = 3;
-				}
+			if ( 1023 < innerWidth ) {
+				if ( 0 === $( this ).closest( '.sidebar-and-content__content-container' ).length ) {
+					if ( 1199 > innerWidth ) {
+						slickConf.slidesToShow = 2;
+					} else {
+						slickConf.slidesToShow = 3;
+					}
 
-				if ( 3 <= $( this ).find( '.highlights__item' ).length ) {
-					$( this ).slick( slickConf );
+					if ( slickConf.slidesToShow >= $( this ).find( '.highlights__item' ).length ) {
+						$( this ).find( '.highlights__item' ).addClass( 'highlights__item--no-scroll' );
+					} else {
+						$( this ).slick( slickConf );
+					}
+				} else {
+					if ( 1999 < innerWidth ) {
+						slickConf.slidesToShow = 2;
+					}
+
+					if ( slickConf.slidesToShow < $( this ).find( '.highlights__item' ).length ) {
+						$( this ).slick( slickConf );
+					}
 				}
 			} else {
 				$( this ).slick( slickConf );

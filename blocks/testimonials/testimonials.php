@@ -32,6 +32,10 @@ $quotes = ! empty( $is_marks ) ? '<div class="testimonials__client-quotes"></div
 							<div class="testimonials__client-avatar">
 								<img src="<?= esc_url( $content['avatar']['sizes']['full_hd'] ); ?>" alt="icon">
 							</div>
+						<?php else : ?>
+							<div class="testimonials__client-avatar testimonials__client-avatar-svg">
+								<?php the_svg( 'cai-logo.svg', '' ); ?>
+							</div>
 						<?php endif; ?>
 						<?php if ( ! empty( $content['title'] ) ) : ?>
 							<div class="h4 testimonials__client-name"><?= esc_html( $content['title'] ) ?></div>

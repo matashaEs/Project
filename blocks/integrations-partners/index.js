@@ -19,6 +19,8 @@ class IntegrationsPartners {
             variableWidth: true,
             dots: true,
             centerMode: true,
+            autoplay: true,
+            autoplaySpeed: 2000,
         };
 
         this.sliderContainer.each( function() {

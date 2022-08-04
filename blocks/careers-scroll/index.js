@@ -44,6 +44,8 @@ class CareersScroll {
 				variableWidth: true,
 				dots: true,
 				centerMode: true,
+				autoplay: true,
+				autoplaySpeed: 2000,
 			};
 
 			if ( 767 < window.innerWidth ) {

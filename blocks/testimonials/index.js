@@ -32,6 +32,8 @@ class Testimonials {
 				variableWidth: true,
 				dots: true,
 				centerMode: true,
+				autoplay: true,
+				autoplaySpeed: 2000,
 			};
 
 			if ( 767 < window.innerWidth ) {
@@ -40,7 +42,13 @@ class Testimonials {
 				slickConf.dots = false;
 			}
 
-			$( this ).slick( slickConf );
+			if ( 2399 < innerWidth ) {
+				slickConf.slidesToShow = 2;
+			}
+
+			if ( slickConf.slidesToShow < $( this ).find( '.testimonials__client' ).length ) {
+				$( this ).slick( slickConf );
+			}
 
 			/**
 			 * enables trackpad scroll
