@@ -118,6 +118,18 @@
       bottom: 4rem;
       right: 5rem;
     }
+
+    .slick-dots {
+      bottom: -30px;
+    }
+  }
+}
+
+@include min-size(lg) {
+  .testimonials {
+    .slick-dots {
+      bottom: -35px;
+    }
   }
 }
 

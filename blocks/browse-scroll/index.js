@@ -47,7 +47,7 @@ class BrowseScroll {
 					variableWidth: true,
 					autoplay: true,
 					autoplaySpeed: 2000,
-					pauseOnHover: false,
+					pauseOnFocus: false,
 					centerPadding: paddingRight + 'px 0px ' + paddingLeft + 'px',
 				};
 

@@ -53,12 +53,12 @@ class HighlightsFeaturesServices {
 				centerMode: true,
 				autoplay: true,
 				autoplaySpeed: 2000,
+				pauseOnFocus: false,
 			};
 
 			if ( 767 < innerWidth ) {
 				slickConf.centerMode = false;
 				slickConf.infinite = false;
-				slickConf.dots = false;
 			}
 
 			if ( 1023 < innerWidth ) {

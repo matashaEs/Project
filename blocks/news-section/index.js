@@ -21,6 +21,7 @@ class NewsSection {
 			centerMode: true,
 			autoplay: true,
 			autoplaySpeed: 2000,
+			pauseOnFocus: false,
 		};
 
 		this.sliderContainer.each( function() {
