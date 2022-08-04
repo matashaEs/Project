@@ -58,6 +58,7 @@ class HighlightsFeaturesServices {
 			if ( 767 < innerWidth ) {
 				slickConf.centerMode = false;
 				slickConf.infinite = false;
+				slickConf.dots = false;
 			}
 
 			if ( 1023 < innerWidth ) {
