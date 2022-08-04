@@ -34,12 +34,12 @@ class Testimonials {
 				centerMode: true,
 				autoplay: true,
 				autoplaySpeed: 2000,
+				pauseOnFocus: false,
 			};
 
 			if ( 767 < window.innerWidth ) {
 				slickConf.infinite = false;
 				slickConf.centerMode = false;
-				slickConf.dots = false;
 			}
 
 			if ( 2399 < innerWidth ) {

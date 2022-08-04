@@ -46,6 +46,7 @@ class CareersScroll {
 				centerMode: true,
 				autoplay: true,
 				autoplaySpeed: 2000,
+				pauseOnFocus: false,
 			};
 
 			if ( 767 < window.innerWidth ) {
