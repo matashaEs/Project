@@ -126,6 +126,8 @@
   .news-section {
     $this: &;
 
+    background-color: var(--grey);
+
     &--white {
       background-color: var(--white);
     }
@@ -164,12 +166,12 @@
   }
 
   .product-category .news-section {
+    $news-section-item: news-section__item;
+
     background-color: var(--grey);
 
-    .news-section {
-      &__item {
-        background-color: var(--off-white);
-      }
+    .#{$news-section-item}.#{$news-section-item}.#{$news-section-item} {
+      background-color: var(--off-white);
     }
   }
 }
