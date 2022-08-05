@@ -44,7 +44,7 @@
   }
 
   &__buttons {
-    margin-top: 4rem;
+    margin-top: 5.5rem;
     position: relative;
 
     &-button {
@@ -72,7 +72,7 @@
     }
 
     &__description {
-      padding-top: 3rem;
+      padding-top: 5.5rem;
     }
   }
 }
@@ -89,13 +89,14 @@
     }
 
     &__image {
-      height: 87%;
+      min-height: 48rem;
+      height: 72%;
       width: 100%;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
-      margin-top: 3rem;
-      margin-bottom: 3rem;
+      margin-top: 10rem;
+      margin-bottom: 10rem;
       margin-right: -6rem;
     }
 
@@ -103,6 +104,7 @@
       width: 60%;
       order: -1;
       padding-right: 0;
+      padding-bottom: 10rem;
     }
 
     &__description {
@@ -138,8 +140,7 @@
 @include min-size(xl) {
   .overview-wide {
     &__image {
-      height: 83%;
-      margin-top: 5rem;
+      margin-top: 10rem;
       margin-bottom: 5rem;
     }
 
@@ -155,12 +156,9 @@
 
 @include min-size(xxl) {
   .overview-wide {
-    &__content {
-      padding-bottom: 10rem;
-    }
-
     &__image {
       height: 68%;
+      min-height: 48rem;
       margin-top: 10rem;
       margin-bottom: 10rem;
       margin-right: -7rem;
