@@ -46,11 +46,14 @@
   &__buttons {
     margin-top: 5.5rem;
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
 
     &-button {
       margin-right: 2rem;
       padding-left: 2.5rem;
       padding-right: 2.5rem;
+      margin-top: 1rem;
     }
   }
 }
