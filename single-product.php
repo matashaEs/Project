@@ -12,16 +12,19 @@ $data_to_display = [
 					'name'           => 'modules',
 					'options'        => [
 						[
-							'id'    => 'millworkSolutions',
-							'value' => 'Millwork Solutions',
+							'id'   => 'millworkSolutions',
+							'slug' => 'millworkSolutions',
+							'name' => 'Millwork Solutions',
 						],
 						[
-							'id'    => 'LBMSoftware',
-							'value' => 'LBM Software',
+							'id'   => 'LBMSoftware',
+							'slug' => 'LBMSoftware',
+							'name' => 'LBM Software',
 						],
 						[
-							'id'    => 'lumberProcessing',
-							'value' => 'Lumber Processing',
+							'id'   => 'lumberProcessing',
+							'slug' => 'lumberProcessing',
+							'name' => 'Lumber Processing',
 						],
 					],
 					'button_classes' => 'button button--off-white',
