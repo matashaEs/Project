@@ -246,6 +246,7 @@ $transition-time: 1s;
       &-content {
         width: 55%;
         padding: 16rem 0 16rem 3rem;
+        scroll-behavior: smooth;
       }
     }
 

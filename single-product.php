@@ -28,24 +28,7 @@ $data_to_display = [
 				],
 			],
 			'navigation' => [
-				'navigation_links' => [
-					[
-						'title' => 'Integrations',
-						'link'  => 'https://google.com',
-					],
-					[
-						'title' => 'FAQs',
-						'link'  => 'https://google.com',
-					],
-					[
-						'title' => 'Testimonials',
-						'link'  => 'https://google.com',
-					],
-					[
-						'title' => 'Contact Us',
-						'link'  => 'https://google.com',
-					],
-				],
+				'navigation_links' => apply_filters( 'cai_get_product_page_menu', get_the_ID() ),
 			],
 		],
 	],
