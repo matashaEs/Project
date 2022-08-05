@@ -45,19 +45,23 @@ class SidebarAndContentFilteringAndNavigation {
 
     // Product navigation start
     /**
-     * Scroll the page to the specific block.
+     * TODO: Scroll the page to the specific block.
      */
     scrollToBlock( e ) {
-        e.preventDefault();
 
-        const blockId = $( e.target ).data( 'blockId' );
-        const blockDom = $( `#${blockId}` );
-
-        if ( blockDom.length ) {
-            $([ document.documentElement, document.body ]).animate({
-                scrollTop: blockDom.offset().top
-            }, 500 );
-        }
+        // e.preventDefault();
+        //
+        // const blockId = $( e.target ).data( 'blockId' );
+        // const blockContainer = $( '.sidebar-and-content__col-content--the-content' );
+        // const blockDom = $( `#${blockId}` );
+        // const offset = blockDom.offset().top - blockContainer.offset().top;
+        //
+        // console.log( offset );
+        // if ( blockDom.length ) {
+        //     blockContainer.animate({
+        //         scrollTop: blockDom.offset().top
+        //     }, 500 );
+        // }
     }
 }
 

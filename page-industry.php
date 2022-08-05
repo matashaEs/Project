@@ -8,15 +8,15 @@ $data_to_display = [
 		'blocks'     => [
 			'selects'     => [
 				[
-					'title'          => __( 'Industry', 'nuplo' ),
-					'name'           => 'industry',
-					'options'        => apply_filters( 'cai_get_industries', null ),
-					'button_classes' => 'button button--off-white',
-				],
-				[
 					'title'          => 'Industry Type',
 					'name'           => 'industryType',
 					'options'        => apply_filters( 'cai_get_industry_types', null ),
+					'button_classes' => 'button button--off-white',
+				],
+				[
+					'title'          => __( 'Industry', 'nuplo' ),
+					'name'           => 'industry',
+					'options'        => apply_filters( 'cai_get_industries', null ),
 					'button_classes' => 'button button--off-white',
 				],
 			],
