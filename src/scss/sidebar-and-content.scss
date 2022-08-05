@@ -198,12 +198,6 @@ $transition-time: 1s;
       margin-bottom: 4rem;
     }
 
-    &__col-sidebar {
-      .breadcrumbs {
-        display: block;
-      }
-    }
-
     &__content-container {
       display: flex;
       flex-flow: row wrap;
@@ -251,6 +245,10 @@ $transition-time: 1s;
         padding-left: 0;
         padding-right: 5rem;
         border-radius: 0;
+
+        .breadcrumbs {
+          display: block;
+        }
       }
 
       &-content {
