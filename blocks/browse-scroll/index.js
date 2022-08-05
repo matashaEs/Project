@@ -5,18 +5,20 @@ class BrowseScroll {
 	sliderContainer = $( '.browse-scroll__items-list' );
 
 	constructor() {
-		this.sliderContainer.on( 'afterChange', function( e, slick, current ) {
-			if ( $( this ).closest( '.browse-scroll' ).hasClass( 'browse-scroll--reverse' ) && 767 < window.innerWidth && current === slick.$slides.length - 1 && 0 === slick.getOption( 'speed' ) ) {
-				$( '.browse-scroll__items-list' ).each( function() {
-					$( this ).slick( 'slickSetOption', 'speed', 300, true );
-					$( this ).slick( 'slickSetOption', 'autoplaySpeed', 2000, true );
-					$( this ).slick( 'slickSetOption', 'autoplay', true, true );
-				});
-			}
-		});
+		if ( 1024 > $( window ).innerWidth() ) {
+			this.sliderContainer.on( 'afterChange', function( e, slick, current ) {
+				if ( $( this ).closest( '.browse-scroll' ).hasClass( 'browse-scroll--reverse' ) && 767 < window.innerWidth && current === slick.$slides.length - 1 && 0 === slick.getOption( 'speed' ) ) {
+					$( '.browse-scroll__items-list' ).each( function() {
+						$( this ).slick( 'slickSetOption', 'speed', 300, true );
+						$( this ).slick( 'slickSetOption', 'autoplaySpeed', 2000, true );
+						$( this ).slick( 'slickSetOption', 'autoplay', true, true );
+					});
+				}
+			});
 
-		this.slider();
-		window.addEventListener( 'resize', this.resizeEvent.bind( this ) );
+			this.slider();
+			window.addEventListener( 'resize', this.resizeEvent.bind( this ) );
+		}
 	}
 
 	slider() {
