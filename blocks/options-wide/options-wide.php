@@ -55,7 +55,7 @@ if ( ! empty( $block['id'] ) ) {
 							</div>
 						<?php endif ?>
 						<a href="<?= esc_url( $option['link']['url'] ); ?>"
-                            class="options-wide__option-content">
+							class="options-wide__option-content">
 							<?php if ( ! empty( $option['link']['title'] ) ) : ?>
 								<div class="h4 options-wide__option-title options-wide__option-title--horizontal">
 									<?= esc_html( $option['link']['title'] ); ?>
