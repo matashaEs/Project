@@ -7,7 +7,7 @@ class OptionsWide {
 	constructor() {
 		$( window ).on( 'load', function() {
 			$( '.options-wide__option-content' ).addClass( 'set-transition' );
-			$( '.options-wide__option--desktop' ).addClass( 'set-transition' );
+			$( '.options-wide__option' ).addClass( 'set-transition' );
 		});
 
 		this.slider();
@@ -52,16 +52,22 @@ class OptionsWide {
 	collapseOptions() {
 		this.sliderContainer.each( function() {
 
-            let options = $( this ).find( '.options-wide__option--desktop' );
+            let options = $( this ).find( '.options-wide__option' );
 
 			options.click( function() {
 
 				options
 					.addClass( 'options-wide__option--collapse' )
-					.removeClass( 'options-wide__option--show-content' );
+					.removeClass( 'options-wide__option--show-content' )
+					.removeClass( 'options-wide__option--hide-vertical-title' );
 				$( this )
 					.removeClass( 'options-wide__option--collapse' )
-					.addClass( 'options-wide__option--show-content' );
+					.addClass( 'options-wide__option--hide-vertical-title' );
+
+				setTimeout( ()=>{
+					$( this )
+						.addClass( 'options-wide__option--show-content' );
+				}, 750 );
 			});
 		});
 	}
