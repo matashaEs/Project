@@ -210,6 +210,10 @@ $arrow-transition: -52px;
   .browse-scroll {
     $this: &;
 
+    &__item {
+      flex: 0 0 auto;
+    }
+
     &--reverse {
       #{$this}__items-list {
         margin-left: -3rem;
@@ -229,6 +233,7 @@ $arrow-transition: -52px;
 
     &__items-list {
       width: calc(100% + 3rem);
+      overflow-x: scroll;
     }
 
     @include image-size(413px, 330px);
