@@ -9,6 +9,11 @@ class SidebarAndContentFilteringAndNavigation {
         $( 'input[name="productCategory"]' ).on( 'change', this.categoryChanged );
         $( 'input[name="industry"]' ).on( 'change', this.productIndustryChanged );
         $( 'input[name="industryType"]' ).on( 'change', this.industryTypeChanged );
+
+        $( '.page-navigation .page-navigation__button' )
+            .on( 'click', ( e ) => {
+                this.scrollToBlock( e, this );
+            });
     }
 
     // Items filtering start
@@ -40,9 +45,20 @@ class SidebarAndContentFilteringAndNavigation {
 
     // Product navigation start
     /**
-     * TODO: navigation for the product page
+     * Scroll the page to the specific block.
      */
-    // Product navigation end
+    scrollToBlock( e ) {
+        e.preventDefault();
+
+        const blockId = $( e.target ).data( 'blockId' );
+        const blockDom = $( `#${blockId}` );
+
+        if ( blockDom.length ) {
+            $([ document.documentElement, document.body ]).animate({
+                scrollTop: blockDom.offset().top
+            }, 500 );
+        }
+    }
 }
 
 new SidebarAndContentFilteringAndNavigation();
