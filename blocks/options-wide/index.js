@@ -14,12 +14,6 @@ class OptionsWide {
 
 		this.sliderContainer.each(
 			function() {
-				let paddingLeft, paddingRight;
-
-				const itemWidth = $( this ).find( '.options-wide__option' ).first().innerWidth();
-				paddingLeft     = 20;
-				paddingRight    = windowWidth - itemWidth - paddingLeft;
-
 				let slickConf = {
 					infinite: false,
 					arrows: false,
@@ -27,11 +21,21 @@ class OptionsWide {
 					mobileFirst: true,
 					centerMode: true,
 					variableWidth: true,
-					autoplay: true,
+
+					// autoplay: true,
 					autoplaySpeed: 2000,
 					pauseOnFocus: false,
-					centerPadding: paddingRight + 'px 0px ' + paddingLeft + 'px',
 				};
+
+				if ( 768 > windowWidth ) {
+					const itemWidth = $( this ).find( '.options-wide__option' ).first().innerWidth();
+					const paddingLeft = 20;
+					const paddingRight = windowWidth - itemWidth - paddingLeft;
+					slickConf.centerPadding = paddingRight + 'px 0px ' + paddingLeft + 'px';
+				} else {
+					slickConf.centerMode = false;
+					slickConf.slidesToShow = 2;
+				}
 
 				if ( 1024 > windowWidth ) {
 					$( this ).slick( slickConf );

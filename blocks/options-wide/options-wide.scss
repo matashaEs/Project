@@ -36,11 +36,10 @@
     text-decoration: none;
     position: relative;
     overflow: hidden;
-    width: 70vw;
-    height: 56vw;
-    max-width: 70vw;
-    max-height: 56vw;
-    aspect-ratio: 70 / 56;
+    width: 263px;
+    height: 211px;
+    max-width: 263px;
+    max-height: 211px;
 
     &-title,
     &-description {
@@ -77,6 +76,9 @@
 
 @include min-size(md) {
   .options-wide {
+    &__options {
+      margin-left: 0;
+    }
   }
 }
 
