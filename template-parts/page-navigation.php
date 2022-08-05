@@ -13,7 +13,7 @@ extract( $args );
 		<a
 				href="#<?= esc_html( $navigation_link['block_id'] ) ?>"
 				class="button button--off-white page-navigation__button"
-				data-block-id="<?= esc_html( $navigation_link['block_id'] ) ?>"
+				data-block-id="<?= esc_attr( $navigation_link['block_id'] ) ?>"
 		>
 			<?= esc_html( $navigation_link['name'] ) ?>
 		</a>
