@@ -34,16 +34,29 @@ if ( ! empty( $block['id'] ) ) {
 		<?php if ( ! empty( $options ) ) : ?>
 			<div class="row options-wide__row options-wide__options">
 				<?php foreach ( $options as $option ) : ?>
-					<div class="options-wide__option">
+					<div class="options-wide__option options-wide__option--mobile">
 						<div class="options-wide__option-bg"
 							style="background-image: url('<?= esc_html( $option['image']['sizes']['large'] ); ?>');"></div>
 						<a href="<?= esc_url( $option['link']['url'] ); ?>"
 							class="button button--white options-wide__option-button">
 							<?= esc_html( $option['link']['title'] ); ?>
 						</a>
-						<div class="h4 options-wide__option-title"><?= esc_html( $option['link']['title'] ); ?></div>
-						<div class="p options-wide__option-description"><?= esc_html( $option['description'] ); ?></div>
 					</div>
+					<a href="<?= esc_url( $option['link']['url'] ); ?>"
+						class="options-wide__option options-wide__option--desktop"
+						style="background-image: url('<?= esc_html( $option['image']['sizes']['large'] ); ?>');">
+						<div class="h4 options-wide__option-title options-wide__option-title--vertical">
+							<?= esc_html( $option['link']['title'] ); ?>
+						</div>
+						<div class="options-wide__option-content">
+							<div class="h4 options-wide__option-title options-wide__option-title--horizontal">
+								<?= esc_html( $option['link']['title'] ); ?>
+							</div>
+							<div class="p options-wide__option-description">
+								<?= esc_html( $option['description'] ); ?>
+							</div>
+						</div>
+					</a>
 				<?php endforeach; ?>
 			</div>
 		<?php endif; ?>

@@ -7,6 +7,16 @@ class OptionsWide {
 	constructor() {
 		this.slider();
 		window.addEventListener( 'resize', this.resizeEvent.bind( this ) );
+		$( '.options-wide__option--desktop' ).click( function( event ) {
+			event.preventDefault();
+
+			$( '.options-wide__option' )
+				.addClass( 'options-wide__option--collapse' )
+				.removeClass( 'options-wide__option--show-content' );
+			$( this )
+				.removeClass( 'options-wide__option--collapse' )
+				.addClass( 'options-wide__option--show-content' );
+		});
 	}
 
 	slider() {
