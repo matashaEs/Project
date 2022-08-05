@@ -5,18 +5,14 @@ class OptionsWide {
 	sliderContainer = $( '.options-wide__options' );
 
 	constructor() {
-		this.slider();
-		window.addEventListener( 'resize', this.resizeEvent.bind( this ) );
-		$( '.options-wide__option--desktop' ).click( function( event ) {
-			event.preventDefault();
-
-			$( '.options-wide__option' )
-				.addClass( 'options-wide__option--collapse' )
-				.removeClass( 'options-wide__option--show-content' );
-			$( this )
-				.removeClass( 'options-wide__option--collapse' )
-				.addClass( 'options-wide__option--show-content' );
+		$( window ).on( 'load', function() {
+			$( '.options-wide__option-content' ).addClass( 'set-transition' );
+			$( '.options-wide__option--desktop' ).addClass( 'set-transition' );
 		});
+
+		this.slider();
+		this.collapseOptions();
+		window.addEventListener( 'resize', this.resizeEvent.bind( this ) );
 	}
 
 	slider() {
@@ -31,8 +27,7 @@ class OptionsWide {
 					mobileFirst: true,
 					centerMode: true,
 					variableWidth: true,
-
-					// autoplay: true,
+					autoplay: true,
 					autoplaySpeed: 2000,
 					pauseOnFocus: false,
 				};
@@ -52,6 +47,23 @@ class OptionsWide {
 				}
 			}
 		);
+	}
+
+	collapseOptions() {
+		this.sliderContainer.each( function() {
+
+            let options = $( this ).find( '.options-wide__option--desktop' );
+
+			options.click( function() {
+
+				options
+					.addClass( 'options-wide__option--collapse' )
+					.removeClass( 'options-wide__option--show-content' );
+				$( this )
+					.removeClass( 'options-wide__option--collapse' )
+					.addClass( 'options-wide__option--show-content' );
+			});
+		});
 	}
 
 	delay( callback, ms ) {
