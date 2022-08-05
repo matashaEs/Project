@@ -126,7 +126,7 @@
 @include min-size(xxl) {
   .product-overview {
     &__bg {
-      width: calc(100% + 20rem);
+      width: calc(100% + 13rem + (100vw - 1588px) / 2);
       margin-left: -13rem;
     }
 
