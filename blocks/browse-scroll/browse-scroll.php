@@ -20,7 +20,6 @@ if ( 'industry' === $browse_by ) {
 
 $section_classes  = ! empty( $is_mobile_bg ) ? ' browse-scroll--mobile-bg' : '';
 $section_classes .= ! empty( $direction ) ? ' browse-scroll--reverse' : '';
-$section_scroll  .= ! empty( $direction ) ? '' : ' browse-scroll__items-list--right';
 ?>
 
 <section class="container-fluid browse-scroll<?= esc_html( $section_classes ) ?>">
@@ -34,7 +33,7 @@ $section_scroll  .= ! empty( $direction ) ? '' : ' browse-scroll__items-list--ri
 			</div>
 
 			<div class="browse-scroll__items">
-				<div class="browse-scroll__items-list <?= esc_html( $section_scroll ) ?>">
+				<div class="browse-scroll__items-list">
 					<?php foreach ( $items as $item ) : ?>
 						<div class="browse-scroll__item">
 							<div
