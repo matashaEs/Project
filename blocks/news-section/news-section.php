@@ -32,7 +32,12 @@ if ( ! empty( $background_color ) ) {
 	}
 }
 $button_container_class = ! empty( $link_position ) ? ' news-section__row-button--left' : '';
-$how_much_news          = ! empty( $selected_news ) ? count( $selected_news ) : 3;
+
+if ( is_single() && 'product' == get_post_type() ) {
+	$how_much_news = ! empty( $selected_news ) ? count( $selected_news ) : 2;
+} else {
+	$how_much_news = ! empty( $selected_news ) ? count( $selected_news ) : 3;
+}
 ?>
 
 <section class="container-fluid news-section modular<?= esc_html( $section_background_color_class ) ?>">
@@ -52,7 +57,7 @@ $how_much_news          = ! empty( $selected_news ) ? count( $selected_news ) : 
 		</div>
 		<?php if ( ! empty( $news ) ) : ?>
 			<div class="row news-section__row news-section__row-news">
-				<?php for ( $i = 0; $i < $how_much_news; $i++ ) : ?>
+				<?php for ( $i = 0; $i < $how_much_news; $i ++ ) : ?>
 					<a href="<?= esc_url( $news['link'] ); ?>"
 						class="news-section__item modular__item--mobile">
 						<div class="news-section__item-top-content">

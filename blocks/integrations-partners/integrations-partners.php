@@ -6,6 +6,7 @@
  *  $icon [ image ]
  *  $title [ text ]
  *  $description [ textarea ]
+ *  $link [ link ]
  * $link [ link ]
  * $background_color [ select: 'default', 'modular--white', 'modular--off-white' ]
  */
@@ -42,12 +43,12 @@ if ( ! empty( $block['id'] ) ) {
 		<div class="row integrations__row integrations__row-content">
 			<?php if ( ! empty( $contents ) ) : ?>
 				<?php foreach ( $contents as $content ) : ?>
-					<?php if ( ! empty( $content ) && ( ! empty( $content['icon'] ) || ! empty( $content['title'] ) || ! empty( $content['description'] ) ) ) : ?>
+					<?php if ( ! empty( $content ) && ( ! empty( $content['icon'] ) || ! empty( $content['title'] ) || ! empty( $content['description'] ) || ! empty( $content['link'] ) ) ) : ?>
 						<div class="integrations__item modular__item--mobile">
-							<?php if ( ! empty( $content['icon'] ) ) : ?>
-								<div class="integrations__item-icon">
+							<?php if ( ! empty( $content['icon'] ) && ! empty( $content['link'] ) ) : ?>
+								<a href="<?= esc_url( $content['link']['url'] ) ?>" class="integrations__item-icon">
 									<img src="<?= esc_url( $content['icon']['sizes']['full_hd'] ); ?>" alt="icon">
-								</div>
+								</a>
 							<?php endif; ?>
 							<?php if ( ! empty( $content['title'] ) ) : ?>
 								<div class="h4 integrations__item-title"><?= esc_html( $content['title'] ) ?></div>
