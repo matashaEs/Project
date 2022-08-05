@@ -5,7 +5,7 @@ class ProductArea {
     constructor() {
         $( '.product-area__heading' ).click(
             function() {
-                if (  1024 > $( window ).width() ) {
+                if (  1024 > $( window ).innerWidth() ) {
                     $( '.product-area__content-title' ).removeClass( 'product-area__content-title--visible' );
                     $( '.product-area__content-description' ).slideUp();
                     $( this ).next( '.product-area__content' ).slideToggle();

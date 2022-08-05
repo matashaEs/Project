@@ -25,10 +25,6 @@ if ( 'modular--white' == $background_color ) {
 ?>
 
 <section class="container-fluid product-area">
-	<div class="product-area__image">
-		<img src="<?= esc_url( $background_image_mobile['sizes']['full_hd'] ); ?>"
-			class="hero__image-mobile">
-	</div>
 	<div class="container product-area__container product-area__container<?= esc_html( $heading_background_color ) ?>">
 		<div class="product-area__heading">
 			<div class="product-area__heading-name">
