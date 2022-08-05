@@ -1,7 +1,7 @@
 <?php
 /**
  * $name
- * $options [id, slug, value, name]
+ * $options [id, slug, name]
  * $button_classes
  * $title
  */
