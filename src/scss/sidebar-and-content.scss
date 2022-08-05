@@ -11,6 +11,10 @@ $transition-time: 1s;
       border-radius: 25px 25px 0 0;
       padding-left: 2rem;
       z-index: 3;
+
+      .breadcrumbs {
+        display: none;
+      }
     }
 
     &-content {
@@ -192,6 +196,12 @@ $transition-time: 1s;
   .sidebar-and-content {
     &__title {
       margin-bottom: 4rem;
+    }
+
+    &__col-sidebar {
+      .breadcrumbs {
+        display: block;
+      }
     }
 
     &__content-container {
