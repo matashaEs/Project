@@ -115,7 +115,7 @@
     &__option {
       &-content {
         position: absolute;
-        left: 4rem;
+        left: 5rem;
         width: 286px;
         opacity: 0;
         padding: 1rem;
@@ -190,15 +190,10 @@
 
 @include min-size(xl) {
   .options-wide {
-  }
-}
-
-@include min-size(xxl) {
-  .options-wide {
     &__option {
       &-title {
         &--vertical {
-          margin: 0 6rem;
+          margin: 0 6.5rem 0  6rem;
         }
       }
     }
