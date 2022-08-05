@@ -236,8 +236,10 @@ $transition-time: 1s;
 
       &-sidebar {
         width: calc($sidebar-width * 100%);
-        padding: 10rem 5rem 5rem 0;
         margin: 0;
+        padding-bottom: 5rem;
+        padding-left: 0;
+        padding-right: 5rem;
         border-radius: 0;
       }
 

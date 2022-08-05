@@ -55,6 +55,10 @@
     }
   }
 
+  &__button {
+    font-family: var(--font-aeonik-regular);
+  }
+
   &__item {
     background-color: var(--off-white);
     padding: 3rem 2rem 2.3rem 2.5rem;
