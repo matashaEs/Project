@@ -234,6 +234,10 @@ $arrow-transition: -52px;
     &__items-list {
       width: calc(100% + 3rem);
       overflow-x: scroll;
+
+      &--right {
+        direction: rtl;
+      }
     }
 
     @include image-size(413px, 330px);
