@@ -1,12 +1,20 @@
 <?php
+/**
+ * $title
+ * $faqs [ repeater: faq_title, faq_content ]
+ * $background_color [ select: 'default', 'modular--white', 'modular--off-white' ]
+ */
+
 if ( ! empty( $block['id'] ) ) {
 	extract( get_fields( $block['id'] ) );
 } else {
 	extract( $block['data'] );
 }
+
 ?>
 
-<div class="container-fluid faq-section">
+<section class="container-fluid faq-section modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : ''?>">
+	<div class="modular__bg"></div>
 	<div class="container">
 		<div class="faq-section__row">
 
@@ -15,7 +23,7 @@ if ( ! empty( $block['id'] ) ) {
 			<?php endif; ?>
 
 			<?php foreach ( $faqs as $faq ) : ?>
-				<div class="form-select-box faq-section__select">
+				<div class="form-select-box faq-section__select modular__item--mobile">
 					<div class="form-options-container">
 						<div class="form-option faq-section__option">
 							<label class="p faq-section__label">
@@ -39,4 +47,4 @@ if ( ! empty( $block['id'] ) ) {
 
 		</div>
 	</div>
-</div>
+</section>

@@ -1,0 +1,174 @@
+@import "../../src/scss/for-blocks";
+
+.overview-wide {
+  &__content {
+    padding-bottom: 5rem;
+  }
+
+  &__share-mobile {
+    width: 100%;
+  }
+
+  &__image {
+    height: 314px;
+    width: calc(100% + 4rem);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: -2rem;
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    position: relative;
+  }
+
+  &__button-share {
+    padding: 0.8rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    margin-left: 2.7rem;
+    justify-content: center;
+    align-items: center;
+
+    &--desktop {
+      display: none;
+    }
+  }
+
+  &__description {
+    padding-top: 1.1rem;
+  }
+
+  &__buttons {
+    margin-top: 5.5rem;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+
+    &-button {
+      margin-right: 2rem;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+      margin-top: 1rem;
+    }
+  }
+}
+
+@include min-size(md) {
+  .overview-wide {
+    &__image {
+      height: 415px;
+    }
+
+    &__heading {
+      align-items: center;
+    }
+
+    &__button-share {
+      padding: 1rem;
+      width: 4rem;
+      height: 4rem;
+    }
+
+    &__description {
+      padding-top: 5.5rem;
+    }
+  }
+}
+
+@include min-size(lg) {
+  .overview-wide {
+    &__container {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__share-mobile {
+      display: none;
+    }
+
+    &__image {
+      min-height: 48rem;
+      height: 72%;
+      width: 100%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin-top: 10rem;
+      margin-bottom: 10rem;
+      margin-right: -6rem;
+    }
+
+    &__content {
+      width: 60%;
+      order: -1;
+      padding-right: 0;
+      padding-bottom: 10rem;
+    }
+
+    &__description {
+      width: 84%;
+    }
+
+    &__button {
+      &-share {
+        &--mobile {
+          display: none;
+        }
+
+        &--desktop {
+          display: flex;
+          margin-left: 0;
+        }
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      align-items: center;
+
+      &-button {
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+@include min-size(xl) {
+  .overview-wide {
+    &__image {
+      margin-top: 10rem;
+      margin-bottom: 5rem;
+    }
+
+    &__content {
+      width: 50%;
+    }
+
+    &__description {
+      width: 75%;
+    }
+  }
+}
+
+@include min-size(xxl) {
+  .overview-wide {
+    &__image {
+      height: 68%;
+      min-height: 48rem;
+      margin-top: 10rem;
+      margin-bottom: 10rem;
+      margin-right: -7rem;
+    }
+
+    &__descroption {
+      width: 70%;
+    }
+  }
+}

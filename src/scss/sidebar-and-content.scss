@@ -11,13 +11,18 @@ $transition-time: 1s;
       border-radius: 25px 25px 0 0;
       padding-left: 2rem;
       z-index: 3;
+
+      .breadcrumbs {
+        display: none;
+      }
     }
 
     &-content {
       padding: 4.5rem 0;
 
-      &--padding-top-0#{$this}__col-content--padding-top-0 {
+      &--the-content#{$this}__col-content--the-content {
         padding-top: 0;
+        padding-bottom: 0;
       }
     }
   }
@@ -33,6 +38,10 @@ $transition-time: 1s;
     padding: 2.5rem 2rem;
     width: 100%;
     transition: all $transition-time;
+
+    &:hover {
+      cursor: pointer;
+    }
 
     &-arrow {
       position: absolute;
@@ -73,6 +82,7 @@ $transition-time: 1s;
     margin-left: -2rem;
     bottom: 0;
     overflow-y: scroll;
+    z-index: 5;
   }
 
   &__sidebar {
@@ -206,30 +216,45 @@ $transition-time: 1s;
       margin-bottom: 2rem;
       min-height: 230px;
     }
+
+    &__sidebar-title {
+      line-height: 3rem;
+      font-size: 2.4rem;
+    }
   }
 }
 
 @include min-size(lg) {
   .sidebar-and-content {
-    $sidebar-width: 45%;
+    $sidebar-width: 0.45;
 
     &__container {
       flex-flow: row nowrap;
+      max-width: initial;
+      padding-right: 0;
     }
 
     &__col {
-      height: 100vh;
-      overflow: scroll;
+      height: calc(100vh - 70px);
+      overflow: hidden scroll;
 
       &-sidebar {
-        width: $sidebar-width;
-        padding: 10rem 5rem 32rem 0;
+        width: calc($sidebar-width * 100%);
         margin: 0;
+        padding-bottom: 5rem;
+        padding-left: 0;
+        padding-right: 5rem;
+        border-radius: 0;
+
+        .breadcrumbs {
+          display: block;
+        }
       }
 
       &-content {
         width: 55%;
         padding: 16rem 0 16rem 3rem;
+        scroll-behavior: smooth;
       }
     }
 
@@ -270,8 +295,8 @@ $transition-time: 1s;
     &__sidebar-bg {
       position: absolute;
       background-color: var(--grey);
-      width: $sidebar-width;
-      height: 100vh;
+      width: calc(3rem + (100% - 3rem) * $sidebar-width);
+      height: calc(100vh - 7rem);
       top: 7rem;
       left: 0;
       z-index: -1;
@@ -305,17 +330,22 @@ $transition-time: 1s;
 
     &__content-container {
       flex-flow: column nowrap;
+
+      .container-fluid,
+      section {
+        padding-right: 3rem;
+      }
     }
   }
 }
 
 @include min-size(xl) {
   .sidebar-and-content {
-    $sidebar-width: 33.75%;
+    $sidebar-width: 0.3375;
 
     &__col {
       &-sidebar {
-        width: $sidebar-width;
+        width: calc($sidebar-width * 100%);
       }
 
       &-content {
@@ -325,7 +355,7 @@ $transition-time: 1s;
     }
 
     &__sidebar-bg {
-      width: $sidebar-width;
+      width: calc(5rem + (100% - 5rem) * $sidebar-width);
     }
 
     &__item {
@@ -339,16 +369,50 @@ $transition-time: 1s;
 
     &__content-container {
       flex-flow: row wrap;
+
+      .container-fluid,
+      section {
+        padding-right: 5rem;
+      }
     }
   }
 }
 
 @include min-size(xxl) {
   .sidebar-and-content {
+    $side-padding: calc((100vw - 1588px) / 2);
+    $max-width: 1588px;
+
+    &__container {
+      padding-left: $side-padding;
+      justify-content: flex-start;
+    }
+
     &__col {
-      &-content {
-        padding-left: 13rem;
+      &-sidebar {
+        width: calc($max-width * 0.3375);
       }
+
+      &-content {
+        width: calc($max-width * 0.6625);
+        padding-left: 13rem;
+        flex-grow: 1;
+      }
+    }
+
+    &__content-container {
+      .container-fluid,
+      section {
+        padding-right: $side-padding;
+      }
+    }
+
+    &__item {
+      width: 100%;
+    }
+
+    &__sidebar-bg {
+      width: calc((100vw - 1728px) / 2 + calc($max-width * 0.3375) + 7rem);
     }
   }
 }

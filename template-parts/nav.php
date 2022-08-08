@@ -28,40 +28,44 @@ endif;
 							<?php the_svg( 'nav-close.svg', 'nav__close-icon' ); ?>
 						</div>
 					</div>
-					<div class="nav__info">
-						<div class="nav__search-form">
-							<form action="<?php echo esc_url( site_url( '/' ) ); ?>" type="GET">
-								<input type="text" id="searchField" name="s" placeholder="" class="input nav__input">
-								<div id="searchResults">
-								</div>
-							</form>
-						</div>
-						<?php if ( ! empty( $title_nav ) ) : ?>
-							<h1> <?= esc_html( $title_nav ) ?> </h1>
-						<?php endif; ?>
-						<div class="nav__buttons">
-							<?php if ( ! empty( $buttons ) ) : ?>
-								<?php foreach ( $buttons as $button ) : ?>
-									<?php if ( ! empty( $button ) ) : ?>
-									<a href="<?= esc_url( $button['button']['url'] ) ?>" class="button p nav__button">
-										<?= esc_html( $button['button']['title'] ) ?>
-									</a>
+					<div class="nav__content">
+						<div class="nav__info">
+							<div class="nav__search-form">
+								<form action="<?php echo esc_url( site_url( '/' ) ); ?>" type="GET">
+									<input type="text" id="searchField" name="s" placeholder=""
+										class="input nav__input">
+									<div id="searchResults">
+									</div>
+								</form>
+							</div>
+							<?php if ( ! empty( $title_nav ) ) : ?>
+								<h1> <?= esc_html( $title_nav ) ?> </h1>
 							<?php endif; ?>
-								<?php endforeach; ?>
-							<?php endif; ?>
+							<div class="nav__buttons">
+								<?php if ( ! empty( $buttons ) ) : ?>
+									<?php foreach ( $buttons as $button ) : ?>
+										<?php if ( ! empty( $button ) ) : ?>
+											<a href="<?= esc_url( $button['button']['url'] ) ?>"
+												class="button p nav__button">
+												<?= esc_html( $button['button']['title'] ) ?>
+											</a>
+										<?php endif; ?>
+									<?php endforeach; ?>
+								<?php endif; ?>
+							</div>
 						</div>
-					</div>
-					<div class="nav__mobile-items">
-						<?php
-						wp_nav_menu(
-							[
-								'theme_location' => 'menu-mobile',
-								'container'      => false,
-								'items_wrap'     => '%3$s',
-								'add_li_class'   => 'nav__mobile-menu-item h3',
-							]
-						);
-						?>
+						<div class="nav__mobile-items">
+							<?php
+							wp_nav_menu(
+								[
+									'theme_location' => 'menu-mobile',
+									'container'      => false,
+									'items_wrap'     => '%3$s',
+									'add_li_class'   => 'nav__mobile-menu-item h3',
+								]
+							);
+							?>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -108,21 +112,24 @@ endif;
 								<?php if ( ! empty( $buttons ) ) : ?>
 									<?php foreach ( $buttons as $button ) : ?>
 										<?php if ( ! empty( $button ) ) : ?>
-										<a href="<?= esc_url( $button['button']['url'] ) ?>" class="button p nav__button">
-											<?= esc_html( $button['button']['title'] ) ?>
-										</a>
-									<?php endif; ?>
+											<a href="<?= esc_url( $button['button']['url'] ) ?>"
+												class="button p nav__button">
+												<?= esc_html( $button['button']['title'] ) ?>
+											</a>
+										<?php endif; ?>
 									<?php endforeach; ?>
 								<?php endif; ?>
 							</div>
 						</div>
 						<div class="nav__desktop-menu">
-								<form action="<?php echo esc_url( site_url( '/' ) ); ?>" type="GET" class="nav__desktop-form">
-									<input type="text" id="searchField" name="s" placeholder="Search" class="nav-input input">
-									<input type="submit" value="<?php _e( 'Submit', 'nuplo' ); ?>" id="searchButton" class="button nav-button">
-									<div id="searchResults">
-									</div>
-								</form>
+							<form action="<?php echo esc_url( site_url( '/' ) ); ?>" type="GET" class="nav__desktop-form">
+								<input type="text" id="searchField" name="s" placeholder="Search"
+									class="nav-input input">
+								<input type="submit" value="<?php _e( 'Submit', 'nuplo' ); ?>" id="searchButton"
+									class="button nav-button">
+								<div id="searchResults">
+								</div>
+							</form>
 							<div class="nav__desktop-menu-items">
 								<?php
 								wp_nav_menu(

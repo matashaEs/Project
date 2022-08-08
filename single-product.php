@@ -12,40 +12,26 @@ $data_to_display = [
 					'name'           => 'modules',
 					'options'        => [
 						[
-							'id'    => 'millworkSolutions',
-							'value' => 'Millwork Solutions',
+							'id'   => 'millworkSolutions',
+							'slug' => 'millworkSolutions',
+							'name' => 'Millwork Solutions',
 						],
 						[
-							'id'    => 'LBMSoftware',
-							'value' => 'LBM Software',
+							'id'   => 'LBMSoftware',
+							'slug' => 'LBMSoftware',
+							'name' => 'LBM Software',
 						],
 						[
-							'id'    => 'lumberProcessing',
-							'value' => 'Lumber Processing',
+							'id'   => 'lumberProcessing',
+							'slug' => 'lumberProcessing',
+							'name' => 'Lumber Processing',
 						],
 					],
 					'button_classes' => 'button button--off-white',
 				],
 			],
 			'navigation' => [
-				'navigation_links' => [
-					[
-						'title' => 'Integrations',
-						'link'  => 'https://google.com',
-					],
-					[
-						'title' => 'FAQs',
-						'link'  => 'https://google.com',
-					],
-					[
-						'title' => 'Testimonials',
-						'link'  => 'https://google.com',
-					],
-					[
-						'title' => 'Contact Us',
-						'link'  => 'https://google.com',
-					],
-				],
+				'navigation_links' => apply_filters( 'cai_get_product_page_menu', get_the_ID() ),
 			],
 		],
 	],

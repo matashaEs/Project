@@ -48,6 +48,7 @@
 	<?php
 	wp_head();
 	?>
+	<meta name="robots" content="noindex,nofollow">
 </head>
 
 <body <?php body_class(); ?>>

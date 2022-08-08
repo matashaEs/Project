@@ -11,7 +11,7 @@
 
 extract( $args );
 
-$content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__col-content--padding-top-0' : '';
+$content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__col-content--the-content' : '';
 
 ?>
 
@@ -126,9 +126,6 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 			<?php else : ?>
 				<div class="sidebar-and-content__content-container">
 					<?php the_content(); ?>
-					<section class="container-fluid benefits">
-						<div class="benefits__bg"></div>
-					</section>
 				</div>
 			<?php endif; ?>
 		</div>

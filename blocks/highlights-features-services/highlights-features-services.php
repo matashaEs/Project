@@ -2,7 +2,7 @@
 /**
  * $title
  * $contents
- * $color_pallet
+ * $background_color [ select: 'default', 'modular--white', 'modular--off-white' ]
  */
 
 
@@ -12,12 +12,11 @@ if ( ! empty( $block['id'] ) ) {
 	extract( $block['data'] );
 }
 
-$style = ! empty( $color_pallet ) ? ' highlights--' . $color_pallet : '';
-
 ?>
 
 <?php if ( ! empty( $contents ) ) : ?>
-	<section class="container-fluid highlights<?= esc_html( $style ) ?>">
+	<section class="container-fluid highlights modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : ''?>">
+		<div class="modular__bg"></div>
 		<div class="container highlights__container">
 			<div class="row highlights__row">
 				<?php if ( ! empty( $title ) ) : ?>
@@ -26,12 +25,12 @@ $style = ! empty( $color_pallet ) ? ' highlights--' . $color_pallet : '';
 			</div>
 			<div class="row highlights__row highlights__row-content">
 				<?php foreach ( $contents as $content ) : ?>
-					<div class="highlights__item">
+					<div class="modular__item highlights__item">
 						<?php if ( ! empty( $content['title'] ) ) : ?>
-							<h4 class="highlights__item-title"><?= esc_html( $content['title'] ); ?></h4>
+							<div class="highlights__item-title"><?= esc_html( $content['title'] ); ?></div>
 						<?php endif; ?>
 						<?php if ( ! empty( $content['description'] ) ) : ?>
-							<p class="highlights__item-description"><?= esc_html( $content['description'] ); ?></p>
+							<div class="p highlights__item-description"><?= esc_html( $content['description'] ); ?></div>
 						<?php endif; ?>
 					</div>
 				<?php endforeach; ?>

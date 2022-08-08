@@ -1,6 +1,6 @@
 <?php
 if ( empty( $args ) ) {
-	$args = [];
+	$args = apply_filters( 'cai_get_breadcrumbs', null );
 }
 ?>
 
@@ -17,9 +17,9 @@ if ( empty( $args ) ) {
 			<?php
 		else :
 			?>
-			<div class="breadcrumbs__item">
+			<span class="breadcrumbs__item">
 				<?= esc_html( $breadcrumb['name'] ); ?>
-			</div>
+			</span>
 			<?php
 		endif;
 	endforeach;

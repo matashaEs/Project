@@ -49,7 +49,6 @@
   &__item-icon {
     width: 35px;
     height: 35px;
-    border: 1px solid var(--black);
     border-radius: 50%;
     overflow: hidden;
     margin-right: 1.7rem;
@@ -67,7 +66,8 @@
 
 @include min-size(md) {
   .integrations {
-    padding: 10rem 0;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
 
     &__row {
       &-title {
@@ -132,7 +132,8 @@
 
   .sidebar-and-content {
     &__content-container .integrations {
-      padding: 8.5rem 0 11rem;
+      padding-top: 8.5rem;
+      padding-bottom: 11rem;
 
       &__row {
         &-button {
@@ -180,6 +181,9 @@
 
   .sidebar-and-content {
     &__content-container .integrations {
+      background: none;
+      position: relative;
+
       &__container {
         flex-flow: column;
         justify-content: initial;

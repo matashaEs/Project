@@ -6,6 +6,7 @@
  *     $contents
  *         $title
  *         $description
+ * $background_color [ select: 'default', 'modular--white', 'modular--off-white' ]
  */
 
 
@@ -18,8 +19,8 @@ if ( ! empty( $block['id'] ) ) {
 ?>
 
 
-<section class="container-fluid two-columns">
-	<div class="two-columns__bg"></div>
+<section class="container-fluid two-columns modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : ''?>">
+	<div class="modular__bg"></div>
 	<div class="container two-columns__container">
 		<div class="two-columns__columns">
 			<?php foreach ( $columns as $column ) : ?>

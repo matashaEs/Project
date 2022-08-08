@@ -1,0 +1,82 @@
+.share {
+  background-color: var(--off-white);
+  border-radius: 25px;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+  position: absolute;
+  top: 8rem;
+  width: 100%;
+  display: none;
+  left: 0;
+
+  &--active {
+    display: block;
+    z-index: 1;
+  }
+
+  &__heading {
+    padding-left: 3rem;
+    padding-bottom: 2rem;
+    position: relative;
+    color: var(--black);
+
+    &::after {
+      content: url("../assets/img/down-arrow.svg");
+      position: absolute;
+      right: 3rem;
+      transform: rotate(58deg);
+    }
+  }
+
+  &__option {
+    &-link {
+      text-decoration: none;
+      display: flex;
+      flex-direction: row;
+      padding: 0.5rem 0 0.5rem 3rem;
+      width: 100%;
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--grey);
+      }
+    }
+
+    &-text {
+      margin: 0;
+      padding-left: 2.8rem;
+      text-decoration: none;
+      color: var(--grey-modules);
+    }
+  }
+
+  &__snackText {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s;
+    display: none;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: var(--off-white);
+    color: var(--black);
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 102;
+    left: 50%;
+    bottom: 100px;
+    font-size: 1.7rem;
+
+    &--show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@include min-size(md) {
+  .share {
+    width: 42rem;
+  }
+}

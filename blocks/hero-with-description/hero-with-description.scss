@@ -37,7 +37,7 @@
   &__button {
     margin-top: 3rem;
     margin-bottom: 5rem;
-    display: none;
+    display: flex;
 
     .button {
       text-transform: capitalize;
@@ -71,7 +71,6 @@
     }
 
     &__button {
-      display: block;
       margin-bottom: 7rem;
     }
 

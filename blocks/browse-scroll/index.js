@@ -2,9 +2,9 @@ import './browse-scroll.scss';
 import $ from 'jquery';
 
 class BrowseScroll {
-	constructor() {
-		this.sliderContainer = $( '.browse-scroll__items-list' );
+	sliderContainer = $( '.browse-scroll__items-list' );
 
+	constructor() {
 		this.slider();
 		window.addEventListener( 'resize', this.resizeEvent.bind( this ) );
 	}
@@ -20,21 +20,6 @@ class BrowseScroll {
 				paddingLeft     = 20;
 				paddingRight    = windowWidth - itemWidth - paddingLeft;
 
-				if ( 1199 < windowWidth ) {
-					paddingLeft  = 70;
-					paddingRight = ( windowWidth / 2 ) - itemWidth - paddingLeft;
-				} else if ( 767 < windowWidth ) {
-					paddingLeft  = 50;
-					paddingRight = ( windowWidth / 2 ) - itemWidth - paddingLeft;
-				}
-
-				let initialSlide = 0;
-
-				if ( 767 < windowWidth && $( this ).closest( '.browse-scroll' ).hasClass( 'browse-scroll--reverse' ) ) {
-					[ paddingRight, paddingLeft ] = [ paddingLeft, paddingRight ];
-					initialSlide 		  		  = $( this ).find( '.browse-scroll__item' ).length;
-				}
-
 				let slickConf = {
 					infinite: false,
 					arrows: false,
@@ -42,18 +27,15 @@ class BrowseScroll {
 					mobileFirst: true,
 					centerMode: true,
 					variableWidth: true,
+					autoplay: true,
+					autoplaySpeed: 2000,
+					pauseOnFocus: false,
 					centerPadding: paddingRight + 'px 0px ' + paddingLeft + 'px',
-
-					responsive: [ {
-						breakpoint: 767,
-						settings: {
-							dots: false,
-							initialSlide: initialSlide,
-						}
-					} ]
 				};
 
-				$( this ).slick( slickConf );
+				if ( 768 > windowWidth ) {
+					$( this ).slick( slickConf );
+				}
 			}
 		);
 	}

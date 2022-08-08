@@ -3,6 +3,21 @@
 .news-section {
   $this: &;
 
+  &--white {
+    background-color: var(--white);
+  }
+
+  &--off-white {
+    background-color: var(--off-white);
+  }
+
+  &--white,
+  &--off-white {
+    #{$this}__item {
+      background-color: transparent;
+    }
+  }
+
   &__container {
     margin-top: 4rem;
     margin-bottom: 3rem;
@@ -19,6 +34,7 @@
     }
 
     &-button {
+      display: none;
       justify-content: center;
       width: 100%;
 
@@ -26,6 +42,21 @@
         justify-content: flex-start;
       }
     }
+  }
+
+  &__title {
+    &--link {
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    &--desktop {
+      display: none;
+    }
+  }
+
+  &__button {
+    font-family: var(--font-aeonik-regular);
   }
 
   &__item {
@@ -99,21 +130,14 @@
   .news-section {
     $this: &;
 
-    background-color: var(--off-white);
+    background-color: var(--grey);
 
-    &--grey {
-      background-color: var(--grey);
+    &--white {
+      background-color: var(--white);
     }
 
-    &--thin {
-
-      #{$this}__container {
-        align-items: flex-end;
-      }
-
-      #{$this}__row {
-        width: 65%;
-      }
+    &--off-white {
+      background-color: var(--off-white);
     }
 
     &__row {
@@ -129,14 +153,10 @@
     &__item {
       width: 48%;
       margin: 0;
-      background-color: transparent;
+      background-color: var(--off-white);
 
       &:first-child {
         padding-left: 0;
-      }
-
-      &--off-white {
-        background-color: var(--off-white);
       }
     }
 
@@ -149,22 +169,13 @@
     }
   }
 
-  .sidebar-and-content {
-    &__content-container .news-section {
-      position: relative;
-      background: none;
+  .product-category .news-section.news-section.news-section {
+    $news-section-item: news-section__item;
 
-      &__bg {
-        position: absolute;
-        width: 100vw;
-        height: 100%;
-        z-index: -1;
-        background-color: var(--off-white);
+    background-color: var(--grey);
 
-        &--grey {
-          background-color: var(--grey);
-        }
-      }
+    .#{$news-section-item}.#{$news-section-item}.#{$news-section-item} {
+      background-color: var(--off-white);
     }
   }
 }
@@ -186,6 +197,18 @@
       &-news {
         justify-content: space-between;
         margin-bottom: 7rem;
+      }
+
+      &-button {
+        display: flex;
+      }
+    }
+
+    &__title {
+      display: none;
+
+      &--desktop {
+        display: block;
       }
     }
 
