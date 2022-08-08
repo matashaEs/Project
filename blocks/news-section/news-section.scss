@@ -302,6 +302,16 @@
 
   .sidebar-and-content {
     &__content-container .news-section {
+      &__row-news {
+        justify-content: flex-start;
+      }
+
+      &__item {
+        &:first-child {
+          margin-right: 15rem;
+        }
+      }
+
       &__bg {
         left: -13rem;
       }
