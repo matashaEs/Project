@@ -256,8 +256,17 @@
 
   .sidebar-and-content {
     &__content-container .integrations {
+      &__row-content {
+        justify-content: flex-start;
+      }
+
       &__item {
+        margin-right: 0;
         padding-left: 11.5rem;
+
+        &:nth-child(odd) {
+          margin-right: 11.5rem;
+        }
       }
 
       &__item-icon {

@@ -110,3 +110,23 @@
     }
   }
 }
+
+@include min-size(xxl) {
+  .sidebar-and-content {
+    &__content-container .two-columns {
+      &__columns {
+        justify-content: flex-start;
+      }
+
+      &__item-container {
+        &--title,
+        &--description,
+        &--content {
+          &:nth-child(-n+3) {
+            margin-right: 15rem;
+          }
+        }
+      }
+    }
+  }
+}
