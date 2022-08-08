@@ -235,16 +235,17 @@ $transition-time: 1s;
     }
 
     &__col {
-      height: calc(100vh - 70px);
-      overflow: hidden scroll;
-
       &-sidebar {
         width: calc($sidebar-width * 100%);
+        height: calc(100vh - 70px);
         margin: 0;
         padding-bottom: 5rem;
         padding-left: 0;
         padding-right: 5rem;
         border-radius: 0;
+        position: sticky;
+        top: 7rem;
+        overflow: hidden scroll;
 
         .breadcrumbs {
           display: block;
@@ -253,8 +254,12 @@ $transition-time: 1s;
 
       &-content {
         width: 55%;
-        padding: 16rem 0 16rem 3rem;
+        padding: 16rem 3rem;
         scroll-behavior: smooth;
+
+        &--the-content {
+          padding-right: 0;
+        }
       }
     }
 
@@ -293,7 +298,7 @@ $transition-time: 1s;
     }
 
     &__sidebar-bg {
-      position: absolute;
+      position: fixed;
       background-color: var(--grey);
       width: calc(3rem + (100% - 3rem) * $sidebar-width);
       height: calc(100vh - 7rem);
@@ -350,6 +355,7 @@ $transition-time: 1s;
 
       &-content {
         width: 66.25%;
+        padding-right: 5rem;
         padding-left: 5rem;
       }
     }
@@ -359,8 +365,12 @@ $transition-time: 1s;
     }
 
     &__item {
-      width: 48%;
-      max-width: 46rem;
+      width: 49%;
+      max-width: unset;
+
+      &:nth-child(odd) {
+        margin-right: 2%;
+      }
 
       &:nth-last-child(2) {
         margin-bottom: 0;
@@ -369,6 +379,7 @@ $transition-time: 1s;
 
     &__content-container {
       flex-flow: row wrap;
+      justify-content: flex-start;
 
       .container-fluid,
       section {
@@ -381,22 +392,26 @@ $transition-time: 1s;
 @include min-size(xxl) {
   .sidebar-and-content {
     $side-padding: calc((100vw - 1588px) / 2);
-    $max-width: 1588px;
 
     &__container {
-      padding-left: $side-padding;
       justify-content: flex-start;
     }
 
     &__col {
       &-sidebar {
-        width: calc($max-width * 0.3375);
+        width: 536px;
       }
 
       &-content {
-        width: calc($max-width * 0.6625);
-        padding-left: 13rem;
+        width: 0;
+        padding-right: 7rem;
+        padding-left: 11.5rem;
         flex-grow: 1;
+
+        &--the-content {
+          padding-right: 0;
+          padding-left: 13rem;
+        }
       }
     }
 
@@ -407,12 +422,38 @@ $transition-time: 1s;
       }
     }
 
-    &__item {
-      width: 100%;
+    &__sidebar-bg {
+      width: 606px;
+    }
+  }
+}
+
+@include min-size(full) {
+  .sidebar-and-content {
+    $side-padding: calc((100vw - 1780px) / 2);
+
+    &__container {
+      padding-left: $side-padding;
+      justify-content: flex-start;
+    }
+
+    &__col-content {
+      padding-right: $side-padding;
+
+      &--the-content {
+        padding-right: 0;
+      }
+    }
+
+    &__content-container {
+      .container-fluid,
+      section {
+        padding-right: $side-padding;
+      }
     }
 
     &__sidebar-bg {
-      width: calc((100vw - 1728px) / 2 + calc($max-width * 0.3375) + 7rem);
+      width: calc((100vw - 1920px) / 2 + 606px);
     }
   }
 }
