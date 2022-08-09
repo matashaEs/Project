@@ -3,6 +3,12 @@ $transition-time: 1s;
 .sidebar-and-content {
   $this: &;
 
+  &__container {
+    &--the-content {
+      padding: 0;
+    }
+  }
+
   &__col {
     width: 100%;
 
@@ -34,7 +40,6 @@ $transition-time: 1s;
     z-index: 6;
     bottom: 0;
     border-radius: 25px 25px 0 0;
-    margin: 0 0 0 -2rem;
     padding: 2.5rem 2rem;
     width: 100%;
     transition: all $transition-time;
@@ -79,7 +84,6 @@ $transition-time: 1s;
     overflow: hidden;
     position: fixed;
     width: 100%;
-    margin-left: -2rem;
     bottom: 0;
     overflow-y: scroll;
     z-index: 5;
@@ -186,7 +190,6 @@ $transition-time: 1s;
     }
 
     .container.container {
-      padding: 0;
       width: 100%;
     }
   }
@@ -232,6 +235,7 @@ $transition-time: 1s;
       flex-flow: row nowrap;
       max-width: initial;
       padding-right: 0;
+      padding-left: 3rem;
     }
 
     &__col {
@@ -259,6 +263,7 @@ $transition-time: 1s;
 
         &--the-content {
           padding-right: 0;
+          padding-left: 0;
         }
       }
     }
@@ -340,6 +345,10 @@ $transition-time: 1s;
       section {
         padding-right: 3rem;
       }
+
+      .container {
+        padding-right: 0;
+      }
     }
   }
 }
@@ -355,13 +364,11 @@ $transition-time: 1s;
 
       &-content {
         width: 66.25%;
-        padding-right: 5rem;
-        padding-left: 5rem;
       }
     }
 
     &__sidebar-bg {
-      width: calc(5rem + (100% - 5rem) * $sidebar-width);
+      width: calc(2rem + 100% * $sidebar-width);
     }
 
     &__item {
@@ -384,6 +391,7 @@ $transition-time: 1s;
       .container-fluid,
       section {
         padding-right: 5rem;
+        padding-left: 5rem;
       }
     }
   }
@@ -395,6 +403,7 @@ $transition-time: 1s;
 
     &__container {
       justify-content: flex-start;
+      padding-left: 7rem;
     }
 
     &__col {
@@ -410,7 +419,7 @@ $transition-time: 1s;
 
         &--the-content {
           padding-right: 0;
-          padding-left: 13rem;
+          padding-left: 0;
         }
       }
     }
@@ -419,6 +428,11 @@ $transition-time: 1s;
       .container-fluid,
       section {
         padding-right: $side-padding;
+        padding-left: 13rem;
+      }
+
+      .container {
+        padding-left: 0;
       }
     }
 

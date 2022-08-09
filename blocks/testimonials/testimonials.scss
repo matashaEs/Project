@@ -131,6 +131,12 @@
       bottom: -35px;
     }
   }
+
+  .sidebar-and-content {
+    &__content-container .testimonials {
+      padding-right: 0;
+    }
+  }
 }
 
 @include min-size(xl) {
