@@ -62,7 +62,7 @@ $modular: modular;
 @include modular(product-category);
 
 .#{$modular} {
-  &--off-white.#{$modular}--off-white {
+  &--off-white.#{$modular}--off-white.#{$modular}--off-white.#{$modular}--off-white {
     background-color: var(--off-white);
 
     .#{$modular}__item {
@@ -75,7 +75,7 @@ $modular: modular;
     }
   }
 
-  &--white.#{$modular}--white.#{$modular}--white {
+  &--white.#{$modular}--white.#{$modular}--white.#{$modular}--white {
     background-color: var(--white);
 
     .#{$modular}__item {
@@ -91,8 +91,12 @@ $modular: modular;
 
 @include min-size(md) {
   .#{$modular} {
-    &--off-white.#{$modular}--off-white {
+    &--off-white.#{$modular}--off-white.#{$modular}--off-white {
       .#{$modular}__item {
+        &--mobile.#{$modular}__item--mobile.#{$modular}__item--mobile.#{$modular}__item--mobile {
+          background: none;
+        }
+
         &,
         &--no-mobile.#{$modular}__item--no-mobile.#{$modular}__item--no-mobile.#{$modular}__item--no-mobile {
           background-color: var(--white);
@@ -100,8 +104,12 @@ $modular: modular;
       }
     }
 
-    &--white.#{$modular}--white {
+    &--white.#{$modular}--white.#{$modular}--white {
       .#{$modular}__item {
+        &--mobile.#{$modular}__item--mobile.#{$modular}__item--mobile.#{$modular}__item--mobile {
+          background: none;
+        }
+
         &,
         &--no-mobile.#{$modular}__item--no-mobile.#{$modular}__item--no-mobile.#{$modular}__item--no-mobile {
           background-color: var(--off-white);

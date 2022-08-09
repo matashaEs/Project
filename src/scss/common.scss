@@ -6,7 +6,7 @@
 }
 
 html {
-  // overflow-x: hidden;
+  overflow-x: hidden;
   font-size: 10px;
   scroll-behavior: smooth;
 }
@@ -14,8 +14,8 @@ html {
 body {
   max-width: 100vw;
   width: 100vw;
-  overflow-x: hidden;
   margin: 0;
+  // overflow-x: hidden;
 }
 
 .mb0 {
