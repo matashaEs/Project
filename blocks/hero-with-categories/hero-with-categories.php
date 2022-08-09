@@ -11,16 +11,6 @@ if ( ! empty( $block['id'] ) ) {
 	extract( $block['data'] );
 }
 
-$breadcrumbs = [
-	[
-		'name' => __( 'Home', 'nuplo' ),
-		'url'  => get_home_url(),
-	],
-	[
-		'name' => __( 'Products', 'nuplo' ),
-		'url'  => '#',
-	],
-]
 ?>
 
 <section class="container-fluid hwc">
@@ -28,10 +18,10 @@ $breadcrumbs = [
 		<img src="<?= esc_url( $image['sizes']['full_hd'] ); ?>" class="hwc__image-mobile">
 	</div>
 	<div class="hwc__bg" style="background-image: url('<?= esc_url( $image['sizes']['full_hd'] ); ?>')"></div>
-	<div class="container">
+	<div class="container hwc__container">
 		<div class="hwc__content">
 			<div class="hwc__breadcrumbs p">
-				<?php get_template_part( 'template-parts/breadcrumbs', null, $breadcrumbs ); ?>
+				<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
 			</div>
 			<?php if ( ! empty( $title ) ) : ?>
 				<div class="hwc__title">
