@@ -17,13 +17,5 @@ Safari hacks
       position: relative;
       z-index: -1;
     }
-
-    @include min-size(lg) {
-      .sidebar-and-content {
-        &__sidebar-bg {
-          top: 0;
-        }
-      }
-    }
   }
 }

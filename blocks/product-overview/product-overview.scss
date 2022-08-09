@@ -11,7 +11,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
-    z-index: -2;
     margin-left: -3rem;
     margin-right: -3rem;
   }
@@ -74,7 +73,7 @@
     &__bg {
       height: 466px;
       width: calc(100% + 6rem);
-      margin-left: -3rem;
+      margin-left: 0;
     }
 
     &__path {

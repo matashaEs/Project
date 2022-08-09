@@ -18,7 +18,6 @@ $quotes = ! empty( $is_marks ) ? '<div class="testimonials__client-quotes"></div
 
 <?php if ( ! empty( $contents ) ) : ?>
 	<section class="container-fluid testimonials modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : ''?>">
-		<div class="modular__bg"></div>
 		<div class="container testimonials__container">
 			<div class="row testimonials__row ">
 				<?php if ( ! empty( $title ) ) : ?>

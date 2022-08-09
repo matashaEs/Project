@@ -28,6 +28,7 @@
     background: var(--white);
     padding: 0 0.5rem;
     position: relative;
+    max-width: 920px;
 
     .form-select-box,
     .form-option {
@@ -48,7 +49,7 @@
   .faq-section {
     $this: &;
 
-    &__select#{$this}__select#{$this}__select#{$this}__select#{$this}__select {
+    &__select#{$this}__select#{$this}__select#{$this}__select#{$this}__select#{$this}__select#{$this}__select {
       background-color: var(--grey);
       padding: 0 1.5rem;
       border: 2px solid var(--grey);

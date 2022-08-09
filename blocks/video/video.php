@@ -13,11 +13,13 @@ if ( ! empty( $block['id'] ) ) {
 	extract( $block['data'] );
 }
 
+$fluid_classes  = ! empty( $fullscreen ) ? ' video--fullscreen' : '';
+$fluid_classes .= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : '';
+
 ?>
 
-<section class="container-fluid video modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : ''?>">
-	<div class="modular__bg"></div>
-	<div class="container<?= ! empty( $fullscreen ) ? ' video__container--fullscreen' : ''?>">
+<section class="container-fluid video modular<?= esc_html( $fluid_classes ) ?>">
+	<div class="container video__container<?= ! empty( $fullscreen ) ? ' video__container--fullscreen' : ''?>">
 		<div class="video__content">
 			<?php if ( ! empty( $video ) ) : ?>
 				<video class="video__display" autoplay controls loop muted playsinline>

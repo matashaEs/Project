@@ -41,17 +41,12 @@
 
 @include min-size(md) {
   .careers-scroll {
+    $this: &;
+
     padding-bottom: 4.5rem;
 
-    &__item {
+    &__item#{$this}__item#{$this}__item#{$this}__item#{$this}__item#{$this}__item#{$this}__item {
       width: 70vw;
-    }
-  }
-
-  .product-category .careers-scroll {
-    $this: careers-scroll;
-
-    &__item.#{$this}__item.#{$this}__item.#{$this}__item {
       background-color: var(--grey);
     }
   }
@@ -62,7 +57,6 @@
     $this: &;
 
     padding-bottom: 0;
-    background-color: var(--off-white);
 
     &__container {
       flex-flow: row;
