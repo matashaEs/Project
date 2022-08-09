@@ -229,10 +229,6 @@
 
   .sidebar-and-content {
     &__content-container .news-section {
-      &__bg {
-        left: -3rem;
-      }
-
       &__container {
         margin-bottom: 10rem;
       }
@@ -269,16 +265,6 @@
   }
 }
 
-@include min-size(xl) {
-  .sidebar-and-content {
-    &__content-container .news-section {
-      &__bg {
-        left: -5rem;
-      }
-    }
-  }
-}
-
 @include min-size(xxl) {
   .news-section {
     $this: &;
@@ -310,10 +296,6 @@
         &:first-child {
           margin-right: 15rem;
         }
-      }
-
-      &__bg {
-        left: -13rem;
       }
     }
   }

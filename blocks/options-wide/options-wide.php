@@ -49,20 +49,22 @@ if ( ! empty( $block['id'] ) ) {
 									<?= esc_html( $option['link']['title'] ); ?>
 								</div>
 							<?php endif ?>
-							<a href="<?= esc_url( $option['link']['url'] ); ?>"
-								class="options-wide__option-content"
-								target="<?= esc_attr( $option['link']['target'] ); ?>">
-								<?php if ( ! empty( $option['link']['title'] ) ) : ?>
-									<div class="h4 options-wide__option-title options-wide__option-title--horizontal">
-										<?= esc_html( $option['link']['title'] ); ?>
-									</div>
-								<?php endif ?>
-								<?php if ( ! empty( $option['description'] ) ) : ?>
-									<div class="p options-wide__option-description">
-										<?= esc_html( $option['description'] ); ?>
-									</div>
-								<?php endif ?>
-							</a>
+							<?php if ( ! empty( $option['link'] ) ) : ?>
+								<a href="<?= esc_url( $option['link']['url'] ); ?>"
+									class="options-wide__option-content"
+									target="<?= esc_attr( $option['link']['target'] ); ?>">
+									<?php if ( ! empty( $option['link']['title'] ) ) : ?>
+										<div class="h4 options-wide__option-title options-wide__option-title--horizontal">
+											<?= esc_html( $option['link']['title'] ); ?>
+										</div>
+									<?php endif ?>
+									<?php if ( ! empty( $option['description'] ) ) : ?>
+										<div class="p options-wide__option-description">
+											<?= esc_html( $option['description'] ); ?>
+										</div>
+									<?php endif ?>
+								</a>
+							<?php endif; ?>
 					</div>
 				<?php endforeach; ?>
 			</div>

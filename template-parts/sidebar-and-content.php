@@ -11,12 +11,13 @@
 
 extract( $args );
 
+$container_class   = 'the_content' === $content_type ? ' sidebar-and-content__container--the-content' : '';
 $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__col-content--the-content' : '';
 
 ?>
 
 <section class="container-fluid sidebar-and-content">
-	<div class="container sidebar-and-content__container">
+	<div class="container sidebar-and-content__container<?= esc_html( $container_class ) ?>">
 
 		<!-- Sidebar start -->
 		<div class="sidebar-and-content__sidebar-bg"></div>
@@ -33,10 +34,10 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 			<?php endif; ?>
 
 			<?php if ( ! empty( $sidebar ) ) : ?>
-				<h3 class="sidebar-and-content__sidebar-title">
+				<div class="h3 sidebar-and-content__sidebar-title">
 					<?= esc_html( $sidebar['mobileName'] ) ?>
 					<?php the_svg( 'down-arrow', 'sidebar-and-content__sidebar-title-arrow' ); ?>
-				</h3>
+				</div>
 
 				<div class="sidebar-and-content__sidebar-container">
 					<div class="sidebar-and-content__sidebar">
