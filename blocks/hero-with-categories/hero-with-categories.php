@@ -21,7 +21,7 @@ if ( ! empty( $block['id'] ) ) {
 	<div class="container hwc__container">
 		<div class="hwc__content">
 			<div class="hwc__breadcrumbs p">
-<!--				--><?php //get_template_part( 'template-parts/breadcrumbs' ); ?>
+				<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
 			</div>
 			<?php if ( ! empty( $title ) ) : ?>
 				<div class="hwc__title">

@@ -5,9 +5,9 @@ get_header();
 ?>
 
 <div class="container-fluid seo-landing">
-    <div class="container seo-landing__content">
-        <?php the_content(); ?>
-    </div>
+	<div class="container seo-landing__container">
+		<?php the_content(); ?>
+	</div>
 </div>
 
 <?php get_footer(); ?>
