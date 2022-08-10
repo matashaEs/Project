@@ -1,5 +1,8 @@
-.seo-landing {
-  margin-bottom: 2rem;
+.seo-landing,
+.single-post {
+  &__container {
+    margin-bottom: 2rem;
+  }
 
   .hwc {
     margin-left: -2rem;
@@ -30,8 +33,11 @@
 }
 
 @include min-size(lg) {
-  .seo-landing {
-    margin-bottom: 3rem;
+  .seo-landing,
+  .single-post {
+    &__container {
+      margin-bottom: 3rem;
+    }
 
     p {
       font-family: var(--font-aeonik-light);
@@ -61,8 +67,11 @@
 }
 
 @include min-size(xl) {
-  .seo-landing {
-    margin-bottom: 5rem;
+  .seo-landing,
+  .single-post {
+    &__container {
+      margin-bottom: 5rem;
+    }
 
     .hwc {
       margin-left: -5rem;
@@ -82,8 +91,11 @@
 }
 
 @include min-size(xxl) {
-  .seo-landing {
-    margin-bottom: 10rem;
+  .seo-landing,
+  .single-post {
+    &__container {
+      margin-bottom: 10rem;
+    }
 
     .container-fluid {
       width: 100%;
