@@ -4,7 +4,7 @@ $transition-time: 1s;
   $this: &;
 
   width: 100%;
-  margin-left: -2rem;
+  margin-left: -4rem;
   border-radius: 25px 25px 0 0;
   padding-left: 2rem;
   z-index: 3;
@@ -78,23 +78,36 @@ $transition-time: 1s;
     flex-direction: column;
     justify-content: flex-end;
     background-color: var(--grey);
-    padding: 2rem 2rem 9rem;
+    padding: 3rem 2rem 9rem;
     border-radius: 25px 25px 0 0;
   }
 
   &__group {
-    margin-bottom: 2.5rem;
-    z-index: 500;
+    margin-bottom: 2.4rem;
 
-    @include z-index-children(500, 5);
+    &:last-child {
+      margin-bottom: 4rem;
+    }
   }
 
   &__title {
     display: none;
   }
 
+  &__radio-subtitle {
+    margin-bottom: 2.5rem;
+  }
+
   .form-select {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.3rem;
+
+    &--selected {
+      padding-top: 0.8rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   .form-select-box .form-options-container.active {
@@ -104,7 +117,16 @@ $transition-time: 1s;
   .radio {
     &__container {
       margin-bottom: 2rem;
+      margin-left: 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
+  }
+
+  .page-navigation {
+    margin-top: -1.1rem;
   }
 }
 
@@ -117,6 +139,12 @@ $transition-time: 1s;
     &__open-button {
       line-height: 3rem;
       font-size: 2.4rem;
+    }
+
+    .form-select {
+      &--selected {
+        padding-top: 1.2rem;
+      }
     }
   }
 }
@@ -155,6 +183,10 @@ $transition-time: 1s;
       &:last-child {
         margin-bottom: 0;
       }
+    }
+
+    .page-navigation {
+      margin-top: -4.7rem;
     }
   }
 }

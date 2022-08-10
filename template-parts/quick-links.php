@@ -39,9 +39,9 @@ if ( ! empty( $args ) ) {
 							<?php endforeach; ?>
 
 						<?php elseif ( 'radio-group' == $block_type ) : ?>
-							<h4 class="quick-links__radio-subtitle">
+							<div class="h4 quick-links__radio-subtitle">
 								<?= esc_html( $block['title'] ) ?>
-							</h4>
+							</div>
 							<?php get_template_part( 'template-parts/form-radio-group', null, $block ); ?>
 
 						<?php elseif ( 'form' == $block_type ) : ?>

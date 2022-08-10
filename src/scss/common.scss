@@ -6,7 +6,7 @@
 }
 
 html {
-  //overflow-x: hidden;
+  overflow-x: hidden;
   font-size: 10px;
   scroll-behavior: smooth;
 }
@@ -30,4 +30,10 @@ body {
   pointer-events: none;
   cursor: default;
   user-select: none;
+}
+
+@include min-size(lg) {
+  html {
+    overflow-x: unset;
+  }
 }

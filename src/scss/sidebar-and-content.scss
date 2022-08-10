@@ -6,6 +6,10 @@ $transition-time: 1s;
   &__container {
     &--the-content {
       padding: 0;
+
+      #{$this}__sidebar {
+        margin-left: -2rem;
+      }
     }
   }
 
@@ -13,7 +17,7 @@ $transition-time: 1s;
     width: 100%;
     padding: 4.5rem 0;
 
-    &--the-content#{$this}__col-content--the-content {
+    &--the-content {
       padding-top: 0;
       padding-bottom: 0;
     }
@@ -118,6 +122,7 @@ $transition-time: 1s;
 
 @include min-size(lg) {
   .sidebar-and-content {
+    $this: &;
     $sidebar-width: 0.45;
 
     &__container {
@@ -125,6 +130,12 @@ $transition-time: 1s;
       max-width: initial;
       padding-right: 0;
       padding-left: 3rem;
+
+      &--the-content {
+        #{$this}__sidebar {
+          margin-left: 0;
+        }
+      }
     }
 
     &__sidebar {
@@ -137,10 +148,17 @@ $transition-time: 1s;
       border-radius: 0;
       position: sticky;
       top: 7rem;
-      overflow: hidden scroll;
+      overflow-x: hidden;
+      overflow-y: scroll;
 
       .breadcrumbs {
         display: block;
+      }
+
+      .quick-links {
+        &__title {
+          margin-bottom: 5.5rem;
+        }
       }
     }
 
