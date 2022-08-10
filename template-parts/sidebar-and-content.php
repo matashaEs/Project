@@ -22,53 +22,19 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 		<!-- Sidebar start -->
 		<div class="sidebar-and-content__sidebar-bg"></div>
 
-		<div class="col sidebar-and-content__col sidebar-and-content__col-sidebar">
-
-			<?php
-			get_template_part( 'template-parts/breadcrumbs', null, $breadcrumbs );
-			?>
-			<?php if ( ! empty( $title ) ) : ?>
-				<h1 class="sidebar-and-content__title sidebar-and-content__title--desktop">
-					<?= esc_html( $title ) ?>
-				</h1>
-			<?php endif; ?>
-
-			<?php if ( ! empty( $sidebar ) ) : ?>
-				<div class="h3 sidebar-and-content__sidebar-title">
-					<?= esc_html( $sidebar['mobileName'] ) ?>
-					<?php the_svg( 'down-arrow', 'sidebar-and-content__sidebar-title-arrow' ); ?>
-				</div>
-
-				<div class="sidebar-and-content__sidebar-container">
-					<div class="sidebar-and-content__sidebar">
-						<?php foreach ( $sidebar['blocks'] as $block_type => $block ) : ?>
-
-							<?php $container_class = 'the_content' === $content_type ? 'mb0' : ''; ?>
-							<div class="sidebar-and-content__sidebar-group <?= esc_html( $container_class ) ?>">
-								<?php if ( 'selects' == $block_type ) : ?>
-									<?php foreach ( $block as $select ) : ?>
-										<?php get_template_part( 'template-parts/form-select', null, $select ); ?>
-									<?php endforeach; ?>
-
-								<?php elseif ( 'radio-group' == $block_type ) : ?>
-									<h4 class="sidebar-and-content__sidebar-subtitle">
-										<?= esc_html( $block['title'] ) ?>
-									</h4>
-									<?php get_template_part( 'template-parts/form-radio-group', null, $block ); ?>
-
-								<?php elseif ( 'form' == $block_type ) : ?>
-									<?php get_template_part( 'template-parts/form', null, $block ); ?>
-
-								<?php elseif ( 'navigation' == $block_type ) : ?>
-									<?php get_template_part( 'template-parts/page-navigation', null, $block ); ?>
-								<?php endif; ?>
-							</div>
-
-						<?php endforeach; ?>
-					</div>
-				</div>
-			<?php endif; ?>
-		</div>
+		<?php
+		get_template_part(
+			'template-parts/quick-links',
+			null,
+			[
+				'container_classes' => [ 'col', 'sidebar-and-content__col', 'sidebar-and-content__col-sidebar' ],
+				'breadcrumbs'       => $breadcrumbs,
+				'sidebar'           => $sidebar,
+				'title'             => $title,
+				'content_type'      => $content_type,
+			]
+		);
+		?>
 		<!-- Sidebar end -->
 
 
