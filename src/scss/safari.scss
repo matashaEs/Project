@@ -15,7 +15,9 @@ Safari hacks
 
     .sidebar-and-content {
       &__sidebar {
+        /* stylelint-disable */
         position: -webkit-sticky;
+        /* stylelint-enable */
         display: block;
       }
     }
