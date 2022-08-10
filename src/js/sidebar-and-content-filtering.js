@@ -4,16 +4,11 @@ import $ from 'jquery';
  * Filtering and navigation part of the sidebar and content
  * Left gray bar with navigation and content on the right side
  */
-class SidebarAndContentFilteringAndNavigation {
+class SidebarAndContentFiltering {
     constructor() {
         $( 'input[name="productCategory"]' ).on( 'change', this.categoryChanged );
         $( 'input[name="industry"]' ).on( 'change', this.productIndustryChanged );
         $( 'input[name="industryType"]' ).on( 'change', this.industryTypeChanged );
-
-        $( '.page-navigation .page-navigation__button' )
-            .on( 'click', ( e ) => {
-                this.scrollToBlock( e, this );
-            });
     }
 
     // Items filtering start
@@ -42,27 +37,6 @@ class SidebarAndContentFilteringAndNavigation {
     }
 
     // Items filtering end
-
-    // Product navigation start
-    /**
-     * TODO: Scroll the page to the specific block.
-     */
-    scrollToBlock( e ) {
-
-        // e.preventDefault();
-        //
-        // const blockId = $( e.target ).data( 'blockId' );
-        // const blockContainer = $( '.sidebar-and-content__col-content--the-content' );
-        // const blockDom = $( `#${blockId}` );
-        // const offset = blockDom.offset().top - blockContainer.offset().top;
-        //
-        // console.log( offset );
-        // if ( blockDom.length ) {
-        //     blockContainer.animate({
-        //         scrollTop: blockDom.offset().top
-        //     }, 500 );
-        // }
-    }
 }
 
-new SidebarAndContentFilteringAndNavigation();
+new SidebarAndContentFiltering();

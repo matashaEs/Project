@@ -15,6 +15,12 @@ class QuickLinks {
             }
         );
 
+        $( '.page-navigation .page-navigation__button' )
+            .on( 'click', ( e ) => {
+                this.scrollToBlock( e, this );
+            });
+
+
         window.addEventListener( 'resize', this.resizeEvent.bind( this ) );
     }
 
@@ -46,7 +52,6 @@ class QuickLinks {
          * variables that help "freeze" scrolling correctly
          */
         const windowScroll = window.scrollY;
-        const scrollY = document.body.style.top;
 
         /**
          * shows sidebar, freeze scrolling; disable pointer events
@@ -63,14 +68,17 @@ class QuickLinks {
             $( 'body' ).addClass( 'disable' );
         } else {
             this.hideSidebar();
-            window.scrollTo( 0, parseInt( scrollY || '0' ) * -1 );
         }
     }
 
     /**
      * hides mobile sidebar; disables scroll freeze; disables disabling pointer events
      */
-    hideSidebar() {
+    hideSidebar( doScroll = true ) {
+        const scrollY = document.body.style.top;
+
+        $( 'html' ).css( 'scroll-behavior', 'auto' );
+
         $( '.quick-links__container' ).each( function() {
             $( this ).css({'maxHeight': ''});
         });
@@ -81,6 +89,12 @@ class QuickLinks {
         this.nav.css( 'margin-top', '0' );
 
         $( 'body' ).removeClass( 'disable' );
+
+        if ( doScroll ) {
+            window.scrollTo( 0, parseInt( scrollY || '0' ) * -1 );
+        }
+
+        $( 'html' ).css( 'scroll-behavior', '' );
     }
 
     /**
@@ -116,11 +130,27 @@ class QuickLinks {
             () => {
                 this.changingContents();
                 if ( 1023 < window.innerWidth ) {
-                    this.hideSidebar();
+                    this.hideSidebar( false );
                 }
             },
             500
         );
+    }
+
+    scrollToBlock( e ) {
+        if ( 1024 > window.innerWidth ) {
+            e.preventDefault();
+
+            const blockDom = $( `#${$( e.target ).data( 'blockId' )}` );
+
+            this.hideSidebar();
+
+            setTimeout( ()=> {
+                $( 'html' ).animate({
+                    scrollTop: blockDom.offset().top - 70
+                });
+            }, 200 );
+        }
     }
 }
 
