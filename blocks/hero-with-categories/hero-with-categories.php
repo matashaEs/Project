@@ -33,7 +33,7 @@ if ( ! empty( $block['id'] ) ) {
 					<?= get_the_date(); ?>
 				</div>
 				<div class="hwc__categories">
-					Category
+                    <a href="" class="button button--orange hwc__button"> ERP </a>
 				</div>
 			</div>
 		</div>
