@@ -1,18 +1,17 @@
 <?php
 /**
  * $title
- * $sidebar
  * $breadcrumbs
+ * $sidebar
  *  $mobileName ( name of sidebar on mobile )
- *  $blocks ( 'radio-group' 'selects', 'navigation'; each block corresponds to a template part  )
- *      $items (( required ))
+ *  $blocks ( 'radio-group' 'selects', 'navigation', 'links'; each block corresponds to a template part  )
  * $content_type
  */
 
 extract( $args );
 
 $container_class   = 'the_content' === $content_type ? ' sidebar-and-content__container--the-content' : '';
-$content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__col-content--the-content' : '';
+$content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__content--the-content' : '';
 
 ?>
 
@@ -27,11 +26,9 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 			'template-parts/quick-links',
 			null,
 			[
-				'container_classes' => [ 'col', 'sidebar-and-content__col', 'sidebar-and-content__col-sidebar' ],
-				'breadcrumbs'       => $breadcrumbs,
-				'sidebar'           => $sidebar,
-				'title'             => $title,
-				'content_type'      => $content_type,
+				'container_class' => 'sidebar-and-content__sidebar',
+				'title'           => $title,
+				'sidebar'         => $sidebar,
 			]
 		);
 		?>
@@ -39,15 +36,15 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 
 
 		<!-- Items list start -->
-		<div class="col sidebar-and-content__col sidebar-and-content__col-content<?= esc_attr( $content_col_class ) ?>">
+		<div class="sidebar-and-content__content<?= esc_attr( $content_col_class ) ?>">
 			<?php if ( ! empty( $title ) ) : ?>
-				<h1 class="sidebar-and-content__title sidebar-and-content__title--mobile <?= is_single() ? 'sidebar-and-content__title--single' : '' ?>">
+				<h1 class="sidebar-and-content__title <?= is_single() ? 'sidebar-and-content__title--single' : '' ?>">
 					<?= esc_html( $title ) ?>
 				</h1>
 			<?php endif; ?>
 
-			<?php if ( 'items' === $content_type ) : ?>
-				<div class="sidebar-and-content__content-container">
+			<div class="sidebar-and-content__content-container">
+				<?php if ( 'items' === $content_type ) : ?>
 					<?php if ( ! empty( $items ) ) : ?>
 						<?php
 						foreach ( $items as $item ) :
@@ -90,11 +87,10 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 					<?php endif; ?>
 				</div>
 
-			<?php else : ?>
-				<div class="sidebar-and-content__content-container">
+				<?php else : ?>
 					<?php the_content(); ?>
-				</div>
-			<?php endif; ?>
+				<?php endif; ?>
+			</div>
 		</div>
 		<!-- Items list end -->
 	</div>

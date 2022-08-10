@@ -9,25 +9,18 @@ $transition-time: 1s;
     }
   }
 
-  &__col {
+  &__content {
     width: 100%;
+    padding: 4.5rem 0;
 
-    &-content {
-      padding: 4.5rem 0;
-
-      &--the-content#{$this}__col-content--the-content {
-        padding-top: 0;
-        padding-bottom: 0;
-      }
+    &--the-content#{$this}__col-content--the-content {
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
 
   &__title {
     margin: 1rem 0 2rem;
-
-    &--desktop {
-      display: none;
-    }
 
     &--single {
       display: none;
@@ -134,47 +127,38 @@ $transition-time: 1s;
       padding-left: 3rem;
     }
 
-    &__col {
-      &-sidebar {
-        width: calc($sidebar-width * 100%);
-        height: calc(100vh - 70px);
-        margin: 0;
-        padding-bottom: 5rem;
-        padding-left: 0;
-        padding-right: 5rem;
-        border-radius: 0;
-        position: sticky;
-        top: 7rem;
-        overflow: hidden scroll;
+    &__sidebar {
+      width: calc($sidebar-width * 100%);
+      height: calc(100vh - 70px);
+      margin: 0;
+      padding-bottom: 5rem;
+      padding-left: 0;
+      padding-right: 5rem;
+      border-radius: 0;
+      position: sticky;
+      top: 7rem;
+      overflow: hidden scroll;
 
-        .breadcrumbs {
-          display: block;
-        }
+      .breadcrumbs {
+        display: block;
       }
+    }
 
-      &-content {
-        width: 55%;
-        padding: 16rem 3rem;
-        scroll-behavior: smooth;
+    &__content {
+      width: 55%;
+      padding: 16rem 3rem;
+      scroll-behavior: smooth;
 
-        &--the-content {
-          padding-right: 0;
-          padding-left: 0;
-        }
+      &--the-content {
+        padding-right: 0;
+        padding-left: 0;
       }
     }
 
     &__title {
       margin-top: 2.5rem;
       margin-bottom: 6rem;
-
-      &--mobile {
-        display: none;
-      }
-
-      &--desktop {
-        display: block;
-      }
+      display: none;
     }
 
     &__sidebar-bg {
@@ -224,14 +208,12 @@ $transition-time: 1s;
   .sidebar-and-content {
     $sidebar-width: 0.3375;
 
-    &__col {
-      &-sidebar {
-        width: calc($sidebar-width * 100%);
-      }
+    &__sidebar {
+      width: calc($sidebar-width * 100%);
+    }
 
-      &-content {
-        width: 66.25%;
-      }
+    &__content {
+      width: 66.25%;
     }
 
     &__sidebar-bg {
@@ -273,21 +255,19 @@ $transition-time: 1s;
       padding-left: 7rem;
     }
 
-    &__col {
-      &-sidebar {
-        width: 536px;
-      }
+    &__sidebar {
+      width: 536px;
+    }
 
-      &-content {
-        width: 0;
-        padding-right: 7rem;
-        padding-left: 11.5rem;
-        flex-grow: 1;
+    &__content {
+      width: 0;
+      padding-right: 7rem;
+      padding-left: 11.5rem;
+      flex-grow: 1;
 
-        &--the-content {
-          padding-right: 0;
-          padding-left: 0;
-        }
+      &--the-content {
+        padding-right: 0;
+        padding-left: 0;
       }
     }
 
@@ -318,7 +298,7 @@ $transition-time: 1s;
       justify-content: flex-start;
     }
 
-    &__col-content {
+    &__content {
       padding-right: $side-padding;
 
       &--the-content {

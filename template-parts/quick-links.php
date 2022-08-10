@@ -1,4 +1,12 @@
 <?php
+/**
+ * $container_class
+ * $title
+ * $sidebar
+ *  $mobileName ( name of sidebar on mobile )
+ *  $blocks ( 'radio-group' 'selects', 'navigation'; each block corresponds to a template part  )
+ *      $items (( required ))
+ */
 
 if ( ! empty( $args ) ) {
 	extract( $args );
@@ -6,13 +14,12 @@ if ( ! empty( $args ) ) {
 
 ?>
 
-<div class="quick-links <?= ! empty( $container_classes ) ? esc_html( implode( ' ', $container_classes ) ) : ''?>">
+<div class="quick-links <?= ! empty( $container_class ) ? esc_html( $container_class ) : ''?>">
 
-	<?php get_template_part( 'template-parts/breadcrumbs', null, $breadcrumbs ?? null ); ?>
+	<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
+
 	<?php if ( ! empty( $title ) ) : ?>
-		<h1 class="quick-links__title">
-			<?= esc_html( $title ) ?>
-		</h1>
+		<h1 class="quick-links__title"><?= esc_html( $title ) ?></h1>
 	<?php endif; ?>
 
 	<?php if ( ! empty( $sidebar ) ) : ?>
@@ -25,7 +32,7 @@ if ( ! empty( $args ) ) {
 			<div class="quick-links__groups">
 				<?php foreach ( $sidebar['blocks'] as $block_type => $block ) : ?>
 
-					<div class="quick-links__group <?= esc_html( $container_class ) ?>">
+					<div class="quick-links__group">
 						<?php if ( 'selects' == $block_type ) : ?>
 							<?php foreach ( $block as $select ) : ?>
 								<?php get_template_part( 'template-parts/form-select', null, $select ); ?>
@@ -42,6 +49,9 @@ if ( ! empty( $args ) ) {
 
 						<?php elseif ( 'navigation' == $block_type ) : ?>
 							<?php get_template_part( 'template-parts/page-navigation', null, $block ); ?>
+
+						<?php elseif ( 'links' == $block_type ) : ?>
+							<?php get_template_part( 'template-parts/seo-posts-sidebar', null, $block ); ?>
 						<?php endif; ?>
 					</div>
 
