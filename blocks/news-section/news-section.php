@@ -17,7 +17,7 @@ if ( ! empty( $block['id'] ) ) {
 }
 
 $news = [
-	'date'  => 'January11, 2022',
+	'date'  => 'January 11, 2022',
 	'title' => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
 	'link'  => 'google.com',
 ];

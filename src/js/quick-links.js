@@ -77,6 +77,8 @@ class QuickLinks {
     hideSidebar( doScroll = true ) {
         const scrollY = document.body.style.top;
 
+        $( '.form-options-container' ).removeClass( 'active' );
+
         $( 'html' ).css( 'scroll-behavior', 'auto' );
 
         $( '.quick-links__container' ).each( function() {

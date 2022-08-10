@@ -38,6 +38,7 @@ $transition-time: 1s;
       bottom: 0;
       margin: auto;
       transform: scale(1, -1);
+      user-select: none;
 
       path {
         fill: var(--off-white);
@@ -111,7 +112,7 @@ $transition-time: 1s;
   }
 
   .form-select-box .form-options-container.active {
-    max-height: 300px;
+    max-height: 200px;
   }
 
   .radio {
