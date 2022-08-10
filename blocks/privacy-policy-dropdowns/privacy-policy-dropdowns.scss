@@ -1,7 +1,6 @@
 @import "../../src/scss/for-blocks";
 
 .privacy-policy-dropdowns {
-  padding-top: 4.5rem;
   padding-bottom: 4.5rem;
 
   .breadcrumbs {
@@ -59,7 +58,6 @@
 
 @include min-size(lg) {
   .privacy-policy-dropdowns {
-    padding-top: 10rem;
     padding-bottom: 10rem;
 
     .breadcrumbs {

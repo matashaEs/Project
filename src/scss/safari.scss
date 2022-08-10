@@ -13,9 +13,13 @@ Safari hacks
       text-decoration: none;
     }
 
-    .footer {
-      position: relative;
-      z-index: -1;
+    .sidebar-and-content {
+      &__sidebar {
+        /* stylelint-disable */
+        position: -webkit-sticky;
+        /* stylelint-enable */
+        display: block;
+      }
     }
   }
 }

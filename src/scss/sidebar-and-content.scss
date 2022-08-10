@@ -6,113 +6,25 @@ $transition-time: 1s;
   &__container {
     &--the-content {
       padding: 0;
-    }
-  }
 
-  &__col {
-    width: 100%;
-
-    &-sidebar {
-      margin-left: -2rem;
-      border-radius: 25px 25px 0 0;
-      padding-left: 2rem;
-      z-index: 3;
-
-      .breadcrumbs {
-        display: none;
-      }
-    }
-
-    &-content {
-      padding: 4.5rem 0;
-
-      &--the-content#{$this}__col-content--the-content {
-        padding-top: 0;
-        padding-bottom: 0;
+      #{$this}__sidebar {
+        margin-left: -2rem;
       }
     }
   }
 
-  &__sidebar-title {
-    color: var(--grey);
-    background-color: var(--main-blue);
-    position: fixed;
-    z-index: 6;
-    bottom: 0;
-    border-radius: 25px 25px 0 0;
-    padding: 2.5rem 2rem;
+  &__content {
     width: 100%;
-    transition: all $transition-time;
+    padding: 4.5rem 0;
 
-    &:hover {
-      cursor: pointer;
+    &--the-content {
+      padding-top: 0;
+      padding-bottom: 0;
     }
-
-    &-arrow {
-      position: absolute;
-      height: auto;
-      width: 15px;
-      right: 3rem;
-      transition: all $transition-time;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      transform: scale(1, -1);
-
-      path {
-        fill: var(--off-white);
-      }
-    }
-
-    &--show {
-      color: var(--main-blue);
-      background-color: var(--grey);
-
-      #{$this}__sidebar-title-arrow {
-        transform: scale(1);
-
-        path {
-          fill: var(--main-blue);
-        }
-      }
-    }
-  }
-
-  &__sidebar-container {
-    transition: all $transition-time;
-    max-height: 0;
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    overflow-y: scroll;
-    z-index: 5;
-  }
-
-  &__sidebar {
-    width: 100%;
-    z-index: 5;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background-color: var(--grey);
-    padding: 2rem 2rem 9rem;
-    border-radius: 25px 25px 0 0;
-  }
-
-  &__sidebar-group {
-    margin-bottom: 2.5rem;
-    z-index: 500;
-
-    @include z-index-children(500, 5);
   }
 
   &__title {
     margin: 1rem 0 2rem;
-
-    &--desktop {
-      display: none;
-    }
 
     &--single {
       display: none;
@@ -170,20 +82,6 @@ $transition-time: 1s;
     color: var(--grey-modules);
   }
 
-  .form-select {
-    margin-bottom: 1.5rem;
-  }
-
-  .form-select-box .form-options-container.active {
-    max-height: 300px;
-  }
-
-  .radio {
-    &__container {
-      margin-bottom: 2rem;
-    }
-  }
-
   &__content-container {
     .container-fluid {
       width: 100%;
@@ -219,16 +117,12 @@ $transition-time: 1s;
       margin-bottom: 2rem;
       min-height: 230px;
     }
-
-    &__sidebar-title {
-      line-height: 3rem;
-      font-size: 2.4rem;
-    }
   }
 }
 
 @include min-size(lg) {
   .sidebar-and-content {
+    $this: &;
     $sidebar-width: 0.45;
 
     &__container {
@@ -236,70 +130,52 @@ $transition-time: 1s;
       max-width: initial;
       padding-right: 0;
       padding-left: 3rem;
-    }
 
-    &__col {
-      &-sidebar {
-        width: calc($sidebar-width * 100%);
-        height: calc(100vh - 70px);
-        margin: 0;
-        padding-bottom: 5rem;
-        padding-left: 0;
-        padding-right: 5rem;
-        border-radius: 0;
-        position: sticky;
-        top: 7rem;
-        overflow: hidden scroll;
-
-        .breadcrumbs {
-          display: block;
+      &--the-content {
+        #{$this}__sidebar {
+          margin-left: 0;
         }
       }
+    }
 
-      &-content {
-        width: 55%;
-        padding: 16rem 3rem;
-        scroll-behavior: smooth;
+    &__sidebar {
+      width: calc($sidebar-width * 100%);
+      height: calc(100vh - 70px);
+      margin: 0;
+      padding-bottom: 5rem;
+      padding-left: 0;
+      padding-right: 5rem;
+      border-radius: 0;
+      position: sticky;
+      top: 7rem;
+      overflow-x: hidden;
+      overflow-y: scroll;
 
-        &--the-content {
-          padding-right: 0;
-          padding-left: 0;
+      .breadcrumbs {
+        display: block;
+      }
+
+      .quick-links {
+        &__title {
+          margin-bottom: 5.5rem;
         }
+      }
+    }
+
+    &__content {
+      width: 55%;
+      padding: 16rem 3rem;
+      scroll-behavior: smooth;
+
+      &--the-content {
+        padding: 0;
       }
     }
 
     &__title {
       margin-top: 2.5rem;
       margin-bottom: 6rem;
-
-      &--mobile {
-        display: none;
-      }
-
-      &--desktop {
-        display: block;
-      }
-    }
-
-    &__sidebar-title {
       display: none;
-    }
-
-    &__sidebar-container {
-      transition: none;
-      max-height: initial;
-      position: initial;
-      width: 100%;
-      margin: 0;
-      overflow: visible;
-    }
-
-    &__sidebar {
-      width: 100%;
-      z-index: 5;
-      background: none;
-      padding: 0;
-      border-radius: 0;
     }
 
     &__sidebar-bg {
@@ -310,14 +186,6 @@ $transition-time: 1s;
       top: 7rem;
       left: 0;
       z-index: -1;
-    }
-
-    &__sidebar-group {
-      margin-bottom: 6rem;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
     }
 
     &__item {
@@ -357,14 +225,12 @@ $transition-time: 1s;
   .sidebar-and-content {
     $sidebar-width: 0.3375;
 
-    &__col {
-      &-sidebar {
-        width: calc($sidebar-width * 100%);
-      }
+    &__sidebar {
+      width: calc($sidebar-width * 100%);
+    }
 
-      &-content {
-        width: 66.25%;
-      }
+    &__content {
+      width: 66.25%;
     }
 
     &__sidebar-bg {
@@ -406,21 +272,19 @@ $transition-time: 1s;
       padding-left: 7rem;
     }
 
-    &__col {
-      &-sidebar {
-        width: 536px;
-      }
+    &__sidebar {
+      width: 536px;
+    }
 
-      &-content {
-        width: 0;
-        padding-right: 7rem;
-        padding-left: 11.5rem;
-        flex-grow: 1;
+    &__content {
+      width: 0;
+      padding-right: 7rem;
+      padding-left: 11.5rem;
+      flex-grow: 1;
 
-        &--the-content {
-          padding-right: 0;
-          padding-left: 0;
-        }
+      &--the-content {
+        padding-right: 0;
+        padding-left: 0;
       }
     }
 
@@ -451,7 +315,7 @@ $transition-time: 1s;
       justify-content: flex-start;
     }
 
-    &__col-content {
+    &__content {
       padding-right: $side-padding;
 
       &--the-content {
