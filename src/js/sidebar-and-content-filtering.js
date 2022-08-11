@@ -9,7 +9,6 @@ class SidebarAndContentFiltering {
         $( 'input[name="productCategory"]' ).on( 'change', this.categoryChanged );
         $( 'input[name="industry"]' ).on( 'change', this.productIndustryChanged );
         $( 'input[name="industryType"]' ).on( 'change', this.industryTypeChanged );
-        $( 'input[name="modules"]' ).on( 'change', this.moduleSelectChange );
     }
 
     // Items filtering start
@@ -38,11 +37,6 @@ class SidebarAndContentFiltering {
     }
 
     // Items filtering end
-
-    // srcoll to the specific module
-    moduleSelectChange( e ) {
-        document.getElementById( $( e.target ).val() ).scrollIntoView();
-    }
 }
 
 new SidebarAndContentFiltering();

@@ -89,6 +89,7 @@ $transition-time: 1s;
   &__content-container {
     .container-fluid {
       width: 100%;
+      scroll-margin-top: 7rem;
     }
 
     .container.container {
@@ -169,7 +170,6 @@ $transition-time: 1s;
     &__content {
       width: 55%;
       padding: 16rem 3rem;
-      scroll-behavior: smooth;
 
       &--the-content {
         padding: 0;

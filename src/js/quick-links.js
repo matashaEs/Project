@@ -7,6 +7,7 @@ class QuickLinks {
     headerHeight = $( 'header' ).innerHeight();
     nav = $( '.nav__fluid' );
     titles = $( '.quick-links__open-button' );
+
     constructor() {
         this.changingContents();
 
@@ -20,6 +21,7 @@ class QuickLinks {
                 this.scrollToBlock( e, this );
             });
 
+        $( 'input[name="modules"]' ).on( 'change', this.moduleSelectChange.bind( this ) );
 
         window.addEventListener( 'resize', this.resizeEvent.bind( this ) );
     }
@@ -139,6 +141,9 @@ class QuickLinks {
         );
     }
 
+    /**
+     * scroll to the specific block
+     */
     scrollToBlock( e ) {
         if ( 1024 > window.innerWidth ) {
             e.preventDefault();
@@ -148,11 +153,22 @@ class QuickLinks {
             this.hideSidebar();
 
             setTimeout( ()=> {
-                $( 'html' ).animate({
-                    scrollTop: blockDom.offset().top - 70
-                });
+                document.getElementById( $( e.target ).data( 'blockId' ) ).scrollIntoView();
             }, 200 );
         }
+    }
+
+    /**
+     * scroll to the specific module
+     */
+    moduleSelectChange( e ) {
+        if ( 1024 > window.innerWidth ) {
+            this.hideSidebar();
+        }
+
+        setTimeout( ()=> {
+            document.getElementById( $( e.target ).val() ).scrollIntoView();
+        }, 200 );
     }
 }
 
