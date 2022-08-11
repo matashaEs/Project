@@ -52,6 +52,11 @@ if ( is_single() && 'product' == get_post_type() ) {
 				<?php else : ?>
 					<div class="h2 news-section__title "><?= esc_html( $title ); ?></div>
 				<?php endif; ?>
+				<?php if ( ! empty( $link ) ) : ?>
+					<a href="<?= esc_url( $link['url'] ) ?>" class="button news-section__button">
+						<?= esc_html( $link['title'] ) ?>
+					</a>
+				<?php endif; ?>
 			<?php endif; ?>
 		</div>
 		<?php if ( ! empty( $news ) ) : ?>

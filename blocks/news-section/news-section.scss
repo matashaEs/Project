@@ -67,6 +67,8 @@
     max-width: 382px;
     text-decoration: none;
     color: var(--black);
+    display: flex;
+    flex-flow: column nowrap;
 
     &:hover {
       #{$this}__item-read-more {
@@ -116,7 +118,7 @@
     color: var(--black);
     text-decoration: none;
     position: relative;
-    padding: 1rem 0;
+    margin-top: auto;
 
     &::after {
       content: url("../../assets/img/arrow-thin.svg");
@@ -146,7 +148,7 @@
       }
 
       &-news {
-        justify-content: flex-start;
+        justify-content: space-between;
       }
     }
 
@@ -154,10 +156,7 @@
       width: 48%;
       margin: 0;
       background-color: var(--off-white);
-
-      &:first-child {
-        padding-left: 0;
-      }
+      padding-left: 0;
     }
 
     .slick-slider {
@@ -236,10 +235,18 @@
       &__row {
         &-title {
           margin-bottom: 8rem;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
         }
 
         &-news {
-          margin-bottom: 4.5rem;
+          margin-bottom: 0;
+        }
+
+        &-button {
+          display: none;
         }
       }
 
@@ -255,11 +262,7 @@
 
       &__item-title {
         max-width: 100%;
-        margin-bottom: 0;
-      }
-
-      &__item-read-more {
-        display: none;
+        margin-bottom: 2.5rem;
       }
     }
   }
