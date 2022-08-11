@@ -62,17 +62,6 @@ class CareersScroll {
 				slickConf.variableWidth = false;
 			}
 
-			/**
-			 * set elements height to max element's height in vertical scroll
-			 */
-			if ( 1024 < window.innerWidth ) {
-				let maxHeight = Math.max.apply( null, items.map( function() {
-					return $( this ).height();
-				}).get() );
-
-				items.height( maxHeight );
-			}
-
 			$( this ).slick( slickConf );
 		});
 	}

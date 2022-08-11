@@ -41,7 +41,6 @@ if ( is_single() && 'product' == get_post_type() ) {
 ?>
 
 <section class="container-fluid news-section modular<?= esc_html( $section_background_color_class ) ?>">
-	<div class="modular__bg news-section__bg"></div>
 	<div class="container news-section__container">
 		<div class="row news-section__row news-section__row-title">
 			<?php if ( ! empty( $title ) ) : ?>

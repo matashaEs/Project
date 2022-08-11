@@ -18,6 +18,12 @@
     position: fixed;
   }
 
+  &__container {
+    &--wide {
+      max-width: 1920px;
+    }
+  }
+
   &__desktop {
     display: none;
 

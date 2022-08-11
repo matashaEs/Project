@@ -21,7 +21,6 @@ if ( ! empty( $block['id'] ) ) {
 ?>
 
 <section class="container-fluid integrations modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : ''?>">
-	<div class="modular__bg"></div>
 	<div class="container integrations__container">
 		<div class="row integrations__row integrations__row-title">
 			<?php if ( ! empty( $title ) ) : ?>

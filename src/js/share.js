@@ -10,7 +10,7 @@ class Share {
     }
 
     showSnackBar() {
-        var snackButton = document.querySelector( '.share__snackText' );
+        let snackButton = document.querySelector( '.share__snackText' );
         $( '.share__snackText' ).css( 'display', 'block' );
 
         setTimeout( () => {
