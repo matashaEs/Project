@@ -20,6 +20,14 @@ Safari hacks
         /* stylelint-enable */
         display: block;
       }
+
+      &__content-container {
+        .container-fluid {
+          /* stylelint-disable */
+          scroll-snap-margin-top: 7rem;
+          /* stylelint-enable */
+        }
+      }
     }
   }
 }
