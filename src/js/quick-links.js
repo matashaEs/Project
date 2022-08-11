@@ -148,8 +148,6 @@ class QuickLinks {
         if ( 1024 > window.innerWidth ) {
             e.preventDefault();
 
-            const blockDom = $( `#${$( e.target ).data( 'blockId' )}` );
-
             this.hideSidebar();
 
             setTimeout( ()=> {

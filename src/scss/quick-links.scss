@@ -124,11 +124,16 @@ $transition-time: 1s;
   .radio {
     &__container {
       margin-bottom: 2rem;
-      margin-left: 0;
 
       &:last-child {
         margin-bottom: 0;
       }
+    }
+  }
+
+  .select .radio {
+    &__container {
+      margin-left: 0;
     }
   }
 }
