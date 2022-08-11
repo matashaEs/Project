@@ -54,31 +54,29 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 								$background = get_template_directory_uri() . '/assets/img/placeholder.jpg';
 							}
 							?>
-
-							<a href="<?= esc_url( $item['url'] ); ?>" class="sidebar-and-content__item">
-								<div class="sidebar-and-content__item-image-container">
-									<div
-											class="sidebar-and-content__item-image"
+							<div class="sidebar-and-content__item-container">
+								<a href="<?= esc_url( $item['url'] ); ?>" class="sidebar-and-content__item">
+									<div class="sidebar-and-content__item-image-container">
+										<div class="sidebar-and-content__item-image"
 											style="background-image: url('<?= esc_html( $background ); ?>');">
+										</div>
+										<?php if ( ! empty( $item ['category'] ) ) : ?>
+											<div class="button sidebar-and-content__item-category"
+												style="background: <?= esc_html( $item['category']['color'] ); ?>; border-color: <?= esc_html( $item['category']['color'] ); ?>">
+												<?= esc_html( $item ['category']['name'] ) ?>
+											</div>
+										<?php endif; ?>
 									</div>
-									<?php if ( ! empty( $item ['category'] ) ) : ?>
-										<div
-												class="button sidebar-and-content__item-category"
-												style="background: <?= esc_html( $item['category']['color'] ); ?>; border-color: <?= esc_html( $item['category']['color'] ); ?>"
-										>
-											<?= esc_html( $item ['category']['name'] ) ?>
+									<?php if ( ! empty( $item ['name'] ) ) : ?>
+										<div class="sidebar-and-content__item-title"><?= esc_html( $item ['name'] ) ?></div>
+									<?php endif; ?>
+									<?php if ( ! empty( $item ['excerpt'] ) ) : ?>
+										<div class="sidebar-and-content__item-excerpt">
+											<?= esc_html( $item ['excerpt'] ); ?>
 										</div>
 									<?php endif; ?>
-								</div>
-								<?php if ( ! empty( $item ['name'] ) ) : ?>
-									<div class="sidebar-and-content__item-title"><?= esc_html( $item ['name'] ) ?></div>
-								<?php endif; ?>
-								<?php if ( ! empty( $item ['excerpt'] ) ) : ?>
-									<div class="sidebar-and-content__item-excerpt">
-										<?= esc_html( $item ['excerpt'] ); ?>
-									</div>
-								<?php endif; ?>
-							</a>
+								</a>
+							</div>
 						<?php endforeach; ?>
 					<?php else : ?>
 						<h3>
