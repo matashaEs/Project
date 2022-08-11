@@ -6,6 +6,10 @@
 
   .hwc {
     margin-left: -2rem;
+
+    &__content {
+      margin: 0;
+    }
   }
 
   .wp-block-quote {
@@ -105,6 +109,10 @@
       margin-left: 0;
       margin-bottom: 10rem;
 
+      .container {
+        padding: 0;
+      }
+
       &__bg {
         width: 100vw;
       }
@@ -118,7 +126,6 @@
     .video {
       margin-top: 5rem;
       margin-bottom: 5rem;
-      margin-left: -2rem;
     }
   }
 }

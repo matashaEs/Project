@@ -1,0 +1,54 @@
+@import "../../src/scss/for-blocks";
+
+.slider {
+  margin-left: -2rem;
+
+  .slick-dotted.slick-slider {
+    margin: 0;
+  }
+
+  &__container {
+    padding: 0;
+  }
+
+  &__image {
+    height: auto;
+    width: 100%;
+  }
+
+  &__item {
+    width: 100vw;
+  }
+
+  .slick-dots {
+    bottom: 5px;
+    left: -40%;
+  }
+}
+
+@include min-size(md) {
+  .slider {
+    .slick-dots {
+      bottom: 10px;
+      left: -45%;
+    }
+  }
+}
+
+@include min-size(lg) {
+  .slider {
+    margin: 3rem 3rem 3rem 0;
+    width: 100%;
+
+    &__container {
+      width: 100%;
+    }
+  }
+}
+
+@include min-size(xl) {
+  .slider {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+}
