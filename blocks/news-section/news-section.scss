@@ -26,6 +26,10 @@
   &__row {
     &-title {
       margin-bottom: 1.5rem;
+
+      .button {
+        display: none;
+      }
     }
 
     &-news {
@@ -191,6 +195,10 @@
     &__row {
       &-title {
         margin-bottom: 12rem;
+
+        .button {
+          display: block;
+        }
       }
 
       &-news {
