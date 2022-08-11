@@ -6,30 +6,6 @@ $data_to_display = [
 	'sidebar'      => [
 		'mobileName' => __( 'Quick Links', 'nuplo' ),
 		'blocks'     => [
-			'selects'    => [
-				[
-					'title'          => 'Modules',
-					'name'           => 'modules',
-					'options'        => [
-						[
-							'id'   => 'millworkSolutions',
-							'slug' => 'millworkSolutions',
-							'name' => 'Millwork Solutions',
-						],
-						[
-							'id'   => 'LBMSoftware',
-							'slug' => 'LBMSoftware',
-							'name' => 'LBM Software',
-						],
-						[
-							'id'   => 'lumberProcessing',
-							'slug' => 'lumberProcessing',
-							'name' => 'Lumber Processing',
-						],
-					],
-					'button_classes' => 'button button--off-white',
-				],
-			],
 			'navigation' => [
 				'navigation_links' => apply_filters( 'cai_get_product_page_menu', get_the_ID() ),
 			],
@@ -52,6 +28,20 @@ $data_to_display = [
 	],
 	'content_type' => 'the_content',
 ];
+
+$product_modules = apply_filters( 'cai_get_product_page_modules', get_the_ID() );
+if ( ! empty( $product_modules ) ) {
+	$modules_items = [
+		'selects' => [
+			'title'          => __( 'Modules', 'nuplo' ),
+			'name'           => 'modules',
+			'options'        => $product_modules,
+			'button_classes' => 'button button--off-white',
+		],
+	];
+
+	array_unshift( $data_to_display['sidebar']['blocks'], $modules_items );
+}
 
 get_template_part( 'template-parts/sidebar-and-content', null, $data_to_display );
 
