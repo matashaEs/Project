@@ -11,11 +11,20 @@
     display: none;
   }
 
+  &__slider {
+    width: 100vw;
+    margin-left: -2rem;
+  }
+
   &__project {
     flex-flow: column;
 
     &-title {
       margin-bottom: 2rem;
+    }
+
+    &-content{
+      padding: 0 2rem;
     }
 
     &-description,
@@ -27,11 +36,14 @@
       display: inline-block;
     }
 
+    .slick-list {
+      overflow: visible;
+    }
+
     &-image {
       width: 100vw;
       min-height: 230px;
       aspect-ratio: 16 / 10;
-      margin-left: -2rem;
       background-position: center;
       background-size: cover;
     }
@@ -42,10 +54,21 @@
   .recent-product-project {
     padding-top: 8.5rem;
     padding-bottom: 10rem;
+    display: flex;
+    justify-content: flex-start;
 
     &__title {
       display: block;
       margin-bottom: 4rem;
+    }
+
+    &__slider {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .slick-slide {
+      display: flex;
     }
 
     &__project {
@@ -55,6 +78,7 @@
       background-color: var(--off-white);
 
       &-content {
+        width: 60%;
         padding: 7.2rem 5.6rem 9.3rem;
         display: flex;
         flex-flow: column nowrap;
@@ -72,7 +96,7 @@
       }
 
       &-image {
-        width: 150%;
+        width: 40%;
         max-width: 382px;
         min-height: unset;
         margin-left: 0;
