@@ -35,7 +35,7 @@ $data_to_display = [
 				'button' => [
 					'name'    => 'buttonName',
 					'id'      => 'buttonId',
-					'value'   => 'val',
+					'value'   => 'Contact Us',
 					'classes' => 'p',
 				],
 			],
