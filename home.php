@@ -122,14 +122,14 @@ $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : 'nie';
 
 <div class="container-fluid news <?= esc_html( $two_posts ) ?>">
 	<div class="container">
-		<?php get_template_part( 'template-parts/quick-links', null, $quick_links ); ?>
 		<div class="row news__row">
 			<?php if ( ! empty( $news_events[0] ) ) : ?>
 				<div class="news__section">
 					<div class="news__image-section">
 						<a href="<?= esc_url( $news_events[0]['link'] ) ?>" class="news__a">
-							<div class="news__image"
-							     style="background-image: url(<?= esc_html( $news_events[0]['image'] ) ?>)"></div>
+							<div
+								class="news__image"
+								style="background-image: url(<?= esc_html( $news_events[0]['image'] ) ?>)"></div>
 						</a>
 					</div>
 					<div class="news__content">
