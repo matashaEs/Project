@@ -1,4 +1,6 @@
 <?php
+get_header();
+
 $index       = 3;
 $news_events = [
 	[
@@ -119,109 +121,109 @@ $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : 'nie';
 ?>
 
 <div class="container-fluid news <?= esc_html( $two_posts ) ?>">
-	<div class="container">
+    <div class="container">
 		<?php get_template_part( 'template-parts/quick-links', null, $quick_links ); ?>
-		<div class="row news__row">
+        <div class="row news__row">
 			<?php if ( ! empty( $news_events[0] ) ) : ?>
-				<div class="news__section">
-					<div class="news__image-section">
-						<a href="<?= esc_url( $news_events[0]['link'] ) ?>" class="news__a">
-							<div class="news__image"
-								style="background-image: url(<?= esc_html( $news_events[0]['image'] ) ?>)"></div>
-						</a>
-					</div>
-					<div class="news__content">
-						<div class="news__content--top">
-							<div class="news__date p"><?= esc_html( $news_events[0]['date'] ) ?></div>
-							<div class="news__categories">
-								<div class="news__category news__category--dark-pink"></div>
-								<div class="news__category news__category--erp"></div>
-								<div class="news__category news__category--wms"></div>
-								<div class="news__category news__category--light-pink"></div>
-							</div>
-						</div>
-						<div class="h4 news__title news__title--first"><?= esc_html( $news_events[0]['title'] ) ?></div>
-						<div class="p news__text"><?= esc_html( $news_events[0]['content'] ) ?></div>
+                <div class="news__section">
+                    <div class="news__image-section">
+                        <a href="<?= esc_url( $news_events[0]['link'] ) ?>" class="news__a">
+                            <div class="news__image"
+                                 style="background-image: url(<?= esc_html( $news_events[0]['image'] ) ?>)"></div>
+                        </a>
+                    </div>
+                    <div class="news__content">
+                        <div class="news__content--top">
+                            <div class="news__date p"><?= esc_html( $news_events[0]['date'] ) ?></div>
+                            <div class="news__categories">
+                                <div class="news__category news__category--dark-pink"></div>
+                                <div class="news__category news__category--erp"></div>
+                                <div class="news__category news__category--wms"></div>
+                                <div class="news__category news__category--light-pink"></div>
+                            </div>
+                        </div>
+                        <div class="h4 news__title news__title--first"><?= esc_html( $news_events[0]['title'] ) ?></div>
+                        <div class="p news__text"><?= esc_html( $news_events[0]['content'] ) ?></div>
 						<?php if ( ! empty( $news_events[0]['link'] ) ) : ?>
-							<a href="<?= esc_url( $news_events[0]['link'] ) ?>" class="news__a">
-								<div class="news__read-more">
+                            <a href="<?= esc_url( $news_events[0]['link'] ) ?>" class="news__a">
+                                <div class="news__read-more">
 									<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
-								</div>
-							</a>
+                                </div>
+                            </a>
 						<?php endif; ?>
-					</div>
-				</div>
+                    </div>
+                </div>
 			<?php endif; ?>
-			<div class="news__section-two-news">
+            <div class="news__section-two-news">
 				<?php if ( ! empty( $news_events[1] ) ) : ?>
-					<div class="news__content">
-						<div class="news__content--top">
-							<div class="news__date p"><?= esc_html( $news_events[1]['date'] ) ?></div>
-							<div class="news__categories">
-								<div class="news__category news__category--light-pink"></div>
-							</div>
-						</div>
-						<div class="h4 news__title"><?= esc_html( $news_events[1]['title'] ) ?></div>
-						<div class="p news__text"><?= esc_html( $news_events[1]['content'] ) ?></div>
+                    <div class="news__content">
+                        <div class="news__content--top">
+                            <div class="news__date p"><?= esc_html( $news_events[1]['date'] ) ?></div>
+                            <div class="news__categories">
+                                <div class="news__category news__category--light-pink"></div>
+                            </div>
+                        </div>
+                        <div class="h4 news__title"><?= esc_html( $news_events[1]['title'] ) ?></div>
+                        <div class="p news__text"><?= esc_html( $news_events[1]['content'] ) ?></div>
 						<?php if ( ! empty( $news_events[1]['link'] ) ) : ?>
-							<a href="<?= esc_url( $news_events[1]['link'] )?>" class="news__a">
-								<div class="news__read-more">
+                            <a href="<?= esc_url( $news_events[1]['link'] )?>" class="news__a">
+                                <div class="news__read-more">
 									<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
-								</div>
-							</a>
+                                </div>
+                            </a>
 						<?php endif; ?>
-					</div>
+                    </div>
 				<?php endif; ?>
 				<?php if ( ! empty( $news_events[2] ) ) : ?>
-					<div class="news__content">
-						<div class="news__content--top">
-							<div class="news__date p"><?= esc_html( $news_events[2]['date'] ) ?></div>
-							<div class="news__categories">
-								<div class="news__category news__category--wms"></div>
-							</div>
-						</div>
-						<div class="h4 news__title"><?= esc_html( $news_events[2]['title'] ) ?></div>
-						<div class="p news__text"><?= esc_html( $news_events[2]['content'] ) ?></div>
+                    <div class="news__content">
+                        <div class="news__content--top">
+                            <div class="news__date p"><?= esc_html( $news_events[2]['date'] ) ?></div>
+                            <div class="news__categories">
+                                <div class="news__category news__category--wms"></div>
+                            </div>
+                        </div>
+                        <div class="h4 news__title"><?= esc_html( $news_events[2]['title'] ) ?></div>
+                        <div class="p news__text"><?= esc_html( $news_events[2]['content'] ) ?></div>
 						<?php if ( ! empty( $news_events[2]['link'] ) ) : ?>
-							<a href="<?= esc_url( $news_events[2]['link'] ) ?>" class="news__a">
-								<div class="news__read-more">
+                            <a href="<?= esc_url( $news_events[2]['link'] ) ?>" class="news__a">
+                                <div class="news__read-more">
 									<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
-								</div>
-							</a>
+                                </div>
+                            </a>
 						<?php endif; ?>
-					</div>
+                    </div>
 				<?php endif; ?>
-			</div>
+            </div>
 			<?php foreach ( $news_events as $index => $news ) : ?>
 				<?php if ( $index > 2 ) : ?>
 
-					<div class="news__section news__section--small">
-						<div class="news__image-section">
-							<div class="news__image" style="background-image: url(<?= esc_html( $news['image'] )?>)">
-							</div>
-						</div>
-						<div class="news__content">
-							<div class="news__content--top">
-								<div class="news__date p"><?= esc_html( $news['date'] ) ?></div>
-								<div class="news__categories">
-									<div class="news__category news__category--green"></div>
-									<div class="news__category news__category--yellow"></div>
-								</div>
-							</div>
-							<div class="h4 news__title"><?= esc_html( $news['title'] ) ?></div>
+                    <div class="news__section news__section--small">
+                        <div class="news__image-section">
+                            <div class="news__image" style="background-image: url(<?= esc_html( $news['image'] )?>)">
+                            </div>
+                        </div>
+                        <div class="news__content">
+                            <div class="news__content--top">
+                                <div class="news__date p"><?= esc_html( $news['date'] ) ?></div>
+                                <div class="news__categories">
+                                    <div class="news__category news__category--green"></div>
+                                    <div class="news__category news__category--yellow"></div>
+                                </div>
+                            </div>
+                            <div class="h4 news__title"><?= esc_html( $news['title'] ) ?></div>
 							<?php if ( ! empty( $news['link'] ) ) : ?>
-								<a href="<?= esc_url( $news['link'] ) ?>" class="news__a">
-									<div class="news__read-more">
+                                <a href="<?= esc_url( $news['link'] ) ?>" class="news__a">
+                                    <div class="news__read-more">
 										<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
-									</div>
-								</a>
+                                    </div>
+                                </a>
 							<?php endif; ?>
-						</div>
-					</div>
+                        </div>
+                    </div>
 				<?php endif; ?>
 			<?php endforeach; ?>
-		</div>
-	</div>
+        </div>
+    </div>
 </div>
 
-
+<?php get_footer(); ?>
