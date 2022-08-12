@@ -49,7 +49,7 @@ $quick_links_links = get_field( 'quick_links_links' );
 						<?= get_the_date(); ?>
 					</div>
 					<div class="seo-landing__categories">
-						<a href="" class="button button--orange seo-landing__button"> ERP </a>
+						<a href="" class="button button--orange seo-landing__button"> <?= esc_html( __( 'ERP', 'nuplo' ) )  ?> </a>
 					</div>
 				</div>
 				<?php the_content(); ?>
