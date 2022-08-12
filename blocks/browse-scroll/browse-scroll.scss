@@ -240,6 +240,10 @@ $arrow-transition: -52px;
       &:first-child {
         margin-left: 7rem;
       }
+
+      &:last-child {
+        margin-right: 7rem;
+      }
     }
 
     &--reverse {
@@ -255,6 +259,7 @@ $arrow-transition: -52px;
 
         &:last-of-type {
           margin-right: 1.1rem;
+          margin-left: 7rem;
         }
       }
 
