@@ -24,8 +24,9 @@ class SidebarAndContentFiltering {
      * TODO: Filter list of items by product industry
      */
     productIndustryChanged( e ) {
-        console.log( 'product industry' );
-        console.log( $( e.target ).val() );
+
+        // console.log( 'product industry' );
+        // console.log( $( e.target ).val() );
     }
 
     /**

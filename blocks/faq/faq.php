@@ -23,9 +23,9 @@ if ( ! empty( $block['id'] ) ) {
 
 			<?php if ( ! empty( $faqs ) ) : ?>
 				<?php foreach ( $faqs as $faq ) : ?>
-					<div class="form-select-box faq-section__select modular__item--mobile">
-						<div class="form-options-container">
-							<div class="form-option faq-section__option">
+					<div class="select__box faq-section__select modular__item--mobile">
+						<div class="select__options">
+							<div class="select__option faq-section__option">
 								<label class="p faq-section__label">
 
 									<?php if ( ! empty( $faq['faq_content'] ) ) : ?>
@@ -35,7 +35,7 @@ if ( ! empty( $block['id'] ) ) {
 								</label>
 							</div>
 						</div>
-						<div class="form-select--selected p faq-section__p">
+						<div class="select__selected p faq-section__p">
 
 							<?php if ( ! empty( $faq['faq_title'] ) ) : ?>
 								<?= esc_html( $faq['faq_title'] ); ?>

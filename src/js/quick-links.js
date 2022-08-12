@@ -117,7 +117,7 @@ class QuickLinks {
      */
     changingContents() {
         this.itemsClassChanger( '.quick-links .page-navigation__button', 'h4', 'p-large' );
-        this.itemsClassChanger( '.quick-links .form-select--selected', 'h4', 'p-large' );
+        this.itemsClassChanger( '.quick-links .select__selected', 'h4', 'p-large' );
 
         this.sidebarPaddingBottom();
     }

@@ -3,36 +3,28 @@ label,
   cursor: pointer;
 }
 
-.form {
-  &-select {
-    $this: &;
+.select {
+  $this: &;
 
-    width: 100%;
-    background-color: var(--off-white);
-    border-radius: 25px;
-    min-height: 4rem;
+  width: 100%;
+  background-color: var(--off-white);
+  border-radius: 25px;
+  min-height: 4rem;
+  position: relative;
+
+  &__selected {
+    height: 4rem;
+    display: flex;
+    padding-left: 2rem;
+    padding-top: 0.9rem;
     position: relative;
-
-    &--selected {
-      height: 4rem;
-      display: flex;
-      padding-left: 2rem;
-      padding-top: 0.9rem;
-      position: relative;
-      order: 0;
-      backface-visibility: hidden;
-      cursor: pointer;
-      color: var(--black);
-    }
+    order: 0;
+    backface-visibility: hidden;
+    cursor: pointer;
+    color: var(--black);
   }
 
-  &__product-detail {
-    background-color: var(--grey);
-    width: 100%;
-    padding: 4rem;
-  }
-
-  &-select-box {
+  &__box {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -40,46 +32,56 @@ label,
     background-color: var(--off-white);
     width: 100%;
 
-    .form-options-container {
-      transition: all 0.4s;
-      overflow: hidden;
-      max-height: 0;
-      opacity: 0;
-      order: 1;
-    }
-
-    .form-option {
-      padding: 0.6rem 2rem;
-      cursor: pointer;
-    }
-
-    .form-options-container.active {
-      max-height: 414px;
-      opacity: 1;
-      overflow-y: scroll;
-      margin-bottom: 3rem;
-      margin-top: 1rem;
+    #{$this}__options.active + #{$this}__selected {
+      #{$this}__arrow::before {
+        transform: scale(1, -1);
+      }
     }
 
     &--expand-on-top {
       bottom: 0;
 
-      .form-options-container {
+      #{$this}__options {
         order: 0;
       }
 
-      .form-options-container.active {
+      #{$this}.active {
         margin-bottom: 1rem;
         margin-top: 3rem;
       }
     }
   }
 
-  &-option:hover {
-    background-color: var(--silver-sand);
+  &__options {
+    transition: all 0.4s;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    order: 1;
   }
 
-  &-select--selected::before {
+  &__options.active {
+    max-height: 414px;
+    opacity: 1;
+    overflow-y: scroll;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+  }
+
+  &__option {
+    padding: 0.6rem 2rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--silver-sand);
+    }
+  }
+
+  &__arrow {
+    position: relative;
+  }
+
+  &__arrow::before {
     content: "";
     background: url("../assets/img/down-arrow.svg");
     background-size: contain;
@@ -87,15 +89,11 @@ label,
     position: absolute;
     height: 12px;
     width: 15px;
-    right: 2rem;
+    left: 1rem;
     top: 0;
-    bottom: 0;
+    bottom: -0.5rem;
     margin: auto 0;
     transition: all 0.4s;
-  }
-
-  &-select-box .form-options-container.active + &-select--selected::before {
-    transform: scale(1, -1);
   }
 }
 

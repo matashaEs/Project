@@ -99,10 +99,10 @@ $transition-time: 1s;
     margin-bottom: 2.5rem;
   }
 
-  .form-select {
+  .select {
     margin-bottom: 1.3rem;
 
-    &--selected {
+    &__selected {
       padding-top: 0.8rem;
     }
 
@@ -111,8 +111,10 @@ $transition-time: 1s;
     }
   }
 
-  .form-select-box .form-options-container.active {
-    max-height: 200px;
+  .select {
+    &__options.active {
+      max-height: 200px;
+    }
   }
 
   .radio {
@@ -142,8 +144,8 @@ $transition-time: 1s;
       font-size: 2.4rem;
     }
 
-    .form-select {
-      &--selected {
+    .select {
+      &__selected {
         padding-top: 1.2rem;
       }
     }

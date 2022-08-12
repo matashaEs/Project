@@ -8,3 +8,4 @@ import './js/form';
 import './js/quick-links';
 import './js/sidebar-and-content';
 import './js/share';
+import './js/news';

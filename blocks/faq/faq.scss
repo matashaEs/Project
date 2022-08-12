@@ -30,9 +30,11 @@
     position: relative;
     max-width: 920px;
 
-    .form-select-box,
-    .form-option {
-      cursor: default;
+    .select {
+      &__box,
+      &__option {
+        cursor: default;
+      }
     }
   }
 
