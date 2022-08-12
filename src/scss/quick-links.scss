@@ -188,14 +188,14 @@ $transition-time: 1s;
     &__group {
       margin-bottom: 6rem;
 
-      &:not(:only-child):last-child {
-        margin-bottom: 0;
-      }
-
       &:not(:first-child) {
         .page-navigation {
           margin-top: -4.7rem;
         }
+      }
+
+      &:not(:only-child):last-child {
+        margin-bottom: 0;
       }
     }
   }
