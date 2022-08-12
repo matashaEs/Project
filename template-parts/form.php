@@ -31,10 +31,18 @@ extract( $args );
 		target="_blank">
 	<div class="input-form">
 		<?php foreach ( $fields as $field ) : ?>
+			<?php if ( 'textarea' === $field['type'] ) : ?>
+				<textarea value="" name="<?= esc_attr( $field['name'] ) ?>"
+				id="<?= esc_attr( $field['id'] ) ?>" class="input <?= esc_attr( $field['classes'] ) ?>"
+				placeholder="<?= esc_attr( $field['placeholder'] ) ?>"></textarea>
+				<?php 
+		else :
+			?>
 			<input
 				type="<?= esc_attr( $field['type'] ) ?>" value="" name="<?= esc_attr( $field['name'] ) ?>"
 				id="<?= esc_attr( $field['id'] ) ?>" class="input <?= esc_attr( $field['classes'] ) ?>"
 				placeholder="<?= esc_attr( $field['placeholder'] ) ?>">
+		<?php endif; ?>
 		<?php endforeach; ?>
 	</div>
 	<input type="submit" name="<?= esc_attr( $button['name'] ) ?>" id="<?= esc_attr( $button['id'] ) ?>"

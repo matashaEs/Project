@@ -11,7 +11,7 @@ extract( $args );
 
 <div class="form-select">
 	<div class="form-select-box<?= ! empty( $expand_to_top ) ? esc_html( ' form-select-box--expand-on-top' ) : '' ?>">
-		<input type="hidden" name="<?= esc_attr( $name ) ?>">
+		<input type="hidden" name="<?= esc_attr( $name ) ?>" value="<?= esc_attr( $name ) ?>">
 		<div class="form-options-container">
 			<?php foreach ( $options as $option ) : ?>
 				<div class="form-option radio__container">
