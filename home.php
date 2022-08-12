@@ -1,4 +1,6 @@
 <?php
+get_header();
+
 $index       = 3;
 $news_events = [
 	[
@@ -127,7 +129,7 @@ $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : 'nie';
 					<div class="news__image-section">
 						<a href="<?= esc_url( $news_events[0]['link'] ) ?>" class="news__a">
 							<div class="news__image"
-								style="background-image: url(<?= esc_html( $news_events[0]['image'] ) ?>)"></div>
+							     style="background-image: url(<?= esc_html( $news_events[0]['image'] ) ?>)"></div>
 						</a>
 					</div>
 					<div class="news__content">
@@ -224,4 +226,4 @@ $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : 'nie';
 	</div>
 </div>
 
-
+<?php get_footer(); ?>
