@@ -82,9 +82,14 @@
 
 @include min-size(lg) {
   .overview-wide {
+    .breadcrumbs {
+      margin-top: 0;
+    }
+
     &__container {
       display: flex;
       flex-direction: row;
+      margin: 10rem 0;
     }
 
     &__share-mobile {
@@ -93,21 +98,19 @@
 
     &__image {
       min-height: 48rem;
-      height: 72%;
-      width: 100%;
+      height: 100%;
+      width: calc(50% + 3rem);
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
-      margin-top: 10rem;
-      margin-bottom: 10rem;
-      margin-right: -6rem;
+      margin: 0 -3rem 0 0;
     }
 
     &__content {
-      width: 60%;
+      width: 50%;
       order: -1;
       padding-right: 0;
-      padding-bottom: 10rem;
+      padding-bottom: 0;
     }
 
     &__description {
@@ -143,12 +146,8 @@
 @include min-size(xl) {
   .overview-wide {
     &__image {
-      margin-top: 10rem;
-      margin-bottom: 5rem;
-    }
-
-    &__content {
-      width: 50%;
+      width: calc(50% + 5rem);
+      margin-right: -5rem;
     }
 
     &__description {
@@ -160,14 +159,16 @@
 @include min-size(xxl) {
   .overview-wide {
     &__image {
-      height: 68%;
       min-height: 48rem;
-      margin-top: 10rem;
-      margin-bottom: 10rem;
-      margin-right: -7rem;
+      width: calc(65% + (100vw - 1728px) / 2 + 7rem);
+      margin-right: calc((1728px - 100vw) / 2 - 7rem);
     }
 
-    &__descroption {
+    &__content {
+      width: 35%;
+    }
+
+    &__description {
       width: 70%;
     }
   }
