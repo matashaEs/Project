@@ -28,16 +28,14 @@ extract( $args );
 			name="<?= esc_attr( $name ) ?>"
 		<?php endif; ?>
 		class="form <?= ! empty( $classes ) ? ' ' . esc_attr( $classes ) : ''?>"
-		target="_blank">
+		target="">
 	<div class="input-form">
 		<?php foreach ( $fields as $field ) : ?>
 			<?php if ( 'textarea' === $field['type'] ) : ?>
 				<textarea value="" name="<?= esc_attr( $field['name'] ) ?>"
 				id="<?= esc_attr( $field['id'] ) ?>" class="input <?= esc_attr( $field['classes'] ) ?>"
 				placeholder="<?= esc_attr( $field['placeholder'] ) ?>"></textarea>
-				<?php 
-		else :
-			?>
+			<?php else : ?>
 			<input
 				type="<?= esc_attr( $field['type'] ) ?>" value="" name="<?= esc_attr( $field['name'] ) ?>"
 				id="<?= esc_attr( $field['id'] ) ?>" class="input <?= esc_attr( $field['classes'] ) ?>"
