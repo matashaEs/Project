@@ -283,6 +283,10 @@ $transition-time: 1s;
       &:nth-child(odd) {
         justify-content: flex-end;
       }
+
+      &:last-child:nth-child(odd) {
+        margin-right: auto;
+      }
     }
 
     &__item {
