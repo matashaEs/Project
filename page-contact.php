@@ -28,7 +28,7 @@ $form           = [
 	'button' => [
 		'name'    => 'submit',
 		'id'      => 'buttonId',
-		'value'   => 'Contact',
+		'value'   => 'Request A Demo',
 		'classes' => 'p',
 	],
 ];
