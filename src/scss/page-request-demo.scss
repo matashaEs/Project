@@ -1,0 +1,52 @@
+.request-demo {
+  margin-bottom: 6rem;
+
+  .form-select, .form-select-box {
+    background-color: transparent;
+  }
+
+  .form-select {
+    border-bottom: 5px solid var(--off-white);
+    border-radius: 0;
+    padding-bottom: 4.5rem;
+
+    &--selected {
+      font-size: 1.6rem;
+    }
+  }
+
+  .form-options-container {
+    background-color: var(--off-white);
+  }
+}
+
+@include min-size(lg) {
+  .request-demo {
+    .breadcrumbs {
+      margin: 0;
+    }
+
+    &__form {
+      width: 50%;
+    }
+
+    &__container {
+      margin-top: 10rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .template-heading {
+        width: 40%;
+      }
+    }
+
+    &__input {
+      width: 49%;
+    }
+
+    .template-heading__content {
+      margin-top: 5rem;
+    }
+  }
+}
