@@ -12,6 +12,12 @@ label,
   min-height: 4rem;
   position: relative;
 
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   &__selected {
     height: 4rem;
     display: flex;

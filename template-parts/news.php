@@ -121,14 +121,6 @@ $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : 'nie';
 <div class="container-fluid news <?= $two_posts ?>">
 	<div class="container">
 		<?php get_template_part( 'template-parts/quick-links', null, $quick_links ); ?>
-<!--        <div class="news__top">-->
-<!--            <div class="news__title--main h1">Resources</div>-->
-<!--            <div class="news__selects">-->
-<!--				--><?php // foreach ( $group_of_selects as $select ) : ?>
-<!--                    -->
-<!--				--><?php // endforeach; ?>
-<!--            </div>-->
-<!--        </div>-->
 		<div class="row news__row">
 			<?php if ( ! empty( $news_events[0] ) ) : ?>
 				<div class="news__section">
