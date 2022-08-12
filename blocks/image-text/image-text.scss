@@ -145,6 +145,7 @@
     &__row {
       flex-direction: row-reverse;
       justify-content: space-between;
+      min-height: 415px;
 
       &--reverse#{$this}__row--reverse {
         flex-direction: row;

@@ -61,7 +61,7 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 											style="background-image: url('<?= esc_html( $background ); ?>');">
 										</div>
 										<?php if ( ! empty( $item ['category'] ) ) : ?>
-											<div class="button sidebar-and-content__item-category"
+											<div class="button p sidebar-and-content__item-category"
 												style="background: <?= esc_html( $item['category']['color'] ); ?>; border-color: <?= esc_html( $item['category']['color'] ); ?>">
 												<?= esc_html( $item ['category']['name'] ) ?>
 											</div>
