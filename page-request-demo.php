@@ -54,6 +54,9 @@ $form = [
 		'classes' => 'p',
 	],
 ];
+/**
+ * TODO: replace options to products
+ */
 
 $form_select = [
 	'options'        => [
