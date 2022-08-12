@@ -28,13 +28,13 @@ $form = [
 			'placeholder' => 'Email',
 		],
 		[
-			'type'        => 'company',
+			'type'        => 'text',
 			'name'        => 'Company',
 			'id'          => 'companyId',
 			'placeholder' => 'Company',
 		],
 		[
-			'type'        => 'address',
+			'type'        => 'text',
 			'name'        => 'Address',
 			'id'          => 'addressId',
 			'placeholder' => 'Address',
