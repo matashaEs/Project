@@ -56,7 +56,7 @@ $careers = [
 			<?php endif; ?>
 			<?php if ( ! empty( $link ) ) : ?>
 				<div class="row careers-scroll__row careers-scroll__row-button">
-					<a href="<?= esc_url( $link['url'] ) ?>" class="button careers-scroll__button">
+					<a href="<?= esc_url( $link['url'] ) ?>" class="button p careers-scroll__button">
 						<?= esc_html( $link['title'] ) ?>
 					</a>
 				</div>
