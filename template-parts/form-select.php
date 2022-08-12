@@ -29,8 +29,8 @@ extract( $args );
 		</div>
 		<div class="select__selected <?= ! empty( $button_classes ) ? esc_attr( $button_classes ) : '' ?>">
 			<div class="select__content">
-				<span><?= esc_html( $title ) ?></span>
-				<span class="select__arrow"></span>
+				<div><?= esc_html( $title ) ?></div>
+				<div class="select__arrow"></div>
 			</div>
 		</div>
 	</div>

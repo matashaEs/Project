@@ -232,6 +232,11 @@
 
       &__container {
         max-width: 65rem;
+        padding-top: 3rem;
+      }
+
+      &__title {
+        margin-bottom: 6rem;
       }
 
       &__group {
@@ -247,15 +252,21 @@
         flex-grow: 1;
 
         &__content {
-          display: flex;
-          height: 100%;
-          align-items: center;
+          justify-content: left;
         }
 
         &__selected {
           display: block;
           overflow: hidden;
           text-overflow: ellipsis;
+        }
+
+        &__options.active {
+          max-height: 100%;
+        }
+
+        &__arrow::before {
+          left: 1rem;
         }
 
         &:last-child {
@@ -306,6 +317,10 @@
       background: none;
       padding: 0;
       margin: 0;
+
+      &--top {
+        align-items: baseline;
+      }
     }
 
     &__section-two-news {

@@ -74,16 +74,6 @@ $news_events = [
 		'image'   => 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
 	],
 ];
-$breadcrumbs = [
-	[
-		'name' => __( 'Home', 'nuplo' ),
-		'url'  => get_home_url(),
-	],
-	[
-		'name' => __( 'Products', 'nuplo' ),
-		'url'  => '#',
-	],
-];
 
 $quick_links = [
 	'container_class' => 'news__sidebar',
