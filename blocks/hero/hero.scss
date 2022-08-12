@@ -62,6 +62,8 @@
 
     &__button-link {
       position: relative;
+      padding-right: 3.8rem;
+      padding-bottom: 1.2rem;
     }
 
     &__button-link::after {
@@ -69,8 +71,12 @@
       font-family: var(--font-aeonik-bold);
       content: "→";
       position: absolute;
-      top: 0.8rem;
-      right: 1.8rem;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      right: 2.4rem;
     }
   }
 }
