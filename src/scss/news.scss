@@ -291,14 +291,6 @@
       margin-top: 3.5rem;
     }
 
-    &__section {
-      padding-right: 1%;
-
-      &:nth-child(4n+2) {
-        padding-right: 0;
-      }
-    }
-
     &__title {
       margin-top: 2.5rem;
 
@@ -341,6 +333,11 @@
     &__section {
       display: flex;
       justify-content: space-between;
+      padding-right: 1%;
+
+      &:nth-child(4n+2) {
+        padding-right: 0;
+      }
 
       &:first-of-type {
         width: 76%;

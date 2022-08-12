@@ -109,9 +109,7 @@ $transition-time: 1s;
     &:last-child {
       margin-bottom: 0;
     }
-  }
 
-  .select {
     &__options.active {
       max-height: 200px;
     }

@@ -118,21 +118,21 @@ $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : 'nie';
 
 ?>
 
-<div class="container-fluid news <?= $two_posts ?>">
+<div class="container-fluid news <?= esc_html( $two_posts ) ?>">
 	<div class="container">
 		<?php get_template_part( 'template-parts/quick-links', null, $quick_links ); ?>
 		<div class="row news__row">
 			<?php if ( ! empty( $news_events[0] ) ) : ?>
 				<div class="news__section">
 					<div class="news__image-section">
-						<a href="<?= $news_events[0]['link'] ?>" class="news__a">
+						<a href="<?= esc_url( $news_events[0]['link'] ) ?>" class="news__a">
 							<div class="news__image"
-								 style="background-image: url(<?= $news_events[0]['image'] ?>)"></div>
+								style="background-image: url(<?= esc_html( $news_events[0]['image'] ) ?>)"></div>
 						</a>
 					</div>
 					<div class="news__content">
 						<div class="news__content--top">
-							<div class="news__date p"><?= $news_events[0]['date'] ?></div>
+							<div class="news__date p"><?= esc_html( $news_events[0]['date'] ) ?></div>
 							<div class="news__categories">
 								<div class="news__category news__category--dark-pink"></div>
 								<div class="news__category news__category--erp"></div>
@@ -140,10 +140,10 @@ $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : 'nie';
 								<div class="news__category news__category--light-pink"></div>
 							</div>
 						</div>
-						<div class="h4 news__title news__title--first"><?= $news_events[0]['title'] ?></div>
-						<div class="p news__text"><?= $news_events[0]['content'] ?></div>
+						<div class="h4 news__title news__title--first"><?= esc_html( $news_events[0]['title'] ) ?></div>
+						<div class="p news__text"><?= esc_html( $news_events[0]['content'] ) ?></div>
 						<?php if ( ! empty( $news_events[0]['link'] ) ) : ?>
-							<a href="<?= $news_events[0]['link'] ?>" class="news__a">
+							<a href="<?= esc_url( $news_events[0]['link'] ) ?>" class="news__a">
 								<div class="news__read-more">
 									<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
 								</div>
@@ -156,15 +156,15 @@ $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : 'nie';
 				<?php if ( ! empty( $news_events[1] ) ) : ?>
 					<div class="news__content">
 						<div class="news__content--top">
-							<div class="news__date p"><?= $news_events[1]['date'] ?></div>
+							<div class="news__date p"><?= esc_html( $news_events[1]['date'] ) ?></div>
 							<div class="news__categories">
 								<div class="news__category news__category--light-pink"></div>
 							</div>
 						</div>
-						<div class="h4 news__title"><?= $news_events[1]['title'] ?></div>
-						<div class="p news__text"><?= $news_events[1]['content'] ?></div>
+						<div class="h4 news__title"><?= esc_html( $news_events[1]['title'] ) ?></div>
+						<div class="p news__text"><?= esc_html( $news_events[1]['content'] ) ?></div>
 						<?php if ( ! empty( $news_events[1]['link'] ) ) : ?>
-							<a href="<?= $news_events[1]['link'] ?>" class="news__a">
+							<a href="<?= esc_url( $news_events[1]['link'] )?>" class="news__a">
 								<div class="news__read-more">
 									<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
 								</div>
@@ -175,15 +175,15 @@ $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : 'nie';
 				<?php if ( ! empty( $news_events[2] ) ) : ?>
 					<div class="news__content">
 						<div class="news__content--top">
-							<div class="news__date p"><?= $news_events[2]['date'] ?></div>
+							<div class="news__date p"><?= esc_html( $news_events[2]['date'] ) ?></div>
 							<div class="news__categories">
 								<div class="news__category news__category--wms"></div>
 							</div>
 						</div>
-						<div class="h4 news__title"><?= $news_events[2]['title'] ?></div>
-						<div class="p news__text"><?= $news_events[2]['content'] ?></div>
+						<div class="h4 news__title"><?= esc_html( $news_events[2]['title'] ) ?></div>
+						<div class="p news__text"><?= esc_html( $news_events[2]['content'] ) ?></div>
 						<?php if ( ! empty( $news_events[2]['link'] ) ) : ?>
-							<a href="<?= $news_events[2]['link'] ?>" class="news__a">
+							<a href="<?= esc_url( $news_events[2]['link'] ) ?>" class="news__a">
 								<div class="news__read-more">
 									<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
 								</div>
@@ -197,20 +197,20 @@ $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : 'nie';
 
 					<div class="news__section news__section--small">
 						<div class="news__image-section">
-							<div class="news__image" style="background-image: url(<?= $news['image'] ?>)">
+							<div class="news__image" style="background-image: url(<?= esc_html( $news['image'] )?>)">
 							</div>
 						</div>
 						<div class="news__content">
 							<div class="news__content--top">
-								<div class="news__date p"><?= $news['date'] ?></div>
+								<div class="news__date p"><?= esc_html( $news['date'] ) ?></div>
 								<div class="news__categories">
 									<div class="news__category news__category--green"></div>
 									<div class="news__category news__category--yellow"></div>
 								</div>
 							</div>
-							<div class="h4 news__title"><?= $news['title'] ?></div>
+							<div class="h4 news__title"><?= esc_html( $news['title'] ) ?></div>
 							<?php if ( ! empty( $news['link'] ) ) : ?>
-								<a href="<?= $news['link'] ?>" class="news__a">
+								<a href="<?= esc_url( $news['link'] ) ?>" class="news__a">
 									<div class="news__read-more">
 										<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
 									</div>

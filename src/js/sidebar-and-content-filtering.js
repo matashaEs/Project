@@ -25,8 +25,8 @@ class SidebarAndContentFiltering {
      */
     productIndustryChanged( e ) {
 
-        // console.log( 'product industry' );
-        // console.log( $( e.target ).val() );
+        console.log( 'product industry' );
+        console.log( $( e.target ).val() );
     }
 
     /**
