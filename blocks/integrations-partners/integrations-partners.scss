@@ -191,6 +191,10 @@
       &__row {
         width: auto;
 
+        &-content {
+          width: 100%;
+        }
+
         &-button {
           &--narrow {
             display: block;
