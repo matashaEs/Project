@@ -27,9 +27,9 @@ $data_to_display = [
 					],
 					[
 						'type'        => 'telephone',
-						'name'        => 'Telephone',
-						'id'          => 'telephoneId',
-						'placeholder' => 'Telephone',
+						'name'        => 'Phone',
+						'id'          => 'phoneId',
+						'placeholder' => 'Phone',
 					],
 				],
 				'button' => [
