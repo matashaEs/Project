@@ -1,0 +1,21 @@
+@import "../../src/scss/for-blocks";
+
+.quick-links {
+
+}
+
+@include min-size(md) {
+  .quick-links {
+  }
+}
+
+@include min-size(lg) {
+  .quick-links {
+
+  }
+}
+
+@include min-size(xl) {
+  .quick-links {
+  }
+}

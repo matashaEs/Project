@@ -181,7 +181,7 @@ $transition-time: 1s;
     &__group {
       margin-bottom: 6rem;
 
-      &:last-child {
+      &:not(:only-child):last-child {
         margin-bottom: 0;
       }
     }
