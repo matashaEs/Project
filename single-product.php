@@ -9,6 +9,36 @@ $data_to_display = [
 			'navigation' => [
 				'navigation_links' => apply_filters( 'cai_get_product_page_menu', get_the_ID() ),
 			],
+			'form'       => [
+				'id'     => 'formId',
+				'name'   => 'formName',
+				'fields' => [
+					[
+						'type'        => 'text',
+						'name'        => 'Name',
+						'id'          => 'nameId',
+						'placeholder' => 'Name',
+					],
+					[
+						'type'        => 'email',
+						'name'        => 'Email',
+						'id'          => 'emailId',
+						'placeholder' => 'Email',
+					],
+					[
+						'type'        => 'telephone',
+						'name'        => 'Telephone',
+						'id'          => 'telephoneId',
+						'placeholder' => 'Telephone',
+					],
+				],
+				'button' => [
+					'name'    => 'buttonName',
+					'id'      => 'buttonId',
+					'value'   => 'val',
+					'classes' => 'p',
+				],
+			],
 		],
 	],
 	'breadcrumbs'  => [
