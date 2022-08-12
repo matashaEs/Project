@@ -239,8 +239,13 @@
         margin-bottom: 0;
       }
 
+      &__title {
+        margin-left: 0;
+      }
+
       .breadcrumbs {
         width: 100%;
+        margin-left: 0;
       }
 
       .select {
@@ -306,6 +311,10 @@
       background: none;
       padding: 0;
       margin: 0;
+
+      &--top {
+        align-items: baseline;
+      }
     }
 
     &__section-two-news {
