@@ -1,7 +1,8 @@
 .request-demo {
   margin-bottom: 6rem;
 
-  .form-select, .form-select-box {
+  .form-select,
+  .form-select-box {
     background-color: transparent;
   }
 
@@ -45,8 +46,10 @@
       width: 49%;
     }
 
-    .template-heading__content {
-      margin-top: 5rem;
+    .template-heading {
+      &__content {
+        margin-top: 5rem;
+      }
     }
   }
 }

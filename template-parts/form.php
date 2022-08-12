@@ -31,7 +31,7 @@ extract( $args );
 		target="_blank">
 	<div class="input-form">
 		<?php foreach ( $fields as $field ) : ?>
-			<?php if ( 'input--message' === $field['classes'] ) : ?>
+			<?php if ( 'textarea' === $field['type'] ) : ?>
 				<textarea value="" name="<?= esc_attr( $field['name'] ) ?>"
 				id="<?= esc_attr( $field['id'] ) ?>" class="input <?= esc_attr( $field['classes'] ) ?>"
 				placeholder="<?= esc_attr( $field['placeholder'] ) ?>"></textarea>

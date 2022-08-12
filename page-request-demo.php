@@ -12,14 +12,14 @@ $form = [
 			'name'        => 'Name',
 			'id'          => 'nameId',
 			'placeholder' => 'Name',
-            'classes'     => 'request-demo__input',
+			'classes'     => 'request-demo__input',
 		],
 		[
 			'type'        => 'phone',
 			'name'        => 'Phone',
 			'id'          => 'phoneId',
 			'placeholder' => 'Phone',
-            'classes'     => 'request-demo__input',
+			'classes'     => 'request-demo__input',
 		],
 		[
 			'type'        => 'email',
@@ -40,7 +40,7 @@ $form = [
 			'placeholder' => 'Address',
 		],
 		[
-			'type'        => 'message',
+			'type'        => 'textarea',
 			'name'        => 'Message',
 			'id'          => 'messageId',
 			'placeholder' => 'Message',
