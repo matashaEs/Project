@@ -16,7 +16,13 @@ if ( ! empty( $args ) ) {
 
 <div class="quick-links <?= ! empty( $container_class ) ? esc_html( $container_class ) : ''?>">
 
-	<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
+	<?php
+	if ( ! empty( $breadcrumbs ) ) :
+		get_template_part( 'template-parts/breadcrumbs', null, $breadcrumbs );
+	else :
+		get_template_part( 'template-parts/breadcrumbs' );
+endif;
+	?>
 
 	<?php if ( ! empty( $title ) ) : ?>
 		<h1 class="quick-links__title"><?= esc_html( $title ) ?></h1>

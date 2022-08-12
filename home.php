@@ -74,43 +74,19 @@ $news_events = [
 		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
 	],
 ];
-$breadcrumbs = [
-	[
-		'name' => __( 'Home', 'nuplo' ),
-		'url'  => get_home_url(),
-	],
-	[
-		'name' => __( 'Products', 'nuplo' ),
-		'url'  => '#',
-	],
-];
+
 
 $quick_links = [
 	'container_class' => 'news__sidebar',
 	'title'           => __( 'Resources', 'nuplo' ),
-	'sidebar'         => [
-		'mobileName' => __( 'Filters', 'nuplo' ),
-		'blocks'     => [
-			'selects' => [
-				[
-					'title'          => __( 'Industry', 'nuplo' ),
-					'name'           => 'industry',
-					'options'        => apply_filters( 'cai_get_industries', null ),
-					'button_classes' => 'button button--off-white news__button',
-				],
-				[
-					'title'          => 'Product',
-					'name'           => 'product',
-					'options'        => apply_filters( 'cai_get_products_category', null ),
-					'button_classes' => 'button button--off-white news__button',
-				],
-				[
-					'title'          => 'Content Type',
-					'name'           => 'contentType',
-					'options'        => apply_filters( 'cai_get_products_category', null ),
-					'button_classes' => 'button button--off-white news__button',
-				],
-			],
+	'breadcrumbs'     => [
+		[
+			'name' => __( 'Home', 'nuplo' ),
+			'url'  => get_home_url(),
+		],
+		[
+			'name' => __( 'Resources', 'nuplo' ),
+			'url'  => '#',
 		],
 	],
 ];
@@ -122,6 +98,7 @@ $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : 'nie';
 
 <div class="container-fluid news <?= esc_html( $two_posts ) ?>">
 	<div class="container">
+		<?php get_template_part( 'template-parts/quick-links', null, $quick_links ); ?>
 		<div class="row news__row">
 			<?php if ( ! empty( $news_events[0] ) ) : ?>
 				<div class="news__section">
