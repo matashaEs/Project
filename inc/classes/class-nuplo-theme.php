@@ -6,6 +6,7 @@ require_once 'class-ajax.php';
 require_once 'class-menu.php';
 require_once 'class-assets.php';
 require_once 'class-translation.php';
+require_once 'block-render.php';
 
 /**
  * Theme bootstrap
