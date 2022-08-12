@@ -1,23 +1,24 @@
 @import "../../src/scss/for-blocks";
 
 .cai-map {
-  height: 215px;
+  flex: 1;
+  min-height: 215px;
 }
 
 @include min-size(md) {
   .cai-map {
-    height: 315px;
+    min-height: 315px;
   }
 }
 
 @include min-size(lg) {
   .cai-map {
-    height: 415px;
+    min-height: 415px;
   }
 }
 
 @include min-size(xl) {
   .cai-map {
-    height: 490px;
+    min-height: 490px;
   }
 }
