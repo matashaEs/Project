@@ -14,11 +14,9 @@ class RecentProductProject {
             slidesToShow: 1,
             slidesToScroll: 1,
             arrows: false,
-
-            // variableWidth: true,
             dots: true,
             centerMode: false,
-            autoplay: false,
+            autoplay: true,
             autoplaySpeed: 2000,
             pauseOnFocus: false,
         });
