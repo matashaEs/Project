@@ -44,8 +44,7 @@ class CareersScroll {
 				variableWidth: true,
 				dots: true,
 				centerMode: true,
-
-				// autoplay: true,
+				autoplay: true,
 				autoplaySpeed: 2000,
 				pauseOnFocus: false,
 			};
@@ -57,7 +56,7 @@ class CareersScroll {
 			/**
 			 * vertical scrolling additional configuration
 			 */
-			if ( 1023 < window.innerWidth ) {
+			if ( 1199 < window.innerWidth ) {
 				slickConf.vertical = true;
 				slickConf.verticalSwiping = true;
 				slickConf.variableWidth = false;
