@@ -46,7 +46,7 @@
     padding-bottom: 4.5rem;
 
     &__item#{$this}__item#{$this}__item#{$this}__item#{$this}__item#{$this}__item#{$this}__item {
-      width: 70vw;
+      width: 100%;
       background-color: var(--grey);
     }
   }
@@ -94,7 +94,12 @@
     }
 
     .slick-track {
-      display: block;
+      //display: block;
+      flex-direction: column;
+    }
+
+    .slick-slide {
+      height: max-content;
     }
 
     .slick-dots {

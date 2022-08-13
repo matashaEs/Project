@@ -13,35 +13,7 @@ if ( ! empty( $block['id'] ) ) {
 	extract( $block['data'] );
 }
 
-/*
- * TODO replace with integration
-*/
-$careers = [
-	[
-		'title'       => 'Lorem Ipsum1',
-		'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-		                  ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-		                  laboris nisi ut aliquip ex ea commodo consequat.',
-	],
-	[
-		'title'       => 'Lorem Ipsum2',
-		'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-		                  ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-		                  laboris nisi ut aliquip ex ea commodo consequat.',
-	],
-	[
-		'title'       => 'Lorem Ipsum3',
-		'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-		                  ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-		                  laboris nisi ut aliquip ex ea commodo consequat.',
-	],
-	[
-		'title'       => 'Lorem Ipsum4',
-		'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-		                  ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-		                  laboris nisi ut aliquip ex ea commodo consequat.',
-	],
-];
+$careers = apply_filters( 'cai_get_all_job_offers', null );
 
 ?>
 
@@ -63,16 +35,22 @@ $careers = [
 			<?php endif; ?>
 		</div>
 		<div class="row careers-scroll__row careers-scroll__row-content">
-			<?php foreach ( $careers as $career ) : ?>
-				<div class="careers-scroll__item modular__item--mobile">
-					<?php if ( ! empty( $career['title'] ) ) : ?>
-						<div class="careers-scroll__item-title"><?= esc_html( $career['title'] ); ?></div>
+			<?php if ( ! empty( $link ) ) : ?>
+				<?php foreach ( $careers as $career ) : ?>
+					<?php if ( ! empty( $career ) ) : ?>
+						<div class="careers-scroll__item modular__item--mobile">
+							<?php if ( ! empty( $career['name'] ) ) : ?>
+								<div class="careers-scroll__item-title"><?= esc_html( $career['name'] ); ?></div>
+							<?php endif; ?>
+							<?php if ( ! empty( $career['description'] ) ) : ?>
+								<div class="careers-scroll__item-description"><?= esc_html( $career['description'] ); ?></div>
+							<?php endif; ?>
+						</div>
 					<?php endif; ?>
-					<?php if ( ! empty( $career['description'] ) ) : ?>
-						<div class="careers-scroll__item-description"><?= esc_html( $career['description'] ); ?></div>
-					<?php endif; ?>
-				</div>
-			<?php endforeach; ?>
+				<?php endforeach; ?>
+			<?php else : ?>
+				<?= esc_html( __( 'Sorry, no job offers for now', 'nuplo' ) ) ?>
+			<?php endif; ?>
 		</div>
 	</div>
 </section>

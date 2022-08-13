@@ -44,7 +44,8 @@ class CareersScroll {
 				variableWidth: true,
 				dots: true,
 				centerMode: true,
-				autoplay: true,
+
+				// autoplay: true,
 				autoplaySpeed: 2000,
 				pauseOnFocus: false,
 			};
@@ -60,7 +61,16 @@ class CareersScroll {
 				slickConf.vertical = true;
 				slickConf.verticalSwiping = true;
 				slickConf.variableWidth = false;
-			}
+				slickConf.centerMode = true;
+				slickConf.adaptiveHeight = true;
+
+                let maxHeight = Math.max.apply( null, items.map( function() {
+					console.log( $( this ).height() );
+                    return $( this ).height();
+                }).get() );
+
+                items.height( maxHeight );
+            }
 
 			$( this ).slick( slickConf );
 		});
