@@ -15,8 +15,10 @@
     width: 100%;
   }
 
-  .select__options.active.select__options.active {
-    overflow-y: hidden;
+  .select {
+    &__options.active {
+      overflow-y: hidden;
+    }
   }
 
   &__option:hover {
