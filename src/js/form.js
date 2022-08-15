@@ -33,7 +33,7 @@ class Form {
             this.optionsContainer.addClass( 'active' );
             if ( 1023 < window.innerWidth ) {
                 this.optionsContainer.css({'maxHeight': ''});
-            } else  {
+            } else {
                 const selectHeight = window.innerHeight - this.parent.offset().top - window.scrollY - 160;
                 this.optionsContainer.css({'maxHeight': `${selectHeight}px`});
             }
