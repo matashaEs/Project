@@ -14,18 +14,19 @@ if ( ! empty( $block['id'] ) ) {
 } else {
 	extract( $block['data'] );
 }
+$heading_background_color = '';
 
 if ( 'modular--off-white' == $background_color ) {
-	$heading_background_color = '--off-white';
+	$heading_background_color = ' product-area__container--off-white';
 }
 
 if ( 'modular--white' == $background_color ) {
-	$heading_background_color = '--white';
+	$heading_background_color = ' product-area__container--white';
 }
 ?>
 
 <section class="container-fluid product-area">
-	<div class="container product-area__container product-area__container<?= esc_html( $heading_background_color ) ?>">
+	<div class="container product-area__container<?= esc_html( $heading_background_color ) ?>">
 		<div class="product-area__heading">
 			<div class="product-area__heading-name">
 			<?php if ( ! empty( $icon ) ) : ?>

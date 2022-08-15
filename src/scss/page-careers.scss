@@ -1,0 +1,148 @@
+.page-careers {
+  &__container {
+    padding-bottom: 5rem;
+  }
+
+  .template-heading {
+    &__title {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .input {
+    padding-left: 0.5rem;
+  }
+
+  textarea {
+    resize: none;
+    width: 100%;
+    height: 150px;
+    padding-top: 20px;
+  }
+
+  &__no-offers {
+    margin: 5rem 0;
+  }
+
+  &__form-container {
+    margin-bottom: 5rem;
+  }
+
+  &__career {
+    margin-bottom: 10rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &-date {
+      margin-bottom: 3.5rem;
+    }
+
+    &-name {
+      margin-bottom: 3rem;
+    }
+
+    &-description {
+      margin-bottom: 4.5rem;
+    }
+
+    &-option {
+      position: relative;
+      padding: 0 0 1.5rem;
+      text-transform: capitalize;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        width: 1.5px;
+        height: 17px;
+        top: 0;
+        right: 10px;
+        background: var(--black);
+      }
+
+      &::after {
+        transform: rotate(90deg);
+      }
+
+      &::before {
+        transition: all 0.2s ease-in;
+      }
+
+      &--no-content {
+        &:hover {
+          cursor: default;
+        }
+
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+
+      &--show::before {
+        transform: scale(0);
+      }
+    }
+  }
+
+  &__option {
+    &-description-container {
+      max-height: 0;
+      cursor: initial;
+      text-transform: none;
+      overflow: hidden;
+      transition: max-height 1s ease-in-out;
+    }
+
+    &-description {
+      margin-top: 2rem;
+      margin-bottom: 3.5rem;
+    }
+  }
+}
+
+@include min-size(lg) {
+  .page-careers {
+    .breadcrumbs {
+      margin-top: 0;
+    }
+
+    .template-heading {
+      &__title {
+        margin-bottom: 5rem;
+      }
+    }
+
+    &__container {
+      padding-top: 10rem;
+      height: 800px;
+      min-height: calc(100vh - 70px - 458px);
+      padding-bottom: 10rem;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+    }
+
+    &__col {
+      width: 45%;
+      max-width: 650px;
+    }
+
+    &__form-container {
+      margin-bottom: 0;
+    }
+
+    &__careers-list {
+      padding-right: 1rem;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+  }
+}

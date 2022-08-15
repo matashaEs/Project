@@ -9,12 +9,11 @@ if ( have_rows( 'header_dropdown_menu', 'option' ) ) :
 	endwhile;
 endif;
 
-$container_class = ( is_single() && 'product' == get_post_type() ) || ( is_page( [ 'industry', 'products' ] ) ) ? ' nav__container--wide' : '';
 ?>
 
 <header class="nav">
 	<div class="container-fluid nav__fluid">
-		<div class="container nav__container<?= esc_html( $container_class ) ?>">
+		<div class="container nav__container">
 			<div class="nav__mobile">
 				<div class="nav__open">
 					<a href="<?= esc_url( get_home_url() ); ?>" class="nav-logo">

@@ -133,7 +133,7 @@
   }
 
   .sidebar-and-content {
-    &__content-container .testimonials {
+    &__content-container .testimonials .container {
       padding-right: 0;
     }
   }
@@ -141,7 +141,7 @@
 
 @include min-size(xl) {
   .sidebar-and-content {
-    &__content-container .testimonials {
+    &__content-container .testimonials .container {
       padding-right: 0;
     }
   }

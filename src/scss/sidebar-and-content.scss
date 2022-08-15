@@ -31,13 +31,17 @@ $transition-time: 1s;
     }
   }
 
+  &__item-container {
+    margin-bottom: 4.5rem;
+  }
+
   &__item {
     display: flex;
     flex-direction: column;
     text-decoration: none;
     position: relative;
-    margin-bottom: 4.5rem;
     color: var(--black);
+    max-width: 460px;
 
     &:hover {
       #{$this}__item-image {
@@ -69,6 +73,7 @@ $transition-time: 1s;
   &__item-category {
     z-index: 2;
     margin: 1.2rem 1.2rem 0 0;
+    padding: 0.5rem 2.2rem 0.6rem;
   }
 
   &__item-title {
@@ -85,6 +90,7 @@ $transition-time: 1s;
   &__content-container {
     .container-fluid {
       width: 100%;
+      scroll-margin-top: 7rem;
     }
 
     .container.container {
@@ -105,7 +111,7 @@ $transition-time: 1s;
       justify-content: space-between;
     }
 
-    &__item {
+    &__item-container {
       width: 48%;
 
       &:nth-last-child(-n+2) {
@@ -160,12 +166,15 @@ $transition-time: 1s;
           margin-bottom: 5.5rem;
         }
       }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     &__content {
       width: 55%;
       padding: 16rem 3rem;
-      scroll-behavior: smooth;
 
       &--the-content {
         padding: 0;
@@ -188,7 +197,7 @@ $transition-time: 1s;
       z-index: -1;
     }
 
-    &__item {
+    &__item-container {
       width: 100%;
       margin-bottom: 7.5rem;
 
@@ -208,15 +217,6 @@ $transition-time: 1s;
 
     &__content-container {
       flex-flow: column nowrap;
-
-      .container-fluid,
-      section {
-        padding-right: 3rem;
-      }
-
-      .container {
-        padding-right: 0;
-      }
     }
   }
 }
@@ -237,9 +237,8 @@ $transition-time: 1s;
       width: calc(2rem + 100% * $sidebar-width);
     }
 
-    &__item {
+    &__item-container {
       width: 49%;
-      max-width: unset;
 
       &:nth-child(odd) {
         margin-right: 2%;
@@ -252,28 +251,22 @@ $transition-time: 1s;
 
     &__content-container {
       flex-flow: row wrap;
-      justify-content: flex-start;
-
-      .container-fluid,
-      section {
-        padding-right: 5rem;
-        padding-left: 5rem;
-      }
+      justify-content: center;
     }
   }
 }
 
 @include min-size(xxl) {
   .sidebar-and-content {
-    $side-padding: calc((100vw - 1588px) / 2);
-
     &__container {
       justify-content: flex-start;
       padding-left: 7rem;
     }
 
     &__sidebar {
-      width: 536px;
+      width: 28vw;
+      padding-right: 0;
+      margin-right: 5.5rem;
     }
 
     &__content {
@@ -288,50 +281,59 @@ $transition-time: 1s;
       }
     }
 
-    &__content-container {
-      .container-fluid,
-      section {
-        padding-right: $side-padding;
-        padding-left: 13rem;
+    &__item-container {
+      width: 49%;
+      display: flex;
+
+      &:nth-child(odd) {
+        justify-content: flex-end;
       }
 
-      .container {
-        padding-left: 0;
+      &:last-child:nth-child(odd) {
+        margin-right: auto;
       }
     }
 
+    &__item {
+      width: 460px;
+    }
+
+    &__content-container .container {
+      padding-left: 13rem;
+      padding-right: calc((100vw - 1588px) / 2);
+    }
+
     &__sidebar-bg {
-      width: 606px;
+      width: calc(28vw + 12.5rem);
     }
   }
 }
 
 @include min-size(full) {
   .sidebar-and-content {
-    $side-padding: calc((100vw - 1780px) / 2);
-
     &__container {
-      padding-left: $side-padding;
+      padding-left: 10rem;
       justify-content: flex-start;
     }
 
-    &__content {
-      padding-right: $side-padding;
-
-      &--the-content {
-        padding-right: 0;
-      }
+    &__sidebar {
+      width: 24.5vw;
+      padding-right: 0;
+      margin-right: 15rem;
     }
 
-    &__content-container {
-      .container-fluid,
-      section {
-        padding-right: $side-padding;
-      }
+    &__content {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    &__content-container .container {
+      padding-left: 36.4rem;
+      padding-right: 15.7vw;
     }
 
     &__sidebar-bg {
-      width: calc((100vw - 1920px) / 2 + 606px);
+      width: calc(24.5vw + 25rem);
     }
   }
 }

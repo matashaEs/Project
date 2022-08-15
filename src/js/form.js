@@ -24,12 +24,19 @@ class Form {
 
         $this.parent = $( e.target.closest( '.select__box' ) );
         $this.optionsContainer = this.parent.find( '.select__options' );
+        this.optionsContainer.css({'maxHeight': ''});
 
         if ( this.optionsContainer.hasClass( 'active' ) ) {
             this.optionsContainer.removeClass( 'active' );
         } else {
             $( '.select__options' ).removeClass( 'active' );
             this.optionsContainer.addClass( 'active' );
+            if ( 1023 < window.innerWidth ) {
+                this.optionsContainer.css({'maxHeight': ''});
+            } else  {
+                const selectHeight = window.innerHeight - this.parent.offset().top - window.scrollY - 160;
+                this.optionsContainer.css({'maxHeight': `${selectHeight}px`});
+            }
         }
     }
 

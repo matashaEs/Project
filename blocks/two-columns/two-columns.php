@@ -43,10 +43,12 @@ if ( ! empty( $block['id'] ) ) {
 										<?php if ( ! empty( $content['title'] ) ) : ?>
 											<?= esc_html( $content['title'] ) ?>
 										<?php endif; ?>
-										<div class="two-columns__close">
-											<div class="two-columns__line two-columns__line--vertical two-columns__line--vertical--show"></div>
-											<div class="two-columns__line"></div>
-										</div>
+										<?php if ( ! empty( $content['description'] ) ) : ?>
+											<div class="two-columns__close">
+												<div class="two-columns__line two-columns__line--vertical two-columns__line--vertical--show"></div>
+												<div class="two-columns__line"></div>
+											</div>
+										<?php endif; ?>
 									</div>
 									<?php if ( ! empty( $content['description'] ) ) : ?>
 										<div class="p two-columns__column-description"><?= esc_html( $content['description'] ) ?></div>

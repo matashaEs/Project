@@ -89,6 +89,12 @@ $transition-time: 1s;
     &:last-child {
       margin-bottom: 4rem;
     }
+
+    &:not(:first-child) {
+      .page-navigation {
+        margin-top: -1.1rem;
+      }
+    }
   }
 
   &__title {
@@ -118,6 +124,7 @@ $transition-time: 1s;
   .radio {
     &__container {
       margin-left: 0;
+      //margin-bottom: 2rem;
 
       &:last-child {
         margin-bottom: 0;
@@ -125,8 +132,10 @@ $transition-time: 1s;
     }
   }
 
-  .page-navigation {
-    margin-top: -1.1rem;
+  .select .radio {
+    &__container {
+      margin-left: 0;
+    }
   }
 }
 
@@ -180,13 +189,15 @@ $transition-time: 1s;
     &__group {
       margin-bottom: 6rem;
 
-      &:last-child {
+      &:not(:first-child) {
+        .page-navigation {
+          margin-top: -4.7rem;
+        }
+      }
+
+      &:not(:only-child):last-child {
         margin-bottom: 0;
       }
-    }
-
-    .page-navigation {
-      margin-top: -4.7rem;
     }
   }
 }

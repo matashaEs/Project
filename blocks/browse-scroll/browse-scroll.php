@@ -15,7 +15,7 @@ if ( 'industry' === $browse_by ) {
 } else {
 	$list_title   = __( 'Browse by Product', 'nuplo' );
 	$items        = apply_filters( 'cai_get_products_category', null );
-	$category_url = apply_filters( 'cai_get_product_category_url', null );
+	$category_url = apply_filters( 'cai_browse_by_product_url', null );
 }
 
 $section_classes  = ! empty( $is_mobile_bg ) ? ' browse-scroll--mobile-bg' : '';

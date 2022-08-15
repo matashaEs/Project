@@ -4,6 +4,10 @@
 
   &-desktop {
     display: none;
+
+    .container {
+      max-width: unset;
+    }
   }
 
   a {
@@ -157,6 +161,15 @@
   .footer {
     &__social-media {
       margin-right: 20%;
+    }
+  }
+}
+
+@include min-size(full) {
+  .footer-desktop {
+    .container {
+      padding-right: 10rem;
+      padding-left: 10rem;
     }
   }
 }

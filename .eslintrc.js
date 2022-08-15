@@ -30,6 +30,7 @@ module.exports = {
 	globals: {
 		wp: true,
 		jQuery: true,
+		google: true,
 		websiteData: true
 	}
 };

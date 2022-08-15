@@ -9,6 +9,8 @@ class Assets {
 		add_action( 'wp_enqueue_scripts', [ $this, 'add_js' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'localize_scripts' ] );
 		add_action( 'wp_default_scripts', [ $this, 'delete_jquery_migrate' ] );
+		add_filter( 'script_loader_tag', [ $this, 'add_defer' ], 10, 2 );
+
 		$this->delete_not_required_stuff();
 	}
 
@@ -91,5 +93,33 @@ class Assets {
 			wp_get_theme()->get( 'Version' ),
 			true
 		);
+
+		$google_maps = get_field( 'google_maps', 'options' ) ?? false;
+		if ( ! empty( $google_maps ) ) {
+			$google_maps_api_key = $google_maps['google_maps_api_key'];
+			wp_enqueue_script(
+				'google_maps',
+				'https://maps.googleapis.com/maps/api/js?key=' . $google_maps_api_key . '&callback=initMap',
+				[],
+				wp_get_theme()->get( 'Version' ),
+				true
+			);
+		}
+	}
+
+	/**
+	 * Load Google Maps when the full HTML document has been parsed
+	 *
+	 * @param string $tag The <script> tag for the enqueued script.
+	 * @param string $handle The script's registered handle.
+	 *
+	 * @return string
+	 */
+	function add_defer( string $tag, string $handle ) {
+		if ( 'google_maps' !== $handle ) {
+			return $tag;
+		}
+
+		return str_replace( ' src=', ' defer src=', $tag );
 	}
 }
