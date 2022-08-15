@@ -19,8 +19,7 @@ if ( ! empty( $block['id'] ) ) {
 ?>
 
 
-<section
-		class="container-fluid two-columns modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : '' ?>">
+<section class="container-fluid two-columns modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : '' ?>">
 	<div class="container two-columns__container">
 		<div class="two-columns__columns">
 			<?php foreach ( $columns as $column ) : ?>
