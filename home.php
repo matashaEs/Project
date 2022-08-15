@@ -6,18 +6,73 @@ $news_events = [
 	[
 		'date'    => 'January 11, 2022',
 		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
-		'link'    => 'https://www.google.com/',
+		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
 		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
-		'image'   => 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
 	],
 	[
-		'date'    => 'January11, 2022',
-		'title'   => 'ShopVue MES Now Available in the Microsoft Azure Marketplace',
-		'link'    => 'https://www.google.com/',
+		'date'    => 'January 11, 2022',
+		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
+		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
 		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
-		'image'   => 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
 	],
-
+	[
+		'date'    => 'January 11, 2022',
+		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
+		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
+		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
+		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
+	],
+	[
+		'date'    => 'January 11, 2022',
+		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
+		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
+		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
+		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
+	],
+	[
+		'date'    => 'January 11, 2022',
+		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
+		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
+		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
+		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
+	],
+	[
+		'date'    => 'January 11, 2022',
+		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
+		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
+		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
+		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
+	],
+	[
+		'date'    => 'January 11, 2022',
+		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
+		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
+		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
+		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
+	],
+	[
+		'date'    => 'January 11, 2022',
+		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
+		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
+		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
+		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
+	],
+	[
+		'date'    => 'January 11, 2022',
+		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
+		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
+		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
+		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
+	],
+	[
+		'date'    => 'January 11, 2022',
+		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
+		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
+		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
+		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
+	],
 ];
 
 $quick_links = [
@@ -126,7 +181,6 @@ $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : 'nie';
 			<?php foreach ( $news_events as $index => $news ) : ?>
 				<?php if ( $index > 2 ) : ?>
 					<a href="<?= esc_url( $news['link'] ) ?>" class="news__a news__section news__section--small">
-						<!--                    <div class="news__section news__section--small">-->
 						<div class="news__image-section">
 							<div class="news__image" style="background-image: url(<?= esc_html( $news['image'] ) ?>)">
 							</div>
