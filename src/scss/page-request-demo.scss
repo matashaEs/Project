@@ -1,23 +1,23 @@
 .request-demo {
   margin-bottom: 6rem;
 
-  .form-select,
-  .form-select-box {
-    background-color: transparent;
-  }
-
-  .form-select {
+  .select {
     border-bottom: 5px solid var(--off-white);
     border-radius: 0;
     padding-bottom: 4.5rem;
+    background-color: transparent;
 
-    &--selected {
+    &__selected {
       font-size: 1.6rem;
     }
-  }
 
-  .form-options-container {
-    background-color: var(--off-white);
+    &__box {
+      background-color: transparent;
+    }
+
+    &__options {
+      background-color: var(--off-white);
+    }
   }
 }
 

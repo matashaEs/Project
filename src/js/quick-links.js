@@ -79,7 +79,7 @@ class QuickLinks {
     hideSidebar( doScroll = true ) {
         const scrollY = document.body.style.top;
 
-        $( '.form-options-container' ).css({'maxHeight': ''}).removeClass( 'active' );
+        $( '.select__options' ).css({'maxHeight': ''}).removeClass( 'active' );
 
         $( 'html' ).css( 'scroll-behavior', 'auto' );
 
@@ -119,7 +119,7 @@ class QuickLinks {
      */
     changingContents() {
         this.itemsClassChanger( '.quick-links .page-navigation__button', 'h4', 'p-large' );
-        this.itemsClassChanger( '.quick-links .form-select--selected', 'h4', 'p-large' );
+        this.itemsClassChanger( '.quick-links .select__selected', 'h4', 'p-large' );
 
         this.sidebarPaddingBottom();
     }

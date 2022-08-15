@@ -15,8 +15,10 @@
     width: 100%;
   }
 
-  .form-options-container.active.form-options-container.active {
-    overflow-y: hidden;
+  .select {
+    &__options.active {
+      overflow-y: hidden;
+    }
   }
 
   &__option:hover {
@@ -30,9 +32,11 @@
     position: relative;
     max-width: 920px;
 
-    .form-select-box,
-    .form-option {
-      cursor: default;
+    .select {
+      &__box,
+      &__option {
+        cursor: default;
+      }
     }
   }
 
