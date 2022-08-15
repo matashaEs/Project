@@ -56,11 +56,20 @@ class CareersScroll {
 			/**
 			 * vertical scrolling additional configuration
 			 */
-			if ( 1023 < window.innerWidth ) {
+			if ( 1199 < window.innerWidth ) {
 				slickConf.vertical = true;
 				slickConf.verticalSwiping = true;
 				slickConf.variableWidth = false;
-			}
+				slickConf.centerMode = true;
+				slickConf.adaptiveHeight = true;
+
+                let maxHeight = Math.max.apply( null, items.map( function() {
+					console.log( $( this ).height() );
+                    return $( this ).height();
+                }).get() );
+
+                items.height( maxHeight );
+            }
 
 			$( this ).slick( slickConf );
 		});

@@ -15,6 +15,7 @@
 
   &__description {
     margin-bottom: 3rem;
+    max-width: 382px;
   }
 
   &__button {
@@ -45,9 +46,12 @@
 
     padding-bottom: 4.5rem;
 
-    &__item#{$this}__item#{$this}__item#{$this}__item#{$this}__item#{$this}__item#{$this}__item {
+    &__item {
       width: 70vw;
-      background-color: var(--grey);
+
+      #{$this}__item#{$this}__item#{$this}__item#{$this}__item#{$this}__item#{$this}__item {
+        background-color: var(--grey);
+      }
     }
   }
 }
@@ -56,17 +60,11 @@
   .careers-scroll {
     $this: &;
 
-    padding-bottom: 0;
-
-    &__container {
-      flex-flow: row;
-    }
+    padding: 16rem 0;
 
     &__row {
-      width: 50%;
-
       &-text {
-        padding: 12rem 5% 0 0;
+        padding: 0 5% 0 0;
       }
 
       &-content {
@@ -80,9 +78,8 @@
 
     &__item {
       padding: 7rem 3rem 7rem 9rem;
-      margin: 0 0 2rem;
-      width: 100%;
-      height: max-content;
+      margin: 0 3rem;
+      height: inherit;
 
       &:last-child {
         margin-bottom: 0;
@@ -92,9 +89,33 @@
     &__item-title {
       margin-bottom: 4rem;
     }
+  }
+}
+
+@include min-size(xl) {
+  .careers-scroll {
+    padding: 0;
+
+    &__container {
+      flex-flow: row;
+    }
+
+    &__row {
+      width: 50%;
+
+      &-text {
+        width: 42.2%;
+        padding: 12rem 9.7% 0 8.33%;
+      }
+
+      &-content {
+        width: 57.8%;
+        padding-right: 8.44%;
+      }
+    }
 
     .slick-track {
-      display: block;
+      flex-direction: column;
     }
 
     .slick-dots {
@@ -112,22 +133,10 @@
     .slick-list.slick-list {
       padding: 0 0 20%;
     }
-  }
-}
 
-@include min-size(xl) {
-  .careers-scroll {
-    &__row {
-      &-text {
-        width: 42.2%;
-        padding-right: 9.7%;
-        padding-left: 8.33%;
-      }
-
-      &-content {
-        width: 57.8%;
-        padding-right: 8.44%;
-      }
+    &__item {
+      width: 100%;
+      margin: 0 0 2rem;
     }
   }
 }
