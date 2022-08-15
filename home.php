@@ -63,7 +63,7 @@ $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : 'nie';
 				<a href="<?= esc_url( $news_events[0]['link'] ) ?>" class="news__a news__section">
 					<div class="news__image-section">
 						<div class="news__image"
-                             style="background-image: url(<?= esc_html( $news_events[0]['image'] ) ?>)"></div>
+							style="background-image: url(<?= esc_html( $news_events[0]['image'] ) ?>)"></div>
 					</div>
 					<div class="news__content">
 						<div class="news__content--top">
