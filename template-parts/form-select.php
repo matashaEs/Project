@@ -15,12 +15,13 @@ extract( $args );
 		<div class="select__options">
 			<?php foreach ( $options as $option ) : ?>
 				<div class="select__option radio__container">
-					<input
-							type="radio"
-							class="input__radio input__radio--filters"
-							id="<?= esc_attr( $option['slug'] . '_' . $option['id'] ) ?>"
-							value="<?= esc_attr( $option['slug'] ) ?>"
-							name="<?= esc_attr( $name . '-radio' ) ?>"/>
+					<div><input
+								type="radio"
+								class="input__radio input__radio--filters"
+								id="<?= esc_attr( $option['slug'] . '_' . $option['id'] ) ?>"
+								value="<?= esc_attr( $option['slug'] ) ?>"
+								name="<?= esc_attr( $name . '-radio' ) ?>"/>
+					</div>
 					<label for="<?= esc_attr( $option['slug'] . '_' . $option['id'] ) ?>" class="p">
 						<?= esc_html( $option['name'] ) ?>
 					</label>
