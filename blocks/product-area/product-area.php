@@ -30,7 +30,9 @@ if ( 'modular--white' == $background_color ) {
 		<div class="product-area__heading">
 			<div class="product-area__heading-name">
 			<?php if ( ! empty( $icon ) ) : ?>
-				<img src="<?= esc_url( $icon['sizes']['full_hd'] ); ?>" alt="CAI" class="product-area__heading-icon">
+				<div class="product-area__heading-icon">
+					<img src="<?= esc_url( $icon['sizes']['full_hd'] ); ?>" alt="CAI" class="product-area__heading-image">
+				</div>
 			<?php endif; ?>
 			<?php if ( ! empty( $title ) ) : ?>
 				<h4 class="product-area__heading-title">
@@ -49,7 +51,7 @@ if ( 'modular--white' == $background_color ) {
 		<div class="product-area__content">
 			<?php if ( ! empty( $contents ) ) : ?>
 				<?php foreach ( $contents as $content ) : ?>
-					<div class="product-area__content-title">
+					<div class="product-area__content-title <?= empty( $content['description'] ) ? 'product-area__content-title--empty' : ''; ?>">
 						<div class="product-area__content-title--text p-large">
 							<?= esc_html( $content['title'] ) ?>
 						</div>
