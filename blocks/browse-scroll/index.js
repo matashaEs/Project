@@ -3,6 +3,7 @@ import $ from 'jquery';
 
 class BrowseScroll {
 	sliderContainer = $( '.browse-scroll__items-list' );
+	cachedWidth = $( window ).width();
 
 	constructor() {
 		this.slider();
@@ -46,15 +47,20 @@ class BrowseScroll {
 	}
 
 	resizeEvent() {
-		this.delay(
-			() => {
-				if ( this.sliderContainer.hasClass( 'slick-initialized' ) ) {
-					this.sliderContainer.slick( 'unslick' );
-				}
-				this.slider();
-			},
-			500
-		);
+		const newWidth = $( window ).width();
+		if ( newWidth !== this.cachedWidth ) {
+			this.delay(
+				() => {
+					if ( this.sliderContainer.hasClass( 'slick-initialized' ) ) {
+						this.sliderContainer.slick( 'unslick' );
+					}
+					this.slider();
+				},
+				500
+			);
+
+			this.cachedWidth = newWidth;
+		}
 	}
 }
 
