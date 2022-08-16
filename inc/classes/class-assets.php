@@ -10,6 +10,8 @@ class Assets {
 		add_action( 'wp_enqueue_scripts', [ $this, 'localize_scripts' ] );
 		add_action( 'wp_default_scripts', [ $this, 'delete_jquery_migrate' ] );
 		add_filter( 'script_loader_tag', [ $this, 'add_defer' ], 10, 2 );
+		add_action( 'wp_head', [ $this, 'add_code_to_header' ], 0 );
+		add_action( 'wp_footer', [ $this, 'add_code_to_footer' ], 0 );
 
 		$this->delete_not_required_stuff();
 	}
@@ -95,7 +97,7 @@ class Assets {
 		);
 
 		$google_maps = get_field( 'google_maps', 'options' ) ?? false;
-		if ( ! empty( $google_maps ) ) {
+		if ( is_page_template( 'page-contact.php' ) && ! empty( $google_maps ) ) {
 			$google_maps_api_key = $google_maps['google_maps_api_key'];
 			wp_enqueue_script(
 				'google_maps',
@@ -121,5 +123,25 @@ class Assets {
 		}
 
 		return str_replace( ' src=', ' defer src=', $tag );
+	}
+
+	/**
+	 * Load JS scripts from options page to header
+	 */
+	public function add_code_to_header() {
+		$scripts = get_field( 'scripts', 'options' ) ?? false;
+		// @codingStandardsIgnoreStart
+		echo ! empty( $scripts && $scripts['header_scripts'] ) ? $scripts['header_scripts'] : '';
+		// @codingStandardsIgnoreEnd
+	}
+
+	/**
+	 * Load JS scripts from options page to footer
+	 */
+	public function add_code_to_footer() {
+		$scripts = get_field( 'scripts', 'options' ) ?? false;
+		// @codingStandardsIgnoreStart
+		echo ! empty( $scripts && $scripts['footer_scripts'] ) ? $scripts['footer_scripts'] : '';
+		// @codingStandardsIgnoreEnd
 	}
 }
