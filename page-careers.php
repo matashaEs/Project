@@ -15,12 +15,14 @@ $form       = [
 			'name'        => 'First Name',
 			'id'          => 'firstNameId',
 			'placeholder' => 'First Name',
+            'classes'     => 'input--lg-half',
 		],
 		[
 			'type'        => 'text',
 			'name'        => 'Last Name',
 			'id'          => 'lastNameId',
 			'placeholder' => 'Last Name',
+			'classes'     => 'input--lg-half',
 		],
 		[
 			'type'        => 'email',

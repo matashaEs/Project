@@ -157,6 +157,10 @@ label,
 
   &-form {
     margin-bottom: 3rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
   }
 
   &__radio {
@@ -228,6 +232,14 @@ input::-webkit-inner-spin-button {
 
     &__arrow::before {
       right: 2rem;
+    }
+  }
+}
+
+@include min-size(lg) {
+  .input {
+    &--lg-half {
+      width: 48%;
     }
   }
 }
