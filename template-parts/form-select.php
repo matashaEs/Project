@@ -9,8 +9,8 @@ extract( $args );
 
 ?>
 
-<div class="select">
-	<div class="select__box<?= ! empty( $expand_to_top ) ? esc_html( ' select__box--expand-on-top' ) : '' ?>">
+<div class="select<?= ! empty( $expand_to_top ) ? esc_html( ' select--expand-on-top' ) : '' ?>">
+	<div class="select__box">
 		<input type="hidden" name="<?= esc_attr( $name ) ?>">
 		<div class="select__options">
 			<?php foreach ( $options as $option ) : ?>
@@ -29,10 +29,8 @@ extract( $args );
 			<?php endforeach; ?>
 		</div>
 		<div class="select__selected <?= ! empty( $button_classes ) ? esc_attr( $button_classes ) : '' ?>">
-			<div class="select__content">
-				<div><?= esc_html( $title ) ?></div>
-				<div class="select__arrow"></div>
-			</div>
+			<div class="select__selected-text"><?= esc_html( $title ) ?></div>
+			<div class="select__arrow"></div>
 		</div>
 	</div>
 </div>

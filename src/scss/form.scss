@@ -12,7 +12,7 @@ label,
   min-height: 4rem;
   position: relative;
 
-  &__content {
+  &__selected-text {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,19 +42,6 @@ label,
     #{$this}__options.active + #{$this}__selected {
       #{$this}__arrow::before {
         transform: scale(1, -1);
-      }
-    }
-
-    &--expand-on-top {
-      bottom: 0;
-
-      #{$this}__options {
-        order: 0;
-      }
-
-      #{$this}.active {
-        margin-bottom: 1rem;
-        margin-top: 3rem;
       }
     }
   }
@@ -90,9 +77,8 @@ label,
 
   &__arrow::before {
     content: "";
-    background: url("../assets/img/down-arrow.svg");
+    background: url("../assets/img/down-arrow.svg") no-repeat;
     background-size: contain;
-    background-repeat: no-repeat;
     position: absolute;
     height: 12px;
     width: 15px;
@@ -100,6 +86,27 @@ label,
     bottom: -0.5rem;
     margin: auto 0;
     transition: all 0.4s;
+  }
+
+  &--expand-on-top {
+    #{$this}__box {
+      bottom: 0;
+    }
+
+    #{$this}__options {
+      order: 0;
+    }
+
+    #{$this}.active {
+      margin-bottom: 1rem;
+      margin-top: 3rem;
+    }
+  }
+
+  &:not(&--expand-on-top) {
+    z-index: 20;
+
+    @include z-index-children(20, 3);
   }
 }
 
