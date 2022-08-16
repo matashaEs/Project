@@ -4,6 +4,11 @@
   flex-direction: column;
   position: relative;
 
+  &__container {
+    margin-top: 1.3rem;
+    margin-bottom: 5rem;
+  }
+
   &__image-mobile {
     width: 100%;
   }
@@ -20,23 +25,27 @@
     display: none;
   }
 
-  &__content {
-    margin-top: 0.7rem;
+  &__title {
+    margin-bottom: 3rem;
+    font-size: 2.4rem;
+    line-height: 1.25;
   }
 
-  &__button {
-    margin-top: 3rem;
-    margin-bottom: 5rem;
-
-    .button {
-      text-transform: capitalize;
-    }
+  &__button-link {
+    text-transform: capitalize;
+    display: inline-block;
   }
 }
 
 @include min-size(md) {
   .hero {
     flex-direction: unset;
+
+    &__container {
+      margin-top: 0;
+      min-height: 475px;
+      justify-content: flex-end;
+    }
 
     &__image {
       display: none;
@@ -46,17 +55,10 @@
       display: block;
     }
 
-    .h1 {
-      font-size: 3rem;
-      line-height: 3.5rem;
-      color: var(--white);
-    }
-
-    &__content {
-      margin-top: 26rem;
-    }
-
     &__title {
+      font-size: 3rem;
+      line-height: 1.13;
+      color: var(--white);
       width: 60%;
     }
 
@@ -64,78 +66,65 @@
       position: relative;
       padding-right: 3.8rem;
       padding-bottom: 1.2rem;
-    }
 
-    &__button-link::after {
-      font-size: 1.4rem;
-      font-family: var(--font-aeonik-bold);
-      content: "→";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      right: 2.4rem;
+      &::after {
+        font-size: 1.4rem;
+        font-family: var(--font-aeonik-bold);
+        content: "→";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        right: 2.4rem;
+        transition: right 0.5s;
+      }
+
+      &:hover::after {
+        right: 1.5rem;
+      }
     }
   }
 }
 
 @include min-size(lg) {
   .hero {
-    .h1 {
-      font-size: 4rem;
-      line-height: 4.5rem;
-    }
-
-    &__content {
-      margin-top: 33rem;
-    }
-
     &__title {
       width: 65%;
+      font-size: 4rem;
     }
 
-    &__button {
-      margin-bottom: 10rem;
+    &__container {
+      min-height: 585px;
+      margin-bottom: 11rem;
     }
   }
 }
 
 @include min-size(xl) {
   .hero {
-    .h1 {
+    &__title {
       font-size: 5rem;
-      line-height: 5.5rem;
+      margin-bottom: 5rem;
     }
 
-    &__content {
-      margin-top: 36rem;
-    }
-
-    &__button {
-      margin-top: 5rem;
+    &__container {
+      min-height: 675px;
     }
   }
 }
 
 @include min-size(xxl) {
   .hero {
-    .h1 {
+    &__title {
+      width: 58%;
       font-size: 6rem;
       line-height: 6.8rem;
     }
 
-    &__content {
-      margin-top: 50rem;
-    }
-
-    &__button {
-      margin-top: 7rem;
-    }
-
-    &__title {
-      width: 58%;
+    &__container {
+      min-height: 720px;
     }
   }
 }
