@@ -262,13 +262,6 @@ $arrow-transition: -52px;
           margin-left: 7rem;
         }
       }
-
-      #{$this}__description-link {
-        &::after {
-          right: initial;
-          left: $arrow-transition;
-        }
-      }
     }
 
     &__description-link {
