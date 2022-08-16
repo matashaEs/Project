@@ -256,14 +256,17 @@
       .select {
         flex-grow: 1;
 
-        &__content {
-          justify-content: left;
+        &__selected-text {
+          display: block;
+          width: auto;
+          max-width: calc(100% - 32px);
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         &__selected {
-          display: block;
-          overflow: hidden;
-          text-overflow: ellipsis;
+          display: flex;
+          justify-content: flex-start;
         }
 
         &__options.active {

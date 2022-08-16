@@ -22,9 +22,9 @@ class Form {
     selectFeature( e, $this ) {
         e.preventDefault();
 
-        $this.parent = $( e.target.closest( '.select__box' ) );
+        $this.parent = $( e.target.closest( '.select' ) );
         $this.optionsContainer = this.parent.find( '.select__options' );
-        this.optionsContainer.css({'maxHeight': ''});
+        $( '.select__options' ).css({'maxHeight': ''});
 
         if ( this.optionsContainer.hasClass( 'active' ) ) {
             this.optionsContainer.removeClass( 'active' );
@@ -34,8 +34,11 @@ class Form {
             if ( 1023 < window.innerWidth ) {
                 this.optionsContainer.css({'maxHeight': ''});
             } else {
-                const selectHeight = window.innerHeight - this.parent.offset().top - window.scrollY - 160;
-                this.optionsContainer.css({'maxHeight': `${selectHeight}px`});
+                if ( ! this.parent.hasClass( 'select--expand-on-top' ) )  {
+                    console.log( true );
+                    const selectHeight = window.innerHeight - this.parent.offset().top - window.scrollY - 160;
+                    this.optionsContainer.css({'maxHeight': `${selectHeight}px`});
+                }
             }
         }
     }
@@ -57,8 +60,8 @@ class Form {
 
         // change the label and close dropdown
         const label = option.find( 'label' ).html();
-        option.closest( '.select__box' ).find( '.select__selected' ).html( label );
-        option.closest( '.select__options' ).removeClass( 'active' );
+        option.closest( '.select__box' ).find( '.select__selected' ).find( '.select__selected-text' ).html( label );
+        option.closest( '.select__options' ).removeClass( 'active' ).css({'maxHeight': ''});
     }
 }
 

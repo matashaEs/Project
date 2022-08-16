@@ -41,7 +41,6 @@ $transition-time: 1s;
     text-decoration: none;
     position: relative;
     color: var(--black);
-    max-width: 460px;
 
     &:hover {
       #{$this}__item-image {
@@ -95,6 +94,19 @@ $transition-time: 1s;
 
     .container.container {
       width: 100%;
+    }
+  }
+
+  .quick-links {
+    &__radio-group .radio {
+      &__container {
+        margin-left: 0.5rem;
+        margin-bottom: 2rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }
@@ -252,6 +264,10 @@ $transition-time: 1s;
     &__content-container {
       flex-flow: row wrap;
       justify-content: center;
+    }
+
+    &__item {
+      max-width: 460px;
     }
   }
 }

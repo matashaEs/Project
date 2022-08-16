@@ -45,10 +45,10 @@ endif;
 							<?php endforeach; ?>
 
 						<?php elseif ( 'radio-group' == $block_type ) : ?>
-							<div class="h4 quick-links__radio-subtitle">
-								<?= esc_html( $block['title'] ) ?>
+							<div class="quick-links__radio-group">
+								<div class="h4 quick-links__radio-subtitle"><?= esc_html( $block['title'] ) ?></div>
+								<?php get_template_part( 'template-parts/form-radio-group', null, $block ); ?>
 							</div>
-							<?php get_template_part( 'template-parts/form-radio-group', null, $block ); ?>
 
 						<?php elseif ( 'form' == $block_type ) : ?>
 							<?php get_template_part( 'template-parts/form', null, $block ); ?>
