@@ -15,7 +15,7 @@ $form       = [
 			'name'        => 'First Name',
 			'id'          => 'firstNameId',
 			'placeholder' => 'First Name',
-            'classes'     => 'input--lg-half',
+			'classes'     => 'input--lg-half',
 		],
 		[
 			'type'        => 'text',
