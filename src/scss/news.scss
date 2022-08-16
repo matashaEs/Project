@@ -257,13 +257,16 @@
         flex-grow: 1;
 
         &__selected-text {
-          justify-content: left;
+          display: block;
+          width: auto;
+          max-width: calc(100% - 32px);
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         &__selected {
-          display: block;
-          overflow: hidden;
-          text-overflow: ellipsis;
+          display: flex;
+          justify-content: flex-start;
         }
 
         &__options.active {
