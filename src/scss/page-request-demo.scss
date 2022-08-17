@@ -9,6 +9,7 @@
 
     &__selected {
       font-size: 1.6rem;
+      justify-content: flex-start;
 
       &-text {
         width: calc(100% - 20px);
@@ -35,8 +36,12 @@
 @include min-size(md) {
   .request-demo {
     .select {
-      &__selected-text {
-        width: 100%;
+      &__selected {
+        justify-content: space-between;
+
+        &-text {
+          width: auto;
+        }
       }
     }
   }

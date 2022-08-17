@@ -12,14 +12,14 @@ $form = [
 			'name'        => 'Name',
 			'id'          => 'nameId',
 			'placeholder' => 'Name',
-			'classes'     => 'request-demo__input',
+			'classes'     => 'input--lg-half',
 		],
 		[
 			'type'        => 'phone',
 			'name'        => 'Phone',
 			'id'          => 'phoneId',
 			'placeholder' => 'Phone',
-			'classes'     => 'request-demo__input',
+			'classes'     => 'input--lg-half',
 		],
 		[
 			'type'        => 'email',
