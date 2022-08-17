@@ -54,23 +54,10 @@ $form = [
 		'classes' => 'p',
 	],
 ];
-/**
- * TODO: replace options to products
- */
 
-$form_select = [
-	'options'        => [
-		[
-			'id'   => 'option',
-			'slug' => 'Option',
-			'name' => 'Option 1',
-		],
-		[
-			'id'   => 'option',
-			'slug' => 'Option',
-			'name' => 'Option 2',
-		],
-	],
+$product_select = [
+	'name'           => 'product_select',
+	'options'        => apply_filters( 'cai_get_filtered_products', null ),
 	'button_classes' => 'h4',
 	'title'          => 'Product',
 ]
@@ -83,7 +70,7 @@ $form_select = [
 			?>
 			<div class="request-demo__form">
 				<?php
-				echo esc_html( get_template_part( 'template-parts/form-select', null, $form_select ) );
+				echo esc_html( get_template_part( 'template-parts/form-select', null, $product_select ) );
 				?>
 				<?php
 				echo esc_html( get_template_part( 'template-parts/form', null, $form ) );
