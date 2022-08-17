@@ -44,12 +44,13 @@
   &__input {
     border: none;
     border-radius: 25px;
-    height: 4.2rem;
+    height: 3.8rem;
     width: 100%;
-    padding-left: 2.5rem;
+    padding: 2px 0 2px 2.5rem;
 
     &--error {
-      border: 3px solid var(--yellow);
+      border: 2px solid var(--yellow);
+      padding: 0 0 0 2.3rem;
     }
 
     &::placeholder {
@@ -73,7 +74,7 @@
 
   &__button {
     width: 11rem;
-    height: 3.7rem;
+    height: 3.8rem;
     margin-left: 1.3rem;
     color: var(--main-blue);
   }
@@ -119,6 +120,11 @@
 
     &__input {
       border-radius: 0;
+      height: 4.2rem;
+    }
+
+    &__button {
+      margin-top: 2px;
     }
   }
 }

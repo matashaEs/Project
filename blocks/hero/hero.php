@@ -15,8 +15,8 @@ if ( ! empty( $block['id'] ) ) {
 ?>
 
 <section class="container-fluid hero">
-	<img src="<?= esc_url( $background_image_mobile['sizes']['full_hd'] ); ?>"
-		class="hero__image hero__image-mobile">
+	<div class="hero__image hero__image-mobile"
+	style="background-image: url('<?= esc_url( $background_image_mobile['sizes']['full_hd'] ); ?>')"></div>
 	<div class="hero__bg"
 	style="background-image: url('<?= esc_url( $background_image['sizes']['full_hd'] ); ?>')"></div>
 	<div class="container hero__container">

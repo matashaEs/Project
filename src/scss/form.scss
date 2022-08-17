@@ -13,15 +13,18 @@ label,
   position: relative;
 
   &__selected-text {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    display: block;
+    width: auto;
+    max-width: calc(100% - 32px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   &__selected {
     height: 4rem;
     display: flex;
+    justify-content: space-between;
     padding-left: 2rem;
     padding-top: 0.9rem;
     position: relative;
