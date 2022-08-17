@@ -81,7 +81,7 @@
       padding-left: 0;
 
       &__content {
-        width: calc(100% + 10rem);
+        width: 100%;
       }
     }
   }
@@ -112,8 +112,12 @@
       }
 
       &__content {
-        width: calc(100% + 7rem);
+        width: 100%;
         margin-left: 0;
+
+        &--vimeo {
+          width: 100%;
+        }
       }
     }
   }
