@@ -2,6 +2,8 @@ import './news-section.scss';
 import $ from 'jquery';
 
 class NewsSection {
+	cachedWidth = $( window ).width();
+
 	constructor() {
 		this.timer           = 0;
 		this.sliderContainer = $( '.news-section__row-news' );
@@ -40,17 +42,22 @@ class NewsSection {
 	}
 
 	resizeEvent() {
-		this.delay(
-			() => {
-				this.sliderContainer.each( function() {
-					if ( $( this ).hasClass( 'slick-initialized' ) ) {
-						$( this ).slick( 'unslick' );
-					}
-				});
-				this.slider();
-			},
-			500
-		);
+		const newWidth = $( window ).width();
+		if ( newWidth !== this.cachedWidth ) {
+			this.delay(
+				() => {
+					this.sliderContainer.each( function() {
+						if ( $( this ).hasClass( 'slick-initialized' ) ) {
+							$( this ).slick( 'unslick' );
+						}
+					});
+					this.slider();
+				},
+				500
+			);
+
+			this.cachedWidth = newWidth;
+		}
 	}
 }
 

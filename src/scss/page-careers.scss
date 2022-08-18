@@ -131,7 +131,7 @@
 
     &__col {
       width: 45%;
-      max-width: 650px;
+      max-width: 685px;
     }
 
     &__form-container {
@@ -140,9 +140,15 @@
 
     &__careers-list {
       padding-right: 1rem;
+      padding-left: 3.5rem;
       height: 100%;
       overflow-x: hidden;
       overflow-y: auto;
+      direction: rtl;
+    }
+
+    &__career {
+      direction: ltr;
     }
   }
 }

@@ -28,6 +28,16 @@
     &__title {
       padding-left: 8rem;
     }
+
+    &__container {
+      &--fullscreen {
+        .video {
+          &__title {
+            padding-left: 3rem;
+          }
+        }
+      }
+    }
   }
 
   .sidebar-and-content {
@@ -54,6 +64,16 @@
     &__title {
       padding-left: 13rem;
     }
+
+    &__container {
+      &--fullscreen {
+        .video {
+          &__title {
+            padding-left: 5rem;
+          }
+        }
+      }
+    }
   }
 
   .sidebar-and-content {
@@ -61,7 +81,7 @@
       padding-left: 0;
 
       &__content {
-        width: calc(100% + 10rem);
+        width: 100%;
       }
     }
   }
@@ -71,8 +91,12 @@
   .video {
     &__container--fullscreen {
       max-width: 100vw;
-      padding-left: 5rem;
-      padding-right: 5rem;
+
+      .video {
+        &__title {
+          padding-left: calc((100vw - 1728px) / 2 + 7rem);
+        }
+      }
     }
 
     &__content {
@@ -88,8 +112,12 @@
       }
 
       &__content {
-        width: calc(100% + 7rem);
+        width: 100%;
         margin-left: 0;
+
+        &--vimeo {
+          width: 100%;
+        }
       }
     }
   }

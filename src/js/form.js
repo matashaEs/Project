@@ -31,13 +31,15 @@ class Form {
         } else {
             $( '.select__options' ).removeClass( 'active' );
             this.optionsContainer.addClass( 'active' );
-            if ( 1023 < window.innerWidth ) {
-                this.optionsContainer.css({'maxHeight': ''});
-            } else {
-                if ( ! this.parent.hasClass( 'select--expand-on-top' ) )  {
-                    console.log( true );
-                    const selectHeight = window.innerHeight - this.parent.offset().top - window.scrollY - 160;
-                    this.optionsContainer.css({'maxHeight': `${selectHeight}px`});
+
+            if ( 0 !== this.parent.closest( '.quick-links' ).length ) {
+                if ( 1023 < window.innerWidth ) {
+                    this.optionsContainer.css({'maxHeight': ''});
+                } else {
+                    if ( ! this.parent.hasClass( 'select--expand-on-top' ) )  {
+                        const selectHeight = window.innerHeight - this.parent.offset().top - window.scrollY - 160;
+                        this.optionsContainer.css({'maxHeight': `${selectHeight}px`});
+                    }
                 }
             }
         }
