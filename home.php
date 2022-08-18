@@ -1,79 +1,7 @@
 <?php
 get_header();
 
-$index       = 3;
-$news_events = [
-	[
-		'date'    => 'January 11, 2022',
-		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
-		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
-		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
-		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
-	],
-	[
-		'date'    => 'January 11, 2022',
-		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
-		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
-		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
-		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
-	],
-	[
-		'date'    => 'January 11, 2022',
-		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
-		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
-		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
-		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
-	],
-	[
-		'date'    => 'January 11, 2022',
-		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
-		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
-		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
-		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
-	],
-	[
-		'date'    => 'January 11, 2022',
-		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
-		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
-		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
-		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
-	],
-	[
-		'date'    => 'January 11, 2022',
-		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
-		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
-		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
-		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
-	],
-	[
-		'date'    => 'January 11, 2022',
-		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
-		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
-		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
-		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
-	],
-	[
-		'date'    => 'January 11, 2022',
-		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
-		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
-		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
-		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
-	],
-	[
-		'date'    => 'January 11, 2022',
-		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
-		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
-		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
-		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
-	],
-	[
-		'date'    => 'January 11, 2022',
-		'title'   => 'CAI Software Announces Majority Investment by Symphony Technology Group (STG)',
-		'link'    => 'https://cai-staging.developress.io/cai-software-announces-majority-investment-by-symphony-technology-group-stg/',
-		'content' => 'Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical, production-oriented software to the manufacturing and distribution sectors globally, announced today it has received a majority investment...Smithfield, Rhode Island, December 13, 2021 – CAI Software, LLC (“CAI”), a leading software vendor of mission critical,',
-		'image'   => 'https://cdn.pixabay.com/photo/2022/07/24/17/55/wind-energy-7342177_960_720.jpg',
-	],
-];
+$index = 3;
 
 $quick_links = [
 	'container_class' => 'news__sidebar',
@@ -105,106 +33,138 @@ $quick_links = [
 	],
 ];
 
-$news_events_count = count( $news_events );
+$news_events_count = wp_count_posts()->publish;
 $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : 'nie';
+
 
 ?>
 
-<div class="container-fluid news <?= esc_html( $two_posts ) ?>">
-	<div class="container">
+<div class="container-fluid news <?= $two_posts ?>">
+    <div class="container">
 		<?php get_template_part( 'template-parts/quick-links', null, $quick_links ); ?>
-		<div class="row news__row">
-			<?php if ( ! empty( $news_events[0] ) ) : ?>
-				<a href="<?= esc_url( $news_events[0]['link'] ) ?>" class="news__a news__section">
-					<div class="news__image-section">
-						<div class="news__image"
-							style="background-image: url(<?= esc_html( $news_events[0]['image'] ) ?>)"></div>
-					</div>
-					<div class="news__content">
-						<div class="news__content--top">
-							<div class="news__date p"><?= esc_html( $news_events[0]['date'] ) ?></div>
-							<div class="news__categories">
-								<div class="news__category news__category--dark-pink"></div>
-								<div class="news__category news__category--erp"></div>
-								<div class="news__category news__category--wms"></div>
-								<div class="news__category news__category--light-pink"></div>
-							</div>
-						</div>
-						<div class="h4 news__title news__title--first"><?= esc_html( $news_events[0]['title'] ) ?></div>
-						<div class="p news__text"><?= esc_html( $news_events[0]['content'] ) ?></div>
-						<?php if ( ! empty( $news_events[0]['link'] ) ) : ?>
-
-							<div class="news__read-more">
-								<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
-							</div>
-
-						<?php endif; ?>
-					</div>
-				</a>
-			<?php endif; ?>
-			<div class="news__section-two-news">
-				<?php if ( ! empty( $news_events[1] ) ) : ?>
-					<a href="<?= esc_url( $news_events[1]['link'] ) ?>" class="news__a news__content">
-						<div class="news__content--top">
-							<div class="news__date p"><?= esc_html( $news_events[1]['date'] ) ?></div>
-							<div class="news__categories">
-								<div class="news__category news__category--light-pink"></div>
-							</div>
-						</div>
-						<div class="h4 news__title"><?= esc_html( $news_events[1]['title'] ) ?></div>
-						<div class="p news__text"><?= esc_html( $news_events[1]['content'] ) ?></div>
-						<?php if ( ! empty( $news_events[1]['link'] ) ) : ?>
-							<div class="news__read-more">
-								<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
-							</div>
-						<?php endif; ?>
-					</a>
-				<?php endif; ?>
-				<?php if ( ! empty( $news_events[2] ) ) : ?>
-					<a href="<?= esc_url( $news_events[2]['link'] ) ?>" class="news__a news__content">
-						<div class="news__content--top">
-							<div class="news__date p"><?= esc_html( $news_events[2]['date'] ) ?></div>
-							<div class="news__categories">
-								<div class="news__category news__category--wms"></div>
-							</div>
-						</div>
-						<div class="h4 news__title"><?= esc_html( $news_events[2]['title'] ) ?></div>
-						<div class="p news__text"><?= esc_html( $news_events[2]['content'] ) ?></div>
-						<?php if ( ! empty( $news_events[2]['link'] ) ) : ?>
-							<div class="news__read-more">
-								<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
-							</div>
-						<?php endif; ?>
-					</a>
-				<?php endif; ?>
-			</div>
-			<?php foreach ( $news_events as $index => $news ) : ?>
-				<?php if ( $index > 2 ) : ?>
-					<a href="<?= esc_url( $news['link'] ) ?>" class="news__a news__section news__section--small">
-						<div class="news__image-section">
-							<div class="news__image" style="background-image: url(<?= esc_html( $news['image'] ) ?>)">
-							</div>
-						</div>
-						<div class="news__content">
-							<div class="news__content--top">
-								<div class="news__date p"><?= esc_html( $news['date'] ) ?></div>
-								<div class="news__categories">
-									<div class="news__category news__category--green"></div>
-									<div class="news__category news__category--yellow"></div>
-								</div>
-							</div>
-							<div class="h4 news__title"><?= esc_html( $news['title'] ) ?></div>
-							<?php if ( ! empty( $news['link'] ) ) : ?>
-								<div class="news__read-more">
+		<?php if ( have_posts() ) : ?>
+            <div class="row news__row">
+				<?php while ( have_posts() ) : the_post(); ?>
+					<?php if ( $wp_query->current_post == 0 ) { ?>
+                        <a href="<?php the_permalink() ?>" class="news__a news__section">
+                            <div class="news__image-section">
+								<?php $url = wp_get_attachment_url( get_post_thumbnail_id() ); ?>
+                                <div class="news__image"
+                                     style="background-image: url( <?php echo ($url != null) ? $url : get_template_directory_uri() . '/assets/img/placeholder.jpg'; ?>);"></div>
+                            </div>
+                            <div class="news__content">
+                                <div class="news__content--top">
+                                    <div class="news__date p"><?php the_time( 'F j, Y' ) ?></div>
+                                    <div class="news__categories">
+										<?php $categories = get_the_category(); ?>
+										<?php foreach ( $categories as $category ) { ?>
+											<?php $term_id = $category->term_id;
+											$color         = get_field( 'color', 'term_' . $term_id ); ?>
+                                            <object><a href="<?php echo get_category_link( $term_id ) ?>">
+                                                    <div class="news__category"
+                                                         style="background-color: <?= $color ?>"></div>
+                                                </a></object>
+										<?php } ?>
+                                    </div>
+                                </div>
+                                <div class="h4 news__title news__title--first"><?php the_title() ?></div>
+                                <div class="p news__text"><?php the_excerpt() ?></div>
+                                <div class="news__read-more">
 									<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
-								</div>
-							<?php endif; ?>
-						</div>
-					</a>
-				<?php endif; ?>
-			<?php endforeach; ?>
-		</div>
-	</div>
+                                </div>
+                            </div>
+                        </a>
+					<?php } ?>
+				<?php endwhile; ?>
+                <div class="news__section-two-news">
+					<?php while ( have_posts() ) : the_post(); ?>
+						<?php if ( $wp_query->current_post == 1 ) { ?>
+                            <a href="<?php the_permalink() ?>" class="news__a news__content">
+                                <div class="news__content--top">
+                                    <div class="news__date p"><?php the_time( 'F j, Y' ) ?></div>
+                                    <div class="news__categories">
+										<?php $categories = get_the_category(); ?>
+										<?php foreach ( $categories as $category ) { ?>
+											<?php $term_id = $category->term_id;
+											$color         = get_field( 'color', 'term_' . $term_id ); ?>
+                                            <object><a href="<?php echo get_category_link( $category->term_id ) ?>">
+                                                    <div class="news__category"
+                                                         style="background-color: <?= $color ?>"></div>
+                                                </a></object>
+										<?php } ?>
+                                    </div>
+                                </div>
+                                <div class="h4 news__title"><?php the_title() ?></div>
+                                <div class="p news__text"><?php the_excerpt() ?></div>
+                                <div class="news__read-more">
+									<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
+                                </div>
+                            </a>
+						<?php } ?>
+						<?php if ( $wp_query->current_post == 2 ) { ?>
+                            <a href="<?php the_permalink() ?>" class="news__a news__content">
+                                <div class="news__content--top">
+                                    <div class="news__date p"><?php the_time( 'F j, Y' ) ?></div>
+                                    <div class="news__categories">
+										<?php $categories = get_the_category(); ?>
+										<?php foreach ( $categories as $category ) { ?>
+											<?php $term_id = $category->term_id;
+											$color         = get_field( 'color', 'term_' . $term_id ); ?>
+                                            <object><a href="<?php echo get_category_link( $category->term_id ) ?>">
+                                                    <div class="news__category"
+                                                         style="background-color: <?= $color ?>"></div>
+                                                </a></object>
+										<?php } ?>
+                                    </div>
+                                </div>
+                                <div class="h4 news__title"><?php the_title() ?></div>
+                                <div class="p news__text"><?php the_excerpt() ?></div>
+                                <div class="news__read-more">
+									<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
+                                </div>
+                            </a>
+						<?php } ?>
+					<?php endwhile; ?>
+                </div>
+				<?php while ( have_posts() ) : the_post(); ?>
+					<?php if ( $wp_query->current_post > 2 ) { ?>
+
+                        <a href="<?php the_permalink() ?>"
+                           class="news__a news__section news__section--small">
+                            <div class="news__image-section">
+								<?php $url = wp_get_attachment_url( get_post_thumbnail_id() ); ?>
+                                <div class="news__image"
+                                     style="background-image: url( <?php echo ($url != null) ? $url : get_template_directory_uri() . '/assets/img/placeholder.jpg'; ?>);">
+                                </div>
+                            </div>
+                            <div class="news__content">
+                                <div class="news__content--top">
+                                    <div class="news__date p"><?php the_time( 'F j, Y' ) ?></div>
+                                    <div class="news__categories">
+										<?php $categories = get_the_category(); ?>
+										<?php foreach ( $categories as $category ) { ?>
+											<?php $term_id = $category->term_id;
+											$color         = get_field( 'color', 'term_' . $term_id ); ?>
+                                            <object><a href="<?php echo get_category_link( $category->term_id ) ?>">
+                                                    <div class="news__category"
+                                                         style="background-color: <?= $color ?>"></div>
+                                                </a></object>
+										<?php } ?>
+                                    </div>
+                                </div>
+                                <div class="h4 news__title"><?php the_title() ?></div>
+                                <div class="news__read-more">
+									<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
+                                </div>
+                            </div>
+                        </a>
+					<?php } ?>
+				<?php endwhile; ?>
+            </div>
+		<?php else: ?>
+            <p class="blog__no-posts"><?php _e( "Sorry, no posts matched your criteria.", 'nuplo_theme' ) ?></p>
+		<?php endif; ?>
+    </div>
 </div>
 
 <?php get_footer(); ?>

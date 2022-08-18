@@ -24,6 +24,7 @@
   &__row {
     flex-wrap: wrap;
     justify-content: space-between;
+    width: 100%;
   }
 
   &__title {
@@ -375,6 +376,7 @@
       &--small {
         width: 25%;
         flex-direction: column;
+        justify-content: flex-start;
 
         #{$this}__content {
           width: 100%;
