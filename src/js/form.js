@@ -3,6 +3,7 @@ import $ from 'jquery';
 class Form {
     parent = null;
     optionsContainer = null;
+    fields = null;
 
     regexes = {
         firstname: /^[\w ]{2,30}$/,
@@ -59,10 +60,10 @@ class Form {
 
         let allFieldsAreValid = true;
 
-        let fields = this.parent.find( '.input' ).removeClass( 'input--error' );
+        this.fields.removeClass( 'input--error' );
         this.parent.find( '.input__error' ).removeClass( 'input__error--show' ).empty();
 
-        fields.each( function( ) {
+        this.fields.each( function( ) {
             const errorField = 0 !== $( this ).next().length ? $( this ).next() :  $( this ).closest( '.select' ).next();
             const fieldName = $( this ).attr( 'placeholder' );
 
@@ -86,7 +87,7 @@ class Form {
         if ( allFieldsAreValid ) {
             let data = { 'fields': [] };
 
-            fields.each( function( ) {
+            this.fields.each( function( ) {
                 data.fields.push({ 'objectTypeId': '0-1', 'name': $( this ).attr( 'name' ), 'value': $( this ).val().trim() });
             });
 
@@ -99,6 +100,7 @@ class Form {
     sendDataFromForm( e, $this ) {
         e.preventDefault();
         $this.parent = $( e.target.closest( 'form' ) );
+        $this.fields = $this.parent.find( '.input' );
 
         $( $this.parent.prev() ).addClass( 'hide' );
         $this.parent.addClass( 'hide' );
@@ -110,7 +112,18 @@ class Form {
 
         setTimeout( function() {
             $this.parent.next().addClass( 'form-valid--show' );
+            $this.fields.val( '' );
         }, 500 );
+
+        setTimeout( function() {
+            $this.parent.next().removeClass( 'form-valid--show' );
+        }, 5000 );
+
+        setTimeout( function() {
+            $( $this.parent.prev() ).removeClass( 'hide' );
+            $this.parent.removeClass( 'hide' );
+            $( '.cai-map' ).removeClass( 'hide' );
+        }, 5500 );
 
         // const formData = $this.validateForm();
         //
