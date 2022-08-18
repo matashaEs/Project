@@ -1,12 +1,8 @@
 .request-demo {
-  margin-bottom: 6rem;
+  padding-bottom: 6rem;
+  flex: 1;
 
   .select {
-    border-bottom: 5px solid var(--off-white);
-    border-radius: 0;
-    padding-bottom: 4.5rem;
-    background-color: transparent;
-
     &__selected {
       font-size: 1.6rem;
       justify-content: flex-start;
@@ -49,12 +45,15 @@
 
 @include min-size(lg) {
   .request-demo {
+    padding-bottom: 10rem;
+
     .breadcrumbs {
       margin: 0;
     }
 
-    &__form {
+    form {
       width: 50%;
+      max-width: 785px;
     }
 
     &__container {
@@ -65,6 +64,7 @@
 
       .template-heading {
         width: 40%;
+        max-width: 520px;
       }
     }
 

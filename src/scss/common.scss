@@ -35,6 +35,16 @@ body {
   user-select: none;
 }
 
+.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.template-heading,
+form {
+  transition: all 0.5s;
+}
+
 @include min-size(lg) {
   html {
     overflow-x: unset;

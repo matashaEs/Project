@@ -12,6 +12,17 @@ label,
   min-height: 4rem;
   position: relative;
 
+  &--form {
+    border-bottom: 5px solid var(--off-white);
+    border-radius: 0;
+    padding-bottom: 4.5rem;
+    background-color: transparent;
+  }
+
+  &--error {
+    border-color: var(--erp-hover);
+  }
+
   &__selected-text {
     display: block;
     width: auto;
@@ -134,7 +145,15 @@ label,
     transition: all 0.5s;
   }
 
-  &--message {
+  &-container {
+    width: 100%;
+
+    &:first-child {
+      padding-top: 1rem;
+    }
+  }
+
+  &-message {
     height: 15rem;
     resize: none;
 
@@ -188,6 +207,16 @@ label,
       height: 1.9rem;
     }
   }
+
+  &__error {
+    line-height: 1;
+    height: 1.4rem;
+    color: var(--yellow);
+
+    &--show {
+      color: var(--erp-hover);
+    }
+  }
 }
 
 input[type="number"] {
@@ -198,6 +227,50 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   appearance: none;
   margin: 0;
+}
+
+form {
+  transition: all 0.5s;
+}
+
+.form-valid {
+  position: absolute;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  top: 50px;
+  left: 0;
+  margin: 0 2rem;
+  scroll-margin-top: 12rem;
+  opacity: 0;
+  transition: all 0.5s;
+
+  &__col {
+    height: fit-content;
+
+    &--right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__title {
+    margin: 0 0 40px;
+  }
+
+  &__description {
+    margin-bottom: 30px;
+  }
+
+  &__button {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  &--show {
+    opacity: 1;
+  }
 }
 
 .label {
@@ -224,6 +297,10 @@ input::-webkit-inner-spin-button {
   }
 }
 
+.page-with-form {
+  position: relative;
+}
+
 @include min-size(md) {
   .select {
     min-height: 5rem;
@@ -243,5 +320,43 @@ input::-webkit-inner-spin-button {
     &--lg-half {
       width: 48%;
     }
+  }
+
+  .form-valid {
+    inset: 0;
+    margin: auto 3rem;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__col {
+      width: 50%;
+
+      &--right {
+        max-width: 520px;
+      }
+    }
+
+    &__title {
+      margin-bottom: 0;
+      max-width: 650px;
+    }
+
+    &__description {
+      margin-bottom: 70px;
+    }
+  }
+}
+
+@include min-size(xl) {
+  .form-valid {
+    inset: 0;
+    margin: auto 5rem;
+  }
+}
+
+@include min-size(xxl) {
+  .form-valid {
+    inset: 0;
+    margin: auto 20rem;
   }
 }
