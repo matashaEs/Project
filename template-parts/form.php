@@ -1,18 +1,14 @@
 <?php
 /**
- * $action
- * $id
- * $name
- * $classes
+ * $portal
+ * $form_id
+ * $form_classes
  * $fields
  *  $type
  *  $name
- *  $id
  *  $placeholder
  *  $classes
  * $button
- *  $name
- *  $id
  *  $value
  *  $classes
  */
@@ -20,30 +16,28 @@ extract( $args );
 
 ?>
 
-<form action="<?= esc_url( $action ) ?>" method="post"
-		<?php if ( ! empty( $id ) ) : ?>
-			id="<?= esc_attr( $id ) ?>"
-		<?php endif; ?>
-		<?php if ( ! empty( $name ) ) : ?>
-			name="<?= esc_attr( $name ) ?>"
-		<?php endif; ?>
-		class="form <?= ! empty( $classes ) ? ' ' . esc_attr( $classes ) : ''?>"
-		target="">
+<form action="" method="post" class="form <?= ! empty( $form_classes ) ? ' ' . esc_attr( $form_classes ) : ''?>"
+		portal="<?= esc_attr( $portal ) ?>" id="<?= esc_attr( $form_id ) ?>">
 	<div class="input-form">
 		<?php foreach ( $fields as $field ) : ?>
-			<?php if ( 'textarea' === $field['type'] ) : ?>
-				<textarea value="" name="<?= esc_attr( $field['name'] ) ?>"
-				id="<?= esc_attr( $field['id'] ) ?>" class="input <?= esc_attr( $field['classes'] ) ?>"
-				placeholder="<?= esc_attr( $field['placeholder'] ) ?>"></textarea>
-			<?php else : ?>
-			<input
-				type="<?= esc_attr( $field['type'] ) ?>" value="" name="<?= esc_attr( $field['name'] ) ?>"
-				id="<?= esc_attr( $field['id'] ) ?>" class="input <?= esc_attr( $field['classes'] ) ?>"
-				placeholder="<?= esc_attr( $field['placeholder'] ) ?>">
+			<?php if ( ! empty( $field ) ) : ?>
+				<?php if ( 'textarea' === $field['type'] ) : ?>
+					<textarea
+							name="<?= esc_attr( $field['name'] ) ?>"
+							placeholder="<?= esc_attr( $field['placeholder'] ) ?>"
+							class="input <?= ! empty( $field['classes'] ) ? ' ' . esc_attr( $field['classes'] ) : '' ?>"></textarea>
+				<?php else : ?>
+					<input
+						type="<?= esc_attr( $field['type'] ) ?>"
+						name="<?= esc_attr( $field['name'] ) ?>"
+						placeholder="<?= esc_attr( $field['placeholder'] ) ?>"
+						class="input <?= ! empty( $field['classes'] ) ? ' ' . esc_attr( $field['classes'] ) : ''?>">
+			<?php endif; ?>
+			<div class="input__error"></div>
 		<?php endif; ?>
 		<?php endforeach; ?>
 	</div>
-	<input type="submit" name="<?= esc_attr( $button['name'] ) ?>" id="<?= esc_attr( $button['id'] ) ?>"
-			class="button <?= esc_attr( $button['classes'] ) ?>"
-			value="<?= esc_attr( $button['value'] ) ?>">
+	<button type="button" class="button <?= esc_attr( $button['classes'] ) ?>">
+		<?= esc_attr( $button['value'] ) ?>
+	</button>
 </form>

@@ -2,34 +2,43 @@
 /** Template Name: Contact Page */
 
 $marker_details = get_field( 'marker_on_the_map', 'options' );
-$form           = [
-	'id'     => 'formId',
-	'name'   => 'formName',
-	'fields' => [
+$form_info      = [];
+
+foreach ( explode( ' ', trim( get_field( 'form_id' ), '[]' ) ) as $field ) {
+	$field_array                  = explode( '=', $field );
+	$form_info[ $field_array[0] ] = $field_array[1];
+}
+
+$form = [
+	'portal'  => $form_info['portal'],
+	'form_id' => $form_info['id'],
+	'fields'  => [
 		[
 			'type'        => 'text',
-			'name'        => 'Name',
-			'id'          => 'nameId',
-			'placeholder' => 'Name',
+			'name'        => 'firstname',
+			'placeholder' => 'First Name',
+			'classes'     => 'input--lg-half',
+		],
+		[
+			'type'        => 'text',
+			'name'        => 'lastname',
+			'placeholder' => 'Last Name',
+			'classes'     => 'input--lg-half',
 		],
 		[
 			'type'        => 'email',
-			'name'        => 'Email',
-			'id'          => 'emailId',
+			'name'        => 'email',
 			'placeholder' => 'Email',
 		],
 		[
 			'type'        => 'textarea',
-			'name'        => 'Message',
-			'id'          => 'messageId',
+			'name'        => 'message',
 			'placeholder' => 'Message',
 		],
 	],
-	'button' => [
-		'name'    => 'submit',
-		'id'      => 'buttonId',
+	'button'  => [
 		'value'   => 'Request A Demo',
-		'classes' => 'p',
+		'classes' => 'p button__send-form',
 	],
 ];
 
