@@ -4,15 +4,15 @@
 $marker_details = get_field( 'marker_on_the_map', 'options' );
 $form_info      = [];
 
-foreach ( explode( ' ', trim( get_field( 'form_id' ), '[]' ) ) as $field ) {
+foreach ( explode( ' ', trim( get_field( 'form_shortcode' ), '[]' ) ) as $field ) {
 	$field_array                  = explode( '=', $field );
 	$form_info[ $field_array[0] ] = $field_array[1];
 }
 
 $form = [
-	'portal'  => $form_info['portal'],
-	'form_id' => $form_info['id'],
-	'fields'  => [
+	'portal'        => $form_info['portal'],
+	'form_id'       => $form_info['id'],
+	'fields'        => [
 		[
 			'type'        => 'text',
 			'name'        => 'firstname',
@@ -36,10 +36,11 @@ $form = [
 			'placeholder' => 'Message',
 		],
 	],
-	'button'  => [
+	'button'        => [
 		'value'   => 'Request A Demo',
 		'classes' => 'p button__send-form',
 	],
+	'after_sending' => get_field( 'after_sending' ),
 ];
 
 if ( have_rows( 'contact_information', 'option' ) ) :
@@ -53,7 +54,7 @@ endif;
 
 get_header();
 ?>
-<div class="container-fluid page-contact">
+<div class="container-fluid page-contact page-with-form">
 	<div class="container page-contact__container">
 		<div class="page-contact__col page-contact__content">
 			<?php get_template_part( 'template-parts/template-heading' ); ?>
@@ -69,14 +70,13 @@ get_header();
 				<?php endif; ?>
 			</ul>
 		</div>
-		<div class="page-contact__col page-contact__form">
-			<?php get_template_part( 'template-parts/form', null, $form ); ?>
-		</div>
+
+		<?php get_template_part( 'template-parts/form', null, $form ); ?>
 	</div>
+
+    <?php the_static_acf_block( 'map', $marker_details ); ?>
 </div>
 
 <?php
-
-the_static_acf_block( 'map', $marker_details );
 
 get_footer();

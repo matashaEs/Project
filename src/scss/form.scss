@@ -243,6 +243,7 @@ form {
   margin: 0 2rem;
   scroll-margin-top: 12rem;
   opacity: 0;
+  z-index: -1;
   transition: all 0.5s;
 
   &__col {
@@ -270,6 +271,7 @@ form {
 
   &--show {
     opacity: 1;
+    z-index: 1;
   }
 }
 
@@ -299,6 +301,10 @@ form {
 
 .page-with-form {
   position: relative;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 @include min-size(md) {
@@ -356,7 +362,9 @@ form {
 
 @include min-size(xxl) {
   .form-valid {
+    $calc-margin: calc(20rem + (100vw - 1728px) / 2);
+
     inset: 0;
-    margin: auto 20rem;
+    margin: auto $calc-margin;
   }
 }

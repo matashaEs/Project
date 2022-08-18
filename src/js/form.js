@@ -100,8 +100,9 @@ class Form {
         e.preventDefault();
         $this.parent = $( e.target.closest( 'form' ) );
 
-        $this.parent.prev().addClass( 'hide' );
+        $( $this.parent.prev() ).addClass( 'hide' );
         $this.parent.addClass( 'hide' );
+        $( '.cai-map' ).addClass( 'hide' );
 
         if ( 1024 > window.innerWidth ) {
             $this.parent.next()[0].scrollIntoView();

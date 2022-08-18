@@ -1,6 +1,9 @@
 .request-demo {
-  padding-bottom: 6rem;
   flex: 1;
+
+  &__container {
+    padding-bottom: 6rem;
+  }
 
   .select {
     &__selected {
@@ -45,8 +48,6 @@
 
 @include min-size(lg) {
   .request-demo {
-    padding-bottom: 10rem;
-
     .breadcrumbs {
       margin: 0;
     }
@@ -57,7 +58,8 @@
     }
 
     &__container {
-      margin-top: 10rem;
+      padding-bottom: 10rem;
+      padding-top: 10rem;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
