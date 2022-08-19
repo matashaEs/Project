@@ -32,8 +32,8 @@ $quick_links = [
 	'items'           => apply_filters( 'cai_get_filtered_news', null ),
 ];
 
-$news_events_count = wp_count_posts()->publish;
-$two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : 'nie';
+$news_events_count = count( $quick_links['items'] );
+$two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : '';
 ?>
 
 <div class="container-fluid news <?= esc_html( $two_posts ) ?>">
