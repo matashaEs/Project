@@ -51,6 +51,10 @@
     }
   }
 
+  &__categories {
+    display: flex;
+  }
+
   .attachment-post-thumbnail {
     width: 100%;
     height: fit-content;
@@ -113,7 +117,9 @@
     }
 
     &__categories {
-      margin-left: 10rem;
+      margin-left: 4rem;
+      display: flex;
+      flex-wrap: wrap;
     }
 
     &__button {
@@ -167,6 +173,10 @@
       width: calc(100% + 10rem);
       margin-left: -5rem;
       height: fit-content;
+    }
+
+    &__categories {
+      margin-left: 10rem;
     }
 
     .wp-block-quote {
