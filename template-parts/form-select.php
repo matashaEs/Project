@@ -1,17 +1,19 @@
 <?php
 /**
  * $name
+ * $select_classes
  * $options [id, slug, name]
  * $button_classes
  * $title
  */
 extract( $args );
 
+$all_select_classes  = ! empty( $expand_to_top ) ? esc_html( ' select--expand-on-top' ) : '';
+$all_select_classes .= ! empty( $select_classes ) ? ' ' . esc_html( $select_classes ) : '';
 ?>
 
-<div class="select<?= ! empty( $expand_to_top ) ? esc_html( ' select--expand-on-top' ) : '' ?>">
+<div class="select<?= ! empty( $all_select_classes ) ? esc_html( $all_select_classes ) : '' ?>">
 	<div class="select__box">
-		<input type="hidden" name="<?= esc_attr( $name ) ?>">
 		<div class="select__options">
 			<?php foreach ( $options as $option ) : ?>
 				<div class="select__option radio__container">
@@ -32,5 +34,6 @@ extract( $args );
 			<div class="select__selected-text"><?= esc_html( $title ) ?></div>
 			<div class="select__arrow"></div>
 		</div>
+		<input type="hidden" name="<?= esc_attr( $name ) ?>" class="input" placeholder="<?= esc_attr( $title ) ?>">
 	</div>
 </div>

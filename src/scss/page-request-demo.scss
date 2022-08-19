@@ -1,12 +1,11 @@
 .request-demo {
-  margin-bottom: 6rem;
+  flex: 1;
+
+  &__container {
+    padding-bottom: 6rem;
+  }
 
   .select {
-    border-bottom: 5px solid var(--off-white);
-    border-radius: 0;
-    padding-bottom: 4.5rem;
-    background-color: transparent;
-
     &__selected {
       font-size: 1.6rem;
       justify-content: flex-start;
@@ -53,18 +52,21 @@
       margin: 0;
     }
 
-    &__form {
+    form {
       width: 50%;
+      max-width: 785px;
     }
 
     &__container {
-      margin-top: 10rem;
+      padding-bottom: 10rem;
+      padding-top: 10rem;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
 
       .template-heading {
         width: 40%;
+        max-width: 520px;
       }
     }
 

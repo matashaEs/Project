@@ -1,4 +1,6 @@
 .page-careers {
+  flex: 1;
+
   &__container {
     padding-bottom: 5rem;
   }
@@ -24,8 +26,16 @@
     margin: 5rem 0;
   }
 
-  &__form-container {
+  &__col {
+    position: relative;
+  }
+
+  form {
     margin-bottom: 5rem;
+  }
+
+  .form-valid {
+    margin: 0;
   }
 
   &__career {
@@ -134,8 +144,20 @@
       max-width: 685px;
     }
 
-    &__form-container {
+    form {
       margin-bottom: 0;
+    }
+
+    .form-valid {
+      flex-direction: column;
+
+      &__col {
+        width: 100%;
+      }
+
+      &__title {
+        margin-bottom: 7rem;
+      }
     }
 
     &__careers-list {
