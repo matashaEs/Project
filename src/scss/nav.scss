@@ -558,6 +558,8 @@
 
       &-menu {
         width: 75%;
+        display: flex;
+        justify-content: center;
       }
 
       &-menu::before {
@@ -568,6 +570,12 @@
       &-text::before {
         width: 101vw;
         margin-left: -100vw;
+      }
+
+      &-content {
+        &--right {
+          width: 1068px;
+        }
       }
     }
   }
