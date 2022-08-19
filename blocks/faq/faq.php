@@ -23,26 +23,29 @@ if ( ! empty( $block['id'] ) ) {
 
 			<?php if ( ! empty( $faqs ) ) : ?>
 				<?php foreach ( $faqs as $faq ) : ?>
-					<div class="select__box faq-section__select modular__item--mobile">
-						<div class="select__options">
-							<div class="select__option faq-section__option">
-								<label class="p faq-section__label">
+                <div class="select faq__select">
+                    <div class="select__box faq-section__select modular__item--mobile">
+                        <div class="select__options">
+                            <div class="select__option faq-section__option">
+                                <label class="p faq-section__label">
 
-									<?php if ( ! empty( $faq['faq_content'] ) ) : ?>
-										<?= wp_kses( $faq['faq_content'], [ 'p' => [ '' ] ] ) ?>
-									<?php endif; ?>
+					                <?php if ( ! empty( $faq['faq_content'] ) ) : ?>
+						                <?= wp_kses( $faq['faq_content'], [ 'p' => [ '' ] ] ) ?>
+					                <?php endif; ?>
 
-								</label>
-							</div>
-						</div>
-						<div class="select__selected p faq-section__p">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="select__selected p faq-section__p">
 
-							<?php if ( ! empty( $faq['faq_title'] ) ) : ?>
-								<?= esc_html( $faq['faq_title'] ); ?>
-							<?php endif; ?>
+			                <?php if ( ! empty( $faq['faq_title'] ) ) : ?>
+				                <?= esc_html( $faq['faq_title'] ); ?>
+			                <?php endif; ?>
 
-						</div>
-					</div>
+                        </div>
+                    </div>
+                </div>
+
 				<?php endforeach; ?>
 			<?php endif; ?>
 		</div>
