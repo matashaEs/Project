@@ -8,7 +8,7 @@
 extract( $args );
 ?>
 <div class="seo-posts-sidebar">
-	<div class="seo-posts-sidebar__heading <?= ( $links != false ) ? '' : 'seo-posts-sidebar__heading--only'?>">
+	<div class="seo-posts-sidebar__heading <?= ( false != $links ) ? '' : 'seo-posts-sidebar__heading--only'?>">
 		<?php if ( ! empty( $title ) ) : ?>
 			<div class="seo-posts-sidebar__title">
 				<?= esc_html( $title )?>
