@@ -2,56 +2,69 @@
 
 .privacy-policy-dropdowns {
   padding-bottom: 4.5rem;
+  width: 100%;
 
-  .breadcrumbs {
-    display: flex;
-    margin-bottom: 1rem;
+  &__container {
+    padding: 0;
   }
 
-  &__title {
-    margin-bottom: 4rem;
-  }
-
-  &__content {
-    list-style: none;
+  &__contents {
     padding: 0;
     margin: 0;
+
+    &--mobile {
+      list-style: none;
+    }
+
+    &--desktop {
+      display: none;
+    }
   }
 
   &__item {
-    position: relative;
     padding: 1rem 0;
     border-bottom: 1px solid var(--white);
     text-transform: capitalize;
 
-    &:hover {
-      cursor: pointer;
+    &-title {
+      scroll-margin-top: 7rem;
+    }
+  }
+
+  &__date {
+    padding-bottom: 4rem;
+    padding-top: 4rem;
+  }
+
+  &__description {
+    padding-bottom: 5rem;
+  }
+
+  &__menu {
+    &-title {
+      padding-bottom: 2rem;
     }
 
-    &::before {
-      position: absolute;
-      content: url("../../assets/img/blue-arrow.svg");
-      height: min-content;
-      top: 7px;
-      right: 0;
-      transition: 1s all;
+    &-item {
+      padding-bottom: 0.5rem;
+
+      a {
+        text-decoration: none;
+        color: var(--black);
+      }
     }
 
-    &-answer-container {
-      max-height: 0;
-      cursor: initial;
-      text-transform: none;
-      overflow: hidden;
-      transition: max-height 1s ease-in-out;
+    &-item:last-child {
+      padding-bottom: 6rem;
     }
+  }
+}
 
-    &-answer {
-      margin-top: 2rem;
-      margin-bottom: 3.5rem;
-    }
-
-    &--show::before {
-      transform: rotate(90deg);
+@include min-size(md) {
+  .privacy-policy-dropdowns {
+    .h5 {
+      font-size: 2.2rem;
+      line-height: 3.2rem;
     }
   }
 }
@@ -60,45 +73,34 @@
   .privacy-policy-dropdowns {
     padding-bottom: 10rem;
 
-    .breadcrumbs {
-      margin-bottom: 3rem;
+    &__container {
+      display: flex;
     }
 
-    &__title {
-      margin-bottom: 6rem;
+    &__contents {
+      &--desktop {
+        display: block;
+      }
+
+      &--mobile {
+        display: none;
+      }
+    }
+
+    &__menu {
+      &-item {
+        margin-left: 3rem;
+      }
+    }
+
+    &__date {
+      padding-bottom: 20rem;
+      padding-top: 9rem;
     }
 
     &__item {
       strong {
         letter-spacing: 0.02em;
-      }
-
-      &-answer {
-        margin-top: 3.5rem;
-        margin-bottom: 7rem;
-      }
-
-      &::before,
-      &::after {
-        position: absolute;
-        content: "";
-        width: 1.5px;
-        height: 17px;
-        top: 24px;
-        right: 0;
-        background: var(--black);
-      }
-
-      &::after {
-        transform: rotate(90deg);
-      }
-
-      &::before {
-        transition: all 0.2s ease-in;
-      }
-
-      &--show::before {
-        transform: scale(0);
       }
     }
   }

@@ -3,34 +3,36 @@ import $ from 'jquery';
 
 class PrivacyPolicyDropdowns {
     constructor() {
-        $( '.privacy-policy-dropdowns__item' ).on( 'click', ( e ) => {
-            this.dropdownAnimation( e );
-        });
-
+        this.changeTitleClass();
         window.addEventListener( 'resize', this.resizeEvent.bind( this ) );
     }
 
-    dropdownAnimation( e ) {
-        const itemShowClass = 'privacy-policy-dropdowns__item--show';
-        const itemAnswerShowClass = 'privacy-policy-dropdowns__item-answer-container--show';
+    changeTitleClass() {
+        const content = $( '.privacy-policy-dropdowns__item-description > p' );
+        const contentLi = $( '.privacy-policy-dropdowns__item-description > ul li' );
+        const contentStrong = $( '.privacy-policy-dropdowns__item-description > ul li strong' );
+        const contentDescription = $( '.privacy-policy-dropdowns__description ' );
+        const contentDate = $( '.privacy-policy-dropdowns__date' );
+        content.removeClass( 'p' );
+        content.removeClass( 'p-large' );
+        contentLi.removeClass( 'p' );
+        contentLi.removeClass( 'p-large' );
+        contentStrong.addClass( 'h5' );
+        contentDescription.removeClass( 'p' );
+        contentDescription.removeClass( 'p-large' );
+        contentDate.removeClass( 'p' );
+        contentDate.removeClass( 'h5' );
 
-        const item = $( e.target );
-        const answer = item.find( '.privacy-policy-dropdowns__item-answer-container' );
-        const answerScrollHeight = answer[0].scrollHeight;
-
-        /**
-         * if item that was clicked is already open then it's close it
-         * else it closes all other dropdowns and then opens one that was clicked
-         */
-        if ( item.hasClass( itemShowClass ) ) {
-            answer.css( 'max-height', 0 ).removeClass( itemAnswerShowClass );
-            item.removeClass( itemShowClass );
+        if ( 1024 > window.innerWidth ) {
+            content.addClass( 'p' );
+            contentLi.addClass( 'p' );
+            contentDescription.addClass( 'p' );
+            contentDate.addClass( 'p' );
         } else {
-            $( '.privacy-policy-dropdowns__item-answer-container' ).css( 'max-height', '' ).removeClass( itemAnswerShowClass );
-            $( '.' + itemShowClass ).removeClass( itemShowClass );
-
-            answer.css( 'max-height', answerScrollHeight ).addClass( itemAnswerShowClass );
-            item.addClass( itemShowClass );
+            content.addClass( 'p-large' );
+            contentLi.addClass( 'p-large' );
+            contentDescription.addClass( 'p-large' );
+            contentDate.addClass( 'h4' );
         }
     }
 
@@ -42,9 +44,7 @@ class PrivacyPolicyDropdowns {
     resizeEvent() {
         this.delay(
             () => {
-                $( '.privacy-policy-dropdowns__item-answer-container--show' ).each( function() {
-                    $( this ).css( 'max-height', $( this )[0].scrollHeight );
-                });
+                this.changeTitleClass();
             },
             500
         );
