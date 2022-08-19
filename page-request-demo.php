@@ -9,56 +9,54 @@ foreach ( explode( ' ', trim( get_field( 'form_shortcode' ), '[]' ) ) as $field 
 	$form_info[ $field_array[0] ] = $field_array[1] ?? '';
 }
 
-if ( ! empty( $form_info ) && ! empty( $form_info['portal'] ) && ! empty( $form_info['id'] ) ) {
-	$form = [
-		'portal'        => $form_info['portal'],
-		'form_id'       => $form_info['id'],
-		'fields'        => [
-			[
-				'type' => 'select',
-				'data' => [
-					'name'           => 'product',
-					'select_classes' => 'select--form',
-					'options'        => apply_filters( 'cai_get_filtered_products', null ),
-					'button_classes' => 'h4',
-					'title'          => 'Product',
-				],
-			],
-			[
-				'type'        => 'text',
-				'name'        => 'firstname',
-				'placeholder' => 'First Name',
-				'classes'     => 'input--lg-half',
-			],
-			[
-				'type'        => 'text',
-				'name'        => 'lastname',
-				'placeholder' => 'Last Name',
-				'classes'     => 'input--lg-half',
-			],
-			[
-				'type'        => 'email',
-				'name'        => 'email',
-				'placeholder' => 'Email',
-			],
-			[
-				'type'        => 'text',
-				'name'        => 'company',
-				'placeholder' => 'Company Name',
-			],
-			[
-				'type'        => 'textarea',
-				'name'        => 'message',
-				'placeholder' => 'Message',
+$form = [
+	'portal'        => $form_info['portal'] ?? '',
+	'form_id'       => $form_info['id'] ?? '',
+	'fields'        => [
+		[
+			'type' => 'select',
+			'data' => [
+				'name'           => 'product',
+				'select_classes' => 'select--form',
+				'options'        => apply_filters( 'cai_get_filtered_products', null ),
+				'button_classes' => 'h4',
+				'title'          => 'Product',
 			],
 		],
-		'button'        => [
-			'value'   => 'Submit',
-			'classes' => 'p button__send-form',
+		[
+			'type'        => 'text',
+			'name'        => 'firstname',
+			'placeholder' => 'First Name',
+			'classes'     => 'input--lg-half',
 		],
-		'after_sending' => get_field( 'after_sending' ),
-	];
-}
+		[
+			'type'        => 'text',
+			'name'        => 'lastname',
+			'placeholder' => 'Last Name',
+			'classes'     => 'input--lg-half',
+		],
+		[
+			'type'        => 'email',
+			'name'        => 'email',
+			'placeholder' => 'Email',
+		],
+		[
+			'type'        => 'text',
+			'name'        => 'company',
+			'placeholder' => 'Company Name',
+		],
+		[
+			'type'        => 'textarea',
+			'name'        => 'message',
+			'placeholder' => 'Message',
+		],
+	],
+	'button'        => [
+		'value'   => 'Submit',
+		'classes' => 'p button__send-form',
+	],
+	'after_sending' => get_field( 'after_sending' ),
+];
 ?>
 
 	<div class="container-fluid request-demo page-with-form">
