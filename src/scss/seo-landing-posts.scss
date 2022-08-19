@@ -30,7 +30,7 @@
     justify-content: space-between;
     margin-top: 4rem;
     margin-bottom: 4rem;
-    align-items: center;
+    align-items: flex-start;
     padding-right: 2rem;
   }
 
@@ -95,6 +95,10 @@
       margin-top: 0;
     }
 
+    &__date {
+      width: 210px;
+    }
+
     &__content {
       display: flex;
       width: 100%;
@@ -127,6 +131,7 @@
       padding: 0.7rem 2.2rem;
       line-height: 1;
       margin-right: 2.4rem;
+      margin-bottom: 1rem;
     }
 
     p {
