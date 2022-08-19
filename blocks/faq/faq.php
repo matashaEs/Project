@@ -42,7 +42,7 @@ if ( ! empty( $block['id'] ) ) {
 								<?php if ( ! empty( $faq['faq_title'] ) ) : ?>
 									<?= esc_html( $faq['faq_title'] ); ?>
 								<?php endif; ?>
-								<div class="select__arrow"></div>
+								<div class="select__arrow faq-section__arrow"></div>
 							</div>
 						</div>
 					</div>
