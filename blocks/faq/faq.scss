@@ -46,6 +46,10 @@
   &__title {
     margin-bottom: 2.5rem;
   }
+
+  &__arrow {
+    margin-right: 3rem;
+  }
 }
 
 @include min-size(md) {
@@ -60,6 +64,10 @@
       &:hover {
         border: 2px solid var(--silver-sand);
       }
+    }
+
+    &__arrow {
+      margin-right: 0;
     }
   }
 }
