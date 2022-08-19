@@ -133,33 +133,6 @@ class Form {
             /**
              * TODO: send dorm data
              */
-            // if ( $this.parent.attr( 'portal' ) && $this.parent.attr( 'id' ) ) {
-            //     let xhr = new XMLHttpRequest();
-            //     let url = 'https://api.hsforms.com/submissions/v3/integration/submit/' + $this.parent.attr( 'portal' ) + '/' + $this.parent.attr( 'id' );
-            //
-            //     let finalData = JSON.stringify( formData );
-            //
-            //     xhr.open( 'POST', url );
-            //
-            //     // Sets the value of the 'Content-Type' HTTP request headers to 'application/json'
-            //     xhr.setRequestHeader( 'Content-Type', 'application/json' );
-            //
-            //     xhr.onreadystatechange = function() {
-            //         if ( 4 === xhr.readyState && 200 === xhr.status ) {
-            //             alert( xhr.responseText ); // Returns a 200 response if the submission is successful.
-            //         } else if ( 4 === xhr.readyState && 400 === xhr.status ) {
-            //             alert( xhr.responseText ); // Returns a 400 error the submission is rejected.
-            //         } else if ( 4 === xhr.readyState && 403 === xhr.status ) {
-            //             alert( xhr.responseText ); // Returns a 403 error if the portal isn't allowed to post submissions.
-            //         } else if ( 4 === xhr.readyState && 404 === xhr.status ) {
-            //             alert( xhr.responseText ); //Returns a 404 error if the formGuid isn't found
-            //         }
-            //     };
-            //
-            //     // Sends the request
-            //
-            //     xhr.send( finalData );
-            // }
         }
     }
 
