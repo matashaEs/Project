@@ -47,7 +47,7 @@ if ( 'modular--white' == $background_color ) {
 					</a>
 				</div>
 			<?php endif; ?>
-        </div>
+		</div>
 		<div class="product-area__content">
 			<?php if ( ! empty( $contents ) ) : ?>
 				<?php foreach ( $contents as $content ) : ?>
