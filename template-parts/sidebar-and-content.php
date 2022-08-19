@@ -85,7 +85,7 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 					<?php endif; ?>
 				</div>
 
-				<?php else : ?>
+				<?php elseif ( 'the_content' === $content_type ) : ?>
 					<?php the_content(); ?>
 				<?php endif; ?>
 			</div>

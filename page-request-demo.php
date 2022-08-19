@@ -6,10 +6,10 @@ $form      = [];
 
 foreach ( explode( ' ', trim( get_field( 'form_shortcode' ), '[]' ) ) as $field ) {
 	$field_array                  = explode( '=', $field );
-	$form_info[ $field_array[0] ] = $field_array[1];
+	$form_info[ $field_array[0] ] = $field_array[1] ?? '';
 }
 
-if ( ! empty( $form_info && $form_info['portal'] && $form_info['id'] ) ) {
+if ( ! empty( $form_info ) && ! empty( $form_info['portal'] ) && ! empty( $form_info['id'] ) ) {
 	$form = [
 		'portal'        => $form_info['portal'],
 		'form_id'       => $form_info['id'],

@@ -97,7 +97,7 @@ label,
     height: 12px;
     width: 15px;
     top: 0;
-    bottom: -0.5rem;
+    bottom: 0;
     margin: auto 0;
     transition: all 0.4s;
   }
@@ -125,7 +125,9 @@ label,
 }
 
 .input {
-  border: 5px solid var(--off-white);
+  $this: &;
+
+  border: 5px solid var(--grey);
   border-top-width: 0;
   border-right-width: 0;
   border-left-width: 0;
@@ -147,19 +149,6 @@ label,
 
   &-container {
     width: 100%;
-
-    &:first-child {
-      padding-top: 1rem;
-    }
-  }
-
-  &-message {
-    height: 15rem;
-    resize: none;
-
-    &::placeholder {
-      padding-top: 5px;
-    }
   }
 
   &:focus {
@@ -173,7 +162,7 @@ label,
     padding-left: 0.7rem;
   }
 
-  &--error {
+  &--error#{$this}--error#{$this}--error {
     border-color: var(--erp-hover);
   }
 
@@ -227,6 +216,15 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   appearance: none;
   margin: 0;
+}
+
+textarea {
+  height: 15rem;
+  resize: none;
+
+  &::placeholder {
+    padding-top: 5px;
+  }
 }
 
 form {

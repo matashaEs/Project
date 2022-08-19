@@ -21,7 +21,7 @@ if ( ! empty( $product_modules ) ) {
 if ( ! empty( $product_form_information && $product_form_information['form_shortcode'] ) ) {
 	foreach ( explode( ' ', trim( $product_form_information['form_shortcode'], '[]' ) ) as $field ) {
 		$field_array                  = explode( '=', $field );
-		$form_info[ $field_array[0] ] = $field_array[1];
+		$form_info[ $field_array[0] ] = $field_array[1] ?? '';
 	}
 }
 
@@ -36,8 +36,8 @@ $data_to_display = [
 				'navigation_links' => apply_filters( 'cai_get_product_page_menu', get_the_ID() ),
 			],
 			'form'       => [
-				'portal'        => $form_info['portal'],
-				'form_id'       => $form_info['id'],
+				'portal'        => $form_info['portal'] ?? '',
+				'form_id'       => $form_info['id'] ?? '',
 				'fields'        => [
 					[
 						'type'        => 'text',

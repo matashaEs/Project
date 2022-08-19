@@ -28,10 +28,15 @@ $transition-time: 1s;
       cursor: pointer;
     }
 
-    &-arrow {
+    &::after {
+      content: "";
       position: absolute;
-      height: auto;
+      display: inline-block;
+      mask: url("../assets/img/down-arrow.svg") no-repeat 50% 50%;
+      mask-size: cover;
+      background-color: var(--off-white);
       width: 15px;
+      height: 12px;
       right: 3rem;
       transition: all $transition-time;
       top: 0;
@@ -39,10 +44,6 @@ $transition-time: 1s;
       margin: auto;
       transform: scale(1, -1);
       user-select: none;
-
-      path {
-        fill: var(--off-white);
-      }
     }
 
     &--show {
@@ -50,12 +51,9 @@ $transition-time: 1s;
       color: var(--main-blue);
       background-color: var(--grey);
 
-      #{$this}__open-button-arrow {
+      &::after {
         transform: scale(1);
-
-        path {
-          fill: var(--main-blue);
-        }
+        background-color: var(--main-blue);
       }
     }
   }
@@ -116,6 +114,7 @@ $transition-time: 1s;
 
     &__selected {
       padding-top: 0.8rem;
+      padding-bottom: 1rem;
     }
 
     &:last-child {
@@ -142,6 +141,10 @@ $transition-time: 1s;
       margin-left: 0;
     }
   }
+
+  .input {
+    border-color: var(--off-white);
+  }
 }
 
 @include min-size(md) {
@@ -158,6 +161,7 @@ $transition-time: 1s;
     .select {
       &__selected {
         padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
       }
     }
   }

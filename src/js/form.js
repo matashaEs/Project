@@ -46,7 +46,7 @@ class Form {
                 case 'firstname':   return this.regexes.firstname.test( field.val() );
                 case 'lastname':    return this.regexes.lastname.test( field.val() );
                 case 'email':       return this.regexes.email.test( field.val() );
-                case 'company': return this.regexes.company.test( field.val() );
+                case 'company':     return this.regexes.company.test( field.val() );
                 case 'message':     return this.regexes.message.test( field.val() );
                 case 'jobTitle':    return this.regexes.jobTitle.test( field.val() );
                 case 'product':     return true;
@@ -78,7 +78,7 @@ class Form {
 
                 allFieldsAreValid = false;
             } else if ( ! outerValid( $( this ) ) ) {
-                errorField.addClass( 'input__terror--show' ).append( fieldName + ' is invalid' );
+                errorField.addClass( 'input__error--show' ).append( fieldName + ' is invalid' );
                 $( this ).addClass( 'input--error' );
                 allFieldsAreValid = false;
             }
@@ -126,6 +126,7 @@ class Form {
         }, 5500 );
 
         // const formData = $this.validateForm();
+
         //
         // if ( 'object' === typeof formData ) {
         //     let xhr = new XMLHttpRequest();

@@ -31,7 +31,6 @@ endif;
 	<?php if ( ! empty( $sidebar ) ) : ?>
 		<div class="h3 quick-links__open-button">
 			<?= esc_html( $sidebar['mobileName'] ) ?>
-			<?php the_svg( 'down-arrow', 'quick-links__open-button-arrow' ); ?>
 		</div>
 
 		<div class="quick-links__container">
