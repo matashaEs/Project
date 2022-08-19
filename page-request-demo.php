@@ -1,81 +1,70 @@
 <?php /** Template Name: Page Request a Demo and Download Datasheet */
 get_header();
 
+$form_info = [];
+$form      = [];
+
+foreach ( explode( ' ', trim( get_field( 'form_shortcode' ), '[]' ) ) as $field ) {
+	$field_array                  = explode( '=', $field );
+	$form_info[ $field_array[0] ] = $field_array[1] ?? '';
+}
+
 $form = [
-	'action'  => '',
-	'id'      => 'formId',
-	'name'    => 'formName',
-	'classes' => '',
-	'fields'  => [
+	'portal'        => $form_info['portal'] ?? '',
+	'form_id'       => $form_info['id'] ?? '',
+	'fields'        => [
+		[
+			'type' => 'select',
+			'data' => [
+				'name'           => 'product',
+				'select_classes' => 'select--form',
+				'options'        => apply_filters( 'cai_get_filtered_products', null ),
+				'button_classes' => 'h4',
+				'title'          => 'Product',
+			],
+		],
 		[
 			'type'        => 'text',
-			'name'        => 'Name',
-			'id'          => 'nameId',
-			'placeholder' => 'Name',
+			'name'        => 'firstname',
+			'placeholder' => 'First Name',
 			'classes'     => 'input--lg-half',
 		],
 		[
-			'type'        => 'phone',
-			'name'        => 'Phone',
-			'id'          => 'phoneId',
-			'placeholder' => 'Phone',
+			'type'        => 'text',
+			'name'        => 'lastname',
+			'placeholder' => 'Last Name',
 			'classes'     => 'input--lg-half',
 		],
 		[
 			'type'        => 'email',
-			'name'        => 'Email',
-			'id'          => 'emailId',
+			'name'        => 'email',
 			'placeholder' => 'Email',
 		],
 		[
 			'type'        => 'text',
-			'name'        => 'Company',
-			'id'          => 'companyId',
-			'placeholder' => 'Company',
-		],
-		[
-			'type'        => 'text',
-			'name'        => 'Address',
-			'id'          => 'addressId',
-			'placeholder' => 'Address',
+			'name'        => 'company',
+			'placeholder' => 'Company Name',
 		],
 		[
 			'type'        => 'textarea',
-			'name'        => 'Message',
-			'id'          => 'messageId',
+			'name'        => 'message',
 			'placeholder' => 'Message',
-			'classes'     => 'input--message',
 		],
 	],
-	'button'  => [
-		'name'    => 'buttonName',
-		'id'      => 'buttonId',
+	'button'        => [
 		'value'   => 'Submit',
-		'classes' => 'p',
+		'classes' => 'p button__send-form',
 	],
+	'after_sending' => get_field( 'after_sending' ),
 ];
-
-$product_select = [
-	'name'           => 'product_select',
-	'options'        => apply_filters( 'cai_get_filtered_products', null ),
-	'button_classes' => 'h4',
-	'title'          => 'Product',
-]
 ?>
 
-	<div class="container-fluid request-demo">
+	<div class="container-fluid request-demo page-with-form">
 		<div class="container request-demo__container">
-			<?php
-			echo esc_html( get_template_part( 'template-parts/template-heading' ) );
-			?>
-			<div class="request-demo__form">
-				<?php
-				echo esc_html( get_template_part( 'template-parts/form-select', null, $product_select ) );
-				?>
-				<?php
-				echo esc_html( get_template_part( 'template-parts/form', null, $form ) );
-				?>
-			</div>
+			<?php echo esc_html( get_template_part( 'template-parts/template-heading' ) ); ?>
+			<?php if ( ! empty( $form ) ) : ?>
+				<?php echo esc_html( get_template_part( 'template-parts/form', null, $form ) ); ?>
+			<?php endif; ?>
 		</div>
 	</div>
 

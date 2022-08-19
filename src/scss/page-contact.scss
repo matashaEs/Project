@@ -5,15 +5,15 @@
     padding-bottom: 5rem;
   }
 
+  &__content {
+    transition: all 0.5s;
+  }
+
   .template-heading {
     &__title {
       text-align: left;
       margin-bottom: 1rem;
     }
-  }
-
-  .input {
-    border-color: var(--grey);
   }
 
   textarea {
@@ -63,7 +63,8 @@
       justify-content: space-between;
     }
 
-    &__col {
+    &__col,
+    form {
       width: 48%;
     }
 
@@ -71,7 +72,7 @@
       max-width: 380px;
     }
 
-    &__form {
+    form {
       max-width: 650px;
     }
 

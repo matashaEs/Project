@@ -123,25 +123,27 @@ endif;
 							</div>
 						</div>
 						<div class="nav__desktop-menu">
-							<form action="<?php echo esc_url( site_url( '/' ) ); ?>" type="GET" class="nav__desktop-form">
-								<input type="text" id="searchField" name="s" placeholder="Search"
-									class="nav-input input">
-								<input type="submit" value="<?php _e( 'Submit', 'nuplo' ); ?>" id="searchButton"
-									class="button nav-button">
-								<div id="searchResults">
+							<div class="nav__desktop-content--right">
+								<form action="<?php echo esc_url( site_url( '/' ) ); ?>" type="GET" class="nav__desktop-form">
+									<input type="text" id="searchField" name="s" placeholder="Search"
+										class="nav-input input">
+									<input type="submit" value="<?php _e( 'Submit', 'nuplo' ); ?>" id="searchButton"
+										class="button nav-button">
+									<div id="searchResults">
+									</div>
+								</form>
+								<div class="nav__desktop-menu-items">
+									<?php
+									wp_nav_menu(
+										[
+											'theme_location' => 'primary-menu-extended',
+											'container'    => false,
+											'items_wrap'   => '%3$s',
+											'add_li_class' => 'nav__desktop-menu-extended-item h5',
+										]
+									);
+									?>
 								</div>
-							</form>
-							<div class="nav__desktop-menu-items">
-								<?php
-								wp_nav_menu(
-									[
-										'theme_location' => 'primary-menu-extended',
-										'container'      => false,
-										'items_wrap'     => '%3$s',
-										'add_li_class'   => 'nav__desktop-menu-extended-item h5',
-									]
-								);
-								?>
 							</div>
 						</div>
 					</div>

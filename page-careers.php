@@ -1,48 +1,49 @@
 <?php /** Template Name: Careers Page */
 $job_offers = apply_filters( 'cai_get_all_job_offers', null );
-$form       = [
-	'id'     => 'formId',
-	'name'   => 'formName',
-	'fields' => [
+$form_info  = [];
+
+foreach ( explode( ' ', trim( get_field( 'form_shortcode' ), '[]' ) ) as $field ) {
+	$field_array                  = explode( '=', $field );
+	$form_info[ $field_array[0] ] = $field_array[1] ?? '';
+}
+
+$form = [
+	'portal'        => $form_info['portal'] ?? '',
+	'form_id'       => $form_info['id'] ?? '',
+	'fields'        => [
 		[
 			'type'        => 'text',
 			'name'        => 'Job Title',
-			'id'          => 'jobTitleId',
 			'placeholder' => 'Job Title',
 		],
 		[
 			'type'        => 'text',
-			'name'        => 'First Name',
-			'id'          => 'firstNameId',
+			'name'        => 'firstname',
 			'placeholder' => 'First Name',
 			'classes'     => 'input--lg-half',
 		],
 		[
 			'type'        => 'text',
-			'name'        => 'Last Name',
-			'id'          => 'lastNameId',
+			'name'        => 'lastname',
 			'placeholder' => 'Last Name',
 			'classes'     => 'input--lg-half',
 		],
 		[
 			'type'        => 'email',
 			'name'        => 'Email',
-			'id'          => 'emailId',
 			'placeholder' => 'Email',
 		],
 		[
 			'type'        => 'textarea',
 			'name'        => 'Message',
-			'id'          => 'messageId',
 			'placeholder' => 'Message',
 		],
 	],
-	'button' => [
-		'name'    => 'submit',
-		'id'      => 'buttonId',
+	'button'        => [
 		'value'   => 'Submit',
-		'classes' => 'p',
+		'classes' => 'p button__send-form',
 	],
+	'after_sending' => get_field( 'after_sending' ),
 ];
 
 get_header();
@@ -52,9 +53,7 @@ get_header();
 	<div class="container page-careers__container">
 		<div class="page-careers__col page-careers__form-container">
 			<?php get_template_part( 'template-parts/template-heading' ); ?>
-			<div class="page-careers__form">
-				<?php get_template_part( 'template-parts/form', null, $form ); ?>
-			</div>
+			<?php get_template_part( 'template-parts/form', null, $form ); ?>
 		</div>
 		<div class="page-careers__col page-careers__careers-list">
 			<?php if ( ! empty( $job_offers ) ) : ?>

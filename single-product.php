@@ -1,7 +1,11 @@
 <?php
 get_header();
 
-$modules_items   = [];
+$modules_items = [];
+$form_info     = [];
+
+$product_form_information = get_field( 'product_detail_form_information', 'options' );
+
 $product_modules = apply_filters( 'cai_get_product_page_modules', get_the_ID() );
 if ( ! empty( $product_modules ) ) {
 	$modules_items = [
@@ -14,6 +18,14 @@ if ( ! empty( $product_modules ) ) {
 	];
 }
 
+if ( ! empty( $product_form_information && $product_form_information['form_shortcode'] ) ) {
+	foreach ( explode( ' ', trim( $product_form_information['form_shortcode'], '[]' ) ) as $field ) {
+		$field_array                  = explode( '=', $field );
+		$form_info[ $field_array[0] ] = $field_array[1] ?? '';
+	}
+}
+
+
 $data_to_display = [
 	'title'        => get_the_title(),
 	'sidebar'      => [
@@ -24,34 +36,39 @@ $data_to_display = [
 				'navigation_links' => apply_filters( 'cai_get_product_page_menu', get_the_ID() ),
 			],
 			'form'       => [
-				'id'     => 'formId',
-				'name'   => 'formName',
-				'fields' => [
+				'portal'        => $form_info['portal'] ?? '',
+				'form_id'       => $form_info['id'] ?? '',
+				'fields'        => [
 					[
 						'type'        => 'text',
-						'name'        => 'Name',
-						'id'          => 'nameId',
-						'placeholder' => 'Name',
+						'name'        => 'firstname',
+						'placeholder' => 'First Name',
+						'classes'     => 'input--border-off-white',
+					],
+					[
+						'type'        => 'text',
+						'name'        => 'lastname',
+						'placeholder' => 'Last Name',
+						'classes'     => 'input--border-off-white',
 					],
 					[
 						'type'        => 'email',
-						'name'        => 'Email',
-						'id'          => 'emailId',
+						'name'        => 'email',
 						'placeholder' => 'Email',
+						'classes'     => 'input--border-off-white',
 					],
 					[
-						'type'        => 'telephone',
-						'name'        => 'Phone',
-						'id'          => 'phoneId',
-						'placeholder' => 'Phone',
+						'type'        => 'text',
+						'name'        => 'company',
+						'placeholder' => 'Company Name',
+						'classes'     => 'input--border-off-white',
 					],
 				],
-				'button' => [
-					'name'    => 'buttonName',
-					'id'      => 'buttonId',
+				'button'        => [
 					'value'   => 'Schedule A Demo',
-					'classes' => 'p',
+					'classes' => 'p button__send-form',
 				],
+				'after_sending' => $product_form_information['after_sending_form_content'],
 			],
 		],
 	],
