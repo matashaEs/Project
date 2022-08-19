@@ -141,10 +141,6 @@ $transition-time: 1s;
       margin-left: 0;
     }
   }
-
-  .input {
-    border-color: var(--off-white);
-  }
 }
 
 @include min-size(md) {

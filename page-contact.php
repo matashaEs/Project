@@ -74,7 +74,7 @@ get_header();
 		<?php get_template_part( 'template-parts/form', null, $form ); ?>
 	</div>
 
-    <?php the_static_acf_block( 'map', $marker_details ); ?>
+	<?php the_static_acf_block( 'map', $marker_details ); ?>
 </div>
 
 <?php

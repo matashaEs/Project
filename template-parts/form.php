@@ -17,8 +17,7 @@
  *  $link
  */
 extract( $args );
-
-if ( ! empty( $portal ) && ! empty( $form_id ) ) : ?>
+?>
 
 	<form action="" method="post" class="form <?= ! empty( $form_classes ) ? ' ' . esc_attr( $form_classes ) : ''?>"
 			portal="<?= esc_attr( $portal ) ?>" id="<?= esc_attr( $form_id ) ?>">
@@ -57,16 +56,17 @@ if ( ! empty( $portal ) && ! empty( $form_id ) ) : ?>
 				<div class="h1 form-valid__title"><?= esc_html( $after_sending['title'] ) ?></div>
 			<?php endif ?>
 		</div>
-		<div class="form-valid__col form-valid__col--right">
-				<?php if ( ! empty( $after_sending['description'] ) ) : ?>
-				<div class="p-large form-valid__description"><?= esc_html( $after_sending['description'] ) ?></div>
-			<?php endif ?>
-				<?php if ( ! empty( $after_sending['link'] ) ) : ?>
-				<a href="<?= esc_url( $after_sending['link']['url'] ) ?>" class="button p form-valid__button">
-					<?= esc_html( $after_sending['link']['title'] ) ?>
-				</a>
-			<?php endif ?>
-		</div>
+		<?php if ( ! empty( $after_sending['description'] ) || ! empty( $after_sending['link'] ) ) : ?>
+			<div class="form-valid__col form-valid__col--right">
+					<?php if ( ! empty( $after_sending['description'] ) ) : ?>
+					<div class="p-large form-valid__description"><?= esc_html( $after_sending['description'] ) ?></div>
+				<?php endif ?>
+					<?php if ( ! empty( $after_sending['link'] ) ) : ?>
+					<a href="<?= esc_url( $after_sending['link']['url'] ) ?>" class="button p form-valid__button">
+						<?= esc_html( $after_sending['link']['title'] ) ?>
+					</a>
+				<?php endif ?>
+			</div>
+		<?php endif ?>
 	</div>
-	<?php endif;
-endif; ?>
+<?php endif; ?>

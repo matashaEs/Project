@@ -13,7 +13,7 @@ label,
   position: relative;
 
   &--form {
-    border-bottom: 5px solid var(--off-white);
+    border-bottom: 5px solid var(--grey);
     border-radius: 0;
     padding-bottom: 4.5rem;
     background-color: transparent;
@@ -162,7 +162,11 @@ label,
     padding-left: 0.7rem;
   }
 
-  &--error#{$this}--error#{$this}--error {
+  &--border-off-white input {
+    border-color: var(--off-white);
+  }
+
+  &--error#{$this}--error {
     border-color: var(--erp-hover);
   }
 
@@ -200,11 +204,7 @@ label,
   &__error {
     line-height: 1;
     height: 1.4rem;
-    color: var(--yellow);
-
-    &--show {
-      color: var(--erp-hover);
-    }
+    color: var(--erp-hover);
   }
 }
 

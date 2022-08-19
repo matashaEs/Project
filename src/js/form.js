@@ -8,7 +8,7 @@ class Form {
     regexes = {
         firstname: /^[\w ]{2,30}$/,
         lastname: /^(\w([-']?\w+)*)+$/,
-        email: /^[a-zA-Z\d]([.!#$%&‘*+/=?^_`{|}~-]*[a-zA-Z\d]*)*[a-zA-Z\d]@[a-zA-Z\d](?:[a-zA-Z\d-]{0,61}[a-zA-Z\d])?(?:\.[a-zA-Z\d](?:[a-zA-Z\d-]{0,61}[a-zA-Z\d])?)*$/,
+        email: /^([a-zA-Z\d])+([.a-zA-Z\d_-])*@([a-zA-Z\d_-])+(.[a-zA-Z\d_-]+)+/,
         company: /^.{2,150}/,
         message: /^.{2,150}/,
         jobTitle: /^.{2,150}/,
@@ -26,7 +26,7 @@ class Form {
             });
 
         $( '.button__send-form' ).on( 'click', ( e ) => {
-            this.sendDataFromForm ( e, this );
+            this.sendDataFromForm( e, this );
         });
 
         $( '.input' ).focus( function() {
@@ -63,12 +63,12 @@ class Form {
         this.fields.removeClass( 'input--error' );
         this.parent.find( '.input__error' ).removeClass( 'input__error--show' ).empty();
 
-        this.fields.each( function( ) {
-            const errorField = 0 !== $( this ).next().length ? $( this ).next() :  $( this ).closest( '.select' ).next();
+        this.fields.each( function() {
+            const errorField = 0 !== $( this ).next().length ? $( this ).next() : $( this ).closest( '.select' ).next();
             const fieldName = $( this ).attr( 'placeholder' );
 
             if ( '' === $( this ).val() ) {
-                errorField.addClass( 'input__error--show' ).append( fieldName  + ' is required' );
+                errorField.addClass( 'input__error--show' ).append( fieldName + ' is required' );
 
                 if ( 'hidden' !== $( this ).attr( 'type' ) || 'TEXTAREA' === $( this ).prop( 'tagName' ) ) {
                     $( this ).addClass( 'input--error' );
@@ -85,10 +85,10 @@ class Form {
         });
 
         if ( allFieldsAreValid ) {
-            let data = { 'fields': [] };
+            let data = {'fields': []};
 
-            this.fields.each( function( ) {
-                data.fields.push({ 'objectTypeId': '0-1', 'name': $( this ).attr( 'name' ), 'value': $( this ).val().trim() });
+            this.fields.each( function() {
+                data.fields.push({'objectTypeId': '0-1', 'name': $( this ).attr( 'name' ), 'value': $( this ).val().trim()});
             });
 
             return data;
@@ -97,69 +97,70 @@ class Form {
         }
     }
 
+    hideShowForm( parent ) {
+        $( parent.prev() ).toggleClass( 'hide' );
+        parent.toggleClass( 'hide' );
+        $( '.cai-map' ).toggleClass( 'hide' );
+    }
+
     sendDataFromForm( e, $this ) {
         e.preventDefault();
         $this.parent = $( e.target.closest( 'form' ) );
         $this.fields = $this.parent.find( '.input' );
 
-        $( $this.parent.prev() ).addClass( 'hide' );
-        $this.parent.addClass( 'hide' );
-        $( '.cai-map' ).addClass( 'hide' );
+        const formData = $this.validateForm();
 
-        if ( 1024 > window.innerWidth ) {
-            $this.parent.next()[0].scrollIntoView();
+        if ( 'object' === typeof formData ) {
+            $this.hideShowForm( $this.parent );
+
+            if ( 1024 > window.innerWidth && ! $this.parent.hasClass( 'newsletter__form' ) ) {
+                $this.parent.next()[0].scrollIntoView();
+            }
+
+            setTimeout( function() {
+                $this.parent.next().addClass( 'form-valid--show' );
+                $this.fields.val( '' );
+            }, 500 );
+
+            setTimeout( function() {
+                $this.parent.next().removeClass( 'form-valid--show' );
+            }, 5000 );
+
+            setTimeout( function() {
+                $this.hideShowForm( $this.parent );
+            }, 5500 );
+
+            /**
+             * TODO: send dorm data
+             */
+            // if ( $this.parent.attr( 'portal' ) && $this.parent.attr( 'id' ) ) {
+            //     let xhr = new XMLHttpRequest();
+            //     let url = 'https://api.hsforms.com/submissions/v3/integration/submit/' + $this.parent.attr( 'portal' ) + '/' + $this.parent.attr( 'id' );
+            //
+            //     let finalData = JSON.stringify( formData );
+            //
+            //     xhr.open( 'POST', url );
+            //
+            //     // Sets the value of the 'Content-Type' HTTP request headers to 'application/json'
+            //     xhr.setRequestHeader( 'Content-Type', 'application/json' );
+            //
+            //     xhr.onreadystatechange = function() {
+            //         if ( 4 === xhr.readyState && 200 === xhr.status ) {
+            //             alert( xhr.responseText ); // Returns a 200 response if the submission is successful.
+            //         } else if ( 4 === xhr.readyState && 400 === xhr.status ) {
+            //             alert( xhr.responseText ); // Returns a 400 error the submission is rejected.
+            //         } else if ( 4 === xhr.readyState && 403 === xhr.status ) {
+            //             alert( xhr.responseText ); // Returns a 403 error if the portal isn't allowed to post submissions.
+            //         } else if ( 4 === xhr.readyState && 404 === xhr.status ) {
+            //             alert( xhr.responseText ); //Returns a 404 error if the formGuid isn't found
+            //         }
+            //     };
+            //
+            //     // Sends the request
+            //
+            //     xhr.send( finalData );
+            // }
         }
-
-        setTimeout( function() {
-            $this.parent.next().addClass( 'form-valid--show' );
-            $this.fields.val( '' );
-        }, 500 );
-
-        setTimeout( function() {
-            $this.parent.next().removeClass( 'form-valid--show' );
-        }, 5000 );
-
-        setTimeout( function() {
-            $( $this.parent.prev() ).removeClass( 'hide' );
-            $this.parent.removeClass( 'hide' );
-            $( '.cai-map' ).removeClass( 'hide' );
-        }, 5500 );
-
-        // const formData = $this.validateForm();
-
-        //
-        // if ( 'object' === typeof formData ) {
-        //     let xhr = new XMLHttpRequest();
-        //     let url = 'https://api.hsforms.com/submissions/v3/integration/submit/' + $this.parent.attr( 'portal' ) + '/' + $this.parent.attr( 'id' );
-        //
-        //     let finalData = JSON.stringify( formData );
-        //
-        //     xhr.open( 'POST', url );
-        //
-        //     // Sets the value of the 'Content-Type' HTTP request headers to 'application/json'
-        //     xhr.setRequestHeader( 'Content-Type', 'application/json' );
-        //
-        //     xhr.onreadystatechange = function() {
-        //         if ( 4 === xhr.readyState && 200 === xhr.status ) {
-        //
-        //             // Returns a 200 response if the submission is successful.
-        //             alert( xhr.responseText );
-        //             $this.parent.next().addClass( 'form-valid--show' );
-        //             $this.parent.prev().addClass( 'hide' );
-        //             $this.parent.addClass( 'hide' );
-        //         } else if ( 4 === xhr.readyState && 400 === xhr.status ) {
-        //             alert( xhr.responseText ); // Returns a 400 error the submission is rejected.
-        //         } else if ( 4 === xhr.readyState && 403 === xhr.status ) {
-        //             alert( xhr.responseText ); // Returns a 403 error if the portal isn't allowed to post submissions.
-        //         } else if ( 4 === xhr.readyState && 404 === xhr.status ) {
-        //             alert( xhr.responseText ); //Returns a 404 error if the formGuid isn't found
-        //         }
-        //     };
-        //
-        //     // Sends the request
-        //
-        //     xhr.send( finalData );
-        // }
     }
 
     /**
@@ -182,7 +183,7 @@ class Form {
                 if ( 1023 < window.innerWidth ) {
                     this.optionsContainer.css({'maxHeight': ''});
                 } else {
-                    if ( ! this.parent.hasClass( 'select--expand-on-top' ) )  {
+                    if ( ! this.parent.hasClass( 'select--expand-on-top' ) ) {
                         const selectHeight = window.innerHeight - this.parent.offset().top - window.scrollY - 160;
                         this.optionsContainer.css({'maxHeight': `${selectHeight}px`});
                     }

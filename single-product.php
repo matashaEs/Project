@@ -43,21 +43,25 @@ $data_to_display = [
 						'type'        => 'text',
 						'name'        => 'firstname',
 						'placeholder' => 'First Name',
+						'classes'     => 'input--border-off-white',
 					],
 					[
 						'type'        => 'text',
 						'name'        => 'lastname',
 						'placeholder' => 'Last Name',
+						'classes'     => 'input--border-off-white',
 					],
 					[
 						'type'        => 'email',
 						'name'        => 'email',
 						'placeholder' => 'Email',
+						'classes'     => 'input--border-off-white',
 					],
 					[
 						'type'        => 'text',
 						'name'        => 'company',
 						'placeholder' => 'Company Name',
+						'classes'     => 'input--border-off-white',
 					],
 				],
 				'button'        => [
