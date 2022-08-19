@@ -24,26 +24,43 @@ $quick_links_links = get_field( 'quick_links_links' );
 				<div class="seo-landing__title">
 					<?php the_title(); ?>
 				</div>
-				<div class="seo-landing__row">
-					<div class="seo-landing__date">
-						<?= get_the_date(); ?>
-					</div>
-					<div class="seo-landing__categories">
-						<?php $categories = get_the_category(); ?>
-						<?php foreach ( $categories as $category ) { ?>
-							<?php
-							$term_id             = $category->term_id;
-							$category_background = get_field( 'color', 'term_' . $term_id );
-							?>
-							<a href="<?= esc_url( get_category_link( $term_id ) ); ?>"
-							class="button seo-landing__button"
-							style="background-color: <?= esc_html( $category_background )?>;
-							border-color: <?= esc_html( $category_background )?>">
-								<?= esc_html( $category->name ); ?>
-							</a>
-						<?php } ?>
-					</div>
-				</div>
+					<?php
+					global $post;
+					$date = get_the_date();
+
+					$product_modules = [];
+					if ( has_blocks( $post->post_content ) ) :
+						$blocks = parse_blocks( $post->post_content );
+
+						foreach ( $blocks as $block ) :
+							if ( 'acf/privacy-policy-dropdowns' != $block['blockName'] ) : 
+								?>
+							<div class="seo-landing__row">
+								<div class="seo-landing__date">
+									<?= esc_html( $date ) ?>
+								</div>
+								<div class="seo-landing__categories">
+									<?php $categories = get_the_category(); ?>
+									<?php foreach ( $categories as $category ) { ?>
+										<?php
+										$term_id             = $category->term_id;
+										$category_background = get_field( 'color', 'term_' . $term_id );
+										?>
+										<a href="<?= esc_url( get_category_link( $term_id ) ); ?>"
+										class="button seo-landing__button"
+										style="background-color: <?= esc_html( $category_background )?>;
+										border-color: <?= esc_html( $category_background )?>">
+											<?= esc_html( $category->name ); ?>
+										</a>
+									<?php } ?>
+								</div>
+							</div>
+								<?php
+							endif;
+							break;
+						endforeach;
+					endif;
+					?>
 				<?php the_content(); ?>
 			</div>
 			<?php
