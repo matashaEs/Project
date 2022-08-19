@@ -48,7 +48,7 @@ class Form {
                 case 'email':       return this.regexes.email.test( field.val() );
                 case 'company':     return this.regexes.company.test( field.val() );
                 case 'message':     return this.regexes.message.test( field.val() );
-                case 'jobTitle':    return this.regexes.jobTitle.test( field.val() );
+                case 'jobtitle':    return this.regexes.jobtitle.test( field.val() );
                 case 'product':     return true;
                 default:            return false;
             }
