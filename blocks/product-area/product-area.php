@@ -46,8 +46,8 @@ if ( 'modular--white' == $background_color ) {
 						<?= esc_html( $link['title'] ) ?>
 					</a>
 				</div>
-			</div>
-		<?php endif; ?>
+			<?php endif; ?>
+		</div>
 		<div class="product-area__content">
 			<?php if ( ! empty( $contents ) ) : ?>
 				<?php foreach ( $contents as $content ) : ?>
