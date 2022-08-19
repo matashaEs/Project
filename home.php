@@ -145,7 +145,7 @@ $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : 'nie';
 				<?php endforeach; ?>
 			</div>
 		<?php else : ?>
-			<p class="blog__no-posts"><?php _e( 'Sorry, no posts matched your criteria.', 'nuplo' ); ?></p>
+			<p class="news__no-posts"><?php _e( 'Sorry, no posts matched your criteria.', 'nuplo' ); ?></p>
 		<?php endif; ?>
 	</div>
 </div>
