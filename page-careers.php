@@ -13,7 +13,7 @@ $form = [
 	'fields'        => [
 		[
 			'type'        => 'text',
-			'name'        => 'Job Title',
+			'name'        => 'jobtitle',
 			'placeholder' => 'Job Title',
 		],
 		[
@@ -30,12 +30,12 @@ $form = [
 		],
 		[
 			'type'        => 'email',
-			'name'        => 'Email',
+			'name'        => 'email',
 			'placeholder' => 'Email',
 		],
 		[
 			'type'        => 'textarea',
-			'name'        => 'Message',
+			'name'        => 'message',
 			'placeholder' => 'Message',
 		],
 	],

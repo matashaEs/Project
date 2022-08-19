@@ -11,7 +11,7 @@ class Form {
         email: /^([a-zA-Z\d])+([.a-zA-Z\d_-])*@([a-zA-Z\d_-])+(.[a-zA-Z\d_-]+)+/,
         company: /^.{2,150}/,
         message: /^.{2,150}/,
-        jobTitle: /^.{2,150}/,
+        jobtitle: /^.{2,150}/,
     }
 
     constructor() {
