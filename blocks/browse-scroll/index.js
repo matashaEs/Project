@@ -29,7 +29,7 @@ class BrowseScroll {
 					centerMode: true,
 					variableWidth: true,
 					autoplay: true,
-					autoplaySpeed: 2000,
+					autoplaySpeed: 4000,
 					pauseOnFocus: false,
 					centerPadding: paddingRight + 'px 0px ' + paddingLeft + 'px',
 				};
