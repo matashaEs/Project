@@ -19,6 +19,10 @@
     &__options.active {
       overflow-y: hidden;
     }
+
+    &__selected {
+      padding-top: 0;
+    }
   }
 
   &__option:hover {

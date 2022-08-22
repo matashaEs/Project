@@ -255,6 +255,7 @@
           max-width: calc(100% - 32px);
           overflow: hidden;
           text-overflow: ellipsis;
+          height: 100%;
         }
 
         &__selected {
