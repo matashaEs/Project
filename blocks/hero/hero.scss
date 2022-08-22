@@ -35,6 +35,13 @@
     line-height: 1.25;
   }
 
+  &__subtitle {
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+    font-family: var(--font-aeonik-medium);
+    font-weight: 400;
+  }
+
   &__button-link {
     text-transform: capitalize;
     display: inline-block;
@@ -64,6 +71,11 @@
       line-height: 1.13;
       color: var(--white);
       width: 60%;
+    }
+
+    &__subtitle {
+      color: var(--white);
+      width: 40%;
     }
 
     &__button-link {
@@ -103,6 +115,15 @@
       min-height: 585px;
       margin-bottom: 11rem;
     }
+
+    &__subtitle {
+      font-size: 3.6rem;
+      line-height: 4.8rem;
+      font-family: var(--font-aeonik-bold);
+      font-weight: 700;
+      margin-bottom: 5rem;
+      width: 50%;
+    }
   }
 }
 
@@ -110,11 +131,14 @@
   .hero {
     &__title {
       font-size: 5rem;
-      margin-bottom: 5rem;
     }
 
     &__container {
       min-height: 675px;
+    }
+
+    &__subtitle {
+      width: 44%;
     }
   }
 }
@@ -129,6 +153,10 @@
 
     &__container {
       min-height: 720px;
+    }
+
+    &__subtitle {
+      width: 34%;
     }
   }
 }

@@ -1,6 +1,7 @@
 <?php
 /**
  *  $title
+ *  $subtitle
  *  $background_image_mobile
  *  $background_image
  *  $button
@@ -23,6 +24,11 @@ if ( ! empty( $block['id'] ) ) {
 		<?php if ( ! empty( $title ) ) : ?>
 			<div class="h1 hero__title">
 				<?= esc_html( $title ) ?>
+			</div>
+		<?php endif; ?>
+		<?php if ( ! empty( $subtitle ) ) : ?>
+			<div class="hero__subtitle">
+				<?= esc_html( $subtitle ); ?>
 			</div>
 		<?php endif; ?>
 		<?php if ( ! empty( $button ) ) : ?>
