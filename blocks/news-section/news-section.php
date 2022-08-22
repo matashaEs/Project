@@ -65,31 +65,33 @@ if ( is_single() && 'product' == get_post_type() ) {
 			<?php else : ?>
 				<?php $news_posts = apply_filters( 'cai_get_filtered_news', null ); ?>
 			<?php endif; ?>
-			<?php foreach ( $news_posts as $news_post ) { ?>
-				<a href="<?= esc_url( $news_post['url'] ); ?>"
-					class="news-section__item modular__item--mobile">
-					<div class="news-section__item-top-content">
-						<div class="p news-section__item-date"><?= esc_html( $news_post['date'] ); ?></div>
-						<div class="news__categories">
-							<?php foreach ( $news_post['categories'] as $category ) { ?>
-								<object><a href="<?= esc_url( $category['slug'] ) ?>">
-										<div class="news__category"
-											style="background-color: <?= esc_html( $category['color'] ) ?>"></div>
-									</a></object>
-							<?php } ?>
+			<?php if ( ! empty( $news_posts ) ) : ?>
+				<?php foreach ( $news_posts as $news_post ) { ?>
+					<a href="<?= esc_url( $news_post['url'] ); ?>"
+						class="news-section__item modular__item--mobile">
+						<div class="news-section__item-top-content">
+							<div class="p news-section__item-date"><?= esc_html( $news_post['date'] ); ?></div>
+							<div class="news__categories">
+								<?php foreach ( $news_post['categories'] as $category ) { ?>
+									<object><a href="<?= esc_url( $category['slug'] ) ?>">
+											<div class="news__category"
+												style="background-color: <?= esc_html( $category['color'] ) ?>"></div>
+										</a></object>
+								<?php } ?>
+							</div>
 						</div>
-					</div>
-					<div class="h4 news-section__item-title"><?= esc_html( $news_post['name'] ); ?></div>
-					<div class="p news-section__item-read-more">
-						<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
-					</div>
-				</a>
-				<?php
-				if ( ++ $i == $how_much_news ) {
-					break;
-				}
-				?>
-			<?php } ?>
+						<div class="h4 news-section__item-title"><?= esc_html( $news_post['name'] ); ?></div>
+						<div class="p news-section__item-read-more">
+							<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
+						</div>
+					</a>
+					<?php
+					if ( ++ $i == $how_much_news ) {
+						break;
+					}
+					?>
+				<?php } ?>
+			<?php endif; ?>
 		</div>
 		<?php if ( ! empty( $link ) ) : ?>
 			<div class="row news-section__row news-section__row-button <?= esc_html( $button_container_class ) ?>">
