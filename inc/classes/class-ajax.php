@@ -13,10 +13,10 @@ class Ajax {
 	 * Load more posts in home - infinite scroll
 	 */
 	function load_more(): void {
-		if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( $_GET['nonce'], 'wp_ajax' ) ) {
+		if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( wp_kses_post( $_GET['nonce'] ), 'wp_ajax' ) ) {
 			wp_send_json_error( __( 'You passed incorrect data...', 'nuplo' ) );
 		}
-		$next_page          = isset( $_GET['currentPage'] ) ? $_GET['currentPage'] + 1 : 1;
+		$next_page          = isset( $_GET['currentPage'] ) ? wp_kses_post( $_GET['currentPage'] ) + 1 : 1;
 		$news_list          = apply_filters( 'cai_get_filtered_news', null );
 		$news_list['paged'] = $next_page;
 
