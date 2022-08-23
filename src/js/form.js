@@ -42,13 +42,16 @@ class Form {
             return false;
         } else {
             switch ( field.attr( 'name' ) ) {
-                case 'firstname':   return this.regexes.firstname.test( field.val() );
-                case 'lastname':    return this.regexes.lastname.test( field.val() );
-                case 'email':       return this.regexes.email.test( field.val() );
+                case 'firstname':           return this.regexes.firstname.test( field.val() );
+                case 'lastname':            return this.regexes.lastname.test( field.val() );
+                case 'email':               return this.regexes.email.test( field.val() );
                 case 'company':
                 case 'message':
-                case 'jobtitle':    return this.regexes.text.test( field.val() );
-                default:            return false;
+                case 'jobtitle':            return this.regexes.text.test( field.val() );
+                case 'product':
+                case 'product-download':
+                case 'product-request':        return true;
+                default:                    return false;
             }
         }
     }
@@ -85,7 +88,7 @@ class Form {
         if ( allFieldsAreValid ) {
             let data = {'fields': []};
 
-            this.fields.each( function() {
+            this.fields.not( 'input[name="product-download"]' ).not( 'input[name="product-request"]' ).each( function() {
                 data.fields.push({'objectTypeId': '0-1', 'name': $( this ).attr( 'name' ), 'value': $( this ).val().trim()});
             });
 
@@ -137,6 +140,14 @@ class Form {
                     setTimeout( function() {
                         $this.parent.next().addClass( 'form-valid--show' );
                         $this.fields.val( '' );
+
+                        $this.parent.find( 'input[type="hidden"].input' ).each( function() {
+                            $( this ).prev().find( '.select__selected-text' ).html( $( this ).attr( 'placeholder' ) );
+                        });
+
+                        $this.parent.find( 'input[type="radio"]' ).each( function() {
+                            $( this ).prop( 'checked', false );
+                        });
                     }, 500 );
 
                     setTimeout( function() {
@@ -222,6 +233,12 @@ class Form {
         const label = option.find( 'label' ).html();
         option.closest( '.select__box' ).find( '.select__selected' ).find( '.select__selected-text' ).html( label );
         option.closest( '.select__options' ).removeClass( 'active' ).css({'maxHeight': ''});
+
+        // set form id form selects
+        const inputName = option.find( 'input' ).attr( 'name' );
+        if ( 'product-download-radio' === inputName || 'product-request-radio' === inputName ) {
+            option.closest( 'form' ).attr( 'id', option.find( 'input' ).attr( 'formID' ) );
+        }
     }
 }
 

@@ -1,4 +1,4 @@
-<?php /** Template Name: Page Request a Demo */
+<?php /** Template Name: Page Download Datasheet */
 get_header();
 
 $form_info = [];
@@ -8,7 +8,7 @@ $form = [
 		[
 			'type' => 'select',
 			'data' => [
-				'name'           => 'product-request',
+				'name'           => 'product-download',
 				'select_classes' => 'select--form',
 				'options'        => apply_filters( 'cai_get_filtered_products', null ),
 				'button_classes' => 'h4',

@@ -1,15 +1,8 @@
 <?php /** Template Name: Careers Page */
 $job_offers = apply_filters( 'cai_get_all_job_offers', null );
-$form_info  = [];
-
-foreach ( explode( ' ', trim( get_field( 'form_shortcode' ), '[]' ) ) as $field ) {
-	$field_array                  = explode( '=', $field );
-	$form_info[ $field_array[0] ] = $field_array[1] ?? '';
-}
 
 $form = [
-	'portal'        => $form_info['portal'] ?? '',
-	'form_id'       => $form_info['id'] ?? '',
+	'form_id'       => get_field( 'form_guid' ) ?? '',
 	'fields'        => [
 		[
 			'type'        => 'text',

@@ -3,6 +3,109 @@ label,
   cursor: pointer;
 }
 
+.input {
+  $this: &;
+
+  border: 5px solid var(--grey);
+  border-top-width: 0;
+  border-right-width: 0;
+  border-left-width: 0;
+  border-radius: 0;
+  width: 100%;
+  font-family: var(--font-aeonik-light);
+  font-size: 1.6rem;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  padding-top: 1rem;
+  background-color: transparent;
+
+  &::placeholder {
+    font-family: var(--font-aeonik-light);
+    font-size: 1.6rem;
+    color: var(--black);
+    transition: all 0.5s;
+  }
+
+  &-container {
+    width: 100%;
+  }
+
+  &:focus {
+    &::placeholder {
+      transform: translateY(-15px);
+      font-size: 1rem;
+    }
+  }
+
+  &--start {
+    padding-left: 0.7rem;
+  }
+
+  &--border-off-white input {
+    border-color: var(--off-white);
+  }
+
+  &--error#{$this}--error {
+    border-color: var(--erp-hover);
+  }
+
+  &-form {
+    margin-bottom: 3rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    transition: all 0.5s;
+  }
+
+  &__radio {
+    appearance: none;
+    background-color: var(--off-white);
+    color: var(--main-blue);
+    width: 1.3rem;
+    height: 1.3rem;
+    border: 1px solid var(--main-blue);
+    border-radius: 50%;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: 0.5s transform;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+
+    &:checked {
+      background-color: var(--main-blue) !important;
+    }
+
+    &--filters {
+      width: 1.9rem;
+      height: 1.9rem;
+    }
+  }
+
+  &__error {
+    line-height: 1;
+    height: 1.4rem;
+    color: var(--erp-hover);
+  }
+}
+
+.radio {
+  &__container {
+    display: flex;
+    width: 100%;
+    margin-left: 0.5rem;
+  }
+
+  &__container:hover {
+    .input {
+      &__radio {
+        transform: scale(1.1);
+        background-color: var(--light-blue);
+        border-color: var(--light-blue);
+      }
+    }
+  }
+}
+
 .select {
   $this: &;
 
@@ -17,6 +120,12 @@ label,
     border-radius: 0;
     padding-bottom: 4.5rem;
     background-color: transparent;
+
+    .radio {
+      &__container {
+        margin-left: 0;
+      }
+    }
   }
 
   &--error {
@@ -112,7 +221,7 @@ label,
       order: 0;
     }
 
-    #{$this}.active {
+    #{$this}__options.active {
       margin-bottom: 1rem;
       margin-top: 3rem;
     }
@@ -122,91 +231,6 @@ label,
     z-index: 20;
 
     @include z-index-children(20, 3);
-  }
-}
-
-.input {
-  $this: &;
-
-  border: 5px solid var(--grey);
-  border-top-width: 0;
-  border-right-width: 0;
-  border-left-width: 0;
-  border-radius: 0;
-  width: 100%;
-  font-family: var(--font-aeonik-light);
-  font-size: 1.6rem;
-  padding-bottom: 1rem;
-  padding-left: 2rem;
-  padding-top: 1rem;
-  background-color: transparent;
-
-  &::placeholder {
-    font-family: var(--font-aeonik-light);
-    font-size: 1.6rem;
-    color: var(--black);
-    transition: all 0.5s;
-  }
-
-  &-container {
-    width: 100%;
-  }
-
-  &:focus {
-    &::placeholder {
-      transform: translateY(-15px);
-      font-size: 1rem;
-    }
-  }
-
-  &--start {
-    padding-left: 0.7rem;
-  }
-
-  &--border-off-white input {
-    border-color: var(--off-white);
-  }
-
-  &--error#{$this}--error {
-    border-color: var(--erp-hover);
-  }
-
-  &-form {
-    margin-bottom: 3rem;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    transition: all 0.5s;
-  }
-
-  &__radio {
-    appearance: none;
-    background-color: var(--off-white);
-    color: var(--main-blue);
-    width: 1.3rem;
-    height: 1.3rem;
-    border: 1px solid var(--main-blue);
-    border-radius: 50%;
-    margin-right: 8px;
-    cursor: pointer;
-    transition: 0.5s transform;
-    align-self: flex-start;
-    margin-top: 0.5rem;
-
-    &:checked {
-      background-color: var(--main-blue) !important;
-    }
-
-    &--filters {
-      width: 1.9rem;
-      height: 1.9rem;
-    }
-  }
-
-  &__error {
-    line-height: 1;
-    height: 1.4rem;
-    color: var(--erp-hover);
   }
 }
 
@@ -299,24 +323,6 @@ form,
 .label {
   &-modules {
     color: var(--grey-modules);
-  }
-}
-
-.radio {
-  &__container {
-    display: flex;
-    width: 100%;
-    margin-left: 0.5rem;
-  }
-
-  &__container:hover {
-    .input {
-      &__radio {
-        transform: scale(1.1);
-        background-color: var(--light-blue);
-        border-color: var(--light-blue);
-      }
-    }
   }
 }
 
