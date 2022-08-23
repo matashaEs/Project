@@ -33,7 +33,7 @@ $form = [
 		'value'   => 'Request A Demo',
 		'classes' => 'p button__send-form',
 	],
-	'after_sending' => get_field( 'after_sending' ),
+	'after_sending' => get_field( 'after_sending_form_content' ),
 ];
 
 if ( have_rows( 'contact_information', 'option' ) ) :

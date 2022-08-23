@@ -36,7 +36,7 @@ $form = [
 		'value'   => 'Submit',
 		'classes' => 'p button__send-form',
 	],
-	'after_sending' => get_field( 'after_sending' ),
+	'after_sending' => get_field( 'after_sending_form_content' ),
 ];
 
 get_header();

@@ -20,7 +20,7 @@ $form = [
 		'value'   => 'Submit',
 		'classes' => 'p button--white button__send-form newsletter__button',
 	],
-	'after_sending' => $after_sending,
+	'after_sending' => $after_sending_form_content,
 ];
 ?>
 
