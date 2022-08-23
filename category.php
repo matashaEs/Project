@@ -1,23 +1,26 @@
 <?php
 get_header();
 
-$category    = get_category( get_query_var( 'cat' ) );
-$this_cat_id = $category->cat_ID;
-$cat_page_id = get_field( 'product_category_page', 'category_' . $this_cat_id );
+$category         = get_category( get_query_var( 'cat' ) );
+$category_id      = $category->cat_ID;
+$category_page_id = get_field( 'product_category_page', 'category_' . $category_id );
 
-$category_page = get_post( $cat_page_id );
+if ( ! empty( $category_page_id ) ) :
 
-$page_content = apply_filters( 'the_content', $category_page->post_content );
+	$query = new WP_Query( [ 'page_id' => $category_page_id ] );
+	if ( $query->have_posts() ) :
+		while ( $query->have_posts() ) :
+			$query->the_post();
+			?>
 
-?>
+		<div class="product-category">
+			<?php the_content(); ?>
+		</div>
+			<?php
+		endwhile;
+		wp_reset_postdata();
+	endif;
 
-<div class="product-category">
-	<?php
-    // @codingStandardsIgnoreStart
-     echo $page_content
-	// @codingStandardsIgnoreEnd
-	?>
-</div>
+endif;
 
-<?php
 get_footer();
