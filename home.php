@@ -144,6 +144,9 @@ $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : '';
 					<?php } ?>
 				<?php endforeach; ?>
 			</div>
+            <div class="news__button-container" id="load_more">
+                <img src="<?php esc_url( get_template_directory_uri() ) . '/assets/img/placeholder.jpg' ?>" ng-hide="!showLoader"/>
+            </div>
 		<?php else : ?>
 			<p class="news__no-posts"><?php _e( 'Sorry, no posts matched your criteria.', 'nuplo' ); ?></p>
 		<?php endif; ?>
