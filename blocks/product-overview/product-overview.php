@@ -14,20 +14,6 @@ if ( ! empty( $block['id'] ) ) {
 	extract( $block['data'] );
 }
 
-$breadcrumbs = [
-	[
-		'name' => __( 'Products', 'nuplo' ),
-		'url'  => get_home_url(),
-	],
-	[
-		'name' => __( 'ERP', 'nuplo' ),
-		'url'  => '#',
-	],
-	[
-		'name' => __( 'Ponderosa ERP', 'nuplo' ),
-		'url'  => '#',
-	],
-]
 ?>
 
 <section class="container-fluid product-overview modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : ''?>">
@@ -37,7 +23,7 @@ $breadcrumbs = [
 	<?php endif; ?>
 	<div class="container">
 		<div class="product-overview__path">
-			<?php get_template_part( 'template-parts/breadcrumbs', null, $breadcrumbs ); ?>
+			<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
 		</div>
 		<div class="product-overview__title product-overview__title--mobile">
 			<h1><?= esc_html( the_title() ) ?></h1>
