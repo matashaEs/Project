@@ -56,7 +56,7 @@ class Assets {
 				'nonce'       => wp_create_nonce( 'wp_ajax' ),
 				'queryVars'   => wp_json_encode( $wp_query->query_vars ),
 				'currentPage' => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1,
-				'max_page'    => $wp_query->max_num_pages,
+				'maxPage'     => $wp_query->max_num_pages,
 				'env'         => wp_get_environment_type(),
 			]
 		);
