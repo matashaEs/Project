@@ -54,9 +54,9 @@ class Assets {
 				'rootUrl'     => get_site_url(),
 				'ajaxUrl'     => admin_url( 'admin-ajax.php' ),
 				'nonce'       => wp_create_nonce( 'wp_ajax' ),
-				'query_vars'   => wp_json_encode( $wp_query->query_vars ),
-				'current_page' => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1,
-				'max_page'    => $wp_query->max_num_pages,
+				'queryVars'   => wp_json_encode( $wp_query->query_vars ),
+				'currentPage' => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1,
+				'maxPage'     => $wp_query->max_num_pages,
 				'env'         => wp_get_environment_type(),
 			]
 		);

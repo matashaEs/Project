@@ -117,19 +117,18 @@ $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : '';
 				<?php foreach ( $quick_links['items'] as $index => $item ) : ?>
 					<?php if ( $index > 2 ) { ?>
 						<?php
-						$args = array(
-						'url' => $item['url'],
-						'image_url' =>	$item['image_url'],
-						'date' =>	$item['date'],
-						'categories' => $item['categories'],
-						'title'	=> $item['name']
-                        );?>
-                    <?php get_template_part( 'template-parts/news-posts','', $args); ?>
+						$args = [
+							'url'        => $item['url'],
+							'image_url'  => $item['image_url'],
+							'date'       => $item['date'],
+							'categories' => $item['categories'],
+							'title'      => $item['name'],
+						];
+						?>
+						<?php get_template_part( 'template-parts/news-posts', '', $args ); ?>
 					<?php } ?>
 				<?php endforeach; ?>
-                <div class="news__button-container" id="load_more">
-                    <img src="<?php esc_url( get_template_directory_uri() ) . '/assets/img/placeholder.jpg' ?>" ng-hide="!showLoader"/>
-                </div>
+				<div class="lds-dual-ring" id="load_more"></div>
 			</div>
 		<?php else : ?>
 			<p class="news__no-posts"><?php _e( 'Sorry, no posts matched your criteria.', 'nuplo' ); ?></p>
