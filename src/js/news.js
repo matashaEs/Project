@@ -45,8 +45,7 @@ class paginationInfiniteScroll {
         'Content-Type': 'application/json',
       },
       data: {
-
-        // action: 'load_more_posts',
+        action: 'load_more_posts',
         nonce: websiteData.nonce,
         current_page: websiteData.current_page,
         query_vars: websiteData.query_vars,

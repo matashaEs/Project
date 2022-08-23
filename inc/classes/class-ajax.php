@@ -10,49 +10,34 @@ class Ajax {
 	}
 
 	/**
-	 * Load more posts in archive - infinite scroll
+	 * Load more posts in home - infinite scroll
 	 */
 	function load_more(): void {
-		if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_GET['nonce'] ), 'wp_ajax' ) ) {
+		if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( $_GET['nonce'], 'wp_ajax' ) ) {
 			wp_send_json_error( __( 'You passed incorrect data...', 'nuplo' ) );
 		}
+		$next_page          = isset( $_GET['current_page'] ) ? $_GET['current_page'] + 1 : 1;
+		$news_list          = apply_filters( 'cai_get_filtered_news', null );
+		$news_list['paged'] = $next_page;
 
-		$next_page           = isset( $_GET['current_page'] ) ? intval( $_GET['current_page'] ) + 1 : 1;
-		$args                = isset( $_GET['query_vars'] )
-			? json_decode( stripslashes( sanitize_text_field( $_GET['query_vars'] ) ), true )
-			: [];
-		$args['post_status'] = 'publish';
-		$args['paged']       = $next_page;
-
-		$query = new WP_Query( $args );
-
-		if ( $query->have_posts() ) {
+		query_posts( $news_list );
+		if ( have_posts() ) {
 			ob_start();
-			$posts_args = [];
 
-			while ( $query->have_posts() ) {
-				$query->the_post();
-
-				$thumbnail_url = get_the_post_thumbnail_url( get_the_ID(), 'thumbnail' )
-					? get_the_post_thumbnail_url( get_the_ID(), 'thumbnail' )
-					: get_template_directory_uri() . '/assets/img/placeholder.jpg';
-
-				array_push(
-					$posts_args,
-					[
-						'id'        => get_the_ID(),
-						'title'     => get_the_title(),
-						'thumbnail' => $thumbnail_url,
-						'excerpt'   => get_the_excerpt(),
-						'permalink' => get_permalink(),
-					]
-				);
-			}
-			get_template_part( 'template-parts/archive', 'content-rows', $posts_args );
+			while ( have_posts() ): the_post();
+				$args = [
+					'url'        => get_the_permalink(),
+					'image_url'  => wp_get_attachment_url( get_post_thumbnail_id() ),
+					'date'       => get_the_time( 'F j, Y' ),
+					'categories' => apply_filters( 'cai_get_news_category', get_the_ID()),
+					'title'      => get_the_title(),
+				];
+				get_template_part( 'template-parts/news-posts', '', $args );
+			endwhile;
 
 			wp_send_json_success( ob_get_clean() );
 		} else {
 			wp_send_json_error( __( 'No more data', 'nuplo' ) );
 		}
-	}
+}
 }

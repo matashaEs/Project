@@ -116,37 +116,21 @@ $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : '';
 				</div>
 				<?php foreach ( $quick_links['items'] as $index => $item ) : ?>
 					<?php if ( $index > 2 ) { ?>
-						<a href="<?= esc_url( $item['url'] ) ?>"
-							class="news__a news__section news__section--small">
-							<div class="news__image-section">
-								<?php $image_url = $item['image_url']; ?>
-								<div class="news__image"
-									style="background-image: url( <?= ( null != $image_url ) ? esc_url( $image_url ) : esc_url( get_template_directory_uri() ) . '/assets/img/placeholder.jpg'; ?>);"></div>
-							</div>
-							<div class="news__content">
-								<div class="news__content--top">
-									<div class="news__date p"><?= esc_html( $item['date'] ) ?></div>
-									<div class="news__categories">
-										<?php foreach ( $item['categories'] as $category ) { ?>
-											<object><a href="<?= esc_url( $category['slug'] ) ?>">
-													<div class="news__category"
-														style="background-color: <?=  esc_html( $category['color'] ) ?>"></div>
-												</a></object>
-										<?php } ?>
-									</div>
-								</div>
-								<div class="h4 news__title"><?=  esc_html( $item['name'] ) ?></div>
-								<div class="news__read-more">
-									<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
-								</div>
-							</div>
-						</a>
+						<?php
+						$args = array(
+						'url' => $item['url'],
+						'image_url' =>	$item['image_url'],
+						'date' =>	$item['date'],
+						'categories' => $item['categories'],
+						'title'	=> $item['name']
+                        );?>
+                    <?php get_template_part( 'template-parts/news-posts','', $args); ?>
 					<?php } ?>
 				<?php endforeach; ?>
+                <div class="news__button-container" id="load_more">
+                    <img src="<?php esc_url( get_template_directory_uri() ) . '/assets/img/placeholder.jpg' ?>" ng-hide="!showLoader"/>
+                </div>
 			</div>
-            <div class="news__button-container" id="load_more">
-                <img src="<?php esc_url( get_template_directory_uri() ) . '/assets/img/placeholder.jpg' ?>" ng-hide="!showLoader"/>
-            </div>
 		<?php else : ?>
 			<p class="news__no-posts"><?php _e( 'Sorry, no posts matched your criteria.', 'nuplo' ); ?></p>
 		<?php endif; ?>
