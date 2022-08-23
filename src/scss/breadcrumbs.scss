@@ -1,5 +1,6 @@
 .breadcrumbs {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 43px;
 
   &__item {
@@ -9,13 +10,13 @@
   }
 
   &__item--link {
-    margin-right: 5.5rem;
+    margin-right: 4rem;
     position: relative;
 
     &::after {
       content: ">";
       position: absolute;
-      right: -3rem;
+      right: -2rem;
     }
 
     &:hover {
@@ -27,5 +28,13 @@
 @include min-size(lg) {
   .breadcrumbs {
     margin-top: 100px;
+
+    &__item--link {
+      margin-right: 5rem;
+
+      &::after {
+        right: -2.5rem;
+      }
+    }
   }
 }
