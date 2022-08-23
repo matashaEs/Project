@@ -2,16 +2,9 @@
 /** Template Name: Contact Page */
 
 $marker_details = get_field( 'marker_on_the_map', 'options' );
-$form_info      = [];
-
-foreach ( explode( ' ', trim( get_field( 'form_shortcode' ), '[]' ) ) as $field ) {
-	$field_array                  = explode( '=', $field );
-	$form_info[ $field_array[0] ] = $field_array[1] ?? '';
-}
 
 $form = [
-	'portal'        => $form_info['portal'] ?? '',
-	'form_id'       => $form_info['id'] ?? '',
+	'form_id'       => get_field( 'form_guid' ) ?? '',
 	'fields'        => [
 		[
 			'type'        => 'text',

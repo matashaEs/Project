@@ -58,6 +58,7 @@ class Assets {
 				'currentPage' => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1,
 				'max_page'    => $wp_query->max_num_pages,
 				'env'         => wp_get_environment_type(),
+				'portalID'    => get_field( 'portal_id', 'options' ) ?? '',
 			]
 		);
 	}

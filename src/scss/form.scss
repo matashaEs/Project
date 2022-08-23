@@ -176,6 +176,7 @@ label,
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
+    transition: all 0.5s;
   }
 
   &__radio {
@@ -228,22 +229,28 @@ textarea {
   }
 }
 
-form {
+form,
+.form {
   transition: all 0.5s;
+  position: relative;
 }
 
-.form-valid {
+.form-valid,
+.form-error {
   position: absolute;
   height: fit-content;
   display: flex;
   flex-direction: column;
-  top: 50px;
   left: 0;
-  margin: 0 2rem;
   scroll-margin-top: 12rem;
   opacity: 0;
   z-index: -1;
   transition: all 0.5s;
+}
+
+.form-valid {
+  top: 50px;
+  margin: 0 2rem;
 
   &__col {
     height: fit-content;
@@ -266,6 +273,21 @@ form {
   &__button {
     padding-left: 45px;
     padding-right: 45px;
+  }
+
+  &--show {
+    opacity: 1;
+    z-index: 1;
+  }
+}
+
+.form-error {
+  top: 0;
+
+  &__description {
+    font-family: var(--font-aeonik-light);
+    font-size: 2.4rem;
+    line-height: 3rem;
   }
 
   &--show {
@@ -317,6 +339,11 @@ form {
     &__arrow::before {
       right: 2rem;
     }
+  }
+
+  .form-error {
+    height: 100%;
+    justify-content: center;
   }
 }
 
