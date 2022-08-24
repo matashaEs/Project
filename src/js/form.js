@@ -66,6 +66,7 @@ class Form {
                 case 'email':               return this.regexes.email.test( field.val() );
                 case 'company':
                 case 'message':
+                case 'interest':
                 case 'jobtitle':            return this.regexes.text.test( field.val() );
                 case 'product':
                 case 'product-download':    return true;

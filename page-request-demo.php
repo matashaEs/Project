@@ -5,7 +5,7 @@ $form  = [];
 $terms = null;
 
 $selected_category    = get_query_var( 'category' );
-$selected_category_id = get_category_by_slug( $selected_category )->cat_ID;
+$selected_category_id = get_category_by_slug( $selected_category )->cat_ID ?? '';
 
 $form_id         = get_field( 'demo_form_guid', 'category_' . $selected_category_id );
 $default_form_id = get_field( 'demo_default_form_guid', 'options' );
@@ -15,7 +15,7 @@ if ( $form_id ) {
 }
 
 $heading_args = [
-        'is_download' => true,
+	'is_download' => true,
 ];
 
 if ( ! empty( $form_id ) || ! empty( $default_form_id ) ) :
@@ -75,8 +75,10 @@ endif;
 			<?php if ( ! empty( $form ) ) : ?>
 				<?php echo esc_html( get_template_part( 'template-parts/form', null, $form ) ); ?>
 			<?php else : ?>
-			<div class="h3 request-demo__no-form">
-				<?= esc_html__( 'Problem loading form. ', 'nuplo' ) ?>
+			<div class="request-demo__no-form">
+				<div class="h3">
+					<?= esc_html__( 'An error occurred while trying to load the form. Please try again later.', 'nuplo' ) ?>
+				</div>
 				<a href="<?= esc_url( get_home_url() )?>" class="button p">
 					<?= esc_html__( 'Return Home', 'nuplo' ) ?>
 				</a>

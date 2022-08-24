@@ -128,6 +128,33 @@ label,
     }
   }
 
+  &--transparent {
+    #{$this}__box {
+      background-color: transparent;
+    }
+
+    #{$this}__selected {
+      font-size: 1.6rem;
+      justify-content: flex-start;
+
+      &-text {
+        width: calc(100% - 20px);
+        line-height: 1.5;
+      }
+    }
+
+    #{$this}__options {
+      background-color: var(--off-white);
+      margin: 0;
+    }
+
+    #{$this}__options.active {
+      border-radius: 0 0 25px 25px;
+      padding-top: 1rem;
+      padding-bottom: 3rem;
+    }
+  }
+
   &--error {
     border-color: var(--erp-hover);
   }
