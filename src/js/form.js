@@ -68,8 +68,7 @@ class Form {
                 case 'message':
                 case 'jobtitle':            return this.regexes.text.test( field.val() );
                 case 'product':
-                case 'product-download':
-                case 'product-request':        return true;
+                case 'product-download':    return true;
                 default:                    return false;
             }
         }
@@ -107,8 +106,9 @@ class Form {
         if ( allFieldsAreValid ) {
             let data = {'fields': []};
 
-            this.fields.not( 'input[name="product-download"]' ).not( 'input[name="product-request"]' ).each( function() {
-                data.fields.push({'objectTypeId': '0-1', 'name': $( this ).attr( 'name' ), 'value': $( this ).val().trim()});
+            this.fields.not( 'input[name="product-download"]' ).each( function() {
+                const value = 'product' === $( this ).attr( 'name' ) ? $( this ).prev().find( '.select__selected-text' ).html() : $( this ).val().trim();
+                data.fields.push({'objectTypeId': '0-1', 'name': $( this ).attr( 'name' ), 'value': value});
             });
 
             return data;
@@ -255,7 +255,7 @@ class Form {
 
         // set form id form selects
         const inputName = option.find( 'input' ).attr( 'name' );
-        if ( 'product-download-radio' === inputName || 'product-request-radio' === inputName ) {
+        if ( 'product-download-radio' === inputName ) {
             option.closest( 'form' ).attr( 'id', option.find( 'input' ).attr( 'formID' ) );
         }
     }

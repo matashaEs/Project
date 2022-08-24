@@ -11,7 +11,7 @@ extract( $args );
 $all_select_classes  = ! empty( $expand_to_top ) ? esc_html( ' select--expand-on-top' ) : '';
 $all_select_classes .= ! empty( $select_classes ) ? ' ' . esc_html( $select_classes ) : '';
 
-$product_form = 'product-download' === $name ? 'download_form_guid' : ( 'product-request' === $name ? 'demo_form_guid' : '' );
+$product_form = 'product-download' === $name ? 'download_form_guid' : '';
 ?>
 
 <div class="select<?= ! empty( $all_select_classes ) ? esc_html( $all_select_classes ) : '' ?>">

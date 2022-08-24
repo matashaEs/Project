@@ -25,7 +25,7 @@ $data_to_display = [
 				'navigation_links' => apply_filters( 'cai_get_product_page_menu', get_the_ID() ),
 			],
 			'form'       => [
-				'form_id'       => get_field( 'single_form_guid' ) ?? '',
+				'form_id'       => get_field( 'demo_form_guid' ) ?? '',
 				'fields'        => [
 					[
 						'type'        => 'text',

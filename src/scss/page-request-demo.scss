@@ -30,6 +30,15 @@
       padding-bottom: 3rem;
     }
   }
+
+  &__no-form {
+    margin: 5rem 0;
+
+    .button {
+      display: inline-block;
+      margin-top: 3rem;
+    }
+  }
 }
 
 @include min-size(md) {
