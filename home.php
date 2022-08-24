@@ -1,23 +1,20 @@
 <?php
 get_header();
 
-$product_type = null;
-$industry     = null;
-$content      = null;
+$taxonomies['product-type'] = null;
 
 if ( get_query_var( 'product-type' ) ) {
-	$product_type = get_query_var( 'product-type' );
+	$taxonomies['product-type'] = get_query_var( 'product-type' );
 }
 
 if ( get_query_var( 'industry' ) ) {
-	$industry = get_query_var( 'industry' );
+	$taxonomies['industry'] = get_query_var( 'industry' );
 }
 
 if ( get_query_var( 'content' ) ) {
-	$content = get_query_var( 'content' );
+	$taxonomies['content'] = get_query_var( 'content' );
 }
 
-$taxonomies = [ $product_type, $industry, $content ];
 
 $quick_links = [
 	'container_class' => 'news__sidebar',
