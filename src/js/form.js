@@ -253,10 +253,16 @@ class Form {
         option.closest( '.select__box' ).find( '.select__selected' ).find( '.select__selected-text' ).html( label );
         option.closest( '.select__options' ).removeClass( 'active' ).css({'maxHeight': ''});
 
-        // set form id form selects
-        const inputName = option.find( 'input' ).attr( 'name' );
-        if ( 'product-download-radio' === inputName ) {
-            option.closest( 'form' ).attr( 'id', option.find( 'input' ).attr( 'formID' ) );
+        // reload download page on select product.
+        if ( 'product-download-radio' === option.find( 'input' ).attr( 'name' ) ) {
+            let url = new URL( window.location.href );
+
+            url.searchParams.set( 'download-product', valueToSet );
+
+            // change the search property of the main url
+            url.search = url.searchParams.toString();
+
+            window.location.href = decodeURI( url.toString() );
         }
     }
 }
