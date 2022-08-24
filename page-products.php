@@ -8,20 +8,15 @@ $data_to_display = [
 		'blocks'     => [
 			'radio-group' => [
 				'title'   => __( 'Product Category', 'nuplo' ),
-				'name'    => 'productCategory',
+				'name'    => 'category',
+				'classes' => 'product-sort__category',
 				'options' => apply_filters( 'cai_get_products_category', null ),
 			],
 			'selects'     => [
 				[
-					'title'          => 'Industry Type',
-					'name'           => 'industryType',
-					'options'        => apply_filters( 'cai_get_industry_types', null ),
-					'button_classes' => 'button button--off-white',
-					'expand_to_top'  => true,
-				],
-				[
 					'title'          => __( 'Industry', 'nuplo' ),
 					'name'           => 'industry',
+					'select_classes' => 'product-sort__industry',
 					'options'        => apply_filters( 'cai_get_industries', null ),
 					'button_classes' => 'button button--off-white',
 					'expand_to_top'  => true,
@@ -30,16 +25,6 @@ $data_to_display = [
 		],
 	],
 	'items'        => apply_filters( 'cai_get_filtered_products', null ),
-	'breadcrumbs'  => [
-		[
-			'name' => __( 'Home', 'nuplo' ),
-			'url'  => get_home_url(),
-		],
-		[
-			'name' => __( 'Products', 'nuplo' ),
-			'url'  => '#',
-		],
-	],
 	'content_type' => 'items',
 ];
 

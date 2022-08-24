@@ -7,7 +7,7 @@ extract( $args );
 ?>
 
 <?php foreach ( $options as $option ) : ?>
-	<div class="radio__container">
+	<div class="radio__container<?= ! empty( $classes ) ? ' ' . esc_html( $classes ) : '' ?>">
 		<input
 				type="radio"
 				class="input__radio input__radio--filters"

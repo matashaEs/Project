@@ -8,21 +8,17 @@ $data_to_display = [
 		'blocks'     => [
 			'selects'     => [
 				[
-					'title'          => 'Industry Type',
-					'name'           => 'industryType',
-					'options'        => apply_filters( 'cai_get_industry_types', null ),
-					'button_classes' => 'button button--off-white',
-				],
-				[
 					'title'          => __( 'Industry', 'nuplo' ),
 					'name'           => 'industry',
+					'select_classes' => 'product-sort__industry',
 					'options'        => apply_filters( 'cai_get_industries', null ),
 					'button_classes' => 'button button--off-white',
 				],
 			],
 			'radio-group' => [
 				'title'   => __( 'Product Category', 'nuplo' ),
-				'name'    => 'productCategory',
+				'name'    => 'category',
+				'classes' => 'product-sort__category',
 				'options' => apply_filters( 'cai_get_products_category', null ),
 			],
 		],

@@ -5,51 +5,6 @@ class PostsFiltering {
 		$( 'input[name="newsContentType"]' ).on( 'change', this.setParametersNews );
 		$( 'input[name="newsProduct"]' ).on( 'change', this.setParametersNews );
 		$( 'input[name="newsIndustry"]' ).on( 'change', this.setParametersNews );
-
-		window.onload = function( ) {
-			const queryString = window.location.search;
-			const urlParams   = new URLSearchParams( queryString );
-
-			const parameterProduct = urlParams.get( 'product-type' );
-
-			const parameterIndustry = urlParams.get( 'industry' );
-
-			const parameterContent = urlParams.get( 'content' );
-
-			const optionIndustry = $( '.news__sidebar-industry' );
-			optionIndustry.find( '.select__box' )
-				.find( 'input[type="hidden"]' )
-				.val( parameterIndustry );
-
-			const optionProduct = $( '.news__sidebar-product' );
-			optionProduct.find( '.select__box' )
-				.find( 'input[type="hidden"]' )
-				.val( parameterProduct );
-
-			const optionContent = $( '.news__sidebar-content' );
-			optionContent.find( '.select__box' )
-				.find( 'input[type="hidden"]' )
-				.val( parameterContent );
-
-			const idIndustry = optionIndustry.find( '.select__options' ).find( 'input[value="' + parameterIndustry + '"]' ).attr( 'id' );
-
-			const labelIndustry = optionIndustry.find( '.select__options' ).find( 'label[for="' + idIndustry + '"]' ).html();
-
-			optionIndustry.find( '.select__selected' ).find( '.select__selected-text' ).html( labelIndustry );
-
-			const idProduct = optionProduct.find( '.select__options' ).find( 'input[value="' + parameterProduct + '"]' ).attr( 'id' );
-
-			const labelProduct = optionProduct.find( '.select__options' ).find( 'label[for="' + idProduct + '"]' ).html();
-
-			optionProduct.find( '.select__selected' ).find( '.select__selected-text' ).html( labelProduct );
-
-			const idContent = optionContent.find( '.select__options' ).find( 'input[value="' + parameterContent + '"]' ).attr( 'id' );
-
-			const labelContent = optionContent.find( '.select__options' ).find( 'label[for="' + idContent + '"]' ).html();
-
-			optionContent.find( '.select__selected' ).find( '.select__selected-text' ).html( labelContent );
-
-		};
 	}
 
 
