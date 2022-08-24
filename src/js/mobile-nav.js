@@ -14,7 +14,7 @@ class Navigation {
 			}
 		);
 
-		$( '.nav__open' ).on( 'click', this.toggleMenu );
+		$( '.nav__open-icon' ).on( 'click', this.toggleMenu );
 		$( '.nav__close' ).on( 'click', this.toggleMenu );
 		$( '.nav__main-menu--open' ).on( 'click', this.toggleMenu );
 	}
