@@ -57,13 +57,15 @@ if ( is_single() && 'product' == get_post_type() ) {
 			<?php endif; ?>
 		</div>
 		<div class="row news-section__row news-section__row-news">
-			<?php if ( ! empty( $selected_news ) ) : ?>
+			<?php if ( ! empty( $selected_news ) && ! empty( $selected_news[0] ) && ! empty( $selected_news[0]['news'] ) ) : ?>
 				<?php $news_posts = apply_filters( 'cai_get_selected_news', $selected_news ); ?>
 			<?php elseif ( ! empty( $categories ) ) : ?>
 				<?php $category = get_term( $categories )->slug; ?>
 				<?php $news_posts = apply_filters( 'cai_get_filtered_news', $category ); ?>
-			<?php else : ?>
+			<?php elseif( 'all' === $what_news ) : ?>
 				<?php $news_posts = apply_filters( 'cai_get_filtered_news', null ); ?>
+            <?php else: ?>
+                <?= esc_html__( 'Sorry, no posts matched your criteria.', 'nuplo' ) ?>
 			<?php endif; ?>
 			<?php if ( ! empty( $news_posts ) ) : ?>
 				<?php foreach ( $news_posts as $news_post ) { ?>
