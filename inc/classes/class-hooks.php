@@ -8,6 +8,14 @@ class Hooks {
 		add_action( 'excerpt_more', [ $this, 'set_excerpt_content' ] );
 		add_filter( 'nav_menu_css_class', [ $this, 'add_additional_class_on_li' ], 5, 3 );
 		add_action( 'acf/init', [ $this, 'acf_map_api' ] );
+		add_filter( 'query_vars', [ $this, 'add_query_vars_resources' ] );
+	}
+
+	function add_query_vars_resources( $vars ) {
+		$vars[] = 'industry';
+		$vars[] = 'product-type';
+		$vars[] = 'content';
+		return $vars;
 	}
 
 	/**

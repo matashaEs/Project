@@ -1,6 +1,24 @@
 <?php
 get_header();
 
+$product_type = null;
+$industry     = null;
+$content      = null;
+
+if ( get_query_var( 'product-type' ) ) {
+	$product_type = get_query_var( 'product-type' );
+}
+
+if ( get_query_var( 'industry' ) ) {
+	$industry = get_query_var( 'industry' );
+}
+
+if ( get_query_var( 'content' ) ) {
+	$content = get_query_var( 'content' );
+}
+
+$taxonomies = [ $product_type, $industry, $content ];
+
 $quick_links = [
 	'container_class' => 'news__sidebar',
 	'title'           => __( 'Resources', 'nuplo' ),
@@ -10,30 +28,34 @@ $quick_links = [
 			'selects' => [
 				[
 					'title'          => __( 'Industry', 'nuplo' ),
-					'name'           => 'industry',
+					'select_classes' => 'news__sidebar-industry',
+					'name'           => 'newsIndustry',
 					'options'        => apply_filters( 'cai_get_industries', null ),
 					'button_classes' => 'button button--off-white news__button',
 				],
 				[
 					'title'          => 'Product',
-					'name'           => 'product',
+					'select_classes' => 'news__sidebar-product',
+					'name'           => 'newsProduct',
 					'options'        => apply_filters( 'cai_get_products_category', null ),
 					'button_classes' => 'button button--off-white news__button',
 				],
 				[
 					'title'          => 'Content Type',
-					'name'           => 'contentType',
+					'select_classes' => 'news__sidebar-content',
+					'name'           => 'newsContentType',
 					'options'        => apply_filters( 'cai_get_content_types', null ),
 					'button_classes' => 'button button--off-white news__button',
 				],
 			],
 		],
 	],
-	'items'           => apply_filters( 'cai_get_filtered_news', null ),
+	'items'           => apply_filters( 'cai_get_filtered_news', $taxonomies ),
 ];
 
 $news_events_count = count( $quick_links['items'] );
 $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : '';
+
 ?>
 
 <div class="container-fluid news <?= esc_html( $two_posts ) ?>">

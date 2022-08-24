@@ -10,3 +10,4 @@ import './js/sidebar-and-content';
 import './js/share';
 import './js/seo-landing-posts';
 import './js/page-careers';
+import './js/posts-filtering';
