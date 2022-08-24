@@ -142,6 +142,34 @@
 
     @include z-index-children(10, 3);
   }
+
+  .lds-dual-ring {
+    display: inline-block;
+    width: 100%;
+    height: 12rem;
+  }
+
+  .lds-dual-ring::after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: auto;
+    border-radius: 50%;
+    border: 6px solid var(--grey-modules);
+    border-color: var(--grey-modules) transparent var(--grey-modules) transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }
 
 @include min-size(md) {
@@ -255,6 +283,7 @@
           max-width: calc(100% - 32px);
           overflow: hidden;
           text-overflow: ellipsis;
+          height: 100%;
         }
 
         &__selected {

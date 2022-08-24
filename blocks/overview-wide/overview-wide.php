@@ -14,16 +14,6 @@ if ( ! empty( $block['id'] ) ) {
 	extract( $block['data'] );
 }
 
-$breadcrumbs = [
-	[
-		'name' => __( 'Home', 'nuplo' ),
-		'url'  => get_home_url(),
-	],
-	[
-		'name' => __( 'Products', 'nuplo' ),
-		'url'  => '#',
-	],
-]
 ?>
 
 <section class="container-fluid overview-wide modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : ''?>">
@@ -32,7 +22,7 @@ $breadcrumbs = [
 		</div>
 		<div class="overview-wide__content">
 			<div class="overview-wide__path p">
-				<?php get_template_part( 'template-parts/breadcrumbs', null, $breadcrumbs ); ?>
+				<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
 			</div>
 			<div class="overview-wide__heading">
 				<?php if ( ! empty( $title ) ) : ?>
