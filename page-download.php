@@ -1,7 +1,11 @@
 <?php /** Template Name: Page Download Datasheet */
 get_header();
 
-$form_info = [];
+$terms = null;
+
+if ( get_query_var( 'download-category' ) ) {
+	$terms['category'] = get_query_var( 'download-category' );
+}
 
 $form = [
 	'fields'        => [
@@ -10,7 +14,7 @@ $form = [
 			'data' => [
 				'name'           => 'product-download',
 				'select_classes' => 'select--form',
-				'options'        => apply_filters( 'cai_get_filtered_products', null ),
+				'options'        => apply_filters( 'cai_get_filtered_products', $terms ),
 				'button_classes' => 'h4',
 				'title'          => 'Product',
 			],
