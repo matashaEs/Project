@@ -50,6 +50,10 @@
       margin-top: 0;
     }
 
+    .select__arrow::before {
+      right: unset;
+    }
+
     .template-heading {
       &__title {
         margin-bottom: 5rem;
