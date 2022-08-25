@@ -64,8 +64,7 @@ class CareersScroll {
 				slickConf.adaptiveHeight = true;
 
                 let maxHeight = Math.max.apply( null, items.map( function() {
-					console.log( $( this ).height() );
-                    return $( this ).height();
+					return $( this ).height();
                 }).get() );
 
                 items.height( maxHeight );
