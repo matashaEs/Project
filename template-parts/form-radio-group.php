@@ -21,7 +21,7 @@ if ( ! empty( get_query_var( 'category' ) ) && 'category' === $name ) {
 				id="<?= esc_attr( $option['slug'] . '_' . $option['id'] ) ?>"
 				value="<?= esc_attr( $option['slug'] ) ?>"
 				name="<?= esc_attr( $name ) ?>"
-                <?= ! empty( $option_selected ) ? ' checked' : '' ?>/>
+				<?= ! empty( $option_selected ) ? ' checked' : '' ?>/>
 		<label class="h4" for="<?= esc_attr( $option['slug'] . '_' . $option['id'] ) ?>">
 			<?= esc_html( $option['name'] ) ?>
 		</label>
