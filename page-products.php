@@ -1,6 +1,16 @@
 <?php
 get_header();
 
+$terms = null;
+
+if ( get_query_var( 'category' ) ) {
+	$terms['category'] = get_query_var( 'category' );
+}
+
+if ( get_query_var( 'industry' ) ) {
+	$terms['industry'] = get_query_var( 'industry' );
+}
+
 $data_to_display = [
 	'title'        => __( 'Products', 'nuplo' ),
 	'sidebar'      => [
@@ -8,20 +18,15 @@ $data_to_display = [
 		'blocks'     => [
 			'radio-group' => [
 				'title'   => __( 'Product Category', 'nuplo' ),
-				'name'    => 'productCategory',
+				'name'    => 'category',
+				'classes' => 'product-sort__category',
 				'options' => apply_filters( 'cai_get_products_category', null ),
 			],
 			'selects'     => [
 				[
-					'title'          => 'Industry Type',
-					'name'           => 'industryType',
-					'options'        => apply_filters( 'cai_get_industry_types', null ),
-					'button_classes' => 'button button--off-white',
-					'expand_to_top'  => true,
-				],
-				[
 					'title'          => __( 'Industry', 'nuplo' ),
 					'name'           => 'industry',
+					'select_classes' => 'product-sort__industry',
 					'options'        => apply_filters( 'cai_get_industries', null ),
 					'button_classes' => 'button button--off-white',
 					'expand_to_top'  => true,
@@ -29,7 +34,7 @@ $data_to_display = [
 			],
 		],
 	],
-	'items'        => apply_filters( 'cai_get_filtered_products', null ),
+	'items'        => apply_filters( 'cai_get_filtered_products', $terms ),
 	'content_type' => 'items',
 ];
 

@@ -3,8 +3,8 @@ get_header();
 
 $taxonomies = [];
 
-if ( get_query_var( 'product-type' ) ) {
-	$taxonomies['product-type'] = get_query_var( 'product-type' );
+if ( get_query_var( 'category' ) ) {
+	$taxonomies['category'] = get_query_var( 'category' );
 }
 
 if ( get_query_var( 'industry' ) ) {
@@ -26,21 +26,21 @@ $quick_links = [
 				[
 					'title'          => __( 'Industry', 'nuplo' ),
 					'select_classes' => 'news__sidebar-industry',
-					'name'           => 'newsIndustry',
+					'name'           => 'industry',
 					'options'        => apply_filters( 'cai_get_industries', null ),
 					'button_classes' => 'button button--off-white news__button',
 				],
 				[
 					'title'          => 'Product',
 					'select_classes' => 'news__sidebar-product',
-					'name'           => 'newsProduct',
+					'name'           => 'category',
 					'options'        => apply_filters( 'cai_get_products_category', null ),
 					'button_classes' => 'button button--off-white news__button',
 				],
 				[
 					'title'          => 'Content Type',
 					'select_classes' => 'news__sidebar-content',
-					'name'           => 'newsContentType',
+					'name'           => 'content',
 					'options'        => apply_filters( 'cai_get_content_types', null ),
 					'button_classes' => 'button button--off-white news__button',
 				],

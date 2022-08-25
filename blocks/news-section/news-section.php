@@ -62,7 +62,7 @@ if ( is_single() && 'product' == get_post_type() ) {
 			<?php elseif ( ! empty( $categories ) ) : ?>
 				<?php $category = get_term( $categories )->slug; ?>
 				<?php $taxonomies = []; ?>
-				<?php $taxonomies['product-type'] = $category; ?>
+				<?php $taxonomies['category'] = $category; ?>
 				<?php $news_posts = apply_filters( 'cai_get_filtered_news', $taxonomies ); ?>
 			<?php elseif ( 'all' === $what_news ) : ?>
 				<?php $news_posts = apply_filters( 'cai_get_filtered_news', [] ); ?>
