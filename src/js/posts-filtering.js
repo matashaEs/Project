@@ -10,7 +10,7 @@ class PostsFiltering {
 			const queryString = window.location.search;
 			const urlParams   = new URLSearchParams( queryString );
 
-			const parameterProduct = urlParams.get( 'product-type' );
+			const parameterProduct = urlParams.get( 'category' );
 
 			const parameterIndustry = urlParams.get( 'industry' );
 
@@ -65,7 +65,7 @@ class PostsFiltering {
 		let parameters = url.searchParams;
 
 		parameters.set( 'industry', labelIndustry );
-		parameters.set( 'product-type', labelProduct );
+		parameters.set( 'category', labelProduct );
 		parameters.set( 'content', labelContent );
 
 		if ( '' === labelIndustry ) {
@@ -73,7 +73,7 @@ class PostsFiltering {
 		}
 
 		if ( '' === labelProduct ) {
-			parameters.delete( 'product-type', labelProduct );
+			parameters.delete( 'category', labelProduct );
 		}
 
 		if ( '' === labelContent ) {
