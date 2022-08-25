@@ -2,9 +2,6 @@
 get_header();
 
 $modules_items = [];
-$form_info     = [];
-
-$product_form_information = get_field( 'product_detail_form_information', 'options' );
 
 $product_modules = apply_filters( 'cai_get_product_page_modules', get_the_ID() );
 if ( ! empty( $product_modules ) ) {
@@ -18,14 +15,6 @@ if ( ! empty( $product_modules ) ) {
 	];
 }
 
-if ( ! empty( $product_form_information && $product_form_information['form_shortcode'] ) ) {
-	foreach ( explode( ' ', trim( $product_form_information['form_shortcode'], '[]' ) ) as $field ) {
-		$field_array                  = explode( '=', $field );
-		$form_info[ $field_array[0] ] = $field_array[1] ?? '';
-	}
-}
-
-
 $data_to_display = [
 	'title'        => get_the_title(),
 	'sidebar'      => [
@@ -36,8 +25,7 @@ $data_to_display = [
 				'navigation_links' => apply_filters( 'cai_get_product_page_menu', get_the_ID() ),
 			],
 			'form'       => [
-				'portal'        => $form_info['portal'] ?? '',
-				'form_id'       => $form_info['id'] ?? '',
+				'form_id'       => get_field( 'demo_form_guid' ) ?? '',
 				'fields'        => [
 					[
 						'type'        => 'text',
@@ -68,23 +56,8 @@ $data_to_display = [
 					'value'   => 'Schedule A Demo',
 					'classes' => 'p button__send-form',
 				],
-				'after_sending' => $product_form_information['after_sending_form_content'],
+				'after_sending' => get_field( 'product_after_sending', 'options' ),
 			],
-		],
-	],
-	'breadcrumbs'  => [
-		[
-			'name' => __( 'Home', 'nuplo' ),
-			'url'  => get_home_url(),
-		],
-		// todo: category name should be dynamic.
-		[
-			'name' => 'ERP',
-			'url'  => 'CATEGORY LINK',
-		],
-		[
-			'name' => get_the_title(),
-			'url'  => '#',
 		],
 	],
 	'content_type' => 'the_content',

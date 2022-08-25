@@ -1,6 +1,5 @@
 <?php
 /**
- * $portal
  * $form_id
  * $form_classes
  * $fields
@@ -19,8 +18,8 @@
 extract( $args );
 ?>
 
-	<form action="" method="post" class="form <?= ! empty( $form_classes ) ? ' ' . esc_attr( $form_classes ) : ''?>"
-			portal="<?= esc_attr( $portal ) ?>" id="<?= esc_attr( $form_id ) ?>">
+	<form action="" method="post" class="form<?= ! empty( $form_classes ) ? ' ' . esc_attr( $form_classes ) : ''?>"
+		<?= ! empty( $form_id ) ? 'id="' . esc_attr( $form_id ) . '"' : ''?>>
 		<div class="input-form">
 			<?php foreach ( $fields as $field ) : ?>
 				<?php if ( ! empty( $field ) ) : ?>
@@ -47,6 +46,11 @@ extract( $args );
 		<button type="button" class="button <?= esc_attr( $button['classes'] ) ?>">
 			<?= esc_attr( $button['value'] ) ?>
 		</button>
+		<div class="form-error">
+			<div class="form-error__description">
+				<?= esc_html__( 'There was an error trying to send your message. Please try again later', 'nuplo' ) ?>
+			</div>
+		</div>
 	</form>
 
 	<?php if ( ! empty( $after_sending ) ) : ?>
