@@ -157,7 +157,6 @@ endif;
 							<p class="footer__mail"><a
 										href="mailto: <?= esc_html( $mail ) ?>"> <?= esc_html( $mail ) ?></a></p>
 						<?php endif; ?>
-						<a class="button button--footer footer__button"><?php _e( 'Live Chat', 'nuplo' ); ?></a>
 					</div>
 					<h5 class="footer__title"><?php _e( 'Explore', 'nuplo' ); ?></h5>
 					<div class="footer__menu-explore">
