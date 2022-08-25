@@ -210,6 +210,10 @@ $arrow-transition: -52px;
   .browse-scroll {
     $this: &;
 
+    .slick-dots {
+      margin-bottom: -1rem;
+    }
+
     &--reverse {
       #{$this}__items-list {
         margin-left: -3rem;
