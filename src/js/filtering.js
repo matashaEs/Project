@@ -1,13 +1,13 @@
 import $ from 'jquery';
 
 /**
- * Filtering of products on Product Browser and Industry Browser.
- * Reloads page on selecting category/industry with refreshed query parameters.
+ * Reloads page on selected option.
  */
-class ProductsFiltering {
+class Filtering {
     constructor() {
-        $( 'input[name="category"]' ).on( 'change', this.setQueryParameter );
         $( 'input[name="industry"]' ).on( 'change', this.setQueryParameter );
+        $( 'input[name="category"]' ).on( 'change', this.setQueryParameter );
+        $( 'input[name="content"]' ).on( 'change', this.setQueryParameter );
     }
 
     setQueryParameter( e ) {
@@ -29,4 +29,4 @@ class ProductsFiltering {
     }
 }
 
-new ProductsFiltering();
+new Filtering();
