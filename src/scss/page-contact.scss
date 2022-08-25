@@ -50,8 +50,10 @@
       margin-top: 0;
     }
 
-    .select__arrow::before {
-      right: unset;
+    .select {
+      &__arrow::before {
+        right: unset;
+      }
     }
 
     .template-heading {
