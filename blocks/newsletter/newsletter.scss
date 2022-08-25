@@ -107,6 +107,7 @@
     .form-valid {
       top: -1rem;
       width: 100%;
+      margin-left: 3rem;
 
       &__col {
         width: 100%;
@@ -136,6 +137,22 @@
       padding: 12px 60px 10px;
       margin-top: 2px;
       margin-left: 5.2rem;
+    }
+  }
+}
+
+@include min-size(xl) {
+  .newsletter {
+    .form-valid {
+      margin-left: 5rem;
+    }
+  }
+}
+
+@include min-size(xxl) {
+  .newsletter {
+    .form-valid {
+      margin-left: 7rem;
     }
   }
 }

@@ -5,16 +5,8 @@ if ( ! empty( $block['id'] ) ) {
 	extract( $block['data'] );
 }
 
-$form_info = [];
-
-foreach ( explode( ' ', trim( $form_shortcode, '[]' ) ) as $field ) {
-	$field_array                  = explode( '=', $field );
-	$form_info[ $field_array[0] ] = $field_array[1] ?? '';
-}
-
 $form = [
-	'portal'        => $form_info['portal'] ?? '',
-	'form_id'       => $form_info['id'] ?? '',
+	'form_id'       => $form_guid ?? '',
 	'form_classes'  => 'newsletter__form',
 	'fields'        => [
 		[
@@ -28,7 +20,7 @@ $form = [
 		'value'   => 'Submit',
 		'classes' => 'p button--white button__send-form newsletter__button',
 	],
-	'after_sending' => $after_sending,
+	'after_sending' => $after_sending_form_content,
 ];
 ?>
 

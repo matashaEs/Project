@@ -5,7 +5,7 @@
 		?>
 	</div>
 	<div class="template-heading__title h1">
-		<?php the_title(); ?>
+		<?= esc_html( apply_filters( 'template_heading_title', get_the_title() ) ) ?>
 	</div>
 	<div class="template-heading__content p">
 		<?php the_content(); ?>

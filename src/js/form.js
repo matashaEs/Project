@@ -4,17 +4,26 @@ class Form {
     parent = null;
     optionsContainer = null;
     fields = null;
+    formErrorField = null;
 
     regexes = {
         firstname: /^[\w ]{2,30}$/,
         lastname: /^(\w([-']?\w+)*)+$/,
         email: /^([a-zA-Z\d])+([.a-zA-Z\d_-])*@([a-zA-Z\d_-])+(.[a-zA-Z\d_-]+)+/,
-        company: /^.{2,150}/,
-        message: /^.{2,150}/,
-        jobtitle: /^.{2,150}/,
+        text: /^.{2,150}/,
     }
 
     constructor() {
+        const urlParams = new URLSearchParams( window.location.search );
+        const pageType = urlParams.get( 'download-product' );
+        const setSelectBind = this.setSelect.bind( this );
+
+        $( document ).ready( function() {
+            if ( pageType ) {
+                setSelectBind( $( 'input[name="product-download"]' ), pageType );
+            }
+        });
+
         $( '.select__box .select__selected' )
             .on( 'click', ( e ) => {
                 this.selectFeature( e, this );
@@ -37,20 +46,31 @@ class Form {
         });
     }
 
+    setSelect( inputHidden, pageType ) {
+        let selectedOption = inputHidden.siblings().first().find( 'input[value="' + pageType + '"]' );
+
+        inputHidden.attr( 'value', pageType );
+        inputHidden.closest( 'form' ).attr( 'id', selectedOption.attr( 'formID' ) );
+        inputHidden.prev().find( '.select__selected-text' ).html( selectedOption.closest( '.select__option' ).find( 'label' ).html() );
+        selectedOption.prop( 'checked', true );
+    }
+
     validateField( field ) {
         const fieldToTest = field.val().trim();
         if ( '' === fieldToTest ) {
             return false;
         } else {
             switch ( field.attr( 'name' ) ) {
-                case 'firstname':   return this.regexes.firstname.test( field.val() );
-                case 'lastname':    return this.regexes.lastname.test( field.val() );
-                case 'email':       return this.regexes.email.test( field.val() );
-                case 'company':     return this.regexes.company.test( field.val() );
-                case 'message':     return this.regexes.message.test( field.val() );
-                case 'jobtitle':    return this.regexes.jobtitle.test( field.val() );
-                case 'product':     return true;
-                default:            return false;
+                case 'firstname':           return this.regexes.firstname.test( field.val() );
+                case 'lastname':            return this.regexes.lastname.test( field.val() );
+                case 'email':               return this.regexes.email.test( field.val() );
+                case 'company':
+                case 'message':
+                case 'interest':
+                case 'jobtitle':            return this.regexes.text.test( field.val() );
+                case 'product':
+                case 'product-download':    return true;
+                default:                    return false;
             }
         }
     }
@@ -87,8 +107,9 @@ class Form {
         if ( allFieldsAreValid ) {
             let data = {'fields': []};
 
-            this.fields.each( function() {
-                data.fields.push({'objectTypeId': '0-1', 'name': $( this ).attr( 'name' ), 'value': $( this ).val().trim()});
+            this.fields.not( 'input[name="product-download"]' ).each( function() {
+                const value = 'product' === $( this ).attr( 'name' ) ? $( this ).prev().find( '.select__selected-text' ).html() : $( this ).val().trim();
+                data.fields.push({'objectTypeId': '0-1', 'name': $( this ).attr( 'name' ), 'value': value});
             });
 
             return data;
@@ -97,42 +118,85 @@ class Form {
         }
     }
 
-    hideShowForm( parent ) {
-        $( parent.prev() ).toggleClass( 'hide' );
-        parent.toggleClass( 'hide' );
+    hideShowFormForSuccess() {
+        this.parent.find( '.button__send-form' ).toggleClass( 'disable' );
+        $( this.parent.prev() ).toggleClass( 'hide' );
+        this.parent.toggleClass( 'hide' );
         $( '.cai-map' ).toggleClass( 'hide' );
+
+        if ( 1024 > window.innerWidth && ! this.parent.hasClass( 'newsletter__form' ) ) {
+            this.parent.next()[0].scrollIntoView();
+        }
+    }
+
+    hideShowFormForError() {
+        this.parent.find( '.input-form' ).toggleClass( 'hide' );
+        this.parent.find( '.button__send-form' ).toggleClass( 'hide' ).toggleClass( 'disable' );
     }
 
     sendDataFromForm( e, $this ) {
         e.preventDefault();
         $this.parent = $( e.target.closest( 'form' ) );
         $this.fields = $this.parent.find( '.input' );
+        $this.formErrorField = $this.parent.children().last();
 
         const formData = $this.validateForm();
 
         if ( 'object' === typeof formData ) {
-            $this.hideShowForm( $this.parent );
+            let xhr = new XMLHttpRequest();
+            let url = 'https://api.hsforms.com/submissions/v3/integration/submit/' + websiteData.portalID + '/' + $this.parent.attr( 'id' );
 
-            if ( 1024 > window.innerWidth && ! $this.parent.hasClass( 'newsletter__form' ) ) {
-                $this.parent.next()[0].scrollIntoView();
-            }
+            let finalData = JSON.stringify( formData );
 
-            setTimeout( function() {
-                $this.parent.next().addClass( 'form-valid--show' );
-                $this.fields.val( '' );
-            }, 500 );
+            xhr.open( 'POST', url );
 
-            setTimeout( function() {
-                $this.parent.next().removeClass( 'form-valid--show' );
-            }, 5000 );
+            // Sets the value of the 'Content-Type' HTTP request headers to 'application/json'
+            xhr.setRequestHeader( 'Content-Type', 'application/json' );
 
-            setTimeout( function() {
-                $this.hideShowForm( $this.parent );
-            }, 5500 );
+            xhr.onreadystatechange = function() {
+                if ( 4 === xhr.readyState && 200 === xhr.status ) {
+                    $this.hideShowFormForSuccess();
 
-            /**
-             * TODO: send dorm data
-             */
+                    setTimeout( function() {
+                        $this.parent.next().addClass( 'form-valid--show' );
+                        $this.fields.val( '' );
+
+                        $this.parent.find( 'input[type="hidden"].input' ).each( function() {
+                            $( this ).prev().find( '.select__selected-text' ).html( $( this ).attr( 'placeholder' ) );
+                        });
+
+                        $this.parent.find( 'input[type="radio"]' ).each( function() {
+                            $( this ).prop( 'checked', false );
+                        });
+                    }, 500 );
+
+                    setTimeout( function() {
+                        $this.parent.next().removeClass( 'form-valid--show' );
+                    }, 5000 );
+
+                    setTimeout( function() {
+                        $this.hideShowFormForSuccess();
+                    }, 5500 );
+                } else {
+                    $this.hideShowFormForError();
+
+                    setTimeout( function() {
+                        $this.formErrorField.addClass( 'form-error--show' );
+                    }, 500 );
+
+                    setTimeout( function() {
+                        $this.formErrorField.removeClass( 'form-error--show' );
+                    }, 4000 );
+
+                    setTimeout( function() {
+                        $this.hideShowFormForError();
+                    }, 4500 );
+                }
+            };
+
+            // Sends the request
+
+            xhr.send( finalData );
         }
     }
 
@@ -189,6 +253,18 @@ class Form {
         const label = option.find( 'label' ).html();
         option.closest( '.select__box' ).find( '.select__selected' ).find( '.select__selected-text' ).html( label );
         option.closest( '.select__options' ).removeClass( 'active' ).css({'maxHeight': ''});
+
+        // reload download page on select product.
+        if ( 'product-download-radio' === option.find( 'input' ).attr( 'name' ) ) {
+            let url = new URL( window.location.href );
+
+            url.searchParams.set( 'download-product', valueToSet );
+
+            // change the search property of the main url
+            url.search = url.searchParams.toString();
+
+            window.location.href = decodeURI( url.toString() );
+        }
     }
 }
 

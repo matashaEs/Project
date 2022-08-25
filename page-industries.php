@@ -24,16 +24,6 @@ $data_to_display = [
 		],
 	],
 	'items'        => apply_filters( 'cai_get_filtered_products', null ),
-	'breadcrumbs'  => [
-		[
-			'name' => __( 'Home', 'nuplo' ),
-			'url'  => get_home_url(),
-		],
-		[
-			'name' => __( 'Industry', 'nuplo' ),
-			'url'  => '#',
-		],
-	],
 	'content_type' => 'items',
 ];
 
