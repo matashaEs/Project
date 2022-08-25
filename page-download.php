@@ -3,8 +3,8 @@ get_header();
 
 $terms = null;
 
-if ( get_query_var( 'download-category' ) ) {
-	$terms['category'] = get_query_var( 'download-category' );
+if ( get_query_var( 'category' ) ) {
+	$terms['category'] = get_query_var( 'category' );
 }
 
 $form = [

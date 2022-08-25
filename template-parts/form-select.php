@@ -22,6 +22,8 @@ if ( ! empty( get_query_var( 'industry' ) ) && 'industry' === $name ) {
 	$selected_filter_option = get_query_var( 'category' );
 } elseif ( ! empty( get_query_var( 'content' ) ) && 'content' === $name ) {
 	$selected_filter_option = get_query_var( 'content' );
+} elseif ( ! empty( get_query_var( 'download-product' ) ) && 'product-download' === $name ) {
+	$selected_filter_option = get_query_var( 'download-product' );
 }
 ?>
 

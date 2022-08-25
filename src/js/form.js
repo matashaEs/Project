@@ -14,16 +14,6 @@ class Form {
     }
 
     constructor() {
-        const urlParams = new URLSearchParams( window.location.search );
-        const pageType = urlParams.get( 'download-product' );
-        const setSelectBind = this.setSelect.bind( this );
-
-        $( document ).ready( function() {
-            if ( pageType ) {
-                setSelectBind( $( 'input[name="product-download"]' ), pageType );
-            }
-        });
-
         $( '.select__box .select__selected' )
             .on( 'click', ( e ) => {
                 this.selectFeature( e, this );
@@ -44,15 +34,6 @@ class Form {
                 $( this ).next().removeClass( 'input__error--show' ).empty();
             }
         });
-    }
-
-    setSelect( inputHidden, pageType ) {
-        let selectedOption = inputHidden.siblings().first().find( 'input[value="' + pageType + '"]' );
-
-        inputHidden.attr( 'value', pageType );
-        inputHidden.closest( 'form' ).attr( 'id', selectedOption.attr( 'formID' ) );
-        inputHidden.prev().find( '.select__selected-text' ).html( selectedOption.closest( '.select__option' ).find( 'label' ).html() );
-        selectedOption.prop( 'checked', true );
     }
 
     validateField( field ) {
