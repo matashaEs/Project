@@ -13,8 +13,7 @@ if ( ! empty( $block['id'] ) ) {
 
 ?>
 
-<section
-		class="container-fluid faq-section modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : '' ?>">
+<section class="container-fluid faq-section modular<?= ! empty( $background_color ) ? ' ' . esc_html( $background_color ) : '' ?>">
 	<div class="container">
 		<div class="faq-section__row">
 

@@ -43,7 +43,15 @@ $careers = apply_filters( 'cai_get_all_job_offers', null );
 								<div class="careers-scroll__item-title"><?= esc_html( $career['name'] ); ?></div>
 							<?php endif; ?>
 							<?php if ( ! empty( $career['description'] ) ) : ?>
-								<div class="careers-scroll__item-description"><?= esc_html( $career['description'] ); ?></div>
+								<div class="careers-scroll__item-description">
+									<?= wp_kses(
+										$career['description'],
+										[
+											'p'  => [ '' ],
+											'br' => [ '' ],
+										]
+									) ?>
+								</div>
 							<?php endif; ?>
 						</div>
 					<?php endif; ?>
