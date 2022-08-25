@@ -9,9 +9,12 @@ $quick_links_links = get_field( 'quick_links_links' );
 
 <div class="container-fluid single-post">
 	<div class="container single-post__container">
-		<?php if ( ! empty( get_the_post_thumbnail() ) ) : ?>
-			<div class="single-post__image">
-				<?php the_post_thumbnail(); ?>
+		<?php 
+		if ( ! empty( get_the_post_thumbnail() ) ) :
+			$background_image = get_the_post_thumbnail_url();
+			?>
+			<div class="single-post__image"
+			style="background-image: url('<?= esc_url( $background_image ); ?> ') " >
 			</div>
 		<?php endif; ?>
 		<div class="seo-landing__content">

@@ -7,7 +7,10 @@
   &__image {
     width: calc(100% + 4rem);
     margin-left: -2rem;
-    height: fit-content;
+    height: 314px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
 
   &__breadcrumbs {
@@ -112,6 +115,7 @@
 
     &__image {
       width: calc(100% + 6rem);
+      height: 567px;
       margin-left: -3rem;
     }
 
@@ -177,7 +181,6 @@
     &__image {
       width: calc(100% + 10rem);
       margin-left: -5rem;
-      height: fit-content;
     }
 
     &__categories {
