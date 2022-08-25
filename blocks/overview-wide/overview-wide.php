@@ -61,6 +61,17 @@ if ( ! empty( $block['id'] ) ) {
 					<?php endif; ?>
 					<?php endforeach; ?>
 				<?php endif; ?>
+
+				<?php
+				$download_page_link = apply_filters( 'cai_get_download_pade_url', null );
+				if ( ! empty( $download_page_link ) && ! empty( $buttons ['add_download_button'] ) ) :
+					$download_page_link .= '?category=' . get_queried_object()->slug;
+					?>
+					<a href="<?= esc_url( $download_page_link ) ?>" class="button p overview-wide__buttons-button">
+						<?= esc_html__( 'Download Datasheet', 'nuplo' ) ?>
+					</a>
+				<?php endif; ?>
+
 				<?php if ( 1 == $buttons ['add_share_button'] ) : ?>
 					<div class="button button-share overview-wide__buttons-button overview-wide__button-share overview-wide__button-share--desktop">
 						<?php the_svg( 'share-button.svg', 'product-overview__button--share' ); ?>
