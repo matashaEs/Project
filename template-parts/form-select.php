@@ -32,7 +32,7 @@ if ( ! empty( get_query_var( 'industry' ) ) && 'industry' === $name ) {
 				<?php if ( empty( $product_form ) || ! empty( $option[ $product_form ] ) ) : ?>
 					<?php $option_guid = ! empty( $option[ $product_form ] ) ? ' formID' . '=' . $option[ $product_form ] : ''; ?>
 					<?php $option_selected = ! empty( $selected_filter_option ) && $option['slug'] === $selected_filter_option; ?>
-					<?php $selected_filter_option_name = ! empty( $option_selected ) ? $option['name'] : $selected_filter_option; ?>
+					<?php $selected_filter_option_name = ! empty( $option_selected ) ? $option['name'] : $selected_filter_option_name; ?>
 				<div class="select__option radio__container">
 					<div><input
 								type="radio"

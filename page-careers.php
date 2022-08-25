@@ -60,7 +60,8 @@ get_header();
 								<div class="h4 page-careers__career-name"><?= esc_html( $job_offer['name'] ) ?></div>
 							<?php endif; ?>
 							<?php if ( ! empty( $job_offer['description'] ) ) : ?>
-								<div class="p page-careers__career-description"><?= esc_html( $job_offer['description'] ) ?></div>
+								<div class="p page-careers__career-description">
+									<?= wp_kses( $job_offer['description'], [ 'br' => [ '' ] ] ) ?></div>
 							<?php endif; ?>
 							<?php if ( ! empty( $job_offer['option'] ) ) : ?>
 								<div class="page-careers__career-options">
