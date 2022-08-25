@@ -68,6 +68,7 @@ get_header();
 											'br' => [ '' ],
 										]
 									) ?>
+								</div>
 							<?php endif; ?>
 							<?php if ( ! empty( $job_offer['option'] ) ) : ?>
 								<div class="page-careers__career-options">
@@ -85,7 +86,7 @@ get_header();
 																[
 																	'p'  => [ '' ],
 																	'br' => [ '' ],
-																] 
+																]
 															) ?>
 														</div>
 													<?php endif; ?>
