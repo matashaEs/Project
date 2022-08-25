@@ -1,6 +1,16 @@
 <?php
 get_header();
 
+$terms = null;
+
+if ( get_query_var( 'category' ) ) {
+	$terms['category'] = get_query_var( 'category' );
+}
+
+if ( get_query_var( 'industry' ) ) {
+	$terms['industry'] = get_query_var( 'industry' );
+}
+
 $data_to_display = [
 	'title'        => __( 'Products', 'nuplo' ),
 	'sidebar'      => [
@@ -24,7 +34,7 @@ $data_to_display = [
 			],
 		],
 	],
-	'items'        => apply_filters( 'cai_get_filtered_products', null ),
+	'items'        => apply_filters( 'cai_get_filtered_products', $terms ),
 	'content_type' => 'items',
 ];
 
