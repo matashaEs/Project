@@ -88,15 +88,6 @@ class BrowseScroll {
 
 			this.cachedWidth = newWidth;
 		}
-		this.delay(
-			() => {
-				if ( this.sliderContainer.hasClass( 'slick-initialized' ) ) {
-					this.sliderContainer.slick( 'unslick' );
-				}
-				this.slider();
-			},
-			500
-		);
 	}
 }
 
