@@ -61,9 +61,11 @@ if ( is_single() && 'product' == get_post_type() ) {
 				<?php $news_posts = apply_filters( 'cai_get_selected_news', $selected_news ); ?>
 			<?php elseif ( ! empty( $categories ) ) : ?>
 				<?php $category = get_term( $categories )->slug; ?>
-				<?php $news_posts = apply_filters( 'cai_get_filtered_news', $category ); ?>
+				<?php $taxonomies = []; ?>
+				<?php $taxonomies['product-type'] = $category; ?>
+				<?php $news_posts = apply_filters( 'cai_get_filtered_news', $taxonomies ); ?>
 			<?php elseif ( 'all' === $what_news ) : ?>
-				<?php $news_posts = apply_filters( 'cai_get_filtered_news', null ); ?>
+				<?php $news_posts = apply_filters( 'cai_get_filtered_news', [] ); ?>
 			<?php else : ?>
 				<?= esc_html__( 'Sorry, no posts matched your criteria.', 'nuplo' ) ?>
 			<?php endif; ?>
