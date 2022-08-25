@@ -1,7 +1,7 @@
 <?php
 get_header();
 
-$taxonomies = [];
+$taxonomies['product-type'] = null;
 
 if ( get_query_var( 'product-type' ) ) {
 	$taxonomies['product-type'] = get_query_var( 'product-type' );
