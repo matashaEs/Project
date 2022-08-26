@@ -1,12 +1,12 @@
 @import "../../src/scss/for-blocks";
 
 /**
-	arrow transition (from right or left) depends on block direction
+   arrow transition (from right or left) depends on block direction
  */
 $arrow-transition: -52px;
 
 /**
-	to resize items as the screen width changes
+   to resize items as the screen width changes
  */
 @mixin image-size( $image-width, $image-height) {
   &__item {
@@ -132,19 +132,6 @@ $arrow-transition: -52px;
 
       #{$this}__items-list {
         margin-left: -2rem;
-        direction: rtl;
-      }
-
-      #{$this}__item {
-        &:first-child {
-          margin-left: 0;
-          margin-right: 3rem;
-        }
-
-        &:last-of-type {
-          margin-right: 1.1rem;
-          margin-left: 3rem;
-        }
       }
 
       #{$this}__description {
@@ -200,21 +187,8 @@ $arrow-transition: -52px;
       padding: 5rem 0;
     }
 
-    &__item {
-      flex: 0 0 auto;
-
-      &:first-child {
-        margin-left: 3rem;
-      }
-
-      &:last-of-type {
-        margin-right: 3rem;
-      }
-    }
-
     &__items-list {
       width: calc(100% + 2rem);
-      overflow-x: scroll;
     }
 
     &__description-link {
@@ -245,15 +219,10 @@ $arrow-transition: -52px;
         margin-left: -3rem;
       }
 
-      #{$this}__item {
-        &:first-child {
-          margin-left: 0;
-          margin-right: 7rem;
-        }
-
-        &:last-of-type {
-          margin-right: 1.1rem;
-          margin-left: 7rem;
+      #{$this}__description-link {
+        &::after {
+          right: initial;
+          left: $arrow-transition;
         }
       }
     }
