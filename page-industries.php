@@ -29,7 +29,7 @@ $data_to_display = [
 				'title'   => __( 'Product Category', 'nuplo' ),
 				'name'    => 'category',
 				'classes' => 'product-sort__category',
-				'options' => apply_filters( 'cai_get_products_category', null ),
+				'options' => apply_filters( 'cai_get_products_category', false ),
 			],
 		],
 	],

@@ -75,7 +75,7 @@ endif;
 			<?php if ( ! empty( $form ) ) : ?>
 				<?php echo esc_html( get_template_part( 'template-parts/form', null, $form ) ); ?>
 			<?php else : ?>
-			<div class="request-demo__no-form">
+			<div class="no-form">
 				<div class="h3">
 					<?= esc_html__( 'An error occurred while trying to load the form. Please try again later.', 'nuplo' ) ?>
 				</div>

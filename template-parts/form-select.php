@@ -31,7 +31,8 @@ if ( ! empty( get_query_var( 'industry' ) ) && 'industry' === $name ) {
 	<div class="select__box">
 		<div class="select__options">
 			<?php foreach ( $options as $option ) : ?>
-				<?php if ( ! empty( $option['download_form_guid'] && ! empty( $option['datasheet_file'] ) ) === $is_download_form ) : ?>
+				<?php if ( ! ( ! empty( $option['download_form_guid'] ) && ! empty( $option['datasheet_file'] ) ) && $is_download_form ) : ?>
+				<?php else : ?>
 					<?php $option_guid = ! empty( $option['download_form_guid'] ) ? ' formID' . '=' . $option['download_form_guid'] : ''; ?>
 					<?php $option_selected = ! empty( $selected_filter_option_name ) && $option['slug'] === $selected_filter_option_name; ?>
 					<?php $selected_filter_option = ! empty( $option_selected ) ? $option : $selected_filter_option; ?>

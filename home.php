@@ -34,7 +34,7 @@ $quick_links = [
 					'title'          => 'Product',
 					'select_classes' => 'news__sidebar-product',
 					'name'           => 'category',
-					'options'        => apply_filters( 'cai_get_products_category', null ),
+					'options'        => apply_filters( 'cai_get_products_category', false ),
 					'button_classes' => 'button button--off-white news__button',
 				],
 				[
