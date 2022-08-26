@@ -52,7 +52,12 @@ if ( ! empty( $block['id'] ) ) {
 
 			<?php
 			$download_page_link = apply_filters( 'cai_get_download_pade_url', null );
-			if ( ! empty( $download_page_link ) && ! empty( $buttons ['add_download_datasheet_button'] ) && ! empty( get_field( 'download_form_guid', get_the_ID() ) ) ) :
+			if (
+					! empty( $download_page_link ) &&
+					! empty( $buttons ['add_download_datasheet_button'] ) &&
+					! empty( get_field( 'download_form_guid', get_the_ID() ) ) &&
+					! empty( get_field( 'datasheet_file', get_the_ID() ) )
+			) :
 				$download_page_link .= '?download-product=' . get_post( get_the_ID() )->post_name;
 				?>
 				<a href="<?= esc_url( $download_page_link ) ?>" class="button p">
