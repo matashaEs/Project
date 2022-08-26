@@ -410,6 +410,14 @@ form,
       margin-bottom: 70px;
     }
   }
+
+  .page-with-form {
+    .select {
+      &__options.active {
+        margin-top: 0;
+      }
+    }
+  }
 }
 
 @include min-size(xl) {
