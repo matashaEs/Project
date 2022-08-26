@@ -7,8 +7,8 @@ $terms = null;
 $selected_category    = get_query_var( 'category' );
 $selected_category_id = get_category_by_slug( $selected_category )->cat_ID ?? '';
 
-$form_id         = get_field( 'demo_form_guid', 'category_' . $selected_category_id );
-$default_form_id = get_field( 'demo_default_form_guid', 'options' );
+$form_id = get_field( 'demo_form_guid', 'category_' . $selected_category_id );
+$form_id = ! empty( $form_id ) ? $form_id : get_field( 'demo_default_form_guid', 'options' );
 
 if ( $form_id ) {
 	$terms = [ 'category' => $selected_category ];
@@ -18,9 +18,9 @@ $heading_args = [
 	'is_download' => true,
 ];
 
-if ( ! empty( $form_id ) || ! empty( $default_form_id ) ) :
+if ( ! empty( $form_id ) ) :
 	$form = [
-		'form_id'       => $form_id ?? $default_form_id,
+		'form_id'       => $form_id,
 		'fields'        => [
 			[
 				'type' => 'select',

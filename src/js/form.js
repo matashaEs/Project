@@ -153,9 +153,13 @@ class Form {
                             });
                         }, 400 );
 
-                        setTimeout( function() {
-                            $( '.download_datasheet' )[0].click();
-                        }, 2000 );
+                        const downloadDatasheet = $( '.download_datasheet' )[0];
+
+                        if ( downloadDatasheet ) {
+                            setTimeout( function() {
+                                downloadDatasheet.click();
+                            }, 2000 );
+                        }
 
                         setTimeout( function() {
                             $this.parent.next().removeClass( 'form-valid--show' );
