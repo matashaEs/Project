@@ -16,6 +16,27 @@
  *  $link
  */
 extract( $args );
+
+
+if ( get_query_var( 'download-product' ) ) {
+	$product_slug = get_query_var( 'download-product' );
+
+	$query = new WP_Query(
+		[
+			'name'      => $product_slug,
+			'post_type' => 'product',
+		]
+	);
+
+	if ( $query->have_posts() ) :
+		while ( $query->have_posts() ) :
+			$query->the_post();
+			$form_id = get_field( 'download_form_guid' );
+		endwhile;
+		wp_reset_postdata();
+	endif;
+}
+
 ?>
 
 	<form action="" method="post" class="form<?= ! empty( $form_classes ) ? ' ' . esc_attr( $form_classes ) : ''?>"

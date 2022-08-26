@@ -11,19 +11,19 @@ extract( $args );
 $all_select_classes  = ! empty( $expand_to_top ) ? esc_html( ' select--expand-on-top' ) : '';
 $all_select_classes .= ! empty( $select_classes ) ? ' ' . esc_html( $select_classes ) : '';
 
-$product_form = 'product-download' === $name ? 'download_form_guid' : '';
+$is_download_form = 'product-download' === $name;
 
-$selected_filter_option      = '';
+$selected_filter_option      = [];
 $selected_filter_option_name = '';
 
 if ( ! empty( get_query_var( 'industry' ) ) && 'industry' === $name ) {
-	$selected_filter_option = get_query_var( 'industry' );
+	$selected_filter_option_name = get_query_var( 'industry' );
 } elseif ( ! empty( get_query_var( 'category' ) ) && 'category' === $name ) {
-	$selected_filter_option = get_query_var( 'category' );
+	$selected_filter_option_name = get_query_var( 'category' );
 } elseif ( ! empty( get_query_var( 'content' ) ) && 'content' === $name ) {
-	$selected_filter_option = get_query_var( 'content' );
+	$selected_filter_option_name = get_query_var( 'content' );
 } elseif ( ! empty( get_query_var( 'download-product' ) ) && 'product-download' === $name ) {
-	$selected_filter_option = get_query_var( 'download-product' );
+	$selected_filter_option_name = get_query_var( 'download-product' );
 }
 ?>
 
@@ -31,10 +31,10 @@ if ( ! empty( get_query_var( 'industry' ) ) && 'industry' === $name ) {
 	<div class="select__box">
 		<div class="select__options">
 			<?php foreach ( $options as $option ) : ?>
-				<?php if ( empty( $product_form ) || ! empty( $option[ $product_form ] ) ) : ?>
-					<?php $option_guid = ! empty( $option[ $product_form ] ) ? ' formID' . '=' . $option[ $product_form ] : ''; ?>
-					<?php $option_selected = ! empty( $selected_filter_option ) && $option['slug'] === $selected_filter_option; ?>
-					<?php $selected_filter_option_name = ! empty( $option_selected ) ? $option['name'] : $selected_filter_option_name; ?>
+				<?php if ( ! empty( $option['download_form_guid'] && ! empty( $option['datasheet_file'] ) ) === $is_download_form ) : ?>
+					<?php $option_guid = ! empty( $option['download_form_guid'] ) ? ' formID' . '=' . $option['download_form_guid'] : ''; ?>
+					<?php $option_selected = ! empty( $selected_filter_option_name ) && $option['slug'] === $selected_filter_option_name; ?>
+					<?php $selected_filter_option = ! empty( $option_selected ) ? $option : $selected_filter_option; ?>
 				<div class="select__option radio__container">
 					<div><input
 								type="radio"
@@ -53,9 +53,22 @@ if ( ! empty( get_query_var( 'industry' ) ) && 'industry' === $name ) {
 			<?php endforeach; ?>
 		</div>
 		<div class="select__selected <?= ! empty( $button_classes ) ? esc_attr( $button_classes ) : '' ?>">
-			<div class="select__selected-text"><?= ! empty( $selected_filter_option_name ) ? esc_html( $selected_filter_option_name ) : esc_html( $title ) ?></div>
+			<div class="select__selected-text">
+				<?= ! empty( $selected_filter_option['name'] ) ? esc_html( $selected_filter_option['name'] ) : esc_html( $title ) ?>
+			</div>
 			<div class="select__arrow"></div>
 		</div>
-		<input type="hidden" name="<?= esc_attr( $name ) ?>" class="input" placeholder="<?= esc_attr( $title ) ?>">
+		<input type="hidden" name="<?= esc_attr( $name ) ?>" class="input" placeholder="<?= esc_attr( $title ) ?>"
+			<?= ! empty( $selected_filter_option['slug'] ) ? 'value="' . esc_attr( $selected_filter_option['slug'] ) . '"' : '' ?>>
+
+		<?php if ( ! empty( $selected_filter_option ) && ! empty( $selected_filter_option['datasheet_file'] ) ) : ?>
+			<a
+				href="<?= esc_url( $selected_filter_option['datasheet_file']['url'] ) ?>"
+				download="<?= esc_attr( $selected_filter_option['name'] . ' Datasheet' ) ?>"
+				class="download_datasheet"
+				hidden>
+				<?= esc_html( $selected_filter_option['name'] . ' Datasheet' )  ?>
+			</a>
+		<?php endif; ?>
 	</div>
 </div>
