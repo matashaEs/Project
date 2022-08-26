@@ -11,9 +11,12 @@ $quick_links_links = get_field( 'quick_links_links' );
 
 <div class="container-fluid seo-landing">
 	<div class="container seo-landing__container">
-		<?php if ( ! empty( get_the_post_thumbnail() ) ) : ?>
-			<div class="seo-landing__image">
-				<?php the_post_thumbnail(); ?>
+		<?php 
+		if ( ! empty( get_the_post_thumbnail() ) ) :
+			$background_image = get_the_post_thumbnail_url();
+			?>
+			<div class="seo-landing__image"
+			style="background-image: url('<?= esc_url( $background_image ); ?> ') " >
 			</div>
 		<?php endif; ?>
 		<div class="seo-landing__content">

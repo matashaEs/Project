@@ -259,6 +259,10 @@ $transition-time: 1s;
       &:nth-last-child(2) {
         margin-bottom: 0;
       }
+
+      &:last-child:nth-child(odd) {
+        margin-right: auto;
+      }
     }
 
     &__content-container {
@@ -303,10 +307,6 @@ $transition-time: 1s;
 
       &:nth-child(odd) {
         justify-content: flex-end;
-      }
-
-      &:last-child:nth-child(odd) {
-        margin-right: auto;
       }
     }
 

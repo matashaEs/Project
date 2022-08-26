@@ -60,7 +60,15 @@ get_header();
 								<div class="h4 page-careers__career-name"><?= esc_html( $job_offer['name'] ) ?></div>
 							<?php endif; ?>
 							<?php if ( ! empty( $job_offer['description'] ) ) : ?>
-								<div class="p page-careers__career-description"><?= esc_html( $job_offer['description'] ) ?></div>
+								<div class="p page-careers__career-description">
+									<?= wp_kses(
+										$job_offer['description'],
+										[
+											'p'  => [ '' ],
+											'br' => [ '' ],
+										]
+									) ?>
+								</div>
 							<?php endif; ?>
 							<?php if ( ! empty( $job_offer['option'] ) ) : ?>
 								<div class="page-careers__career-options">
@@ -73,7 +81,13 @@ get_header();
 												<div class="page-careers__option-description-container">
 													<?php if ( ! empty( $option['description'] ) ) : ?>
 														<div class="p page-careers__option-description">
-															<?= wp_kses( $option['description'], [ 'p' => [ '' ] ] ) ?>
+															<?= wp_kses(
+																$option['description'],
+																[
+																	'p'  => [ '' ],
+																	'br' => [ '' ],
+																]
+															) ?>
 														</div>
 													<?php endif; ?>
 												</div>
