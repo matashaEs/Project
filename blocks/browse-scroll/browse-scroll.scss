@@ -236,14 +236,8 @@ $arrow-transition: -52px;
   .browse-scroll {
     $this: &;
 
-    &__item {
-      &:first-child {
-        margin-left: 7rem;
-      }
-
-      &:last-child {
-        margin-right: 7rem;
-      }
+    .slick-dots {
+      margin-bottom: -1rem;
     }
 
     &--reverse {
