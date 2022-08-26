@@ -1,6 +1,12 @@
 <?php
 get_header();
 
+/**
+ * !!!!!!!!!!!!!!!!!!! IMPORTANT !!!!!!!!!!!!!!!!!!!!!!!
+ *  If you decide to change $taxonomies below, pleas also update file:
+ * "wp-content\plugins\bs-llc-cai-plugin\app\domains\resources\Resources.php"
+ * !!!!!!!!!!!!!!!!!!! IMPORTANT !!!!!!!!!!!!!!!!!!!!!!!
+ */
 $taxonomies = [];
 
 if ( get_query_var( 'category' ) ) {
@@ -134,18 +140,11 @@ $two_posts         = ( 2 == $news_events_count ) ? 'news__two-posts' : '';
 					<?php } ?>
 				</div>
 				<?php foreach ( $quick_links['items'] as $index => $item ) : ?>
-					<?php if ( $index > 2 ) { ?>
-						<?php
-						$args = [
-							'url'        => $item['url'],
-							'image_url'  => $item['image_url'],
-							'date'       => $item['date'],
-							'categories' => $item['categories'],
-							'title'      => $item['name'],
-						];
-						?>
-						<?php get_template_part( 'template-parts/news-posts', '', $args ); ?>
-					<?php } ?>
+					<?php
+					if ( $index > 2 ) {
+						get_template_part( 'template-parts/news-posts', '', $item );
+					}
+					?>
 				<?php endforeach; ?>
 				<div class="lds-dual-ring" id="load_more"></div>
 			</div>

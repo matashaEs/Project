@@ -44,7 +44,7 @@ class Assets {
 	 * JS printed in the source code of the website - for sharing with loaded JS
 	 */
 	function localize_scripts(): void {
-		global $wp_query;
+		$args = apply_filters( 'cai_get_main_query_args', null );
 
 		// name of this localize script have to be the same as in the wp_enqueue_script handle name.
 		wp_localize_script(
@@ -54,9 +54,9 @@ class Assets {
 				'rootUrl'     => get_site_url(),
 				'ajaxUrl'     => admin_url( 'admin-ajax.php' ),
 				'nonce'       => wp_create_nonce( 'wp_ajax' ),
-				'queryVars'   => wp_json_encode( $wp_query->query_vars ),
+				'queryVars'   => $args['queryVars'],
 				'currentPage' => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1,
-				'maxPage'     => $wp_query->max_num_pages,
+				'maxPage'     => $args['maxPage'],
 				'env'         => wp_get_environment_type(),
 				'portalID'    => get_field( 'portal_id', 'options' ) ?? '',
 			]

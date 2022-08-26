@@ -16,29 +16,22 @@ class Ajax {
 		if ( ! isset( $_GET['nonce'] ) || ! wp_verify_nonce( wp_kses_post( $_GET['nonce'] ), 'wp_ajax' ) ) {
 			wp_send_json_error( __( 'You passed incorrect data...', 'nuplo' ) );
 		}
-		$next_page          = isset( $_GET['currentPage'] ) ? wp_kses_post( $_GET['currentPage'] ) + 1 : 1;
-		$news_list          = apply_filters( 'cai_get_filtered_news', null );
-		$news_list['paged'] = $next_page;
 
-		query_posts( $news_list );
-		if ( have_posts() ) {
-			ob_start();
+		$next_page           = ! empty( get_query_var( 'currentPage' ) ) ? get_query_var( 'currentPage' ) + 1 : 1;
+		$args                = json_decode( stripslashes( ! empty( get_query_var( 'queryVars' ) ) ? get_query_var( 'queryVars' ) : '' ), true );
+		$args['post_status'] = 'publish';
+		$args['paged']       = $next_page;
 
-			while ( have_posts() ) :
-				the_post();
-				$args = [
-					'url'        => get_the_permalink(),
-					'image_url'  => wp_get_attachment_url( get_post_thumbnail_id() ),
-					'date'       => get_the_time( 'F j, Y' ),
-					'categories' => apply_filters( 'cai_get_news_category', get_the_ID() ),
-					'title'      => get_the_title(),
-				];
-				get_template_part( 'template-parts/news-posts', '', $args );
-			endwhile;
+		$news_list = apply_filters( 'cai_get_filtered_news_ajax', $args );
 
-			wp_send_json_success( ob_get_clean() );
-		} else {
+		if ( empty( $news_list ) ) {
 			wp_send_json_error( __( 'No more data', 'nuplo' ) );
+		} else {
+			ob_start();
+			foreach ( $news_list as $news ) {
+				get_template_part( 'template-parts/news-posts', '', $news );
+			}
+			wp_send_json_success( ob_get_clean() );
 		}
 	}
 }

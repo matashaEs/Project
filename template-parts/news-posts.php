@@ -16,7 +16,7 @@
 				<?php } ?>
 			</div>
 		</div>
-		<div class="h4 news__title"><?= esc_html( $args['title'] ) ?></div>
+		<div class="h4 news__title"><?= esc_html( $args['name'] ) ?></div>
 		<div class="news__read-more">
 			<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
 		</div>

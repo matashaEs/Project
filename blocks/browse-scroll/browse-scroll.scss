@@ -1,12 +1,12 @@
 @import "../../src/scss/for-blocks";
 
 /**
-	arrow transition (from right or left) depends on block direction
+   arrow transition (from right or left) depends on block direction
  */
 $arrow-transition: -52px;
 
 /**
-	to resize items as the screen width changes
+   to resize items as the screen width changes
  */
 @mixin image-size( $image-width, $image-height) {
   &__item {
