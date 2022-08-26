@@ -5,7 +5,6 @@ class Share {
     constructor() {
 
         $( '.share__option-link' ).not( '.share__option-copy' ).on( 'click', function() {
-            console.log( 'here' );
             $( this ).closest( '.share' ).toggleClass( 'share--active' );
         });
         $( '.share__option-copy' ).on( 'click', this.showSnackBar );
