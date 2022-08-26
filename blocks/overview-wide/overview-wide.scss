@@ -48,13 +48,13 @@
     position: relative;
     display: flex;
     flex-wrap: wrap;
+  }
 
-    &-button {
-      margin-right: 2rem;
-      padding-left: 2.5rem;
-      padding-right: 2.5rem;
-      margin-top: 1rem;
-    }
+  &__button {
+    margin-right: 2rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    margin-top: 1rem;
   }
 }
 
@@ -118,6 +118,10 @@
     }
 
     &__button {
+      padding-top: 1.2rem;
+      padding-bottom: 1.2rem;
+      text-transform: capitalize;
+
       &-share {
         &--mobile {
           display: none;
@@ -133,12 +137,6 @@
     &__buttons {
       display: flex;
       align-items: center;
-
-      &-button {
-        padding-top: 1.2rem;
-        padding-bottom: 1.2rem;
-        text-transform: capitalize;
-      }
     }
   }
 }
