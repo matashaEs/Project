@@ -17,8 +17,8 @@ class Ajax {
 			wp_send_json_error( __( 'You passed incorrect data...', 'nuplo' ) );
 		}
 
-		$next_page           = isset( $_GET['currentPage'] ) ? $_GET['currentPage'] + 1 : 1;
-		$args                = json_decode( stripslashes( $_GET['queryVars'] ), true );
+		$next_page           = ! empty( get_query_var( 'currentPage' ) ) ? get_query_var( 'currentPage' ) + 1 : 1;
+		$args                = json_decode( stripslashes( ! empty( get_query_var( 'queryVars' ) ) ? get_query_var( 'queryVars' ) : '' ), true );
 		$args['post_status'] = 'publish';
 		$args['paged']       = $next_page;
 
