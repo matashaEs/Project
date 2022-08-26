@@ -12,15 +12,25 @@ class Hooks {
 	}
 
 	public function download_datasheet_title( $title ) {
-		if ( is_page_template( 'page-download.php' ) && get_query_var( 'download-product' ) ) {
-			return 'Download ' . get_posts(
-				[
-					'name'           => get_query_var( 'download-product' ),
-					'post_type'      => 'product',
-					'posts_per_page' => 1,
-					'post_status'    => 'publish',
-				]
-			)[0]->post_title . ' Datasheet';
+		if ( is_page_template( 'page-download.php' ) ) {
+			$what_is_downloaded = '';
+
+			if ( get_query_var( 'download-product' ) ) {
+				$what_is_downloaded = get_posts(
+					[
+						'name'           => get_query_var( 'download-product' ),
+						'post_type'      => 'product',
+						'posts_per_page' => 1,
+						'post_status'    => 'publish',
+					]
+				)[0]->post_title;
+			} elseif ( get_query_var( 'category' ) ) {
+				$what_is_downloaded = get_category_by_slug( get_query_var( 'category' ) )->name;
+			}
+
+			if ( ! empty( $what_is_downloaded ) ) {
+				return 'Download ' . $what_is_downloaded . ' Datasheet';
+			}
 		}
 
 		return $title;

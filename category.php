@@ -1,9 +1,7 @@
 <?php
 get_header();
 
-$category         = get_category( get_query_var( 'cat' ) );
-$category_id      = $category->cat_ID;
-$category_page_id = get_field( 'product_category_page', 'category_' . $category_id );
+$category_page_id = get_field( 'product_category_page', 'category_' . get_query_var( 'cat' ) );
 
 if ( ! empty( $category_page_id ) ) :
 

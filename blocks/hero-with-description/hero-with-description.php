@@ -22,8 +22,8 @@ if ( ! empty( $block['id'] ) ) {
 	<div class="hwd__bg" style="background-image: url('<?= esc_url( $background_image['sizes']['full_hd'] ); ?>')"></div>
 	<div class="container">
 		<div class="hwd__content">
-			<div class="hwd__path p">
-				Home > About
+			<div class="hwd__path">
+				<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
 			</div>
 			<?php if ( ! empty( $title ) ) : ?>
 				<div class="hwd__title">
