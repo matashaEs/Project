@@ -14,16 +14,6 @@ class Form {
     }
 
     constructor() {
-        const urlParams = new URLSearchParams( window.location.search );
-        const pageType = urlParams.get( 'download-product' );
-        const setSelectBind = this.setSelect.bind( this );
-
-        $( document ).ready( function() {
-            if ( pageType ) {
-                setSelectBind( $( 'input[name="product-download"]' ), pageType );
-            }
-        });
-
         $( '.select__box .select__selected' )
             .on( 'click', ( e ) => {
                 this.selectFeature( e, this );
@@ -44,15 +34,6 @@ class Form {
                 $( this ).next().removeClass( 'input__error--show' ).empty();
             }
         });
-    }
-
-    setSelect( inputHidden, pageType ) {
-        let selectedOption = inputHidden.siblings().first().find( 'input[value="' + pageType + '"]' );
-
-        inputHidden.attr( 'value', pageType );
-        inputHidden.closest( 'form' ).attr( 'id', selectedOption.attr( 'formID' ) );
-        inputHidden.prev().find( '.select__selected-text' ).html( selectedOption.closest( '.select__option' ).find( 'label' ).html() );
-        selectedOption.prop( 'checked', true );
     }
 
     validateField( field ) {
@@ -154,43 +135,54 @@ class Form {
             xhr.setRequestHeader( 'Content-Type', 'application/json' );
 
             xhr.onreadystatechange = function() {
-                if ( 4 === xhr.readyState && 200 === xhr.status ) {
-                    $this.hideShowFormForSuccess();
+                if ( 4 === xhr.readyState ) {
 
-                    setTimeout( function() {
-                        $this.parent.next().addClass( 'form-valid--show' );
-                        $this.fields.val( '' );
-
-                        $this.parent.find( 'input[type="hidden"].input' ).each( function() {
-                            $( this ).prev().find( '.select__selected-text' ).html( $( this ).attr( 'placeholder' ) );
-                        });
-
-                        $this.parent.find( 'input[type="radio"]' ).each( function() {
-                            $( this ).prop( 'checked', false );
-                        });
-                    }, 500 );
-
-                    setTimeout( function() {
-                        $this.parent.next().removeClass( 'form-valid--show' );
-                    }, 5000 );
-
-                    setTimeout( function() {
+                    if ( 200 === xhr.status ) {
                         $this.hideShowFormForSuccess();
-                    }, 5500 );
-                } else {
-                    $this.hideShowFormForError();
 
-                    setTimeout( function() {
-                        $this.formErrorField.addClass( 'form-error--show' );
-                    }, 500 );
+                        setTimeout( function() {
+                            $this.parent.next().addClass( 'form-valid--show' );
+                            $this.fields.not( '[name="product-download"]' ).val( '' );
 
-                    setTimeout( function() {
-                        $this.formErrorField.removeClass( 'form-error--show' );
-                    }, 4000 );
+                            $this.parent.find( 'input[type="hidden"].input' ).not( '[name="product-download"]' ).each( function() {
+                                $( this ).prev().find( '.select__selected-text' ).html( $( this ).attr( 'placeholder' ) );
+                            });
 
-                    setTimeout( function() {
+                            $this.parent.find( 'input[type="radio"]' ).not( '[name="product-download-radio"]' ).each( function() {
+                                $( this ).prop( 'checked', false );
+                            });
+                        }, 400 );
+
+                        const downloadDatasheet = $( '.download_datasheet' )[0];
+
+                        if ( downloadDatasheet ) {
+                            setTimeout( function() {
+                                downloadDatasheet.click();
+                            }, 2000 );
+                        }
+
+                        setTimeout( function() {
+                            $this.parent.next().removeClass( 'form-valid--show' );
+                        }, 5000 );
+
+                        setTimeout( function() {
+                            $this.hideShowFormForSuccess();
+                        }, 5500 );
+                    } else if ( 400 === xhr.status || 403 === xhr.status || 404 === xhr.status ) {
                         $this.hideShowFormForError();
-                    }, 4500 );
+
+                        setTimeout( function() {
+                            $this.formErrorField.addClass( 'form-error--show' );
+                        }, 500 );
+
+                        setTimeout( function() {
+                            $this.formErrorField.removeClass( 'form-error--show' );
+                        }, 4000 );
+
+                        setTimeout( function() {
+                            $this.hideShowFormForError();
+                        }, 4500 );
+                    }
                 }
             };
 

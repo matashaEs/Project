@@ -14,7 +14,7 @@ if ( 'industry' === $browse_by ) {
 	$category_url = apply_filters( 'cai_get_industry_url', null );
 } else {
 	$list_title   = __( 'Browse by Product', 'nuplo' );
-	$items        = apply_filters( 'cai_get_products_category', null );
+	$items        = apply_filters( 'cai_get_products_category', false );
 	$category_url = apply_filters( 'cai_browse_by_product_url', null );
 }
 

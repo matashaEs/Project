@@ -37,7 +37,7 @@ $current_post_url = get_permalink();
 			<p class="p-large share__option-text"> <?php _e( 'Copy Link', 'nuplo' ); ?> </p>
 		</div>
 	</div>
-	<div class="share__snackText">
-		<?php _e( "The website's address is copied...", 'nuplo' ); ?>
-	</div>
+</div>
+<div class="share__snackText">
+	<?php _e( "The website's address is copied...", 'nuplo' ); ?>
 </div>

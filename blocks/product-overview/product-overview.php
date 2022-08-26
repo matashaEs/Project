@@ -49,9 +49,20 @@ if ( ! empty( $block['id'] ) ) {
 					<?php endif; ?>
 				<?php endforeach; ?>
 			<?php endif; ?>
+
+			<?php
+			$download_page_link = apply_filters( 'cai_get_download_pade_url', null );
+			if ( ! empty( $download_page_link ) && ! empty( $buttons ['add_download_datasheet_button'] ) && ! empty( get_field( 'download_form_guid', get_the_ID() ) ) ) :
+				$download_page_link .= '?download-product=' . get_post( get_the_ID() )->post_name;
+				?>
+				<a href="<?= esc_url( $download_page_link ) ?>" class="button p">
+					<?= esc_html__( 'Download Datasheet', 'nuplo' ) ?>
+				</a>
+			<?php endif; ?>
+
 			<?php if ( 1 == $buttons ['add_share_button'] ) : ?>
 				<div class="button button-share product-overview__button-share"> <?php the_svg( 'share-button.svg', 'product-overview-share' ); ?></div>
-				<?php get_template_part( 'template-parts/share', null ); ?>
+				<?php get_template_part( 'template-parts/share' ); ?>
 			<?php endif; ?>
 		</div>
 	</div>

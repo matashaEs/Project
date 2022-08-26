@@ -347,6 +347,15 @@ form,
   }
 }
 
+.no-form {
+  margin: 5rem 0;
+
+  .button {
+    display: inline-block;
+    margin-top: 3rem;
+  }
+}
+
 .label {
   &-modules {
     color: var(--grey-modules);
@@ -409,6 +418,11 @@ form,
     &__description {
       margin-bottom: 70px;
     }
+  }
+
+  .no-form {
+    width: 50%;
+    max-width: 785px;
   }
 }
 
