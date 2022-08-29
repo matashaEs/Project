@@ -1,30 +1,75 @@
-<?php
-get_header();
+<?php get_header();
+
+$quick_links_title = get_field( 'quick_links_title' );
+$quick_links_link  = get_field( 'quick_links_button' );
+$quick_links_links = get_field( 'quick_links_links' );
+
+
 ?>
-	<div>
-		<?php
-		while ( have_posts() ) {
-			the_post();
+
+<div class="container-fluid single-post">
+	<div class="container single-post__container">
+		<?php 
+		if ( ! empty( get_the_post_thumbnail() ) ) :
+			$background_image = get_the_post_thumbnail_url();
 			?>
-			<h1>
-				<?php the_title(); ?>
-			</h1>
-			<div>
-				<?php echo wp_get_attachment_image( get_post_thumbnail_id() ); ?>
+			<div class="single-post__image"
+			style="background-image: url('<?= esc_url( $background_image ); ?> ') " >
 			</div>
-			<?php
-			echo esc_html( get_template_part( 'template-parts/metabox-details' ) );
-			?>
-			<div>
+		<?php endif; ?>
+		<div class="seo-landing__content">
+			<div class="seo-landing__content--left">
+				<div class="single-post__breadcrumbs">
+					<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
+				</div>
+				<div class="single-post__title">
+					<?php the_title(); ?>
+				</div>
+				<div class="single-post__row">
+					<div class="single-post__date">
+						<?= get_the_date(); ?>
+					</div>
+					<div class="single-post__categories">
+						<?php $categories = get_the_category(); ?>
+						<?php foreach ( $categories as $category ) { ?>
+							<?php
+							$term_id             = $category->term_id;
+							$category_background = get_field( 'color', 'term_' . $term_id );
+							?>
+							<a href="<?= esc_url( get_category_link( $term_id ) ); ?>"
+							class="button single-post__button"
+							style="background-color: <?= esc_html( $category_background )?>;
+							border-color: <?= esc_html( $category_background )?>">
+								<?= esc_html( $category->name ); ?>
+							</a>
+						<?php } ?>
+					</div>
+				</div>
 				<?php the_content(); ?>
 			</div>
 			<?php
-		}
-		?>
+			if ( ! empty( $quick_links_title ) || ! empty( $quick_links_link ) || ! empty( $quick_links_links ) ) :
+				get_template_part(
+					'template-parts/quick-links',
+					null,
+					[
+						'container_class' => 'sidebar-and-content__sidebar',
+						'sidebar'         => [
+							'mobileName' => __( 'Quick Links', 'nuplo' ),
+							'blocks'     => [
+								'links' => [
+									'title' => $quick_links_title,
+									'link'  => $quick_links_link,
+									'links' => $quick_links_links,
+								],
+							],
+						],
+					]
+				);
+			endif;
+			?>
+		</div>
 	</div>
-<?php echo esc_html( get_template_part( 'template-parts/pagination' ) ); ?>
-	<div>
-		<?php previous_post_link(); ?> | <?php next_post_link(); ?>
-	</div>
-<?php
-get_footer();
+</div>
+
+<?php get_footer(); ?>

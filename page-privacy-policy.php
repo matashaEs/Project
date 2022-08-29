@@ -1,4 +1,4 @@
-<?php /** Template Name: SEO Landing Page */
+<?php /** Template Name: Privacy Policy */
 
 get_header();
 
