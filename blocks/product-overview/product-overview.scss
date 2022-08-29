@@ -31,6 +31,7 @@
 
   &__buttons {
     display: flex;
+    flex-wrap: wrap;
     padding-top: 2rem;
     padding-bottom: 7rem;
     position: relative;
@@ -39,6 +40,12 @@
       display: flex;
       align-items: center;
       text-transform: capitalize;
+      margin-right: 25px;
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 
@@ -47,7 +54,6 @@
     width: 4rem;
     height: 4rem;
     display: flex;
-    margin-left: 3.5rem;
   }
 }
 
