@@ -31,7 +31,7 @@ if ( ! empty( $block['id'] ) ) {
 					</div>
 				<?php endif ?>
 				<?php if ( 1 == $buttons ['add_share_button'] ) : ?>
-					<div class="overview-wide__button">
+					<div class="overview-wide__button overview-wide__button--mobile">
 						<div class="button button-share overview-wide__button-share overview-wide__button-share--mobile">
 							<?php the_svg( 'share-button.svg', 'product-overview__button--share' ); ?>
 						</div>
@@ -81,7 +81,12 @@ if ( ! empty( $block['id'] ) ) {
 					$download_page_link .= '?category=' . get_queried_object()->slug;
 					?>
 					<a href="<?= esc_url( $download_page_link ) ?>" class="button p overview-wide__button">
-						<?= esc_html__( 'Download Overview', 'nuplo' ) ?>
+						<span class="overview-wide__button-download--mobile">
+							<?= esc_html__( 'Download', 'nuplo' ) ?>
+						</span>
+						<span class="overview-wide__button-download--desktop">
+							<?= esc_html__( 'Download Overview', 'nuplo' ) ?>
+						</span>
 					</a>
 				<?php endif; ?>
 

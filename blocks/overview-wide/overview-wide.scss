@@ -55,6 +55,16 @@
     padding-left: 2.5rem;
     padding-right: 2.5rem;
     margin-top: 1rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__button-download {
+    &--desktop {
+      display: none;
+    }
   }
 }
 
@@ -72,6 +82,16 @@
       padding: 1rem;
       width: 4rem;
       height: 4rem;
+    }
+
+    &__button-download {
+      &--mobile {
+        display: none;
+      }
+
+      &--desktop {
+        display: inline-block;
+      }
     }
 
     &__description {
@@ -109,18 +129,19 @@
     &__content {
       width: 50%;
       order: -1;
-      padding-right: 0;
+      padding-right: 7%;
       padding-bottom: 0;
-    }
-
-    &__description {
-      width: 84%;
     }
 
     &__button {
       padding-top: 1.2rem;
       padding-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
       text-transform: capitalize;
+
+      &--mobile {
+        display: none;
+      }
 
       &-share {
         &--mobile {
@@ -147,10 +168,6 @@
       width: calc(50% + 5rem);
       margin-right: -5rem;
     }
-
-    &__description {
-      width: 75%;
-    }
   }
 }
 
@@ -167,7 +184,7 @@
     }
 
     &__description {
-      width: 70%;
+      max-width: 380px;
     }
   }
 }
