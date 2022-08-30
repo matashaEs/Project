@@ -16,10 +16,10 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 ?>
 
 <section class="container-fluid sidebar-and-content">
-	<div class="container sidebar-and-content__container<?= esc_html( $container_class ) ?>">
+    <div class="container sidebar-and-content__container<?= esc_html( $container_class ) ?>">
 
-		<!-- Sidebar start -->
-		<div class="sidebar-and-content__sidebar-bg"></div>
+        <!-- Sidebar start -->
+        <div class="sidebar-and-content__sidebar-bg"></div>
 
 		<?php
 		get_template_part(
@@ -32,68 +32,96 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 			]
 		);
 		?>
-		<!-- Sidebar end -->
+        <!-- Sidebar end -->
 
 
-		<!-- Items list start -->
-		<div class="sidebar-and-content__content<?= esc_attr( $content_col_class ) ?>">
+        <!-- Items list start -->
+        <div class="sidebar-and-content__content<?= esc_attr( $content_col_class ) ?>">
 			<?php if ( ! empty( $title ) ) : ?>
-				<h1 class="sidebar-and-content__title <?= is_single() ? 'sidebar-and-content__title--single' : '' ?>">
+                <h1 class="sidebar-and-content__title <?= is_single() ? 'sidebar-and-content__title--single' : '' ?>">
 					<?= esc_html( $title ) ?>
-				</h1>
+                </h1>
 			<?php endif; ?>
 
-			<div class="sidebar-and-content__content-container">
+            <div class="sidebar-and-content__content-container">
 				<?php if ( 'items' === $content_type ) : ?>
-					<?php if ( ! empty( $items ) ) : ?>
-						<?php
-						foreach ( $items as $item ) :
-							if ( ! empty( $item['background'] ) ) {
-								$background = $item['background'];
-							} else {
-								$background = get_template_directory_uri() . '/assets/img/placeholder.jpg';
-							}
-							?>
-							<div class="sidebar-and-content__item-container">
-								<a href="<?= esc_url( $item['url'] ); ?>" class="sidebar-and-content__item">
-									<div class="sidebar-and-content__item-image-container">
-										<div class="sidebar-and-content__item-image"
-											style="background-image: url('<?= esc_html( $background ); ?>');">
-										</div>
-										<?php if ( ! empty( $item ['category'] ) ) : ?>
-											<object class="sidebar-and-content__object">
-												<a href="<?= esc_url( $item['category']['url'] ) ?>" class="sidebar-and-content__item-category--link">
-													<div class="button p sidebar-and-content__item-category"
-													style="background: <?= esc_html( $item['category']['color'] ); ?>; border-color: <?= esc_html( $item['category']['color'] ); ?>">
-														<?= esc_html( $item ['category']['name'] ) ?>
-													</div>
-												</a>
-											</object>
-										<?php endif; ?>
-									</div>
-									<?php if ( ! empty( $item ['name'] ) ) : ?>
-										<div class="sidebar-and-content__item-title"><?= esc_html( $item ['name'] ) ?></div>
+				<?php if ( ! empty( $items ) ) : ?>
+					<?php
+					foreach ( $items as $item ) :
+						if ( ! empty( $item['background'] ) ) {
+							$background = $item['background'];
+						} else {
+							$background = get_template_directory_uri() . '/assets/img/placeholder.jpg';
+						}
+						?>
+                        <div class="sidebar-and-content__item-container">
+                            <a href="<?= esc_url( $item['url'] ); ?>" class="sidebar-and-content__item">
+                                <div class="sidebar-and-content__item-image-container">
+                                    <div class="sidebar-and-content__item-image"
+                                         style="background-image: url('<?= esc_html( $background ); ?>');">
+                                    </div>
+									<?php if ( ! empty( $item ['category'] ) ) : ?>
+                                        <object class="sidebar-and-content__object">
+                                            <a href="<?= esc_url( $item['category']['url'] ) ?>"
+                                               class="sidebar-and-content__item-category--link">
+                                                <div class="button p sidebar-and-content__item-category"
+                                                     style="background: <?= esc_html( $item['category']['color'] ); ?>; border-color: <?= esc_html( $item['category']['color'] ); ?>">
+													<?= esc_html( $item ['category']['name'] ) ?>
+                                                </div>
+                                            </a>
+                                        </object>
 									<?php endif; ?>
-									<?php if ( ! empty( $item ['excerpt'] ) ) : ?>
-										<div class="sidebar-and-content__item-excerpt">
-											<?= esc_html( $item ['excerpt'] ); ?>
-										</div>
-									<?php endif; ?>
-								</a>
-							</div>
-						<?php endforeach; ?>
-					<?php else : ?>
-						<h3>
-							<?php _e( 'No products were found matching your filters...', 'nuplo' ); ?>
-						</h3>
-					<?php endif; ?>
-				</div>
-
-				<?php elseif ( 'the_content' === $content_type ) : ?>
-					<?php the_content(); ?>
+                                </div>
+								<?php if ( ! empty( $item ['name'] ) ) : ?>
+                                    <div class="sidebar-and-content__item-title"><?= esc_html( $item ['name'] ) ?></div>
+								<?php endif; ?>
+								<?php if ( ! empty( $item ['excerpt'] ) ) : ?>
+                                    <div class="sidebar-and-content__item-excerpt">
+										<?= esc_html( $item ['excerpt'] ); ?>
+                                    </div>
+								<?php endif; ?>
+                            </a>
+                        </div>
+					<?php endforeach; ?>
+				<?php else : ?>
+                    <h3>
+						<?php _e( 'No products were found matching your filters...', 'nuplo' ); ?>
+                    </h3>
 				<?php endif; ?>
-			</div>
-		</div>
-		<!-- Items list end -->
-	</div>
+            </div>
+
+		<?php elseif ( 'the_content' === $content_type ) : ?>
+            <div class="h2">Products</div>
+			<?php while ( have_posts() ) {
+				the_post();
+				if ( 'product' == get_post_type() ) : ?>
+                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+				<?php endif; ?>
+			<?php } ?>
+            <div class="h2">Categories</div>
+			<?php while ( have_posts() ) {
+				the_post();
+				if ( 'page-product-category.php' == get_page_template_slug() ): ?>
+                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+				<?php endif; ?>
+			<?php } ?>
+            <div class="h2">Resources</div>
+			<?php while ( have_posts() ) {
+				the_post();
+				if ( 'post' == get_post_type() ): ?>
+                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+				<?php endif; ?>
+			<?php } ?>
+            <div class="h2">Other</div>
+			<?php while ( have_posts() ) {
+				the_post();
+				if ( ( 'post' != get_post_type() ) && ( 'page-product-category.php' != get_page_template_slug() ) && ( 'product' == get_post_type() ) ): ?>
+                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+				<?php endif; ?>
+			<?php } ?>
+		<?php endif; ?>
+        </div>
+    </div>
+    <!-- Items list end -->
+    </div>
 </section>
