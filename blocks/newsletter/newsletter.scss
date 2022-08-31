@@ -106,8 +106,9 @@
 
     .form-valid {
       top: -1rem;
-      width: 100%;
-      margin-left: 3rem;
+      width: 96%;
+      padding-left: 3rem;
+      margin-left: 0;
 
       &__col {
         width: 100%;
