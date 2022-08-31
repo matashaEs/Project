@@ -96,8 +96,7 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
                     <div class="search-page__posts-container" id="products">
                         <div class="search-page__top">
                             <div class="h2 search-page__title">Products</div>
-                            <a href="<?php get_template_part( 'template-parts/searchall' ) ?>" class="button search-page__button">See
-                                All Products</a>
+                            <a href="search-show-all" class="button search-page__button">See All Products</a>
                         </div>
                         <div class="search-page__posts">
 							<?php $i = 0; ?>

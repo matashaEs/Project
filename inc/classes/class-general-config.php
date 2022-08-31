@@ -15,5 +15,6 @@ class General_Config {
 		add_theme_support( 'wp-block-styles' );
 		add_theme_support( 'title-tag' );
 		remove_theme_support( 'block-templates' );
+		add_post_type_support( 'page', 'excerpt' );
 	}
 }
