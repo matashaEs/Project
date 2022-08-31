@@ -49,6 +49,7 @@ if ( ! empty( get_query_var( 'industry' ) ) && 'industry' === $name ) {
 					<label for="<?= esc_attr( $option['slug'] . '_' . $option['id'] ) ?>" class="p">
 						<?= esc_html( $option['name'] ) ?>
 					</label>
+					<div class="radio__container-close h3 <?= empty( $option_selected ) ? '' : 'radio__container-close--active'?>">+</div>
 				</div>
 			<?php endif; ?>
 			<?php endforeach; ?>

@@ -5,9 +5,14 @@ import $ from 'jquery';
  */
 class Filtering {
     constructor() {
+        $( 'input[name="category"][type="radio"]:checked' ).on( 'click', this.unsetRadio );
         $( 'input[name="industry"]' ).on( 'change', this.setQueryParameter );
         $( 'input[name="category"]' ).on( 'change', this.setQueryParameter );
         $( 'input[name="content"]' ).on( 'change', this.setQueryParameter );
+    }
+
+    unsetRadio( e ) {
+        $( e.target ).prop( 'checked', false ).trigger( 'change' );
     }
 
     setQueryParameter( e ) {
@@ -16,9 +21,12 @@ class Filtering {
 
         const parameter = $( e.target ).attr( 'name' );
 
-        parameters.set( parameter, $( e.target ).val() );
+		parameters.delete( parameter );
+        if ( $( e.target ).val() && '' !== parameter ) {
+            parameters.set( parameter, $( e.target ).val() );
+        }
 
-        if ( '' === parameter ) {
+        if ( 'radio' === $( e.target ).attr( 'type' ) && ! $( e.target ).is( ':checked' )  ) {
             parameters.delete( parameter );
         }
 

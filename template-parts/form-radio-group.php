@@ -22,8 +22,9 @@ if ( ! empty( get_query_var( 'category' ) ) && 'category' === $name ) {
 				value="<?= esc_attr( $option['slug'] ) ?>"
 				name="<?= esc_attr( $name ) ?>"
 				<?= ! empty( $option_selected ) ? ' checked' : '' ?>/>
-		<label class="h4" for="<?= esc_attr( $option['slug'] . '_' . $option['id'] ) ?>">
+		<label class="radio__label h4" for="<?= esc_attr( $option['slug'] . '_' . $option['id'] ) ?>">
 			<?= esc_html( $option['name'] ) ?>
+			<div class="radio__label-close h3 <?= empty( $option_selected ) ? '' : 'radio__label-close--active'?>">+</div>
 		</label>
 	</div>
 <?php endforeach; ?>
