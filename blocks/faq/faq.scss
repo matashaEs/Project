@@ -18,6 +18,7 @@
   .select {
     &__options.active {
       overflow-y: hidden;
+      max-height: 1000px;
     }
 
     &__selected {
@@ -53,12 +54,6 @@
 
   &__arrow {
     margin-right: 3rem;
-  }
-
-  .select {
-    &__options.active {
-      max-height: 1000px;
-    }
   }
 }
 

@@ -89,6 +89,8 @@ label,
 }
 
 .radio {
+  $this: &;
+
   &__container {
     display: flex;
     width: 100%;
@@ -119,6 +121,24 @@ label,
       margin-left: 0.5rem;
       transform: rotate(45deg);
       opacity: 0;
+    }
+  }
+
+  &__container:hover {
+    .input {
+      &__radio {
+        transform: scale(1.1);
+        background-color: var(--light-blue);
+        border-color: var(--light-blue);
+      }
+    }
+
+    #{$this} {
+      &__label-close {
+        &--active {
+          opacity: 1;
+        }
+      }
     }
   }
 }
@@ -277,26 +297,6 @@ label,
     z-index: 20;
 
     @include z-index-children(20, 3);
-  }
-}
-
-.radio {
-  &__container:hover {
-    .input {
-      &__radio {
-        transform: scale(1.1);
-        background-color: var(--light-blue);
-        border-color: var(--light-blue);
-      }
-    }
-
-    .radio {
-      &__label-close {
-        &--active {
-          opacity: 1;
-        }
-      }
-    }
   }
 }
 
