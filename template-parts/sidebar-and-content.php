@@ -91,21 +91,27 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
             </div>
 
 		<?php elseif ( 'the_content' === $content_type ) : ?>
-            <div class="container-fluid search">
+            <div class="container-fluid search-page">
                 <div class="container">
-                    <div class="search__posts-container" id="products">
-                        <div class="h2 search__title">Products</div>
-                        <div class="search__posts">
+                    <div class="search-page__posts-container" id="products">
+                        <div class="search-page__top">
+                            <div class="h2 search-page__title">Products</div>
+                            <a href="<?php get_template_part( 'template-parts/searchall' ) ?>" class="button search-page__button">See
+                                All Products</a>
+                        </div>
+                        <div class="search-page__posts">
 							<?php $i = 0; ?>
 							<?php while ( have_posts() && $i < 2 ) {
 								the_post(); ?>
 								<?php if ( 'product' == get_post_type() ) : ?>
-                                    <a class="search__post" href="<?php the_permalink(); ?>">
+                                    <a class="search-page__post" href="<?php the_permalink(); ?>">
                                         <div>
-                                            <div class="h4  search__post-title"><?php the_title(); ?></div>
-                                            <div class="search__excerpt p"><?php echo substr( get_the_excerpt(), 0, 200 ) . '...'; ?></div>
+                                            <div class="h4  search-page__post-title"><?php the_title(); ?></div>
+											<?php if ( strlen( get_the_excerpt() ) > 200 ) : ?>
+                                                <div class="search-page__excerpt p"><?php echo substr( get_the_excerpt(), 0, 200 ) . '...'; ?></div>
+											<?php endif; ?>
                                         </div>
-                                        <div class="p search__read-more">
+                                        <div class="p search-page__read-more">
 											<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
                                         </div>
                                     </a>
@@ -113,23 +119,25 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 								<?php endif; ?>
 							<?php } ?>
 							<?php if ( $i == 0 ) : ?>
-                                <p class="search__no-posts"><?php _e( 'Sorry, no products matched your criteria.', 'nuplo' ); ?></p>
+                                <p class="search-page__no-posts"><?php _e( 'Sorry, no products matched your criteria.', 'nuplo' ); ?></p>
 							<?php endif; ?>
                         </div>
                     </div>
-                    <div class="search__posts-container" id="categories">
-                        <div class="h2 search__title">Categories</div>
-                        <div class="search__posts">
+                    <div class="search-page__posts-container" id="categories">
+                        <div class="h2 search-page__title">Categories</div>
+                        <div class="search-page__posts">
 							<?php $i = 0; ?>
 							<?php while ( have_posts() && $i < 4 ) {
 								the_post(); ?>
 								<?php if ( 'page-product-category.php' == get_page_template_slug() ): ?>
-                                    <a class="search__post" href="<?php the_permalink(); ?>">
+                                    <a class="search-page__post" href="<?php the_permalink(); ?>">
                                         <div>
-                                            <div class="h4 search__post-title"><?php the_title(); ?></div>
-                                            <div class="search__excerpt p"><?php echo substr( get_the_excerpt(), 0, 200 ) . '...'; ?></div>
+                                            <div class="h4 search-page__post-title"><?php the_title(); ?></div>
+											<?php if ( strlen( get_the_excerpt() ) > 200 ) : ?>
+                                                <div class="search-page__excerpt p"><?php echo substr( get_the_excerpt(), 0, 200 ) . '...'; ?></div>
+											<?php endif; ?>
                                         </div>
-                                        <div class="p search__read-more">
+                                        <div class="p search-page__read-more">
 											<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
                                         </div>
                                     </a>
@@ -137,21 +145,21 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 								<?php endif; ?>
 							<?php } ?>
 							<?php if ( $i == 0 ) : ?>
-                                <p class="search__no-posts"><?php _e( 'Sorry, no categories matched your criteria.', 'nuplo' ); ?></p>
+                                <p class="search-page__no-posts"><?php _e( 'Sorry, no categories matched your criteria.', 'nuplo' ); ?></p>
 							<?php endif; ?>
                         </div>
                     </div>
-                    <div class="search__posts-container--resources" id="resources">
+                    <div class="search-page__posts-container--resources" id="resources">
                         <div class="h2">Resources</div>
-                        <div class="search__posts">
+                        <div class="search-page__posts">
 							<?php $i = 0; ?>
 							<?php while ( have_posts() && $i < 2 ) {
 								the_post(); ?>
 								<?php if ( 'post' == get_post_type() ): ?>
-                                    <a class="search__post" href="<?php the_permalink(); ?>">
-                                        <div class="search__top">
-                                            <div class="p search__date"><?= esc_html( get_the_date() ); ?></div>
-                                            <div class="search__categories">
+                                    <a class="search-page__post" href="<?php the_permalink(); ?>">
+                                        <div class="search-page__top">
+                                            <div class="p search-page__date"><?= esc_html( get_the_date() ); ?></div>
+                                            <div class="search-page__categories">
 												<?php $categories = get_the_category(); ?>
 												<?php foreach ( $categories as $category ) { ?>
 													<?php
@@ -159,14 +167,14 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 													$category_background = get_field( 'color', 'term_' . $term_id );
 													?>
                                                     <object><a href="<?= esc_url( get_category_link( $term_id ) ); ?>">
-                                                            <div class="search__category"
+                                                            <div class="search-page__category"
                                                                  style="background-color: <?= esc_html( $category_background ) ?>"></div>
                                                         </a></object>
 												<?php } ?>
                                             </div>
                                         </div>
-                                        <div class="h4 search__post-title"><?php the_title(); ?></div>
-                                        <div class="p search__read-more">
+                                        <div class="h4 search-page__post-title"><?php the_title(); ?></div>
+                                        <div class="p search-page__read-more">
 											<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
                                         </div>
                                     </a>
@@ -174,23 +182,25 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 								<?php endif; ?>
 							<?php } ?>
 							<?php if ( $i == 0 ) : ?>
-                                <p class="search__no-posts"><?php _e( 'Sorry, no posts matched your criteria.', 'nuplo' ); ?></p>
+                                <p class="search-page__no-posts"><?php _e( 'Sorry, no posts matched your criteria.', 'nuplo' ); ?></p>
 							<?php endif; ?>
                         </div>
                     </div>
-                    <div class="search__posts-container" id="other">
-                        <div class="h2 search__title">Other</div>
-                        <div class="search__posts">
+                    <div class="search-page__posts-container" id="other">
+                        <div class="h2 search-page__title">Other</div>
+                        <div class="search-page__posts">
 							<?php $i = 0; ?>
 							<?php while ( have_posts() && $i < 2 ) {
 								the_post(); ?>
 								<?php if ( ( 'post' != get_post_type() ) && ( 'page-product-category.php' != get_page_template_slug() ) && ( 'product' != get_post_type() ) ): ?>
-                                    <a class="search__post" href="<?php the_permalink(); ?>">
+                                    <a class="search-page__post" href="<?php the_permalink(); ?>">
                                         <div>
-                                            <div class="h4 search__post-title"><?php the_title(); ?></div>
-                                            <div class="search__excerpt p"><?php echo substr( get_the_excerpt(), 0, 200 ) . '...'; ?></div>
+                                            <div class="h4 search-page__post-title"><?php the_title(); ?></div>
+											<?php if ( strlen( get_the_excerpt() ) > 200 ) : ?>
+                                                <div class="search-page__excerpt p"><?php echo substr( get_the_excerpt(), 0, 200 ) . '...'; ?></div>
+											<?php endif; ?>
                                         </div>
-                                        <div class="p search__read-more">
+                                        <div class="p search-page__read-more">
 											<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
                                         </div>
                                     </a>
@@ -198,7 +208,7 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 								<?php endif; ?>
 							<?php } ?>
 							<?php if ( $i == 0 ) : ?>
-                                <p class="search__no-posts"><?php _e( 'Sorry, no other posts matched your criteria.', 'nuplo' ); ?></p>
+                                <p class="search-page__no-posts"><?php _e( 'Sorry, no other posts matched your criteria.', 'nuplo' ); ?></p>
 							<?php endif; ?>
                         </div>
                     </div>
