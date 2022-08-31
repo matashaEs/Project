@@ -24,11 +24,6 @@ class Form {
                 this.optionFeature( e, this );
             });
 
-        // $( '.quick-links__radio-group div.radio__container' )
-        //     .on( 'click', ( e ) => {
-        //         this.optionClose( e, this );
-        //     });
-
         $( '.button__send-form' ).on( 'click', ( e ) => {
             this.sendDataFromForm( e, this );
         });

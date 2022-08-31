@@ -54,6 +54,12 @@
   &__arrow {
     margin-right: 3rem;
   }
+
+  .select {
+    &__options.active {
+      max-height: 1000px;
+    }
+  }
 }
 
 @include min-size(md) {
