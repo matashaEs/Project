@@ -93,6 +93,22 @@ label,
     display: flex;
     width: 100%;
     margin-left: 0.5rem;
+    position: relative;
+
+    &-close {
+      position: absolute;
+      right: 2rem;
+      transform: rotate(45deg);
+      font-size: 3rem;
+      display: none;
+      color: var(--grey-modules);
+      top: 0.5rem;
+      z-index: 10;
+
+      &--active {
+        display: block;
+      }
+    }
   }
 
   &__container:hover {
@@ -216,6 +232,8 @@ label,
   &__option {
     padding: 0.6rem 2rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 
     &:hover {
       background-color: var(--silver-sand);
@@ -431,6 +449,29 @@ form,
   .no-form {
     width: 50%;
     max-width: 785px;
+  }
+
+  .radio {
+    &__container {
+      &-close {
+        top: -0.5rem;
+
+        &--active {
+          opacity: 0;
+          color: var(--black);
+        }
+      }
+    }
+
+    &__container:hover {
+      .radio {
+        &__container-close {
+          &--active {
+            opacity: 1;
+          }
+        }
+      }
+    }
   }
 }
 

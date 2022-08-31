@@ -24,6 +24,11 @@ class Form {
                 this.optionFeature( e, this );
             });
 
+        // $( '.quick-links__radio-group div.radio__container' )
+        //     .on( 'click', ( e ) => {
+        //         this.optionClose( e, this );
+        //     });
+
         $( '.button__send-form' ).on( 'click', ( e ) => {
             this.sendDataFromForm( e, this );
         });
@@ -235,15 +240,27 @@ class Form {
         // set the value
         const option = $( e.target.closest( '.select__option' ) );
         const valueToSet = option.find( 'input' ).val();
-        option.closest( '.select__box' )
-            .find( 'input[type="hidden"]' )
-            .val( valueToSet )
-            .trigger( 'change' );
-        option.find( 'input' ).prop( 'checked', true );
-
-        // change the label and close dropdown
         const label = option.find( 'label' ).html();
-        option.closest( '.select__box' ).find( '.select__selected' ).find( '.select__selected-text' ).html( label );
+        const inputHidden = option.closest( '.select__box' ).find( 'input[type="hidden"]' );
+
+        if ( option.find( '.input__radio--filters' ).attr( 'value' ) === inputHidden.attr( 'value' ) ) {
+            inputHidden
+                .val( '' )
+                .trigger( 'change' );
+            option.find( 'input' ).prop( 'checked', false );
+
+            // change the label and close dropdown
+            option.closest( '.select__box' ).find( '.select__selected' ).find( '.select__selected-text' ).html( inputHidden.attr( 'placeholder' ) );
+        } else {
+            inputHidden
+                .val( valueToSet )
+                .trigger( 'change' );
+            option.find( 'input' ).prop( 'checked', true );
+
+            // change the label and close dropdown
+            option.closest( '.select__box' ).find( '.select__selected' ).find( '.select__selected-text' ).html( label );
+        }
+
         option.closest( '.select__options' ).removeClass( 'active' ).css({'maxHeight': ''});
 
         // reload download page on select product.
