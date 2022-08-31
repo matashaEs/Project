@@ -91,34 +91,119 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
             </div>
 
 		<?php elseif ( 'the_content' === $content_type ) : ?>
-            <div class="h2">Products</div>
-			<?php while ( have_posts() ) {
-				the_post();
-				if ( 'product' == get_post_type() ) : ?>
-                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-				<?php endif; ?>
-			<?php } ?>
-            <div class="h2">Categories</div>
-			<?php while ( have_posts() ) {
-				the_post();
-				if ( 'page-product-category.php' == get_page_template_slug() ): ?>
-                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-				<?php endif; ?>
-			<?php } ?>
-            <div class="h2">Resources</div>
-			<?php while ( have_posts() ) {
-				the_post();
-				if ( 'post' == get_post_type() ): ?>
-                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-				<?php endif; ?>
-			<?php } ?>
-            <div class="h2">Other</div>
-			<?php while ( have_posts() ) {
-				the_post();
-				if ( ( 'post' != get_post_type() ) && ( 'page-product-category.php' != get_page_template_slug() ) && ( 'product' == get_post_type() ) ): ?>
-                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-				<?php endif; ?>
-			<?php } ?>
+            <div class="container-fluid search">
+                <div class="container">
+                    <div class="search__posts-container" id="products">
+                        <div class="h2 search__title">Products</div>
+                        <div class="search__posts">
+							<?php $i = 0; ?>
+							<?php while ( have_posts() && $i < 2 ) {
+								the_post(); ?>
+								<?php if ( 'product' == get_post_type() ) : ?>
+                                    <a class="search__post" href="<?php the_permalink(); ?>">
+                                        <div>
+                                            <div class="h4  search__post-title"><?php the_title(); ?></div>
+                                            <div class="search__excerpt p"><?php echo substr( get_the_excerpt(), 0, 200 ) . '...'; ?></div>
+                                        </div>
+                                        <div class="p search__read-more">
+											<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
+                                        </div>
+                                    </a>
+									<?php $i ++; ?>
+								<?php endif; ?>
+							<?php } ?>
+							<?php if ( $i == 0 ) : ?>
+                                <p class="search__no-posts"><?php _e( 'Sorry, no products matched your criteria.', 'nuplo' ); ?></p>
+							<?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="search__posts-container" id="categories">
+                        <div class="h2 search__title">Categories</div>
+                        <div class="search__posts">
+							<?php $i = 0; ?>
+							<?php while ( have_posts() && $i < 4 ) {
+								the_post(); ?>
+								<?php if ( 'page-product-category.php' == get_page_template_slug() ): ?>
+                                    <a class="search__post" href="<?php the_permalink(); ?>">
+                                        <div>
+                                            <div class="h4 search__post-title"><?php the_title(); ?></div>
+                                            <div class="search__excerpt p"><?php echo substr( get_the_excerpt(), 0, 200 ) . '...'; ?></div>
+                                        </div>
+                                        <div class="p search__read-more">
+											<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
+                                        </div>
+                                    </a>
+									<?php $i ++; ?>
+								<?php endif; ?>
+							<?php } ?>
+							<?php if ( $i == 0 ) : ?>
+                                <p class="search__no-posts"><?php _e( 'Sorry, no categories matched your criteria.', 'nuplo' ); ?></p>
+							<?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="search__posts-container--resources" id="resources">
+                        <div class="h2">Resources</div>
+                        <div class="search__posts">
+							<?php $i = 0; ?>
+							<?php while ( have_posts() && $i < 2 ) {
+								the_post(); ?>
+								<?php if ( 'post' == get_post_type() ): ?>
+                                    <a class="search__post" href="<?php the_permalink(); ?>">
+                                        <div class="search__top">
+                                            <div class="p search__date"><?= esc_html( get_the_date() ); ?></div>
+                                            <div class="search__categories">
+												<?php $categories = get_the_category(); ?>
+												<?php foreach ( $categories as $category ) { ?>
+													<?php
+													$term_id             = $category->term_id;
+													$category_background = get_field( 'color', 'term_' . $term_id );
+													?>
+                                                    <object><a href="<?= esc_url( get_category_link( $term_id ) ); ?>">
+                                                            <div class="search__category"
+                                                                 style="background-color: <?= esc_html( $category_background ) ?>"></div>
+                                                        </a></object>
+												<?php } ?>
+                                            </div>
+                                        </div>
+                                        <div class="h4 search__post-title"><?php the_title(); ?></div>
+                                        <div class="p search__read-more">
+											<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
+                                        </div>
+                                    </a>
+									<?php $i ++; ?>
+								<?php endif; ?>
+							<?php } ?>
+							<?php if ( $i == 0 ) : ?>
+                                <p class="search__no-posts"><?php _e( 'Sorry, no posts matched your criteria.', 'nuplo' ); ?></p>
+							<?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="search__posts-container" id="other">
+                        <div class="h2 search__title">Other</div>
+                        <div class="search__posts">
+							<?php $i = 0; ?>
+							<?php while ( have_posts() && $i < 2 ) {
+								the_post(); ?>
+								<?php if ( ( 'post' != get_post_type() ) && ( 'page-product-category.php' != get_page_template_slug() ) && ( 'product' != get_post_type() ) ): ?>
+                                    <a class="search__post" href="<?php the_permalink(); ?>">
+                                        <div>
+                                            <div class="h4 search__post-title"><?php the_title(); ?></div>
+                                            <div class="search__excerpt p"><?php echo substr( get_the_excerpt(), 0, 200 ) . '...'; ?></div>
+                                        </div>
+                                        <div class="p search__read-more">
+											<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
+                                        </div>
+                                    </a>
+									<?php $i ++; ?>
+								<?php endif; ?>
+							<?php } ?>
+							<?php if ( $i == 0 ) : ?>
+                                <p class="search__no-posts"><?php _e( 'Sorry, no other posts matched your criteria.', 'nuplo' ); ?></p>
+							<?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
 		<?php endif; ?>
         </div>
     </div>
