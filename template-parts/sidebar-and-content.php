@@ -169,18 +169,20 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 							<div class="search-page__posts">
 								<?php foreach ( $search_results['resources'] as $resource ) { ?>
 									<a class="search-page__post" href="<?= esc_url( $resource['url'] ) ?>">
-										<div class="search-page__top">
-											<div class="p search-page__date"><?= esc_html( $resource['date'] ); ?></div>
-											<div class="search-page__categories">
-												<?php foreach ( $resource['categories'] as $category ) { ?>
-													<object><a href="<?= esc_url( $category['slug'] ) ?>">
-															<div class="search-page__category"
-																style="background-color: <?= esc_html( $category['color'] ) ?>"></div>
-														</a></object>
-												<?php } ?>
+										<div>
+											<div class="search-page__top">
+												<div class="p search-page__date"><?= esc_html( $resource['date'] ); ?></div>
+												<div class="search-page__categories">
+													<?php foreach ( $resource['categories'] as $category ) { ?>
+														<object><a href="<?= esc_url( $category['slug'] ) ?>">
+																<div class="search-page__category"
+																	style="background-color: <?= esc_html( $category['color'] ) ?>"></div>
+															</a></object>
+													<?php } ?>
+												</div>
 											</div>
+											<div class="h4 search-page__post-title"><?= esc_html( $resource['name'] ) ?></div>
 										</div>
-										<div class="h4 search-page__post-title"><?= esc_html( $resource['name'] ) ?></div>
 										<div class="p search-page__read-more">
 											<?= esc_html( __( 'Read More', 'nuplo' ) ) ?>
 										</div>
