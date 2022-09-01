@@ -4,7 +4,7 @@ get_header();
 $terms = null;
 
 $search_results = apply_filters( 'cai_get_filtered_results', null );
-$navigation = [];
+$navigation     = [];
 if ( ! empty( $search_results['products'] ) ) {
 	$navigation[] = [
 		'block_id' => 'products',
@@ -12,24 +12,24 @@ if ( ! empty( $search_results['products'] ) ) {
 	];
 }
 
-if ( ! empty( $search_results['products'] ) ) {
+if ( ! empty( $search_results['categories'] ) ) {
 	$navigation[] = [
-		'block_id' => 'products',
-		'name'     => 'Products',
+		'block_id' => 'categories',
+		'name'     => 'Categories',
 	];
 }
 
-if ( ! empty( $search_results['products'] ) ) {
+if ( ! empty( $search_results['resources'] ) ) {
 	$navigation[] = [
-		'block_id' => 'products',
-		'name'     => 'Products',
+		'block_id' => 'resources',
+		'name'     => 'Resources',
 	];
 }
 
-if ( ! empty( $search_results['products'] ) ) {
+if ( ! empty( $search_results['other'] ) ) {
 	$navigation[] = [
-		'block_id' => 'products',
-		'name'     => 'Products',
+		'block_id' => 'other',
+		'name'     => 'Other',
 	];
 }
 

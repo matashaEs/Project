@@ -16,6 +16,7 @@
         width: 100%;
         position: relative;
         padding-top: 9rem;
+        margin-bottom: 5rem;
 
         &::after {
           content: "";
@@ -42,6 +43,10 @@
         #{$this}__post {
           padding: 4rem 0;
         }
+
+        #{$this}__title, #{$this}__date, #{$this}__post-title, {
+          color: var(--black);
+        }
       }
     }
   }
@@ -51,7 +56,6 @@
   }
 
   &__title {
-    margin-top: 9rem;
     margin-bottom: 6rem;
   }
 
@@ -81,6 +85,7 @@
 
   &__excerpt {
     margin-bottom: 4rem;
+    color: var(--black);
   }
 
   &__top {
@@ -88,6 +93,7 @@
     justify-content: space-between;
     margin-bottom: 2.5rem;
     align-items: baseline;
+    flex-wrap: wrap;
   }
 
   &__categories {
@@ -119,23 +125,23 @@
       margin-left: 4rem;
     }
   }
-
-  .sidebar-and-content {
-    &__title {
-      padding: 0 2rem;
-    }
-  }
 }
 
 @include min-size(md) {
   .search-page {
     $this: &;
 
+    max-width: 1000px;
+    padding-top: 0;
+
     &__post {
       width: 49%;
+      margin-bottom: 10rem;
     }
 
     &__posts-container--resources {
+      margin-bottom: 10rem;
+
       #{$this}__post {
         padding: 4rem 7.5rem 4rem 0;
       }
