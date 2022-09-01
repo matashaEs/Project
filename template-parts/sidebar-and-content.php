@@ -100,7 +100,7 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 						<div class="search-page__posts-container" id="products">
 							<div class="search-page__top">
 								<div class="h2 search-page__title">Products</div>
-								<a href="<?= esc_url( site_url( '/products/' ) ) ?>" class="button search-page__button">
+								<a href="<?= esc_url( apply_filters( 'cai_browse_by_product_url', null ) ) ?>" class="button search-page__button">
 									<?= esc_html( __( 'See All Products', 'nuplo' ) ) ?>
 								</a>
 							</div>
@@ -111,6 +111,8 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 											<div class="h4  search-page__post-title"><?= esc_html( $product['name'] ) ?></div>
 											<?php if ( strlen( $product['description'] ) > 200 ) : ?>
 												<div class="search-page__excerpt p"><?= esc_html( substr( $product['description'], 0, 200 ) ) . '...' ?></div>
+											<?php else : ?>
+												<div class="search-page__excerpt p"><?= esc_html( $product['description'] ) ?></div>
 											<?php endif; ?>
 										</div>
 										<div class="p search-page__read-more">
@@ -131,7 +133,7 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 						<div class="search-page__posts-container" id="categories">
 							<div class="search-page__top">
 								<div class="h2 search-page__title">Categories</div>
-								<a href="<?= esc_url( site_url( '/products/' ) ) ?>" class="button search-page__button">
+								<a href="<?= esc_url( apply_filters( 'cai_browse_by_product_url', null ) ) ?>" class="button search-page__button">
 									<?= esc_html( __( 'See All Categories', 'nuplo' ) ) ?>
 								</a>
 							</div>
@@ -142,6 +144,8 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 											<div class="h4 search-page__post-title"><?= esc_html( $category['name'] ) ?></div>
 											<?php if ( strlen( $category['description'] ) > 200 ) : ?>
 												<div class="search-page__excerpt p"><?= esc_html( substr( $category['description'], 0, 200 ) ) . '...' ?></div>
+											<?php else : ?>
+												<div class="search-page__excerpt p"><?= esc_html( $category['description'] ) ?></div>
 											<?php endif; ?>
 										</div>
 										<div class="p search-page__read-more">
@@ -207,6 +211,8 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 											<div class="h4 search-page__post-title"><?= esc_html( $other['name'] ) ?></div>
 											<?php if ( strlen( $other['description'] ) > 200 ) : ?>
 												<div class="search-page__excerpt p"><?= esc_html( substr( $other['description'], 0, 200 ) ) . '...' ?></div>
+											<?php else : ?>
+												<div class="search-page__excerpt p"><?= esc_html( $other['description'] ) ?></div>
 											<?php endif; ?>
 										</div>
 										<div class="p search-page__read-more">
