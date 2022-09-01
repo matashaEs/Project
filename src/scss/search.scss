@@ -120,8 +120,10 @@
     }
   }
 
-  .sidebar-and-content__title {
-    padding: 0 2rem;
+  .sidebar-and-content {
+    &__title {
+      padding: 0 2rem;
+    }
   }
 }
 
