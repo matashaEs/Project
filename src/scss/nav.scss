@@ -253,13 +253,14 @@
 
   &__input {
     padding-left: 2.5rem;
+    border-color: var(--off-white);
   }
 
   &__search-form::after {
     position: absolute;
     content: url("../assets/img/search-icon.svg");
     display: flex;
-    width: 100%;
+    width: 22px;
     top: 0.8rem;
     justify-content: start;
     left: 0;

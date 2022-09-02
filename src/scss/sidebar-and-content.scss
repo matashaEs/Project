@@ -3,6 +3,8 @@ $transition-time: 1s;
 .sidebar-and-content {
   $this: &;
 
+  flex: 1;
+
   &__container {
     &--the-content {
       padding: 0;
@@ -133,7 +135,7 @@ $transition-time: 1s;
 @include min-size(md) {
   .sidebar-and-content {
     &__title {
-      margin-bottom: 4rem;
+      margin-bottom: 8rem;
     }
 
     &__content-container {
@@ -209,6 +211,10 @@ $transition-time: 1s;
 
       &--the-content {
         padding: 0;
+      }
+
+      .breadcrumbs {
+        display: none;
       }
     }
 
