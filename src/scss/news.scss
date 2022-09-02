@@ -2,6 +2,8 @@
   $this: &;
 
   color: var(--black);
+  flex: 1;
+  align-items: flex-start;
 
   &__a {
     text-decoration: none;
