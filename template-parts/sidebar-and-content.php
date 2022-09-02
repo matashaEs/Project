@@ -167,7 +167,7 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 							<div class="search-page__top">
 								<div class="h2 search-page__title">Resources</div>
 								<a href="<?= esc_url( site_url( '/resources/' ) ) ?>" class="button search-page__button">
-									<?= esc_html( __( 'Resources', 'nuplo' ) ) ?>
+									<?= esc_html( __( 'See All News', 'nuplo' ) ) ?>
 								</a>
 							</div>
 							<div class="search-page__posts">
