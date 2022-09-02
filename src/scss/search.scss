@@ -10,6 +10,7 @@
     justify-content: space-between;
 
     &-container {
+      scroll-margin-top: 7rem;
       width: 100%;
 
       &--resources {
@@ -120,6 +121,7 @@
     position: relative;
 
     &::after {
+      position: absolute;
       content: url("../assets/img/arrow-thin.svg");
       transition: all 0.5s;
       margin-left: 4rem;
@@ -133,6 +135,7 @@
 
     max-width: 1000px;
     padding-top: 0;
+    margin: 0 auto;
 
     &__post {
       width: 49%;

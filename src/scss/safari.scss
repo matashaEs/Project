@@ -28,6 +28,14 @@ Safari hacks
           /* stylelint-enable */
         }
       }
+
+      .search-page {
+        &__posts-container {
+          /* stylelint-disable */
+          scroll-snap-margin-top: 7rem;
+          /* stylelint-enable */
+        }
+      }
     }
   }
 }

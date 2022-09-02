@@ -222,7 +222,6 @@ $arrow-transition: -52px;
       #{$this}__description-link {
         &::after {
           right: initial;
-          left: $arrow-transition;
         }
       }
     }
