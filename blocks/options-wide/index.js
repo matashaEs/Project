@@ -56,18 +56,29 @@ class OptionsWide {
 
 			options.click( function() {
 
-				options
-					.addClass( 'options-wide__option--collapse' )
-					.removeClass( 'options-wide__option--show-content' )
-					.removeClass( 'options-wide__option--hide-vertical-title' );
-				$( this )
-					.removeClass( 'options-wide__option--collapse' )
-					.addClass( 'options-wide__option--hide-vertical-title' );
+				if ( ! $( this ).hasClass( 'options-wide__option--hide-vertical-title' ) ) {
+					console.log( 'here' );
 
-				setTimeout( ()=>{
+					options
+						.addClass( 'disable' )
+						.addClass( 'options-wide__option--collapse' )
+						.removeClass( 'options-wide__option--show-content' )
+						.removeClass( 'options-wide__option--hide-vertical-title' );
 					$( this )
-						.addClass( 'options-wide__option--show-content' );
-				}, 750 );
+						.removeClass( 'disable' )
+						.removeClass( 'options-wide__option--collapse' )
+						.addClass( 'options-wide__option--hide-vertical-title' );
+
+					setTimeout( ()=>{
+						$( this )
+							.addClass( 'options-wide__option--show-content' );
+					}, 750 );
+
+					setTimeout( ()=>{
+						options
+							.removeClass( 'disable' );
+					}, 1500 );
+				}
 			});
 		});
 	}
