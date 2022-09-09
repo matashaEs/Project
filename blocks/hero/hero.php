@@ -17,10 +17,18 @@ if ( ! empty( $block['id'] ) ) {
 
 <section class="container-fluid hero">
 	<div class="hero__bg-slider">
-		<?php foreach ( $images as $image ) : ?>
-			<div class="hero__bg"
-				style="background-image: url('<?= esc_url( $image['image']['sizes']['full_hd'] ); ?>')"></div>
-		<?php endforeach; ?>
+		<?php
+		if ( ! empty( $images ) && is_array( $images ) ) :
+			foreach ( $images as $image ) :
+				if ( ! empty( $image ) ) :
+					?>
+					<div class="hero__bg"
+						style="background-image: url('<?= esc_url( $image['image']['sizes']['full_hd'] ); ?>')"></div>
+					<?php
+				endif;
+			endforeach;
+		endif;
+		?>
 	</div>
 	<div class="container hero__container">
 
