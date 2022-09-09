@@ -34,7 +34,7 @@ $fluid_classes .= ! empty( $background_color ) ? ' ' . esc_html( $background_col
 			<?php else : ?>
 				<?php if ( ! empty( $video ) ) : ?>
 					<video class="video__display" autoplay controls loop muted playsinline>
-						<source src="<?= esc_url( $video['url'] )?> ">
+						<source src="<?= esc_url( $video['url'] )?>">
 					</video>
 				<?php endif; ?>
 			<?php endif; ?>

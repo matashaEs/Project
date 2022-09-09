@@ -18,6 +18,7 @@ if ( have_rows( 'contact_information', 'option' ) ) :
 	endwhile;
 endif;
 
+$site_designed_by = get_field( 'site_designed_by', 'option' ) ?? null;
 ?>
 <footer class="footer footer-mobile">
 	<div class="container-fluid">
@@ -97,7 +98,16 @@ endif;
 					</h5>
 				</div>
 				<div class="footer__col">
-					<p class="footer__small"><?php _e( 'Website Designed by BS LLC', 'nuplo' ); ?></p>
+					<?php if ( ! empty( $site_designed_by ) ) : ?>
+						<p class="footer__small">
+							<?php _e( 'Site Designed by ', 'nuplo' ); ?>
+							<a href="<?= esc_url( $site_designed_by['url'] ) ?>"
+								target="<?= esc_attr( $site_designed_by['target'] ?? '_self' ) ?>"
+								class="footer__designed_by">
+								<?= esc_html( $site_designed_by['title'] ) ?>
+							</a>
+						</p>
+					<?php endif ?>
 				</div>
 			</div>
 		</div>
@@ -105,7 +115,7 @@ endif;
 </footer>
 <footer class="footer footer-desktop">
 	<div class="container-fluid">
-		<div class="container">
+		<div class="container footer__container">
 			<div class="row footer__row">
 				<div class="footer__col">
 					<?php the_svg( 'cai-logo.svg', 'footer__logo' ); ?>
@@ -183,6 +193,16 @@ endif;
 					</div>
 				</div>
 			</div>
+			<?php if ( ! empty( $site_designed_by ) ) : ?>
+				<div class="row footer__row p-small">
+					<?php _e( 'Site Designed by ', 'nuplo' ); ?>
+					<a href="<?= esc_url( $site_designed_by['url'] ) ?>"
+						target="<?= esc_attr( $site_designed_by['target'] ?? '_self' ) ?>"
+						class="footer__designed_by p-small">
+						<?= esc_html( $site_designed_by['title'] ) ?>
+					</a>
+				</div>
+			<?php endif ?>
 		</div>
 	</div>
 </footer>

@@ -35,7 +35,7 @@ if ( ! empty( $block['id'] ) ) {
 			<div class="row options-wide__row options-wide__options">
 				<?php foreach ( $options as $option ) : ?>
 					<?php $image = ! empty( $option['image'] ) ? $option['image']['sizes']['full_hd'] : get_template_directory_uri() . '/assets/img/placeholder.jpg'; ?>
-						<div class="options-wide__option" style="background-image: url('<?= esc_url( $image ); ?>');">
+						<div class="options-wide__option">
 							<div class="options-wide__option-bg" style="background-image: url('<?= esc_url( $image ); ?>');"></div>
 							<?php if ( ! empty( $option['link'] ) ) : ?>
 								<a href="<?= esc_url( $option['link']['url'] ); ?>"

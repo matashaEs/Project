@@ -29,6 +29,7 @@
 
   &__small {
     font-size: 1.2rem;
+    line-height: 1.7rem;
   }
 
   &__row {
@@ -62,10 +63,16 @@
       margin-bottom: 0;
     }
   }
+
+  &__designed_by {
+    margin-left: 5px;
+  }
 }
 
 @include min-size(md) {
   .footer {
+    $this: &;
+
     &-mobile {
       display: none;
     }
@@ -81,6 +88,11 @@
 
     &-desktop {
       display: block;
+
+      #{$this}__container {
+        margin-top: 8rem;
+        margin-bottom: 3rem;
+      }
     }
 
     ul {
@@ -117,8 +129,12 @@
     }
 
     &__row {
-      margin-top: 8rem;
-      margin-bottom: 6rem;
+      margin-top: 0;
+
+      &:last-child {
+        margin-bottom: 0;
+        justify-content: flex-end;
+      }
     }
 
     &__logo {

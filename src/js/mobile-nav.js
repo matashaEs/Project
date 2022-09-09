@@ -34,10 +34,14 @@ class Navigation {
 			const contentHeight = windowHeight - 70;
 			$( '.nav__content' ).css( 'max-height', `${contentHeight}px` );
 		} else {
+			$( 'html' ).css( 'scroll-behavior', 'auto' );
+
 			document.body.style.position = '';
 			document.body.style.top      = '';
 			window.scrollTo( 0, parseInt( scrollY || '0' ) * -1 );
 			$( '.nav__fluid' ).css( 'margin-top', '0' );
+
+			$( 'html' ).css( 'scroll-behavior', '' );
 		}
 	}
 }
