@@ -2,7 +2,7 @@
 /**
  * $name
  * $select_classes
- * $options [id, slug, name, download_form_guid ]
+ * $options [id, slug, name ]
  * $button_classes
  * $title
  */
@@ -36,22 +36,24 @@ if ( ! empty( get_query_var( 'industry' ) ) && 'industry' === $name ) {
 					<?php $option_guid = ! empty( $option['download_form_guid'] ) ? ' formID' . '=' . $option['download_form_guid'] : ''; ?>
 					<?php $option_selected = ! empty( $selected_filter_option_name ) && $option['slug'] === $selected_filter_option_name; ?>
 					<?php $selected_filter_option = ! empty( $option_selected ) ? $option : $selected_filter_option; ?>
-				<div class="select__option radio__container">
-					<div><input
-								type="radio"
-								class="input__radio input__radio--filters"
-								id="<?= esc_attr( $option['slug'] . '_' . $option['id'] ) ?>"
+					<div class="select__option radio__container">
+						<div><input
+									type="radio"
+									class="input__radio input__radio--filters"
+									id="<?= esc_attr( $option['slug'] . '_' . $option['id'] ) ?>"
 								<?= ! empty( $option_guid ) ? esc_html( $option_guid ) : '' ?>
-								value="<?= esc_attr( $option['slug'] ) ?>"
-								name="<?= esc_attr( $name . '-radio' ) ?>"
-								<?= ! empty( $option_selected ) ? ' checked' : ''?>/>
+									value="<?= esc_attr( $option['slug'] ) ?>"
+									name="<?= esc_attr( $name . '-radio' ) ?>"
+								<?= ! empty( $option_selected ) ? ' checked' : '' ?>/>
+						</div>
+						<label for="<?= esc_attr( $option['slug'] . '_' . $option['id'] ) ?>" class="p">
+							<?= esc_html( $option['name'] ) ?>
+						</label>
+						<div class="radio__container-close h3 <?= empty( $option_selected ) ? '' : 'radio__container-close--active' ?>">
+							+
+						</div>
 					</div>
-					<label for="<?= esc_attr( $option['slug'] . '_' . $option['id'] ) ?>" class="p">
-						<?= esc_html( $option['name'] ) ?>
-					</label>
-					<div class="radio__container-close h3 <?= empty( $option_selected ) ? '' : 'radio__container-close--active'?>">+</div>
-				</div>
-			<?php endif; ?>
+				<?php endif; ?>
 			<?php endforeach; ?>
 		</div>
 		<div class="select__selected <?= ! empty( $button_classes ) ? esc_attr( $button_classes ) : '' ?>">
@@ -65,11 +67,11 @@ if ( ! empty( get_query_var( 'industry' ) ) && 'industry' === $name ) {
 
 		<?php if ( ! empty( $selected_filter_option ) && ! empty( $selected_filter_option['datasheet_file'] ) ) : ?>
 			<a
-				href="<?= esc_url( $selected_filter_option['datasheet_file']['url'] ) ?>"
-				download="<?= esc_attr( $selected_filter_option['name'] . ' Datasheet' ) ?>"
-				class="download_datasheet"
-				hidden>
-				<?= esc_html( $selected_filter_option['name'] . ' Datasheet' )  ?>
+					href="<?= esc_url( $selected_filter_option['datasheet_file']['url'] ) ?>"
+					download="<?= esc_attr( $selected_filter_option['name'] . ' Datasheet' ) ?>"
+					class="download_datasheet"
+					hidden>
+				<?= esc_html( $selected_filter_option['name'] . ' Datasheet' ) ?>
 			</a>
 		<?php endif; ?>
 	</div>

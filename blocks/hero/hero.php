@@ -16,11 +16,14 @@ if ( ! empty( $block['id'] ) ) {
 ?>
 
 <section class="container-fluid hero">
-	<div class="hero__image hero__image-mobile"
-	style="background-image: url('<?= esc_url( $background_image_mobile['sizes']['full_hd'] ); ?>')"></div>
-	<div class="hero__bg"
-	style="background-image: url('<?= esc_url( $background_image['sizes']['full_hd'] ); ?>')"></div>
+	<div class="hero__bg-slider">
+		<?php foreach ( $images as $image ) : ?>
+			<div class="hero__bg"
+				style="background-image: url('<?= esc_url( $image['image']['sizes']['full_hd'] ); ?>')"></div>
+		<?php endforeach; ?>
+	</div>
 	<div class="container hero__container">
+
 		<?php if ( ! empty( $title ) ) : ?>
 			<div class="h1 hero__title">
 				<?= esc_html( $title ) ?>
@@ -37,9 +40,9 @@ if ( ! empty( $block['id'] ) ) {
 			<?php $button_target = $button['target']; ?>
 
 			<a
-			href="<?= esc_url( $button_url ); ?>"
-			class="p button hero__button-link"
-			target=" <?= esc_attr( $button_target ) ?>">
+					href="<?= esc_url( $button_url ); ?>"
+					class="p button hero__button-link"
+					target=" <?= esc_attr( $button_target ) ?>">
 				<?= esc_html( $button_title ) ?>
 			</a>
 		<?php endif; ?>
