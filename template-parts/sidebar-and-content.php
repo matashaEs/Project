@@ -37,10 +37,10 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 
 		<!-- Items list start -->
 		<div class="sidebar-and-content__content<?= esc_attr( $content_col_class ) ?>">
-			<?php 
+			<?php
 			if ( 'search_results' === $content_type ? ' search-page' : '' ) :
 				get_template_part( 'template-parts/breadcrumbs' );
-			endif; 
+			endif;
 			?>
 			<?php if ( ! empty( $title ) ) : ?>
 				<h1 class="sidebar-and-content__title <?= is_single() ? 'sidebar-and-content__title--single' : '' ?>">
@@ -66,15 +66,24 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 										style="background-image: url('<?= esc_html( $background ); ?>');">
 									</div>
 									<?php if ( ! empty( $item ['category'] ) ) : ?>
-										<object class="sidebar-and-content__object">
-											<a href="<?= esc_url( $item['category']['url'] ) ?>"
-												class="sidebar-and-content__item-category--link">
+										<?php if ( ! empty( $item ['category']['url'] ) ) : ?>
+											<object class="sidebar-and-content__object">
+												<a href="<?= esc_url( $item['category']['url'] ) ?>"
+													class="sidebar-and-content__item-category--link">
+													<div class="button p sidebar-and-content__item-category"
+														style="background: <?= esc_html( $item['category']['color'] ); ?>; border-color: <?= esc_html( $item['category']['color'] ); ?>">
+														<?= esc_html( $item ['category']['name'] ) ?>
+													</div>
+												</a>
+											</object>
+										<?php else : ?>
+											<div class="sidebar-and-content__item-category--link">
 												<div class="button p sidebar-and-content__item-category"
 													style="background: <?= esc_html( $item['category']['color'] ); ?>; border-color: <?= esc_html( $item['category']['color'] ); ?>">
 													<?= esc_html( $item ['category']['name'] ) ?>
 												</div>
-											</a>
-										</object>
+											</div>
+										<?php endif; ?>
 									<?php endif; ?>
 								</div>
 								<?php if ( ! empty( $item ['name'] ) ) : ?>
@@ -239,5 +248,4 @@ $content_col_class = 'the_content' === $content_type ? ' sidebar-and-content__co
 		</div>
 	</div>
 	<!-- Items list end -->
-	</div>
 </section>
