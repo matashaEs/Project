@@ -1,5 +1,4 @@
 import './hero.scss';
-
 import $ from 'jquery';
 
 
@@ -15,6 +14,7 @@ class Hero {
             autoplay: true,
             autoplaySpeed: 5000,
             swipe: false,
+            fade: true,
         });
     }
 }
