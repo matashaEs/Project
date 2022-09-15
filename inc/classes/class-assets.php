@@ -69,7 +69,7 @@ class Assets {
 	function add_styles(): void {
 		wp_enqueue_style( 'normalize_css', get_parent_theme_file_uri( '/assets/normalize.css' ), [], wp_get_theme()->get( 'Version' ) );
 		wp_enqueue_style( 'common_css', get_parent_theme_file_uri( '/assets/common.css' ), [ 'normalize_css' ], wp_get_theme()->get( 'Version' ) );
-		wp_enqueue_style( 'slick_slider_css', get_parent_theme_file_uri( '/assets/slick.css' ), [], wp_get_theme()->get( 'Version' ) );
+		wp_enqueue_style( 'slick_slider_css', get_parent_theme_file_uri( '/assets/slick.min.css' ), [], wp_get_theme()->get( 'Version' ) );
 	}
 
 	/**
