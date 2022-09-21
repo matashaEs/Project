@@ -17,8 +17,12 @@ class Ajax {
 			wp_send_json_error( __( 'You passed incorrect data...', 'nuplo' ) );
 		}
 
-		$next_page           = ! empty( get_query_var( 'currentPage' ) ) ? get_query_var( 'currentPage' ) + 1 : 1;
-		$args                = json_decode( stripslashes( ! empty( get_query_var( 'queryVars' ) ) ? get_query_var( 'queryVars' ) : '' ), true );
+		$current_page_from_get = filter_input( INPUT_GET, 'currentPage', FILTER_VALIDATE_INT );
+		$query_vars_from_get   = filter_input( INPUT_GET, 'queryVars', FILTER_SANITIZE_STRING );
+		$query_vars_from_get   = str_replace( '&#34;', '"', $query_vars_from_get );
+
+		$next_page           = ! empty( $current_page_from_get ) ? $current_page_from_get + 1 : 1;
+		$args                = json_decode( $query_vars_from_get, true );
 		$args['post_status'] = 'publish';
 		$args['paged']       = $next_page;
 

@@ -67,9 +67,8 @@ if ( ! empty( get_query_var( 'industry' ) ) && 'industry' === $name ) {
 
 		<?php if ( ! empty( $selected_filter_option ) && ! empty( $selected_filter_option['datasheet_file'] ) ) : ?>
 			<a
-					href="<?= esc_url( $selected_filter_option['datasheet_file']['url'] ) ?>"
-					download="<?= esc_attr( $selected_filter_option['name'] . ' Datasheet' ) ?>"
-					class="download_datasheet"
+					href="<?= esc_url( $selected_filter_option['datasheet_file'] ) ?>"
+					class="download_datasheet" target="_blank"
 					hidden>
 				<?= esc_html( $selected_filter_option['name'] . ' Datasheet' ) ?>
 			</a>
