@@ -103,7 +103,7 @@ class Assets {
 			wp_enqueue_script(
 				'google_maps',
 				'https://maps.googleapis.com/maps/api/js?key=' . $google_maps_api_key . '&callback=initMap',
-				[],
+				[ 'block_map' ],
 				wp_get_theme()->get( 'Version' ),
 				true
 			);
