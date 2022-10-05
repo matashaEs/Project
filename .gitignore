@@ -7,6 +7,7 @@ vendor
 bundle
 /assets/*.css
 !/assets/slick.css
+!/assets/slick.min.css
 !/assets/normalize.css
 /assets/common.js.map
 /assets/common.js.LICENSE.txt
