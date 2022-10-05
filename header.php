@@ -6,6 +6,8 @@
 			name="viewport"
 			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
 	>
+	<link rel="preload" href="<?= esc_url( get_stylesheet_directory_uri() ); ?>/assets/fonts/Aeonik-Medium.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="<?= esc_url( get_stylesheet_directory_uri() ); ?>/assets/fonts/Aeonik-Regular.woff2" as="font" type="font/woff2" crossorigin>
 	<link
 			rel="apple-touch-icon" sizes="57x57"
 			href="<?= esc_url( get_stylesheet_directory_uri() ); ?>/assets/favicon/apple-icon-57x57.png">
