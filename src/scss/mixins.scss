@@ -32,3 +32,38 @@
     }
   }
 }
+
+@mixin input-styles() {
+  $this: &;
+
+  border: 5px solid var(--grey);
+  border-top-width: 0;
+  border-right-width: 0;
+  border-left-width: 0;
+  border-radius: 0;
+  width: 100%;
+  font-family: var(--font-aeonik-light);
+  font-size: 1.6rem;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  padding-top: 1rem;
+  background-color: transparent;
+
+  &::placeholder {
+    font-family: var(--font-aeonik-light);
+    font-size: 1.6rem;
+    color: var(--black);
+    transition: all 0.5s;
+  }
+
+  &:focus {
+    &::placeholder {
+      transform: translateY(-15px);
+      font-size: 1rem;
+    }
+  }
+
+  &--error#{$this}--error {
+    border-color: var(--erp-hover);
+  }
+}
