@@ -67,3 +67,27 @@
     border-color: var(--erp-hover);
   }
 }
+
+@mixin dropdown-option-styles() {
+  appearance: none;
+  background-color: var(--off-white);
+  color: var(--main-blue);
+  width: 1.3rem;
+  height: 1.3rem;
+  border: 1px solid var(--main-blue);
+  border-radius: 50%;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: 0.5s transform;
+  align-self: flex-start;
+  margin-top: 0.5rem;
+
+  &:checked {
+    background-color: var(--main-blue) !important;
+  }
+
+  &--filters {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+}
