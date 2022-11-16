@@ -34,8 +34,6 @@
 }
 
 @mixin input-styles() {
-  $this: &;
-
   border: 5px solid var(--grey);
   border-top-width: 0;
   border-right-width: 0;

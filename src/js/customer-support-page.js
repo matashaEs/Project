@@ -12,7 +12,7 @@ class CustomerSupportPage {
 
             this.addSelectListeners( this );
 
-            this.errorClassListener( hubspotProductInput );
+            this.toggleErrorClassListener( hubspotProductInput );
         });
     }
 
@@ -96,13 +96,13 @@ class CustomerSupportPage {
             });
 
         $( this.hubspotFormBaseSelector + 'form' )
-            .on( 'submit', ( e ) => {
+            .on( 'submit', () => {
                 document.body.scrollTop = document.documentElement.scrollTop = 0;
             });
     }
 
 
-    errorClassListener( hubspotProductInput ) {
+    toggleErrorClassListener( hubspotProductInput ) {
 
         /**
          * jQuery extension method that listens to class change.
