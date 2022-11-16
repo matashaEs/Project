@@ -20,6 +20,15 @@ get_header();
 					formId: "<?= esc_html( $hubspot_form_id ) ?>"
 				});
 			</script>
+		<?php else : ?>
+			<div class="no-form">
+				<div class="h3">
+					<?= esc_html__( 'An error occurred while trying to load the form. Please try again later.', 'nuplo' ) ?>
+				</div>
+				<a href="<?= esc_url( get_home_url() )?>" class="button p">
+					<?= esc_html__( 'Return Home', 'nuplo' ) ?>
+				</a>
+			</div>
 		<?php endif; ?>
 	</div>
 </div>

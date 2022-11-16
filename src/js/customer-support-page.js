@@ -94,6 +94,11 @@ class CustomerSupportPage {
                 const selectHiddenInput = $( e.target );
                 selectHiddenInput.closest( '.select' ).prev().prop( 'value', selectHiddenInput.val() ).focus();
             });
+
+        $( this.hubspotFormBaseSelector + 'form' )
+            .on( 'submit', ( e ) => {
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
+            });
     }
 
 
