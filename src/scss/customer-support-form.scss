@@ -17,7 +17,7 @@
       font-weight: 400;
       line-height: 2.2rem;
       font-size: 1.6rem;
-      margin-top: 10rem;
+      margin-top: 7rem;
     }
 
     .input {
@@ -141,26 +141,6 @@
 
     .select {
       margin-bottom: 1.6rem;
-
-      input[type="hidden"] {
-        display: none;
-      }
-
-      input[type="hidden"].active {
-        display: block;
-      }
-
-      &__options {
-        input[type="radio"] {
-          display: none;
-        }
-
-        &.active {
-          input[type="radio"] {
-            display: block;
-          }
-        }
-      }
 
       &--error {
         margin-bottom: 0;

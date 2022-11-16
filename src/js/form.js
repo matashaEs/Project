@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-class Form {
+export class Form {
     parent = null;
     optionsContainer = null;
     fields = null;
@@ -13,63 +13,17 @@ class Form {
         text: /^.{2,150}/,
     }
 
-    constructor() {
-        const hubspotFormBaseSelector = '.customer-support-form .hbspt-form ';
+    constructor() {}
 
-        this.waitForElm( hubspotFormBaseSelector + 'input[name=product]' ).then( ( hubspotProductInput ) => {
-            let newSelect = this.buildSelect();
-
-            $( hubspotProductInput ).parent().append( newSelect );
-
-            $( hubspotFormBaseSelector + 'form' )
-                .on( 'submit', () => {
-                    $( '.select__options' ).removeClass( 'active' );
-                });
-
-            $( hubspotFormBaseSelector + '.select__box .select__selected' )
-                .on( 'click', ( e ) => {
-                    this.selectFeature( e, this );
-                });
-
-            $( hubspotFormBaseSelector + '.select div.select__option' )
-                .on( 'click', ( e ) => {
-                    this.optionFeature( e, this );
-                });
-
-            $( hubspotFormBaseSelector + '.select input[type="hidden"]' )
-                .on( 'change', ( e ) => {
-                    const selectHiddenInput = $( e.target );
-                    selectHiddenInput.closest( '.select' ).prev().prop( 'value', selectHiddenInput.val() ).focus();
-                });
-
-            $.fn.classChange = function( cb ) {
-                return $( this ).each( ( _, el ) => {
-                    new MutationObserver( mutations => {
-                        mutations.forEach( mutation => cb && cb( mutation.target, $( mutation.target ).prop( mutation.attributeName ) ) );
-                    }).observe( el, {
-                        attributes: true,
-                        attributeFilter: [ 'class' ]
-                    });
-                });
-            };
-
-            $( hubspotProductInput ).classChange( ( el, newClass ) => {
-                if ( -1 !== newClass.search( 'error' ) ) {
-                    $( hubspotFormBaseSelector + '.select' ).addClass( 'select--error' );
-                } else {
-                    $( hubspotFormBaseSelector + '.select' ).removeClass( 'select--error' );
-                }
-            });
-        });
-
+    addListeners() {
         $( '.select__box .select__selected' )
             .on( 'click', ( e ) => {
-                this.selectFeature( e, this );
+                this.selectFeature( e );
             });
 
         $( '.select div.select__option' )
             .on( 'click', ( e ) => {
-                this.optionFeature( e, this );
+                this.optionFeature( e );
             });
 
         $( '.button__send-form' ).on( 'click', ( e ) => {
@@ -81,53 +35,6 @@ class Form {
                 $( this ).removeClass( 'input--error' );
                 $( this ).next().removeClass( 'input__error--show' ).empty();
             }
-        });
-    }
-
-    buildSelect() {
-        let newSelect = '<div class="select select--form select--customer-support"><div class="select__box"><div class="select__options">';
-
-        $.each( websiteData.productNames, function( key, productName ) {
-            newSelect += '<div class="select__option radio__container">' +
-                '                <div>' +
-                '                    <input type="radio" class="input__radio input__radio--filters"' +
-                '                            id="' + productName + '"' +
-                '                            value="' + productName + '"/>' +
-                '                </div>' +
-                '                <label for="' + productName + '" class="p">' + productName + '</label>' +
-                '            </div>';
-        });
-
-        newSelect += '</div>' +
-            '<div class="select__selected">' +
-            '<div class="select__selected-text">Product*</div>' +
-            '<div class="select__arrow"></div>' +
-            '</div>' +
-
-            '<input type="hidden" class="input" placeholder="Product">' +
-            '</div>' +
-            '</div>';
-
-        return newSelect;
-    }
-
-    waitForElm( selector ) {
-        return new Promise( resolve => {
-            if ( document.querySelector( selector ) ) {
-                return resolve( document.querySelector( selector ) );
-            }
-
-            const observer = new MutationObserver( mutations => {
-                if ( document.querySelector( selector ) ) {
-                    resolve( document.querySelector( selector ) );
-                    observer.disconnect();
-                }
-            });
-
-            observer.observe( document.body, {
-                childList: true,
-                subtree: true
-            });
         });
     }
 
@@ -290,36 +197,34 @@ class Form {
     /**
      * open / close select box
      */
-    selectFeature( e, $this ) {
+    selectFeature( e ) {
         e.preventDefault();
 
-        $this.parent = $( e.target.closest( '.select' ) );
-        $this.optionsContainer = this.parent.find( '.select__options' );
-        $( '.select__options' ).css({'maxHeight': ''});
+        const selectOptionsSelector = '.select__options';
+        const parent = $( e.target.closest( '.select' ) );
+        const optionsContainer = parent.find( selectOptionsSelector );
+        $( selectOptionsSelector ).css({'maxHeight': ''});
 
-        if ( this.optionsContainer.hasClass( 'active' ) ) {
-            this.optionsContainer.removeClass( 'active' );
-            this.parent.find( 'input[type="hidden"]' ).removeClass( 'active' );
+        if ( optionsContainer.hasClass( 'active' ) ) {
+            optionsContainer.removeClass( 'active' );
         } else {
             $( '.select__options' ).removeClass( 'active' );
-            this.optionsContainer.addClass( 'active' );
-            this.parent.find( 'input[type="hidden"]' ).addClass( 'active' );
-
-            if ( 0 !== this.parent.closest( '.quick-links' ).length ) {
+            optionsContainer.addClass( 'active' );
+            if ( 0 !== parent.closest( '.quick-links' ).length ) {
                 if ( 1023 < window.innerWidth ) {
-                    this.optionsContainer.css({'maxHeight': ''});
+                    optionsContainer.css({'maxHeight': ''});
                 } else {
-                    if ( ! this.parent.hasClass( 'select--expand-on-top' ) ) {
-                        const selectHeight = window.innerHeight - this.parent.offset().top - window.scrollY - 160;
-                        this.optionsContainer.css({'maxHeight': `${selectHeight}px`});
+                    if ( ! parent.hasClass( 'select--expand-on-top' ) ) {
+                        const selectHeight = window.innerHeight - parent.offset().top - window.scrollY - 160;
+                        optionsContainer.css({'maxHeight': `${selectHeight}px`});
                     }
                 }
             }
         }
 
-        if ( !  this.parent.hasClass( 'select--customer-support' )  && this.parent.hasClass( 'select--form' ) && this.parent.hasClass( 'select--error' ) ) {
-            this.parent.removeClass( 'select--error' );
-            this.parent.next().removeClass( 'input__error--show' ).empty();
+        if ( !  parent.hasClass( 'select--customer-support' )  && parent.hasClass( 'select--form' ) && parent.hasClass( 'select--error' ) ) {
+            parent.removeClass( 'select--error' );
+            parent.next().removeClass( 'input__error--show' ).empty();
         }
     }
 
@@ -369,4 +274,5 @@ class Form {
     }
 }
 
-new Form();
+const form = new Form();
+form.addListeners();
