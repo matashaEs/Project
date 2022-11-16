@@ -20,6 +20,10 @@ label,
     border-color: var(--off-white);
   }
 
+  &--error#{$this}--error {
+    border-color: var(--erp-hover);
+  }
+
   &-form {
     margin-bottom: 3rem;
     display: flex;
