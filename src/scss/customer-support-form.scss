@@ -1,0 +1,191 @@
+.customer-support-form {
+  fieldset {
+    max-width: 100% !important;
+  }
+
+  .hbspt-form {
+    label {
+      display: none;
+    }
+
+    .submitted-message {
+      font-family: var(--font-aeonik-light);
+      font-weight: 400;
+      line-height: 2.2rem;
+      font-size: 1.6rem;
+      margin-top: 7rem;
+      margin-bottom: auto;
+    }
+
+    .input {
+      border: none;
+      padding: 0;
+
+      &__radio {
+        margin: 0;
+
+        @include dropdown-option-styles;
+      }
+    }
+
+    .form-columns-2 {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hs-input {
+      width: 100% !important;
+
+      &[type="file"] {
+        padding-top: 66px;
+        padding-bottom: 66px;
+        padding-left: calc((100% - 258px) / 2);
+        cursor: pointer;
+        margin-top: 3.5rem;
+        border: 3px dashed var(--grey);
+        position: relative;
+        background: none;
+        display: flex;
+
+        &::file-selector-button {
+          margin: auto 1rem auto 0;
+          border: 3px solid var(--main-blue);
+          padding: 0.5rem 3rem;
+          border-radius: 25px;
+          font-family: var(--font-aeonik-regular);
+          font-style: normal;
+          font-weight: 400;
+          display: inline-block;
+          line-height: 24px;
+          background: none;
+          text-align: center;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .hs-error-msgs {
+      list-style-type: none;
+      position: relative;
+      padding: 0;
+      margin: 0;
+      height: 1.6rem;
+
+      .hs-error-msg {
+        display: block;
+        line-height: 1;
+        height: 1.6rem;
+        color: var(--erp-hover);
+        position: absolute;
+        bottom: -0.5rem;
+      }
+    }
+
+    /* stylelint-disable */
+    .hs-product_dropdown {
+    /* stylelint-enable */
+      .hs-error-msgs {
+        position: absolute;
+        width: 100%;
+        margin-top: -2rem;
+      }
+    }
+    /* stylelint-disable */
+    .hs_error_rollup {
+    /* stylelint-enable */
+      position: absolute;
+      bottom: 7rem;
+      color: var(--erp-hover);
+
+      label {
+        display: block;
+      }
+    }
+
+    .hs-button {
+      padding: 1.2rem 3rem 1.1rem;
+      border-style: solid;
+      border-width: 1px;
+      background-color: var(--main-blue);
+      border-color: var(--main-blue);
+      color: var(--off-white);
+      border-radius: 2.5rem;
+      cursor: pointer;
+      white-space: nowrap;
+      line-height: 1;
+      width: fit-content;
+      margin-top: 2rem;
+    }
+
+    .hs-form-field {
+      width: 100% !important;
+    }
+
+    input {
+      @include input-styles;
+
+      width: 100%;
+      margin-bottom: 1.6rem;
+
+      &.error {
+        margin-bottom: 0;
+        border-color: var(--erp-hover);
+      }
+
+      &[name="product"] {
+        position: absolute;
+        max-height: 0;
+        padding: 0;
+        border: 0;
+
+        &::placeholder {
+          color: transparent;
+        }
+      }
+    }
+
+    textarea {
+      @include input-styles;
+    }
+
+    .select {
+      margin-bottom: 1.6rem;
+
+      &--error {
+        margin-bottom: 0;
+      }
+
+      label {
+        display: block;
+      }
+    }
+  }
+}
+
+@include min-size(md) {
+  .customer-support-form {
+    .hbspt-form {
+      .form-columns-2 {
+        flex-direction: row;
+        gap: 2.5rem;
+      }
+    }
+  }
+}
+
+@include min-size(lg) {
+  .customer-support-form {
+    .hbspt-form {
+      width: 50%;
+
+      form {
+        width: 100%;
+      }
+
+      .submitted-message {
+        font-size: 2.2rem;
+        line-height: 3.2rem;
+      }
+    }
+  }
+}

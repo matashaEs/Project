@@ -6,35 +6,10 @@ label,
 .input {
   $this: &;
 
-  border: 5px solid var(--grey);
-  border-top-width: 0;
-  border-right-width: 0;
-  border-left-width: 0;
-  border-radius: 0;
-  width: 100%;
-  font-family: var(--font-aeonik-light);
-  font-size: 1.6rem;
-  padding-bottom: 1rem;
-  padding-left: 2rem;
-  padding-top: 1rem;
-  background-color: transparent;
-
-  &::placeholder {
-    font-family: var(--font-aeonik-light);
-    font-size: 1.6rem;
-    color: var(--black);
-    transition: all 0.5s;
-  }
+  @include input-styles;
 
   &-container {
     width: 100%;
-  }
-
-  &:focus {
-    &::placeholder {
-      transform: translateY(-15px);
-      font-size: 1rem;
-    }
   }
 
   &--start {
@@ -58,27 +33,7 @@ label,
   }
 
   &__radio {
-    appearance: none;
-    background-color: var(--off-white);
-    color: var(--main-blue);
-    width: 1.3rem;
-    height: 1.3rem;
-    border: 1px solid var(--main-blue);
-    border-radius: 50%;
-    margin-right: 8px;
-    cursor: pointer;
-    transition: 0.5s transform;
-    align-self: flex-start;
-    margin-top: 0.5rem;
-
-    &:checked {
-      background-color: var(--main-blue) !important;
-    }
-
-    &--filters {
-      width: 1.9rem;
-      height: 1.9rem;
-    }
+    @include dropdown-option-styles;
   }
 
   &__error {

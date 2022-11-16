@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-class Form {
+export class Form {
     parent = null;
     optionsContainer = null;
     fields = null;
@@ -13,15 +13,17 @@ class Form {
         text: /^.{2,150}/,
     }
 
-    constructor() {
+    constructor() {}
+
+    addListeners() {
         $( '.select__box .select__selected' )
             .on( 'click', ( e ) => {
-                this.selectFeature( e, this );
+                this.selectFeature( e );
             });
 
         $( '.select div.select__option' )
             .on( 'click', ( e ) => {
-                this.optionFeature( e, this );
+                this.optionFeature( e );
             });
 
         $( '.button__send-form' ).on( 'click', ( e ) => {
@@ -195,34 +197,34 @@ class Form {
     /**
      * open / close select box
      */
-    selectFeature( e, $this ) {
+    selectFeature( e ) {
         e.preventDefault();
 
-        $this.parent = $( e.target.closest( '.select' ) );
-        $this.optionsContainer = this.parent.find( '.select__options' );
-        $( '.select__options' ).css({'maxHeight': ''});
+        const selectOptionsSelector = '.select__options';
+        const parent = $( e.target.closest( '.select' ) );
+        const optionsContainer = parent.find( selectOptionsSelector );
+        $( selectOptionsSelector ).css({'maxHeight': ''});
 
-        if ( this.optionsContainer.hasClass( 'active' ) ) {
-            this.optionsContainer.removeClass( 'active' );
+        if ( optionsContainer.hasClass( 'active' ) ) {
+            optionsContainer.removeClass( 'active' );
         } else {
             $( '.select__options' ).removeClass( 'active' );
-            this.optionsContainer.addClass( 'active' );
-
-            if ( 0 !== this.parent.closest( '.quick-links' ).length ) {
+            optionsContainer.addClass( 'active' );
+            if ( 0 !== parent.closest( '.quick-links' ).length ) {
                 if ( 1023 < window.innerWidth ) {
-                    this.optionsContainer.css({'maxHeight': ''});
+                    optionsContainer.css({'maxHeight': ''});
                 } else {
-                    if ( ! this.parent.hasClass( 'select--expand-on-top' ) ) {
-                        const selectHeight = window.innerHeight - this.parent.offset().top - window.scrollY - 160;
-                        this.optionsContainer.css({'maxHeight': `${selectHeight}px`});
+                    if ( ! parent.hasClass( 'select--expand-on-top' ) ) {
+                        const selectHeight = window.innerHeight - parent.offset().top - window.scrollY - 160;
+                        optionsContainer.css({'maxHeight': `${selectHeight}px`});
                     }
                 }
             }
         }
 
-        if ( this.parent.hasClass( 'select--form' ) && this.parent.hasClass( 'select--error' ) ) {
-            this.parent.removeClass( 'select--error' );
-            this.parent.next().removeClass( 'input__error--show' ).empty();
+        if ( !  parent.hasClass( 'select--customer-support' )  && parent.hasClass( 'select--form' ) && parent.hasClass( 'select--error' ) ) {
+            parent.removeClass( 'select--error' );
+            parent.next().removeClass( 'input__error--show' ).empty();
         }
     }
 
@@ -272,4 +274,5 @@ class Form {
     }
 }
 
-new Form();
+const form = new Form();
+form.addListeners();

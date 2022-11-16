@@ -11,3 +11,4 @@ import './js/seo-landing-posts';
 import './js/page-careers';
 import './js/news';
 import './js/filtering';
+import './js/customer-support-page';

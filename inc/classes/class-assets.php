@@ -51,14 +51,15 @@ class Assets {
 			'common_js',
 			'websiteData',
 			[
-				'rootUrl'     => get_site_url(),
-				'ajaxUrl'     => admin_url( 'admin-ajax.php' ),
-				'nonce'       => wp_create_nonce( 'wp_ajax' ),
-				'queryVars'   => $args['queryVars'],
-				'currentPage' => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1,
-				'maxPage'     => $args['maxPage'],
-				'env'         => wp_get_environment_type(),
-				'portalID'    => get_field( 'portal_id', 'options' ) ?? '',
+				'rootUrl'      => get_site_url(),
+				'ajaxUrl'      => admin_url( 'admin-ajax.php' ),
+				'nonce'        => wp_create_nonce( 'wp_ajax' ),
+				'queryVars'    => $args['queryVars'],
+				'currentPage'  => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1,
+				'maxPage'      => $args['maxPage'],
+				'env'          => wp_get_environment_type(),
+				'portalID'     => get_field( 'portal_id', 'options' ) ?? '',
+				'productNames' => apply_filters( 'cai_get_products_name', null ),
 			]
 		);
 	}
