@@ -6,14 +6,19 @@ class CustomerSupportPage {
     form = new Form();
 
     constructor() {
-        this.waitForElm( this.hubspotFormBaseSelector + 'input[name=product]' ).then( ( hubspotProductInput ) => {
-            const newSelect = this.buildSelect();
-            $( hubspotProductInput ).parent().append( newSelect );
 
-            this.addSelectListeners( this );
-
-            this.toggleErrorClassListener( hubspotProductInput );
+        this.waitForElm( this.hubspotFormBaseSelector + '.submitted-message' ).then( ( hubspotSubmittedMessage ) => {
+            $( hubspotSubmittedMessage ).closest( '.customer-support-form' ).find( '.select' ).remove();
         });
+
+        // this.waitForElm( this.hubspotFormBaseSelector + 'input[name=product]' ).then( ( hubspotProductInput ) => {
+        //     const newSelect = this.buildSelect();
+        //     $( hubspotProductInput ).parent().append( newSelect );
+        //
+        //     this.addSelectListeners( this );
+        //
+        //     this.toggleErrorClassListener( hubspotProductInput );
+        // });
     }
 
     /**
@@ -55,10 +60,10 @@ class CustomerSupportPage {
             newSelect += '<div class="select__option radio__container">' +
                 '                <div>' +
                 '                    <input type="radio" class="input__radio input__radio--filters"' +
-                '                            id="' + productName + '"' +
-                '                            value="' + productName + '"/>' +
+                '                            id="' + productName.slug + '"' +
+                '                            value="' + productName.name + '"/>' +
                 '                </div>' +
-                '                <label for="' + productName + '" class="p">' + productName + '</label>' +
+                '                <label for="' + productName.slug + '" class="p">' + productName.name + '</label>' +
                 '            </div>';
         });
 

@@ -59,7 +59,7 @@ class Assets {
 				'maxPage'      => $args['maxPage'],
 				'env'          => wp_get_environment_type(),
 				'portalID'     => get_field( 'portal_id', 'options' ) ?? '',
-				'productNames' => apply_filters( 'cai_get_products_name', null ),
+//				'productNames' => apply_filters( 'cai_get_products_with_support_form_id', null ),
 			]
 		);
 	}
