@@ -9,6 +9,7 @@ class Filtering {
         $( 'input[name="industry"]' ).on( 'change', this.setQueryParameter );
         $( 'input[name="category"]' ).on( 'change', this.setQueryParameter );
         $( 'input[name="content"]' ).on( 'change', this.setQueryParameter );
+        $( 'input[name="support-product"]' ).on( 'change', this.setQueryParameter );
     }
 
     unsetRadio( e ) {

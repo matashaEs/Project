@@ -16,8 +16,13 @@
     margin-left: -2rem;
   }
 
+  .slick-track {
+    display: flex;
+  }
+
   &__project {
     flex-flow: column;
+    height: inherit;
 
     &-title {
       margin-bottom: 2rem;
@@ -25,6 +30,11 @@
 
     &-content {
       padding: 0 2rem;
+      height: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: flex-start;
+      justify-content: flex-start;
     }
 
     &-description,
@@ -34,10 +44,16 @@
 
     &-button {
       display: inline-block;
+      margin-top: auto;
     }
 
     .slick-list {
       overflow: visible;
+    }
+
+    &.slick-slide {
+      display: flex;
+      justify-content: space-between;
     }
 
     &-image {
@@ -83,7 +99,6 @@
         display: flex;
         flex-flow: column nowrap;
         align-items: flex-start;
-        justify-content: center;
       }
 
       &-title,
