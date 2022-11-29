@@ -34,7 +34,7 @@ if ( ! empty( $block['id'] ) ) {
 							</div>
 						<?php endif; ?>
 						<?php if ( ! empty( $project['link'] ) ) : ?>
-							<a href="<?= esc_url( $project['link']['url'] ) ?>"
+							<a href="<?= esc_url( $project['link']['url'] ) ?>" target="<?= esc_attr( $project['link']['target'] ?? '_self' ) ?>"
 								class="button recent-product-project__project-button">
 								<?= esc_html( $project['link']['title'] ) ?>
 							</a>
