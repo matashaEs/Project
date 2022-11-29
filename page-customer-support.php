@@ -3,14 +3,8 @@ get_header();
 
 $hubspot_portal_id  = get_field( 'portal_id', 'options' );
 $supported_products = apply_filters( 'cai_get_products_with_support_form_id', null );
-$hubspot_form_id    = '';
 
-$product_slug = get_query_var( 'support-product' );
-if ( ! empty( $product_slug ) && array_key_exists( $product_slug, $supported_products ) ) {
-	$supported_product = $supported_products[ $product_slug ];
-}
-
-$select = [
+$supported_products_select_configuration = [
 	'name'           => 'support-product',
 	'select_classes' => 'select--form',
 	'options'        => $supported_products,
@@ -18,23 +12,32 @@ $select = [
 	'title'          => 'Product',
 ];
 
+/**
+ * Getting product info from query parameter.
+ */
+$product_slug = get_query_var( 'support-product' );
+if ( ! empty( $product_slug ) && array_key_exists( $product_slug, $supported_products ) ) {
+	$supported_product = $supported_products[ $product_slug ];
+}
 ?>
 
 <div class="container-fluid request-demo page-with-form customer-support-form">
 	<div class="container request-demo__container">
-		<?php get_template_part( 'template-parts/template-heading' ); ?>
+		<?php
+		get_template_part( 'template-parts/template-heading' );
 
-		<?php if ( ! empty( $hubspot_portal_id ) ) : ?>
+		if ( ! empty( $hubspot_portal_id ) ) :
+			?>
 			<div class="customer-support-form__form-container">
 				<?php if ( empty( $supported_product ) ) : ?>
 					<h3 class="customer-support-form__select-product-title">
 						<?= esc_html__( 'Select Your Product:', 'nuplo' ) ?>
 					</h3>
 					<?php
-					get_template_part( 'template-parts/form-select', null, $select );
+					get_template_part( 'template-parts/form-select', null, $supported_products_select_configuration );
 				else :
+					get_template_part( 'template-parts/form-select', null, $supported_products_select_configuration );
 					?>
-					<?php get_template_part( 'template-parts/form-select', null, $select ); ?>
 					<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
 					<script>
 						hbspt.forms.create({
