@@ -27,7 +27,9 @@ $select = [
 		<?php if ( ! empty( $hubspot_portal_id ) ) : ?>
 			<div class="customer-support-form__form-container">
 				<?php if ( empty( $supported_product ) ) : ?>
-					<h3><?= esc_html__( 'Please select product:', 'nuplo' ) ?></h3>
+					<h3 class="customer-support-form__select-product-title">
+						<?= esc_html__( 'Select Your Product:', 'nuplo' ) ?>
+					</h3>
 					<?php
 					get_template_part( 'template-parts/form-select', null, $select );
 				else :

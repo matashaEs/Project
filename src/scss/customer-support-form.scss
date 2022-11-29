@@ -183,6 +183,10 @@
 
 @include min-size(lg) {
   .customer-support-form {
+    &__select-product-title {
+      margin: 6rem 0 3.5rem;
+    }
+
     .hbspt-form {
       form {
         width: 100%;
