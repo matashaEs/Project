@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-export class Form {
+class Form {
     parent = null;
     optionsContainer = null;
     fields = null;
@@ -13,9 +13,7 @@ export class Form {
         text: /^.{2,150}/,
     }
 
-    constructor() {}
-
-    addListeners() {
+    constructor() {
         $( '.select__box .select__selected' )
             .on( 'click', ( e ) => {
                 this.selectFeature( e );
@@ -274,5 +272,4 @@ export class Form {
     }
 }
 
-const form = new Form();
-form.addListeners();
+new Form();
