@@ -27,14 +27,20 @@ if ( ! empty( $block['id'] ) ) {
 							<div class="h3 recent-product-project__project-title">
 								<?= esc_html( $project['title'] ) ?>
 							</div>
-						<?php endif; ?>
-						<?php if ( ! empty( $project['description'] ) ) : ?>
+							<?php
+						endif;
+						if ( ! empty( $project['description'] ) ) :
+							?>
 							<div class="p recent-product-project__project-description">
 								<?= esc_html( $project['description'] ) ?>
 							</div>
-						<?php endif; ?>
-						<?php if ( ! empty( $project['link'] ) ) : ?>
-							<a href="<?= esc_url( $project['link']['url'] ) ?>" target="<?= esc_attr( $project['link']['target'] ?? '_self' ) ?>"
+							<?php
+						endif;
+						if ( ! empty( $project['link'] ) ) :
+							$link_target = ! empty( $project['link']['target'] ) ? $project['link']['target'] : '_self';
+							?>
+							<a href="<?= esc_url( $project['link']['url'] ) ?>"
+								target="<?= esc_attr( $link_target ) ?>"
 								class="button recent-product-project__project-button">
 								<?= esc_html( $project['link']['title'] ) ?>
 							</a>
