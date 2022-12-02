@@ -1,8 +1,10 @@
 <?php /** Template Name: Page Customer Support */
 get_header();
 
+$products_order = get_field( 'support_products_order', get_the_ID() );
+
 $hubspot_portal_id  = get_field( 'portal_id', 'options' );
-$supported_products = apply_filters( 'cai_get_products_with_support_form_id', null );
+$supported_products = apply_filters( 'cai_get_products_with_support_form_id', ! empty( $products_order ) ? $products_order : '' );
 
 $supported_products_select_configuration = [
 	'name'           => 'support-product',
