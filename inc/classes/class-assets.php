@@ -5,13 +5,6 @@
  */
 class Assets {
 	public function __construct() {
-//		add_action( 'wp_enqueue_scripts', [ $this, 'add_styles' ] );
-//		add_action( 'wp_enqueue_scripts', [ $this, 'add_js' ] );
-//		add_action( 'wp_enqueue_scripts', [ $this, 'localize_scripts' ] );
-//		add_action( 'wp_default_scripts', [ $this, 'delete_jquery_migrate' ] );
-//		add_filter( 'script_loader_tag', [ $this, 'add_defer' ], 10, 2 );
-//		add_action( 'wp_head', [ $this, 'add_code_to_header' ], 0 );
-//		add_action( 'wp_footer', [ $this, 'add_code_to_footer' ], 0 );
 
 		$this->delete_not_required_stuff();
 	}
