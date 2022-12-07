@@ -37,18 +37,22 @@ function combinationUtil( $arr, $data, $start, $end, $index, $r, $count ) { ?>
 	}
 }
 
-function count_rows( $tab ) {
+function count_rows( $tab ): array {
 	$arr = array();
-	foreach ( $tab as $key => $val ) {
-		foreach ( $val as $k => $v ) {
-			$arr[ $k ] += $v;
+	for ( $i = 0; $i < count( $tab ); $i ++ ) {
+		for ( $j = 0; $j < count( $tab ); $j ++ ) {
+			if ( ! isset ( $arr[ $j ] ) ) {
+				$arr[ $j ] = $tab[ $i ][ $j ];
+			} else {
+				$arr[ $j ] += $tab[ $i ][ $j ];
+			}
 		}
 	}
 
 	return $arr;
 }
 
-function normalize( $tab, $count_rows ) {
+function normalize( $tab, $count_rows ): array {
 	$arr = array();
 	foreach ( $tab as $key => $val ) {
 		foreach ( $val as $k => $v ) {
@@ -59,11 +63,57 @@ function normalize( $tab, $count_rows ) {
 	return $arr;
 }
 
-function get_priority( $normal ) {
+function get_priority( $normal ): array {
+	$arr = array();
+	foreach ( $normal as $key => $val ) {
+		$arr[ $key ] = array_sum( $val ) / count( $val );
+	}
+
+	return $arr;
+}
+
+function get_cm( $tab, $priority ): array {
 	$arr = array();
 	foreach ( $tab as $key => $val ) {
-		$arr = array_sum( $val ) / count( $val );
+		foreach ( $val as $k => $v ) {
+			if ( ! isset ( $arr[ $key ] ) ) {
+				$arr[ $key ] = $v * $priority[ $k ];
+			} else {
+				$arr[ $key ] += $v * $priority[ $k ];
+			}
+		}
 	}
+	foreach ( $arr as $key => $val ) {
+		$arr[ $key ] = $val / $priority[ $key ];
+	}
+
+	return $arr;
+}
+
+function get_consistency( $cm ) {
+	$arr       = array();
+	$sum       = array_sum( $cm );
+	$count     = count( $cm );
+	$arr['ci'] = ( ( $sum / $count ) - $count ) / ( $count - 1 );
+	$nRi       = array(
+		1  => 0,
+		2  => 0,
+		3  => 0.58,
+		4  => 0.9,
+		5  => 1.12,
+		6  => 1.24,
+		7  => 1.32,
+		8  => 1.41,
+		9  => 1.46,
+		10 => 1.49,
+		11 => 1.51,
+		12 => 1.48,
+		13 => 1.56,
+		14 => 1.57,
+		15 => 1.59
+	);
+	$arr['ri'] = $nRi[ $count ];
+	$arr['cr'] = $arr['ci'] / $arr['ri'];
 
 	return $arr;
 }
@@ -182,7 +232,24 @@ if ( isset( $_GET['setCriteria'] ) ) {
 	<?php
 	$count_rows = count_rows( $tab );
 	$normal     = normalize( $tab, $count_rows );
-	$priority   = get_priority( $normal );
-    var_dump($priority);
+	$priority   = get_priority( $normal ); ?>
 
+    <h3>Priorities</h3>
+    <table>
+		<?php for ( $i = 0; $i < $_GET['number']; $i ++ ) { ?>
+            <tr>
+                <td style="padding: 5px">
+					<?php echo $stack[ $i ] ?>
+                </td>
+                <td style="padding: 5px">
+					<?php echo number_format( $priority[ $i ] * 100, 2, ',', ' ' ); ?>%
+                </td>
+            </tr>
+		<?php } ?>
+    </table>
+	<?php
+	$cm          = get_cm( $tab, $priority );
+	$consistency = get_consistency( $cm );
+	echo "<h3>Consistency CI</h3>" . $consistency['ci'];
+	echo "<h3>Consistency CR</h3>" . $consistency['cr'];
 } ?>
